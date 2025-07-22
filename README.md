@@ -93,4 +93,4 @@ Ce projet est sous licence MIT - voir le fichier [LICENSE](LICENSE) pour plus de
 
 ---
 
-*Formation créée avec 💻 pour démocratiser l'apprentissage de VBA*
+*Formation créée pour démocratiser l'apprentissage de VBA*
