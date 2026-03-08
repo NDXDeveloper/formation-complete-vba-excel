@@ -2,7 +2,7 @@
 
 # 13.1. Événements de classeur (Workbook_Open, Before_Close)
 
-## Qu'sont les Événements de Classeur ?
+## Que sont les Événements de Classeur ?
 
 Les événements de classeur sont des événements qui se déclenchent automatiquement lors d'actions effectuées sur un classeur Excel entier. Ils permettent d'exécuter du code VBA automatiquement lorsque certaines situations se présentent, comme l'ouverture ou la fermeture d'un fichier.
 
@@ -48,7 +48,7 @@ End Sub
 ```vba
 Private Sub Workbook_Open()
     ' Masquer les onglets de feuilles
-    Application.DisplayWorkbookTabs = False
+    ActiveWindow.DisplayWorkbookTabs = False
 
     ' Masquer la grille
     ActiveWindow.DisplayGridlines = False
@@ -143,8 +143,8 @@ Private Sub Workbook_BeforeClose(Cancel As Boolean)
     Sheets("Journal").Range("B1").Value = "Fermé le : " & Now()
 
     ' Restaurer les paramètres Excel
-    Application.DisplayWorkbookTabs = True
-    Application.DisplayGridlines = True
+    ActiveWindow.DisplayWorkbookTabs = True
+    ActiveWindow.DisplayGridlines = True
 End Sub
 ```
 

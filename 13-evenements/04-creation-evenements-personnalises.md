@@ -2,7 +2,7 @@
 
 # 13.4. Création d'événements personnalisés
 
-## Qu'sont les Événements Personnalisés ?
+## Que sont les Événements Personnalisés ?
 
 Les événements personnalisés sont des événements que vous créez vous-même pour répondre à des besoins spécifiques de votre application. Contrairement aux événements prédéfinis d'Excel (comme `Worksheet_Change`), vous définissez vous-même quand et comment ces événements se déclenchent.
 
@@ -56,8 +56,8 @@ Créez un module de classe appelé "ClsCompteur" :
 Private mValeur As Integer
 
 ' Déclaration des événements personnalisés
-Public Event ValeurChangee(NouvelleValeur As Integer)
-Public Event SeuilAtteint(Seuil As Integer)
+Public Event ValeurChangee(NouvelleValeur As Integer)  
+Public Event SeuilAtteint(Seuil As Integer)  
 
 ' Propriété pour lire la valeur
 Public Property Get Valeur() As Integer
@@ -92,10 +92,12 @@ End Sub
 
 ### Étape 2 : Utiliser la classe avec les événements
 
-Dans un module standard :
+**Important :** `WithEvents` ne peut être utilisé que dans un **module de classe** (y compris ThisWorkbook, les modules de feuilles et les UserForms), jamais dans un module standard.
+
+Créez un module de classe appelé "ClsTestCompteur" :
 
 ```vba
-' Module standard
+' Module de classe : ClsTestCompteur
 Public WithEvents MonCompteur As ClsCompteur
 
 Sub TesterCompteur()
@@ -120,6 +122,16 @@ Private Sub MonCompteur_SeuilAtteint(Seuil As Integer)
 End Sub
 ```
 
+Pour lancer le test depuis un module standard :
+
+```vba
+' Module standard
+Sub LancerTestCompteur()
+    Dim test As New ClsTestCompteur
+    test.TesterCompteur
+End Sub
+```
+
 ## Exemple Pratique : Système de Progression
 
 Créons un système plus réaliste pour suivre la progression d'une tâche :
@@ -128,14 +140,14 @@ Créons un système plus réaliste pour suivre la progression d'une tâche :
 
 ```vba
 ' Module de classe : ClsProgression
-Private mPourcentage As Integer
-Private mTache As String
-Private mTerminee As Boolean
+Private mPourcentage As Integer  
+Private mTache As String  
+Private mTerminee As Boolean  
 
 ' Événements personnalisés
-Public Event ProgressionMiseAJour(Pourcentage As Integer, Tache As String)
-Public Event TacheTerminee(TacheName As String)
-Public Event ErreurProgression(MessageErreur As String)
+Public Event ProgressionMiseAJour(Pourcentage As Integer, Tache As String)  
+Public Event TacheTerminee(TacheName As String)  
+Public Event ErreurProgression(MessageErreur As String)  
 
 ' Initialisation
 Private Sub Class_Initialize()
@@ -207,8 +219,10 @@ End Sub
 
 ### Utilisation du système de progression
 
+Créez un module de classe "ClsTestProgression" (rappel : `WithEvents` ne fonctionne que dans un module de classe) :
+
 ```vba
-' Module standard
+' Module de classe : ClsTestProgression
 Public WithEvents MaProgression As ClsProgression
 
 Sub TesterProgression()
@@ -219,6 +233,7 @@ Sub TesterProgression()
     MaProgression.DemarrerTache "Traitement des données"
 
     ' Simuler l'avancement
+    Dim i As Integer
     For i = 10 To 100 Step 10
         MaProgression.MettreAJourProgression i
         Application.Wait Now + TimeValue("00:00:01")  ' Pause d'1 seconde
@@ -252,8 +267,8 @@ Créons un système où plusieurs objets peuvent "s'abonner" aux notifications :
 Private mAbonnes As Collection
 
 ' Événements
-Public Event NotificationEnvoyee(Message As String, Priorite As Integer)
-Public Event AbonneAjoute(NomAbonne As String)
+Public Event NotificationEnvoyee(Message As String, Priorite As Integer)  
+Public Event AbonneAjoute(NomAbonne As String)  
 
 Private Sub Class_Initialize()
     Set mAbonnes = New Collection
@@ -305,7 +320,7 @@ End Function
 ### Utilisation du système de notification
 
 ```vba
-' Module standard
+' Module de classe : ClsTestNotifications
 Public WithEvents MonNotificateur As ClsNotificateur
 
 Sub TesterNotifications()
@@ -342,17 +357,11 @@ End Sub
 
 Vous pouvez passer des objets ou des structures complexes dans vos événements :
 
+**Attention :** Les types personnalisés (Type...End Type) ne peuvent pas être utilisés comme paramètres d'événements en VBA. Utilisez plutôt des paramètres individuels ou un objet (classe) :
+
 ```vba
 ' Module de classe : ClsGestionnaireCommandes
-Private Type CommandeInfo
-    ID As Long
-    Client As String
-    Montant As Double
-    DateCommande As Date
-End Type
-
-Public Event CommandeCreee(Info As CommandeInfo)
-Public Event CommandeModifiee(AncienneInfo As CommandeInfo, NouvelleInfo As CommandeInfo)
+Public Event CommandeCreee(ID As Long, Client As String, Montant As Double, DateCommande As Date)
 
 Private mCommandes As Collection
 
@@ -361,14 +370,16 @@ Private Sub Class_Initialize()
 End Sub
 
 Public Sub CreerCommande(ID As Long, Client As String, Montant As Double)
-    Dim info As CommandeInfo
-    info.ID = ID
-    info.Client = Client
-    info.Montant = Montant
-    info.DateCommande = Now()
+    ' Stocker les données dans un dictionnaire
+    Dim info As Object
+    Set info = CreateObject("Scripting.Dictionary")
+    info("ID") = ID
+    info("Client") = Client
+    info("Montant") = Montant
+    info("DateCommande") = Now()
 
     mCommandes.Add info, CStr(ID)
-    RaiseEvent CommandeCreee(info)
+    RaiseEvent CommandeCreee(ID, Client, Montant, CDate(info("DateCommande")))
 End Sub
 ```
 
@@ -432,11 +443,11 @@ End Sub
 
 ```vba
 ' Bonnes pratiques de nommage
-Public Event DonneesChargees(NombreEnregistrements As Long)
-Public Event ErreurChargement(MessageErreur As String)
-Public Event ProgressionMiseAJour(Pourcentage As Integer)
-Public Event ValidationEchouee(Champ As String, Raison As String)
-Public Event SauvegardeTerminee(CheminFichier As String)
+Public Event DonneesChargees(NombreEnregistrements As Long)  
+Public Event ErreurChargement(MessageErreur As String)  
+Public Event ProgressionMiseAJour(Pourcentage As Integer)  
+Public Event ValidationEchouee(Champ As String, Raison As String)  
+Public Event SauvegardeTerminee(CheminFichier As String)  
 
 ' Éviter les noms vagues
 ' Public Event Chose()

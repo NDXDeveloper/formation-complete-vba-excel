@@ -360,9 +360,9 @@ End Sub
 ### Classe pour Gestion Automatique
 ```vba
 ' Module de classe : ClsOptimisation
-Private mEtatEvents As Boolean
-Private mEtatScreen As Boolean
-Private mEtatCalc As XlCalculation
+Private mEtatEvents As Boolean  
+Private mEtatScreen As Boolean  
+Private mEtatCalc As XlCalculation  
 
 Private Sub Class_Initialize()
     ' Sauvegarder et désactiver automatiquement

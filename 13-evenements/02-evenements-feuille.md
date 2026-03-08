@@ -2,7 +2,7 @@
 
 # 13.2. Événements de feuille (Change, SelectionChange)
 
-## Qu'sont les Événements de Feuille ?
+## Que sont les Événements de Feuille ?
 
 Les événements de feuille sont des événements qui se déclenchent automatiquement lors d'actions effectuées sur une feuille de calcul spécifique. Contrairement aux événements de classeur qui concernent le fichier entier, les événements de feuille sont liés à une seule feuille et permettent de réagir aux interactions de l'utilisateur avec les cellules.
 
@@ -62,7 +62,11 @@ Private Sub Worksheet_Change(ByVal Target As Range)
         ' Vérifier si la valeur est un nombre positif
         If Not IsNumeric(Target.Value) Or Target.Value < 0 Then
             MsgBox "Erreur : Veuillez saisir un nombre positif !", vbExclamation
+
+            ' Désactiver les événements pour éviter une boucle infinie
+            Application.EnableEvents = False
             Target.Value = ""  ' Effacer la valeur incorrecte
+            Application.EnableEvents = True
         End If
     End If
 End Sub

@@ -48,7 +48,7 @@ La programmation événementielle diffère de la programmation séquentielle tra
 ### Programmation traditionnelle (séquentielle)
 ```vba
 ' Le code s'exécute de haut en bas, étape par étape
-Sub ProgrammeTraitionnel()
+Sub ProgrammeTraditionnel()
     ' Étape 1
     MsgBox "Début du programme"
     ' Étape 2
@@ -168,17 +168,17 @@ Application.EnableEvents = True
 ## Avantages et Limitations
 
 ### Avantages
-✅ Automatisation transparente
-✅ Réactivité en temps réel
-✅ Code modulaire et organisé
-✅ Expérience utilisateur améliorée
+✅ Automatisation transparente  
+✅ Réactivité en temps réel  
+✅ Code modulaire et organisé  
+✅ Expérience utilisateur améliorée  
 ✅ Maintenance de l'intégrité des données
 
 ### Limitations
-❌ Peut ralentir Excel si mal optimisé
-❌ Difficile à déboguer parfois
-❌ Risque de comportements inattendus
-❌ Dépendance aux actions utilisateur
+❌ Peut ralentir Excel si mal optimisé  
+❌ Difficile à déboguer parfois  
+❌ Risque de comportements inattendus  
+❌ Dépendance aux actions utilisateur  
 ❌ Complexité accrue du code
 
 ## Prochaines Étapes

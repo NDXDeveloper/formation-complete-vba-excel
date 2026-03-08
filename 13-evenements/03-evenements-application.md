@@ -2,7 +2,7 @@
 
 # 13.3. Événements d'application
 
-## Qu'sont les Événements d'Application ?
+## Que sont les Événements d'Application ?
 
 Les événements d'application sont des événements qui se déclenchent automatiquement lors d'actions effectuées au niveau de l'application Excel elle-même, pas seulement sur un classeur ou une feuille spécifique. Ils permettent de surveiller et de réagir à tout ce qui se passe dans Excel, peu importe le fichier ouvert.
 
@@ -390,17 +390,22 @@ End Sub
 ### 3. Statistiques d'Utilisation
 
 ```vba
-Private Sub xlApp_WorkbookActivate(ByVal Wb As Workbook)
-    ' Compter les activations de chaque fichier
-    Dim dictionnaire As Object
-    Set dictionnaire = CreateObject("Scripting.Dictionary")
+' Variable au niveau du module de classe (pas dans la procédure !)
+Private dictionnaire As Object
 
+Private Sub Class_Initialize()
+    Set dictionnaire = CreateObject("Scripting.Dictionary")
+End Sub
+
+Private Sub xlApp_WorkbookActivate(ByVal Wb As Workbook)
     ' Incrémenter le compteur pour ce fichier
     If dictionnaire.Exists(Wb.Name) Then
         dictionnaire(Wb.Name) = dictionnaire(Wb.Name) + 1
     Else
         dictionnaire(Wb.Name) = 1
     End If
+
+    Debug.Print Wb.Name & " activé " & dictionnaire(Wb.Name) & " fois"
 End Sub
 ```
 
