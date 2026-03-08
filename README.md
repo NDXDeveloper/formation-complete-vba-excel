@@ -43,7 +43,7 @@ La table des matières complète est disponible dans le fichier [SOMMAIRE.md](SO
 
 ## 🔧 Prérequis
 
-- Microsoft Excel (version 2010 ou supérieure)
+- Microsoft Excel (version 2016 ou supérieure recommandée)
 - Connaissances de base d'Excel (formules, tableaux)
 - Aucune expérience en programmation requise
 
@@ -51,7 +51,7 @@ La table des matières complète est disponible dans le fichier [SOMMAIRE.md](SO
 
 1. **Suivez l'ordre des chapitres** - Chaque chapitre s'appuie sur les précédents
 2. **Pratiquez les exemples** - Testez tous les codes dans Excel
-3. **Réalisez les exercices** - Consolidez vos acquis avec les projets pratiques
+3. **Réalisez les projets pratiques** - Consolidez vos acquis avec les projets du chapitre 22
 4. **Consultez les annexes** - Utilisez-les comme référence permanente
 
 ## 📁 Organisation des fichiers
@@ -60,10 +60,10 @@ La table des matières complète est disponible dans le fichier [SOMMAIRE.md](SO
 formation-vba/
 ├── SOMMAIRE.md              # Table des matières complète
 ├── 01-introduction-a-vba/   # Bases de VBA
-├── 02-interface-environnement/ # Éditeur VBA
+├── 02-interface-et-environnement/ # Éditeur VBA
 ├── ...                      # Autres chapitres
 ├── 22-projets-pratiques/    # Applications complètes
-├── 23-ressources-pratiques/ # Bonnes pratiques
+├── 23-ressources-bonnes-pratiques/ # Bonnes pratiques
 └── annexes/                 # Documentation de référence
 ```
 
