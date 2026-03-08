@@ -77,10 +77,7 @@ Personnaliser votre environnement de développement VBA, c'est comme aménager v
 - **Alternatives** : 2 espaces (compact) ou 8 espaces (aéré)
 - **Recommandation** : **4 espaces** (bon compromis)
 
-**Largeur de marge de commentaire :**
-- **Fonction** : Position automatique des commentaires en fin de ligne
-- **Valeur courante** : 40-60 caractères
-- **Ajustement** : Selon la largeur de votre écran
+**Astuce :** La largeur de tabulation influence directement la lisibilité de votre code. Testez différentes valeurs pour trouver celle qui vous convient le mieux.
 
 ## Configuration du format de l'éditeur
 
@@ -140,13 +137,13 @@ Personnaliser votre environnement de développement VBA, c'est comme aménager v
 - **Alternatives** : Gris, vert foncé
 - **Objectif** : Indication claire que c'est un commentaire
 
-**Chaînes de caractères :**
-- **Couleur par défaut** : Rouge
-- **Rôle** : Identifier le texte entre guillemets
-- **Importance** : Éviter les confusions
+**Identificateurs (variables, noms de procédures, chaînes) :**
+- **Couleur par défaut** : Noir
+- **Note** : Contrairement à beaucoup d'éditeurs modernes, le VBA editor ne colore pas les chaînes de caractères séparément par défaut
+- **Personnalisation** : Vous pouvez modifier la couleur de la catégorie "Texte d'identificateur" dans les options
 
 **Erreurs de syntaxe :**
-- **Couleur par défaut** : Rouge
+- **Couleur par défaut** : Rouge (texte entier de la ligne erronée)
 - **Recommandation** : Garder rouge pour la visibilité
 - **Fonction** : Alerte immédiate des problèmes
 
@@ -154,20 +151,20 @@ Personnaliser votre environnement de développement VBA, c'est comme aménager v
 
 **Thème clair (recommandé pour débuter) :**
 ```
-Fond : Blanc
-Texte normal : Noir
-Mots-clés : Bleu foncé
-Commentaires : Vert foncé
-Chaînes : Rouge foncé
+Fond : Blanc  
+Texte normal : Noir  
+Mots-clés : Bleu foncé  
+Commentaires : Vert foncé  
+Erreurs : Rouge  
 ```
 
 **Thème sombre (pour sessions longues) :**
 ```
-Fond : Gris très foncé
-Texte normal : Blanc cassé
-Mots-clés : Bleu clair
-Commentaires : Vert clair
-Chaînes : Orange clair
+Fond : Gris très foncé  
+Texte normal : Blanc cassé  
+Mots-clés : Bleu clair  
+Commentaires : Vert clair  
+Erreurs : Rouge clair  
 ```
 
 ## Organisation des fenêtres
@@ -253,7 +250,6 @@ Chaînes : Orange clair
 - **Police** : 10-11 points
 - **Fenêtres** : Ancrées pour maximiser l'espace
 - **Barres d'outils** : Seules les essentielles visibles
-- **Zoom** : 100% par défaut
 
 **Astuce :** Utilisez Alt+F11 pour basculer rapidement entre Excel et VBA.
 
@@ -343,7 +339,6 @@ Chaînes : Orange clair
 - **Police large** : 14-16 points pour la visibilité
 - **Couleurs contrastées** : Lisibilité à distance
 - **Interface simplifiée** : Éviter les distractions
-- **Zoom adapté** : Selon la taille de l'écran de projection
 
 ## Résolution de problèmes de configuration
 

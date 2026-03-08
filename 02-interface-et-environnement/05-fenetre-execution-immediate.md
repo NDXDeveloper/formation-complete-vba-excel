@@ -132,23 +132,23 @@ La fenêtre d'exécution immédiate vous permet d'exécuter du code VBA ligne pa
 
 **Modification de valeurs :**
 ```vba
-Range("A1").Value = 100              ' Met 100 dans A1
-Cells(1,2).Value = "Bonjour"         ' Met "Bonjour" dans B1
-Range("A1:A10").ClearContents        ' Vide les cellules A1 à A10
+Range("A1").Value = 100              ' Met 100 dans A1  
+Cells(1,2).Value = "Bonjour"         ' Met "Bonjour" dans B1  
+Range("A1:A10").ClearContents        ' Vide les cellules A1 à A10  
 ```
 
 **Appel de procédures :**
 ```vba
-Call MaProcedure                     ' Exécute MaProcedure
-MaFunction                           ' Exécute MaFunction
-Application.Calculate                ' Force le recalcul d'Excel
+Call MaProcedure                     ' Exécute MaProcedure  
+MaFunction                           ' Exécute MaFunction  
+Application.Calculate                ' Force le recalcul d'Excel  
 ```
 
 **Changement d'état :**
 ```vba
-ActiveSheet.Name = "NouveauNom"      ' Renomme la feuille
-Application.ScreenUpdating = False   ' Désactive l'affichage
-Selection.Font.Bold = True           ' Met en gras
+ActiveSheet.Name = "NouveauNom"      ' Renomme la feuille  
+Application.ScreenUpdating = False   ' Désactive l'affichage  
+Selection.Font.Bold = True           ' Met en gras  
 ```
 
 ### Résultats visibles dans Excel
@@ -219,8 +219,8 @@ Range("A1").Value = 10: Range("B1").Value = 20: ?Range("A1").Value + Range("B1")
 
 **Déclaration et utilisation :**
 ```vba
-Dim temp As String                   ' Déclare une variable
-temp = "Bonjour le monde"            ' Assigne une valeur
+Dim temp As String                   ' Déclare une variable  
+temp = "Bonjour le monde"            ' Assigne une valeur  
 ?temp                                ' Affiche : Bonjour le monde
 ?Len(temp)                          ' Affiche : 16
 ```
@@ -261,31 +261,29 @@ End Sub
 
 **Changement à la volée :**
 ```vba
-MonCompteur = 50                     ' Change la valeur d'une variable
-Range("A1").Value = "Debug"          ' Modifie Excel pendant l'exécution
+MonCompteur = 50                     ' Change la valeur d'une variable  
+Range("A1").Value = "Debug"          ' Modifie Excel pendant l'exécution  
 ```
 
-## Gestion de l'historique
-
-### Navigation dans l'historique
-
-**Raccourcis utiles :**
-- **Flèche Haut** : Instruction précédente
-- **Flèche Bas** : Instruction suivante
-- **Ctrl+A** : Sélectionner tout le contenu
-- **Suppr** : Effacer la sélection
+## Gestion du contenu
 
 ### Réutilisation d'instructions
 
-**Avantage pratique :**
-- VBA se souvient de vos instructions précédentes
-- Utilisez les flèches pour les retrouver rapidement
-- Modifiez légèrement plutôt que de retaper entièrement
+**Principe :** La fenêtre immédiate conserve le texte de vos instructions précédentes, comme un bloc-notes. Contrairement à un terminal, il n'y a pas d'historique navigable avec les flèches haut/bas — celles-ci déplacent simplement le curseur dans le texte.
+
+**Pour réexécuter une instruction précédente :**
+1. **Cliquez** sur la ligne à réexécuter (ou naviguez avec les flèches)
+2. **Appuyez sur Entrée** — VBA exécute la ligne où se trouve le curseur
+3. Pour modifier avant de réexécuter : cliquez, modifiez le texte, puis Entrée
 
 **Exemple d'utilisation :**
-1. Tapez : `Range("A1").Value = 10`
-2. Flèche Haut pour récupérer l'instruction
-3. Modifiez en : `Range("A2").Value = 20`
+1. Tapez : `Range("A1").Value = 10` puis Entrée
+2. Cliquez sur cette ligne, changez `A1` en `A2` et `10` en `20`
+3. Appuyez sur Entrée pour exécuter la version modifiée
+
+**Raccourcis utiles :**
+- **Ctrl+A** : Sélectionner tout le contenu
+- **Suppr** : Effacer la sélection
 
 ## Nettoyage et organisation
 
@@ -378,9 +376,9 @@ Range("A1:A10").ClearContents       ' Vider des cellules
 
 ### Formatage
 ```vba
-Selection.Font.Bold = True           ' Gras
-Selection.Interior.Color = vbYellow  ' Couleur de fond
-Range("A1").Font.Size = 14          ' Taille de police
+Selection.Font.Bold = True           ' Gras  
+Selection.Interior.Color = vbYellow  ' Couleur de fond  
+Range("A1").Font.Size = 14          ' Taille de police  
 ```
 
 ## Résolution de problèmes

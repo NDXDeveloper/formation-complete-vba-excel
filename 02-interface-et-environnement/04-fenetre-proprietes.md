@@ -84,8 +84,8 @@ La fenêtre des propriétés ressemble à ceci :
 **Exemple pratique :**
 ```
 (Name)           : ModuleCalculs
-Description      : Contient toutes les fonctions de calcul
-HelpContextID    : 0
+Description      : Contient toutes les fonctions de calcul  
+HelpContextID    : 0  
 ```
 
 **Pourquoi modifier ces propriétés :**
@@ -98,17 +98,15 @@ HelpContextID    : 0
 **Quand vous sélectionnez une feuille (ex: Feuil1) :**
 
 **Propriétés importantes :**
-- **(Name)** : Nom VBA de la feuille (pour le code)
-- **CodeName** : Identique à (Name)
-- **Index** : Position de la feuille (1, 2, 3...)
-- **Visible** : Visibilité de la feuille (-1, 0, 2)
+- **(Name)** : Nom interne VBA de la feuille (aussi appelé CodeName). Ce nom est utilisé dans le code et ne change pas quand l'utilisateur renomme l'onglet Excel.
+- **Visible** : Contrôle la visibilité de la feuille (-1 = visible, 0 = masquée, 2 = très masquée)
+- **EnableSelection** : Contrôle ce que l'utilisateur peut sélectionner
+- **ScrollArea** : Limite la zone de défilement accessible
 
 **Exemple :**
 ```
 (Name)           : FeuilleVentes
-CodeName         : FeuilleVentes
-Index            : 1
-Visible          : -1 (xlSheetVisible)
+Visible          : -1 - xlSheetVisible
 ```
 
 ### Propriétés du classeur (ThisWorkbook)
@@ -168,14 +166,14 @@ Visible          : -1 (xlSheetVisible)
 
 **Utilisation de la Description :**
 ```
-ModuleCalculs
-Description : "Fonctions de calcul financier - TVA, remises, totaux"
+ModuleCalculs  
+Description : "Fonctions de calcul financier - TVA, remises, totaux"  
 
-ModuleRapports
-Description : "Génération automatique des rapports mensuels"
+ModuleRapports  
+Description : "Génération automatique des rapports mensuels"  
 
-ModuleUtils
-Description : "Fonctions utilitaires - formatage, validation, etc."
+ModuleUtils  
+Description : "Fonctions utilitaires - formatage, validation, etc."  
 ```
 
 **Bénéfices :**
@@ -192,9 +190,9 @@ Description : "Fonctions utilitaires - formatage, validation, etc."
 
 **Usage pratique :**
 ```
-FeuilleCalculs : Visible = 2 (données sensibles)
-FeuilleTemporaire : Visible = 0 (masquée temporairement)
-FeuilleAccueil : Visible = -1 (visible pour l'utilisateur)
+FeuilleCalculs : Visible = 2 (données sensibles)  
+FeuilleTemporaire : Visible = 0 (masquée temporairement)  
+FeuilleAccueil : Visible = -1 (visible pour l'utilisateur)  
 ```
 
 ## Bonnes pratiques avec les propriétés
@@ -220,10 +218,10 @@ FeuilleAccueil : Visible = -1 (visible pour l'utilisateur)
 
 **Exemple complet :**
 ```
-Nom : ModuleConnexionBDD
-Description : "Gestion des connexions à la base de données.
-Fonctions : Connecter, Déconnecter, ExécuterRequête.
-Dépendance : Référence ADO activée."
+Nom : ModuleConnexionBDD  
+Description : "Gestion des connexions à la base de données.  
+Fonctions : Connecter, Déconnecter, ExécuterRequête.  
+Dépendance : Référence ADO activée."  
 ```
 
 ## Interaction avec le code
@@ -308,19 +306,11 @@ End If
 
 ### Propriétés en lecture seule
 
-**Certaines propriétés ne peuvent pas être modifiées :**
-- **CodeName** : Souvent identique à (Name)
-- **Application** : Type d'application hôte
-- **Parent** : Objet parent dans la hiérarchie
+**Certaines propriétés ne peuvent pas être modifiées dans la fenêtre :**
+- Elles apparaissent grisées ou ne répondent pas à la saisie
+- C'est le cas de propriétés calculées automatiquement par le système
 
-**Identification :** Généralement grisées ou non modifiables.
-
-### Propriétés calculées
-
-**Valeurs automatiques :**
-- **Index** : Position automatique des feuilles
-- **Count** : Nombre d'éléments (pour les collections)
-- Ces propriétés se mettent à jour automatiquement
+**Note :** Certaines propriétés comme `Index` ou `Count` ne sont pas visibles dans la fenêtre des propriétés mais sont accessibles via le code VBA.
 
 ### Propriétés de débogage
 

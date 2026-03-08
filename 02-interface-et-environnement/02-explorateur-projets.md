@@ -235,10 +235,12 @@ L'explorateur de projets ressemble à ceci :
 ### Propriétés des objets feuilles
 
 **Dans la fenêtre Propriétés :**
-- **(Name)** : Nom VBA interne (pour le code)
-- **CodeName** : Même chose que Name
-- **Index** : Position de la feuille (1, 2, 3...)
-- **Visible** : Feuille visible ou masquée
+- **(Name)** : Nom interne VBA (aussi appelé CodeName). C'est ce nom que vous utilisez dans le code pour référencer la feuille de manière fiable, car il ne change pas quand l'utilisateur renomme l'onglet.
+- **Visible** : Contrôle si la feuille est visible, masquée ou très masquée (xlSheetVeryHidden)
+
+**Dans l'explorateur de projets :**
+- Le format est `NomVBA (NomOnglet)` — par exemple `Feuil1 (Données)`
+- Le nom entre parenthèses correspond au nom de l'onglet visible dans Excel
 
 ## Conseils pratiques
 

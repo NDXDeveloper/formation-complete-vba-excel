@@ -83,7 +83,6 @@ La fenêtre de code se compose de plusieurs zones distinctes :
 **Déplacement rapide :**
 - **Ctrl+Haut/Bas** : Aller à la procédure précédente/suivante
 - **Ctrl+Début/Fin** : Aller au début/fin du module
-- **Ctrl+G** : Aller à une ligne spécifique (boîte de dialogue)
 
 **Recherche dans le code :**
 - **Ctrl+F** : Rechercher du texte
@@ -117,9 +116,9 @@ Vous verrez : Value, Formula, Font, Interior, etc.
 - Le code problématique est mis en évidence
 
 **Types d'erreurs détectées :**
-- **Syntaxe incorrecte** : Mots-clés mal orthographiés
-- **Parenthèses manquantes** : `If x > 5 Then` sans `End If`
-- **Variables non déclarées** : Si `Option Explicit` est activé
+- **Syntaxe incorrecte** : Mots-clés mal orthographiés, parenthèses non fermées
+- **Instruction incomplète** : Ligne de code mal formée
+- **Variables non déclarées** : Si `Option Explicit` est activé (détectées à la compilation)
 
 ### Info-bulles contextuelles
 
@@ -164,8 +163,8 @@ End Sub
 **Couleurs par défaut :**
 - **Bleu** : Mots-clés VBA (Sub, If, For, etc.)
 - **Vert** : Commentaires (lignes commençant par ')
-- **Rouge** : Chaînes de caractères (entre guillemets)
-- **Noir** : Code normal et variables
+- **Noir** : Code normal, variables et chaînes de caractères
+- **Rouge** : Lignes contenant une erreur de syntaxe
 
 **Personnalisation :**
 Outils → Options → Format de l'éditeur pour modifier les couleurs.
@@ -197,9 +196,12 @@ End Sub
 Marquer des endroits importants dans votre code pour y revenir rapidement.
 
 **Utilisation :**
-- **Ctrl+Shift+F2** : Placer/supprimer un signet
-- **F2** : Aller au signet suivant
-- **Shift+F2** : Aller au signet précédent
+- **Menu Édition → Signets → Basculer le signet** : Placer/supprimer un signet sur la ligne courante
+- **Menu Édition → Signets → Signet suivant** : Aller au signet suivant
+- **Menu Édition → Signets → Signet précédent** : Aller au signet précédent
+- **Menu Édition → Signets → Supprimer tous les signets** : Nettoyer tous les signets
+
+**Astuce :** Vous pouvez ajouter les boutons de signets à votre barre d'outils pour un accès rapide (voir section 2.6).
 
 ### Commentaire/Décommenter en bloc
 
@@ -227,9 +229,10 @@ Si vous tapez `sub test()`, VBA le corrige en `Sub test()`
 ### Indicateurs d'erreurs
 
 **Types d'indicateurs :**
-- **Soulignement rouge** : Erreur de syntaxe
-- **Soulignement bleu** : Avertissement ou suggestion
-- **Point rouge** : Point d'arrêt pour le débogage
+- **Texte en rouge** : Ligne contenant une erreur de syntaxe
+- **Surlignage jaune** : Ligne en cours d'exécution (mode débogage)
+- **Point rouge (marge)** : Point d'arrêt pour le débogage (ajouté avec F9)
+- **Surlignage marron/brun** : Ligne avec un point d'arrêt
 
 ### Messages d'erreur
 
@@ -327,9 +330,9 @@ End Sub
 - Utilisez Alt+Tab pour basculer entre Excel et VBA
 - Fermez les fenêtres inutiles pour plus d'espace
 
-**Zoom :**
-- **Ctrl+Molette** : Zoom avant/arrière (si supporté)
-- Adaptez la taille pour votre confort visuel
+**Taille du texte :**
+- L'éditeur VBA ne supporte pas le zoom dynamique comme les éditeurs modernes
+- Pour ajuster la taille, modifiez la police via **Outils → Options → Format de l'éditeur**
 
 ## Conseils pour débuter
 
