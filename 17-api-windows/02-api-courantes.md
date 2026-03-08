@@ -356,12 +356,12 @@ Obtient diverses métriques du système (résolution écran, taille des bordures
 #End If
 
 ' Constantes pour les métriques courantes
-Private Const SM_CXSCREEN = 0       ' Largeur écran
-Private Const SM_CYSCREEN = 1       ' Hauteur écran
-Private Const SM_CXVSCROLL = 2      ' Largeur barre défilement
-Private Const SM_CYHSCROLL = 3      ' Hauteur barre défilement
-Private Const SM_CYCAPTION = 4      ' Hauteur barre titre
-Private Const SM_CMONITORS = 80     ' Nombre d'écrans
+Private Const SM_CXSCREEN = 0       ' Largeur écran  
+Private Const SM_CYSCREEN = 1       ' Hauteur écran  
+Private Const SM_CXVSCROLL = 2      ' Largeur barre défilement  
+Private Const SM_CYHSCROLL = 3      ' Hauteur barre défilement  
+Private Const SM_CYCAPTION = 4      ' Hauteur barre titre  
+Private Const SM_CMONITORS = 80     ' Nombre d'écrans  
 ```
 
 ### Utilisation pratique
@@ -440,9 +440,9 @@ Option Explicit
 #End If
 
 ' Constantes
-Private Const SM_CXSCREEN = 0
-Private Const SM_CYSCREEN = 1
-Private Const SM_CMONITORS = 80
+Private Const SM_CXSCREEN = 0  
+Private Const SM_CYSCREEN = 1  
+Private Const SM_CMONITORS = 80  
 
 ' Fonctions wrapper publiques
 Public Function ObtenirNomUtilisateur() As String
@@ -506,8 +506,8 @@ Public Sub DeconnexionSecurisee()
     For i = 10 To 1 Step -1
         Debug.Print "Déconnexion dans " & i & " seconde(s)..."
 
-        ' Son plus aigu à mesure qu'on approche
-        Beep 500 + (i * 50), 100
+        ' Son plus aigu à mesure qu'on approche de la fin
+        Beep 500 + ((11 - i) * 50), 100
 
         ' Pause d'une seconde
         Sleep 1000

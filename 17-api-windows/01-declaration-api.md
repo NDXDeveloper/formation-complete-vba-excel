@@ -34,8 +34,8 @@ ou
 
 #### 1. Visibilité (Private/Public)
 ```vba
-Private Declare Function...  ' Utilisable seulement dans ce module
-Public Declare Function...   ' Utilisable dans tout le projet
+Private Declare Function...  ' Utilisable seulement dans ce module  
+Public Declare Function...   ' Utilisable dans tout le projet  
 ```
 
 #### 2. PtrSafe (important pour la compatibilité)
@@ -49,15 +49,15 @@ Declare Function...
 
 #### 3. Function vs Sub
 ```vba
-Declare Function...   ' Retourne une valeur
-Declare Sub...        ' Ne retourne rien (équivalent d'une Sub VBA)
+Declare Function...   ' Retourne une valeur  
+Declare Sub...        ' Ne retourne rien (équivalent d'une Sub VBA)  
 ```
 
 #### 4. Lib "Bibliothèque"
 ```vba
-Lib "kernel32"        ' Bibliothèque système de base
-Lib "user32"          ' Interface utilisateur
-Lib "advapi32"        ' Services avancés
+Lib "kernel32"        ' Bibliothèque système de base  
+Lib "user32"          ' Interface utilisateur  
+Lib "advapi32"        ' Services avancés  
 ```
 
 #### 5. Alias (optionnel)
@@ -161,19 +161,19 @@ VBA existe en version 32 bits et 64 bits. Les déclarations doivent être adapt�
 ### Types simples VBA
 ```vba
 ' Types directement compatibles
-ByVal monEntier As Long          ' Nombre entier 32 bits
-ByVal monTexte As String         ' Chaîne de caractères
-ByVal monBooleen As Boolean      ' Vrai/Faux
-ByRef maVariable As Long         ' Passage par référence
+ByVal monEntier As Long          ' Nombre entier 32 bits  
+ByVal monTexte As String         ' Chaîne de caractères  
+ByVal monBooleen As Boolean      ' Vrai/Faux  
+ByRef maVariable As Long         ' Passage par référence  
 ```
 
 ### Types spéciaux Windows
 ```vba
 ' Types spécifiques aux API Windows
-ByVal hWnd As Long              ' Handle de fenêtre (32 bits)
-ByVal hWnd As LongPtr           ' Handle de fenêtre (64 bits compatible)
-ByVal lpParam As Long           ' Paramètre générique
-ByVal dwFlags As Long           ' Flags/options
+ByVal hWnd As Long              ' Handle de fenêtre (32 bits)  
+ByVal hWnd As LongPtr           ' Handle de fenêtre (64 bits compatible)  
+ByVal lpParam As Long           ' Paramètre générique  
+ByVal dwFlags As Long           ' Flags/options  
 ```
 
 ### Gestion des chaînes de caractères
@@ -185,8 +185,8 @@ Declare PtrSafe Function MaFonction Lib "malib" _
     (ByVal texte As String) As Long
 
 ' Utilisation
-Dim resultat As Long
-resultat = MaFonction("Mon texte")
+Dim resultat As Long  
+resultat = MaFonction("Mon texte")  
 ```
 
 #### Chaînes en sortie (ByRef ou ByVal avec buffer)
@@ -196,11 +196,11 @@ Declare PtrSafe Function GetInfo Lib "malib" _
     (ByVal buffer As String, ByVal taille As Long) As Long
 
 ' Utilisation
-Dim buffer As String
-Dim taille As Long
-buffer = Space(255)  ' Créer un buffer de 255 caractères
-taille = 255
-GetInfo buffer, taille
+Dim buffer As String  
+Dim taille As Long  
+buffer = Space(255)  ' Créer un buffer de 255 caractères  
+taille = 255  
+GetInfo buffer, taille  
 ```
 
 ## Déclarations avec structures (Types personnalisés)
@@ -269,12 +269,12 @@ Public Declare PtrSafe Function...
 ### 3. Noms explicites
 ```vba
 ' ✅ Noms clairs
-Private Declare PtrSafe Function ObtenirNomUtilisateur...
-Private Declare PtrSafe Function PauseEnMillisecondes...
+Private Declare PtrSafe Function ObtenirNomUtilisateur...  
+Private Declare PtrSafe Function PauseEnMillisecondes...  
 
 ' ❌ Noms cryptiques
-Private Declare PtrSafe Function GetUN...
-Private Declare PtrSafe Function Slp...
+Private Declare PtrSafe Function GetUN...  
+Private Declare PtrSafe Function Slp...  
 ```
 
 ### 4. Commentaires explicatifs
@@ -355,13 +355,13 @@ Declare PtrSafe Function MaFonction(ByVal param As Long) As Long
 ### Erreur 4 : Plantage de l'application
 ```vba
 ' ❌ Problème : Mauvaise gestion des chaînes
-Dim nom As String
-GetUserName nom, 50  ' <- Buffer non initialisé
+Dim nom As String  
+GetUserName nom, 50  ' <- Buffer non initialisé  
 
 ' ✅ Solution : Initialiser le buffer correctement
-Dim nom As String
-nom = Space(50)      ' <- Créer un buffer de 50 caractères
-GetUserName nom, 50
+Dim nom As String  
+nom = Space(50)      ' <- Créer un buffer de 50 caractères  
+GetUserName nom, 50  
 ```
 
 ## Où trouver les déclarations
@@ -397,12 +397,12 @@ Option Explicit
 ' CONSTANTES
 ' ==========================================
 ' Constantes pour les valeurs de retour
-Private Const API_SUCCESS = 1
-Private Const API_FAILURE = 0
+Private Const API_SUCCESS = 1  
+Private Const API_FAILURE = 0  
 
 ' Constantes pour les tailles de buffer
-Private Const MAX_USERNAME = 256
-Private Const MAX_COMPUTERNAME = 256
+Private Const MAX_USERNAME = 256  
+Private Const MAX_COMPUTERNAME = 256  
 
 ' ==========================================
 ' TYPES PERSONNALISÉS

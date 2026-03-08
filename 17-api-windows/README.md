@@ -211,22 +211,22 @@ Avant d'utiliser les API, considérez ces alternatives :
 #### 1. Objets VBA intégrés
 ```vba
 ' Au lieu d'API pour l'environnement :
-Debug.Print Environ("USERNAME")        ' Nom d'utilisateur
-Debug.Print Environ("COMPUTERNAME")    ' Nom de l'ordinateur
+Debug.Print Environ("USERNAME")        ' Nom d'utilisateur  
+Debug.Print Environ("COMPUTERNAME")    ' Nom de l'ordinateur  
 ```
 
 #### 2. Scripts WMI (Windows Management Instrumentation)
 ```vba
 ' Pour obtenir des informations système complexes
-Dim objWMI As Object
-Set objWMI = GetObject("winmgmts:")
+Dim objWMI As Object  
+Set objWMI = GetObject("winmgmts:")  
 ```
 
 #### 3. Objets COM spécialisés
 ```vba
 ' Pour l'accès au registre :
-Dim objShell As Object
-Set objShell = CreateObject("WScript.Shell")
+Dim objShell As Object  
+Set objShell = CreateObject("WScript.Shell")  
 ```
 
 #### 4. Commandes système

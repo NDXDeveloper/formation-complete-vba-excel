@@ -115,22 +115,22 @@ Exemple : Pour stocker la couleur préférée d'un utilisateur
 
 ```vba
 ' Ruches principales
-Private Const HKEY_CURRENT_USER = &H80000001
-Private Const HKEY_LOCAL_MACHINE = &H80000002
-Private Const HKEY_CLASSES_ROOT = &H80000000
+Private Const HKEY_CURRENT_USER = &H80000001  
+Private Const HKEY_LOCAL_MACHINE = &H80000002  
+Private Const HKEY_CLASSES_ROOT = &H80000000  
 
 ' Droits d'accès
-Private Const KEY_READ = &H20019
-Private Const KEY_WRITE = &H20006
-Private Const KEY_ALL_ACCESS = &HF003F
+Private Const KEY_READ = &H20019  
+Private Const KEY_WRITE = &H20006  
+Private Const KEY_ALL_ACCESS = &HF003F  
 
 ' Types de données
-Private Const REG_SZ = 1          ' Chaîne
-Private Const REG_DWORD = 4       ' Nombre entier
+Private Const REG_SZ = 1          ' Chaîne  
+Private Const REG_DWORD = 4       ' Nombre entier  
 
 ' Codes de retour
-Private Const ERROR_SUCCESS = 0
-Private Const ERROR_FILE_NOT_FOUND = 2
+Private Const ERROR_SUCCESS = 0  
+Private Const ERROR_FILE_NOT_FOUND = 2  
 ```
 
 ## Alternative sécurisée : WScript.Shell
@@ -172,7 +172,7 @@ End Sub
 
 ## Fonctions wrapper avec API natives
 
-### Classe RegistreHelper pour simplifier l'usage
+### Module RegistreHelper pour simplifier l'usage
 
 ```vba
 ' ================================================================
@@ -223,17 +223,16 @@ Public Function LireValeurRegistre(ruche As LongPtr, chemin As String, nomValeur
             Case REG_SZ
                 ' Chaîne de caractères - retirer le caractère null
                 LireValeurRegistre = Left(buffer, tailleBuffer - 1)
-            Case REG_DWORD
-                ' Nombre entier - conversion nécessaire
-                LireValeurRegistre = CLng(buffer)
+            ' Note : REG_DWORD nécessite CopyMemory pour convertir
+            ' les 4 octets binaires en Long. Pour simplifier,
+            ' utilisez WScript.Shell qui gère tous les types automatiquement.
             Case Else
-                ' Type non géré
                 LireValeurRegistre = buffer
         End Select
     End If
 End Function
 
-Public Function EcrireValeurRegistre(ruche As LongPtr, chemin As String, nomValeur As String, valeur As Variant, Optional typeReg As Long = REG_SZ) As Boolean
+Public Function EcrireValeurRegistre(ruche As LongPtr, chemin As String, nomValeur As String, valeur As String) As Boolean
     ' Écrit une valeur dans le registre
 
     Dim hKey As LongPtr
@@ -251,18 +250,13 @@ Public Function EcrireValeurRegistre(ruche As LongPtr, chemin As String, nomVale
         Exit Function
     End If
 
-    ' Préparer les données selon le type
-    Select Case typeReg
-        Case REG_SZ
-            donnees = CStr(valeur) & Chr(0)  ' Ajouter le caractère null
-        Case REG_DWORD
-            donnees = CStr(CLng(valeur))
-        Case Else
-            donnees = CStr(valeur)
-    End Select
+    ' Préparer les données (chaîne avec caractère null terminal)
+    ' Note : pour REG_DWORD, il faudrait CopyMemory pour écrire 4 octets binaires.
+    ' Cette fonction gère uniquement REG_SZ. Pour les autres types, utilisez WScript.Shell.
+    donnees = valeur & Chr(0)
 
     ' Écrire la valeur
-    resultat = RegSetValueEx(hKey, nomValeur, 0, typeReg, donnees, Len(donnees))
+    resultat = RegSetValueEx(hKey, nomValeur, 0, REG_SZ, donnees, Len(donnees))
 
     ' Fermer la clé
     RegCloseKey hKey
@@ -320,8 +314,8 @@ End Function
 
 Option Explicit
 
-Private Const CHEMIN_BASE As String = "Software\MonApplication\Preferences"
-Private mNomApplication As String
+Private Const CHEMIN_BASE As String = "Software\MonApplication\Preferences"  
+Private mNomApplication As String  
 
 ' Initialisation
 Private Sub Class_Initialize()
@@ -527,9 +521,9 @@ chemin = "HKCU\Software\MonApp\Preferences"
 ### 2. Gestion d'erreurs robuste
 ```vba
 ' ✅ Toujours gérer les erreurs
-On Error Resume Next
-valeur = objShell.RegRead(chemin)
-If Err.Number <> 0 Then
+On Error Resume Next  
+valeur = objShell.RegRead(chemin)  
+If Err.Number <> 0 Then  
     valeur = valeurParDefaut
     Err.Clear
 End If
@@ -567,18 +561,15 @@ Public Sub EcrirePreferenceSecurisee(nom As String, valeur As String)
     ' Validation des paramètres
     If Len(nom) = 0 Or Len(nom) > 255 Then
         Err.Raise 5, , "Nom de préférence invalide"
-        Exit Sub
     End If
 
     If Len(valeur) > 1024 Then
         Err.Raise 5, , "Valeur trop longue (max 1024 caractères)"
-        Exit Sub
     End If
 
     ' Caractères interdits dans les noms de valeurs
     If InStr(nom, "\") > 0 Or InStr(nom, "/") > 0 Then
         Err.Raise 5, , "Caractères interdits dans le nom"
-        Exit Sub
     End If
 
     ' Écriture sécurisée

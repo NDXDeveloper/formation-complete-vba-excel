@@ -94,17 +94,26 @@ Type RECT
 End Type
 
 ' Constantes pour ShowWindow
-Private Const SW_HIDE = 0
-Private Const SW_NORMAL = 1
-Private Const SW_MINIMIZED = 2
-Private Const SW_MAXIMIZED = 3
-Private Const SW_RESTORE = 9
+Private Const SW_HIDE = 0  
+Private Const SW_NORMAL = 1  
+Private Const SW_MINIMIZED = 2  
+Private Const SW_MAXIMIZED = 3  
+Private Const SW_RESTORE = 9  
 
 ' Constantes pour SetWindowPos
-Private Const HWND_TOP = 0
-Private Const HWND_TOPMOST = -1
-Private Const SWP_NOMOVE = &H2
-Private Const SWP_NOSIZE = &H1
+Private Const HWND_TOP = 0  
+Private Const HWND_TOPMOST = -1  
+Private Const SWP_NOMOVE = &H2  
+Private Const SWP_NOSIZE = &H1  
+
+' API pour les métriques système (utilisée par CentrerFenetre)
+#If VBA7 Then
+    Private Declare PtrSafe Function GetSystemMetrics Lib "user32" _
+        (ByVal nIndex As Long) As Long
+#Else
+    Private Declare Function GetSystemMetrics Lib "user32" _
+        (ByVal nIndex As Long) As Long
+#End If
 ```
 
 ### Classe GestionnaireFenetres
@@ -116,13 +125,6 @@ Private Const SWP_NOSIZE = &H1
 ' ================================================================
 
 Option Explicit
-
-Private Type InfoFenetre
-    Handle As LongPtr
-    Titre As String
-    Position As RECT
-    Visible As Boolean
-End Type
 
 Public Function TrouverFenetreParTitre(titre As String, Optional exact As Boolean = False) As LongPtr
     ' Trouve une fenêtre par son titre
@@ -321,9 +323,9 @@ Type PROCESS_INFORMATION
 End Type
 
 ' Constantes
-Private Const INFINITE = &HFFFFFFFF
-Private Const WAIT_TIMEOUT = &H102
-Private Const WAIT_OBJECT_0 = 0
+Private Const INFINITE = &HFFFFFFFF  
+Private Const WAIT_TIMEOUT = &H102  
+Private Const WAIT_OBJECT_0 = 0  
 ```
 
 ### Classe GestionnaireProcessus
@@ -389,12 +391,14 @@ Public Function LancerProgramme(cheminProgramme As String, Optional parametres A
     CloseHandle pi.hThread
 End Function
 
-Public Function LancerProgrammeSimple(commande As String, Optional attendre As Boolean = False) As Boolean
+Public Function LancerProgrammeSimple(commande As String, Optional avecFocus As Boolean = True) As Boolean
     ' Version simplifiée utilisant Shell VBA
+    ' Note : Shell VBA retourne toujours immédiatement (pas d'attente).
+    ' Pour attendre la fin d'un processus, utilisez LancerProgramme avec attendre:=True.
     On Error GoTo GestionErreur
 
     Dim style As Integer
-    style = IIf(attendre, vbNormalFocus, vbNormalNoFocus)
+    style = IIf(avecFocus, vbNormalFocus, vbNormalNoFocus)
 
     Shell commande, style
     LancerProgrammeSimple = True
@@ -433,14 +437,16 @@ End Sub
 
 Public Sub OuvrirSiteWeb(url As String)
     ' Ouvre une URL dans le navigateur par défaut
-    Dim commande As String
 
     ' Ajouter http:// si nécessaire
     If Left(LCase(url), 7) <> "http://" And Left(LCase(url), 8) <> "https://" Then
         url = "http://" & url
     End If
 
-    commande = """" & url & """"
+    ' Shell ne peut pas ouvrir une URL directement,
+    ' on utilise explorer.exe qui la transmet au navigateur par défaut
+    Dim commande As String
+    commande = "explorer.exe """ & url & """"
     Me.LancerProgrammeSimple commande
     Debug.Print "Site web ouvert : " & url
 End Sub
@@ -452,7 +458,7 @@ End Sub
 
 ```vba
 ' ================================================================
-' Module : SurveillanceFichiers
+' Module de classe : SurveillanceFichiers
 ' Description : Surveillance des changements dans les dossiers
 ' ================================================================
 
@@ -477,11 +483,11 @@ Option Explicit
 #End If
 
 ' Constantes pour la surveillance
-Private Const FILE_NOTIFY_CHANGE_FILE_NAME = &H1
-Private Const FILE_NOTIFY_CHANGE_DIR_NAME = &H2
-Private Const FILE_NOTIFY_CHANGE_ATTRIBUTES = &H4
-Private Const FILE_NOTIFY_CHANGE_SIZE = &H8
-Private Const FILE_NOTIFY_CHANGE_LAST_WRITE = &H10
+Private Const FILE_NOTIFY_CHANGE_FILE_NAME = &H1  
+Private Const FILE_NOTIFY_CHANGE_DIR_NAME = &H2  
+Private Const FILE_NOTIFY_CHANGE_ATTRIBUTES = &H4  
+Private Const FILE_NOTIFY_CHANGE_SIZE = &H8  
+Private Const FILE_NOTIFY_CHANGE_LAST_WRITE = &H10  
 
 Public Sub SurveillerDossier(cheminDossier As String, Optional dureeSecondes As Long = 60)
     ' Surveille les changements dans un dossier pendant une durée donnée
@@ -578,13 +584,13 @@ Option Explicit
 #End If
 
 ' Constantes pour les types de lecteurs
-Private Const DRIVE_UNKNOWN = 0
-Private Const DRIVE_NO_ROOT_DIR = 1
-Private Const DRIVE_REMOVABLE = 2
-Private Const DRIVE_FIXED = 3
-Private Const DRIVE_REMOTE = 4
-Private Const DRIVE_CDROM = 5
-Private Const DRIVE_RAMDISK = 6
+Private Const DRIVE_UNKNOWN = 0  
+Private Const DRIVE_NO_ROOT_DIR = 1  
+Private Const DRIVE_REMOVABLE = 2  
+Private Const DRIVE_FIXED = 3  
+Private Const DRIVE_REMOTE = 4  
+Private Const DRIVE_CDROM = 5  
+Private Const DRIVE_RAMDISK = 6  
 
 Public Function ObtenirLecteurs() As Collection
     ' Obtient la liste de tous les lecteurs
@@ -638,12 +644,14 @@ Public Function ObtenirEspaceDisque(lecteur As String) As String
 
     resultat = GetDiskFreeSpaceEx(lecteur, espaceLibre, espaceTotal, espaceLibreTotal)
 
+    ' Note : le type Currency divise automatiquement par 10000.
+    ' Il faut donc multiplier par 10000 pour obtenir la taille réelle en octets.
     If resultat <> 0 Then
         Dim rapport As String
         rapport = "Lecteur " & lecteur & vbCrLf
-        rapport = rapport & "Total : " & Me.FormatTaille(espaceTotal) & vbCrLf
-        rapport = rapport & "Libre : " & Me.FormatTaille(espaceLibre) & vbCrLf
-        rapport = rapport & "Utilisé : " & Me.FormatTaille(espaceTotal - espaceLibre) & vbCrLf
+        rapport = rapport & "Total : " & Me.FormatTaille(espaceTotal * 10000) & vbCrLf
+        rapport = rapport & "Libre : " & Me.FormatTaille(espaceLibre * 10000) & vbCrLf
+        rapport = rapport & "Utilisé : " & Me.FormatTaille((espaceTotal - espaceLibre) * 10000) & vbCrLf
         rapport = rapport & "% Libre : " & Format((espaceLibre / espaceTotal) * 100, "0.0") & "%"
 
         ObtenirEspaceDisque = rapport
@@ -654,9 +662,9 @@ End Function
 
 Private Function FormatTaille(taille As Currency) As String
     ' Formate une taille en octets vers une unité lisible
-    Const KB = 1024
-    Const MB = KB * 1024
-    Const GB = MB * 1024
+    Dim KB As Currency: KB = 1024@
+    Dim MB As Currency: MB = 1048576@       ' 1024 * 1024
+    Dim GB As Currency: GB = 1073741824@    ' 1024 * 1024 * 1024
 
     If taille >= GB Then
         FormatTaille = Format(taille / GB, "0.0") & " Go"
@@ -785,7 +793,7 @@ End Sub
 ### Utilitaires système pratiques
 
 ```vba
-Sub NettoayageSystemeAutomatique()
+Sub NettoyageSystemeAutomatique()
     ' Automatisation de tâches de nettoyage système
 
     Debug.Print "=== NETTOYAGE SYSTÈME AUTOMATIQUE ==="
@@ -911,7 +919,7 @@ Sub MenuPrincipalSysteme()
                 MenuLancementProgrammes
 
             Case "4"
-                NettoayageSystemeAutomatique
+                NettoyageSystemeAutomatique
                 MsgBox "Nettoyage terminé"
 
             Case "5"
@@ -1041,7 +1049,7 @@ Public Function LancementSecurise(programme As String) As Boolean
 
     ' Vérifier l'extension (sécurité de base)
     Dim extension As String
-    extension = LCase(Right(programme, 4))
+    extension = LCase(Mid(programme, InStrRev(programme, ".")))
 
     If extension <> ".exe" And extension <> ".com" And extension <> ".bat" Then
         Debug.Print "Attention : Type de fichier inhabituel - " & extension
@@ -1076,9 +1084,10 @@ Private Function ValiderChemin(chemin As String) As Boolean
         Exit Function
     End If
 
-    ' Caractères interdits
+    ' Caractères interdits dans les noms de fichiers/dossiers
+    ' Note : ":" est autorisé en position 2 (lettre de lecteur, ex: "C:\")
     Dim caracteresInterdits As String
-    caracteresInterdits = "<>:""|?*"
+    caracteresInterdits = "<>""|?*"
 
     Dim i As Integer
     For i = 1 To Len(caracteresInterdits)
@@ -1103,17 +1112,15 @@ End Function
 ### 3. Nettoyage des ressources
 
 ```vba
-Public Sub NettoayageRessources()
+Public Sub NettoyageRessources()
     ' Nettoie toutes les ressources système utilisées
+    ' À adapter selon les objets et handles utilisés dans votre application
 
-    ' Fermer tous les handles ouverts (à adapter selon votre code)
-    ' CloseHandle hMonHandle
+    ' Exemple de nettoyage type :
+    ' CloseHandle hMonHandle        ' Fermer les handles ouverts
+    ' Set monObjetCOM = Nothing     ' Libérer les objets COM
 
-    ' Libérer les objets COM
-    Set objShell = Nothing
-    Set objFSO = Nothing
-
-    ' Forcer le garbage collection
+    ' Permettre le traitement des événements en attente
     DoEvents
 
     Debug.Print "Nettoyage des ressources terminé"

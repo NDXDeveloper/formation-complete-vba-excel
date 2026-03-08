@@ -98,8 +98,6 @@ Public Function APISecurisee(param As Long) As Boolean
     ' 1. Vérifier les limites
     If param < 0 Or param > 1000000 Then
         Err.Raise 5, , "Paramètre hors limites : " & param
-        APISecurisee = False
-        Exit Function
     End If
 
     ' 2. Vérifier la validité
@@ -133,7 +131,7 @@ Public Function AppelAPIAvecProtection() As Variant
     On Error GoTo GestionErreur
 
     ' Sauvegarde de l'état actuel
-    Dim etatCalcul As Boolean
+    Dim etatCalcul As Long
     etatCalcul = Application.Calculation
 
     ' Désactiver les interruptions
@@ -227,14 +225,11 @@ End Sub
 #### Étape 2 : Déclaration avec compatibilité
 ```vba
 ' ✅ Déclaration complète et compatible
+' Note : #If Win64 n'est nécessaire que si la signature change entre 32/64 bits
+' (ex: paramètres LongPtr). Ici les paramètres sont identiques, un seul bloc suffit.
 #If VBA7 Then
-    #If Win64 Then
-        Private Declare PtrSafe Function GetUserName Lib "advapi32.dll" _
-            Alias "GetUserNameA" (ByVal lpBuffer As String, nSize As Long) As Long
-    #Else
-        Private Declare PtrSafe Function GetUserName Lib "advapi32.dll" _
-            Alias "GetUserNameA" (ByVal lpBuffer As String, nSize As Long) As Long
-    #End If
+    Private Declare PtrSafe Function GetUserName Lib "advapi32.dll" _
+        Alias "GetUserNameA" (ByVal lpBuffer As String, nSize As Long) As Long
 #Else
     Private Declare Function GetUserName Lib "advapi32.dll" _
         Alias "GetUserNameA" (ByVal lpBuffer As String, nSize As Long) As Long
@@ -456,9 +451,9 @@ End Function
 
 Option Explicit
 
-Private mAPIDisponibles As Collection
-Private mAPIEchouees As Collection
-Private mNombreAppels As Long
+Private mAPIDisponibles As Collection  
+Private mAPIEchouees As Collection  
+Private mNombreAppels As Long  
 
 Private Sub Class_Initialize()
     Set mAPIDisponibles = New Collection
@@ -666,11 +661,11 @@ Public Sub DiagnosticAPI()
     End If
 
     ' Test Sleep
-    Dim debut As Date
-    debut = Now
+    Dim timerDebut As Single
+    timerDebut = Timer
     Sleep 100
     Dim duree As Long
-    duree = DateDiff("s", debut, Now) * 1000 + (Timer - Int(Timer)) * 1000
+    duree = CLng((Timer - timerDebut) * 1000)
     If duree >= 90 And duree <= 200 Then  ' Tolérance pour Sleep(100)
         Debug.Print "✓ Sleep : OK (" & duree & "ms)"
     Else
