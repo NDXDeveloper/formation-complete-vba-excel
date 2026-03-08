@@ -24,9 +24,9 @@ Résultat = Valeur1 Opérateur Valeur2
 
 **Exemples simples :**
 ```vba
-Total = 10 + 5                    ' Addition
-EstGrand = Age > 18               ' Comparaison
-EstValide = (x > 0) And (y < 100) ' Logique
+Total = 10 + 5                    ' Addition  
+EstGrand = Age > 18               ' Comparaison  
+EstValide = (x > 0) And (y < 100) ' Logique  
 ```
 
 ## Opérateurs arithmétiques
@@ -35,28 +35,28 @@ EstValide = (x > 0) And (y < 100) ' Logique
 
 **Utilisation :**
 ```vba
-Dim Somme As Double
-Somme = 10 + 15                   ' Résultat : 25
-Somme = 3.5 + 2.7                 ' Résultat : 6.2
-Somme = Range("A1").Value + Range("B1").Value
+Dim Somme As Double  
+Somme = 10 + 15                   ' Résultat : 25  
+Somme = 3.5 + 2.7                 ' Résultat : 6.2  
+Somme = Range("A1").Value + Range("B1").Value  
 ```
 
 **Avec des variables :**
 ```vba
-Dim Prix As Double
-Dim TVA As Double
-Dim Total As Double
+Dim Prix As Double  
+Dim TVA As Double  
+Dim Total As Double  
 
-Prix = 100.0
-TVA = 20.0
-Total = Prix + TVA                ' Résultat : 120.0
+Prix = 100.0  
+TVA = 20.0  
+Total = Prix + TVA                ' Résultat : 120.0  
 ```
 
 **Concaténation de chaînes :**
 ```vba
 ' ATTENTION : + peut aussi concaténer du texte
-Dim Texte As String
-Texte = "Bonjour" + " " + "le monde"    ' "Bonjour le monde"
+Dim Texte As String  
+Texte = "Bonjour" + " " + "le monde"    ' "Bonjour le monde"  
 ' Mais il vaut mieux utiliser & pour le texte
 ```
 
@@ -64,90 +64,90 @@ Texte = "Bonjour" + " " + "le monde"    ' "Bonjour le monde"
 
 **Utilisation :**
 ```vba
-Dim Difference As Double
-Difference = 20 - 8               ' Résultat : 12
-Difference = 5.5 - 2.3           ' Résultat : 3.2
+Dim Difference As Double  
+Difference = 20 - 8               ' Résultat : 12  
+Difference = 5.5 - 2.3           ' Résultat : 3.2  
 ```
 
 **Calculs pratiques :**
 ```vba
-Dim PrixInitial As Double
-Dim Remise As Double
-Dim PrixFinal As Double
+Dim PrixInitial As Double  
+Dim Remise As Double  
+Dim PrixFinal As Double  
 
-PrixInitial = 200.0
-Remise = 30.0
-PrixFinal = PrixInitial - Remise  ' Résultat : 170.0
+PrixInitial = 200.0  
+Remise = 30.0  
+PrixFinal = PrixInitial - Remise  ' Résultat : 170.0  
 ```
 
 **Nombres négatifs :**
 ```vba
-Dim Nombre As Double
-Nombre = -15                      ' Nombre négatif
-Dim Resultat As Double
-Resultat = 10 - (-5)             ' Résultat : 15 (double négation)
+Dim Nombre As Double  
+Nombre = -15                      ' Nombre négatif  
+Dim Resultat As Double  
+Resultat = 10 - (-5)             ' Résultat : 15 (double négation)  
 ```
 
 ### Multiplication (*)
 
 **Utilisation :**
 ```vba
-Dim Produit As Double
-Produit = 6 * 7                   ' Résultat : 42
-Produit = 2.5 * 4                 ' Résultat : 10.0
+Dim Produit As Double  
+Produit = 6 * 7                   ' Résultat : 42  
+Produit = 2.5 * 4                 ' Résultat : 10.0  
 ```
 
 **Calculs financiers :**
 ```vba
-Dim Quantite As Integer
-Dim PrixUnitaire As Double
-Dim SousTotal As Double
+Dim Quantite As Integer  
+Dim PrixUnitaire As Double  
+Dim SousTotal As Double  
 
-Quantite = 5
-PrixUnitaire = 12.50
-SousTotal = Quantite * PrixUnitaire    ' Résultat : 62.5
+Quantite = 5  
+PrixUnitaire = 12.50  
+SousTotal = Quantite * PrixUnitaire    ' Résultat : 62.5  
 ```
 
 **Avec pourcentages :**
 ```vba
-Dim MontantHT As Double
-Dim TauxTVA As Double
-Dim MontantTVA As Double
+Dim MontantHT As Double  
+Dim TauxTVA As Double  
+Dim MontantTVA As Double  
 
-MontantHT = 100.0
-TauxTVA = 0.20                    ' 20%
-MontantTVA = MontantHT * TauxTVA  ' Résultat : 20.0
+MontantHT = 100.0  
+TauxTVA = 0.20                    ' 20%  
+MontantTVA = MontantHT * TauxTVA  ' Résultat : 20.0  
 ```
 
 ### Division (/)
 
 **Division décimale :**
 ```vba
-Dim Quotient As Double
-Quotient = 15 / 4                 ' Résultat : 3.75
-Quotient = 10 / 3                 ' Résultat : 3.33333...
+Dim Quotient As Double  
+Quotient = 15 / 4                 ' Résultat : 3.75  
+Quotient = 10 / 3                 ' Résultat : 3.33333...  
 ```
 
 **Moyennes :**
 ```vba
-Dim Note1 As Double, Note2 As Double, Note3 As Double
-Dim Moyenne As Double
+Dim Note1 As Double, Note2 As Double, Note3 As Double  
+Dim Moyenne As Double  
 
-Note1 = 15.0
-Note2 = 12.0
-Note3 = 18.0
-Moyenne = (Note1 + Note2 + Note3) / 3    ' Résultat : 15.0
+Note1 = 15.0  
+Note2 = 12.0  
+Note3 = 18.0  
+Moyenne = (Note1 + Note2 + Note3) / 3    ' Résultat : 15.0  
 ```
 
 **Attention à la division par zéro :**
 ```vba
-Dim x As Double
-x = 10 / 0                        ' ERREUR : Division par zéro !
+Dim x As Double  
+x = 10 / 0                        ' ERREUR : Division par zéro !  
 
 ' Solution : vérifier avant
-Dim Diviseur As Double
-Diviseur = Range("B1").Value
-If Diviseur <> 0 Then
+Dim Diviseur As Double  
+Diviseur = Range("B1").Value  
+If Diviseur <> 0 Then  
     x = 10 / Diviseur
 Else
     MsgBox "Impossible de diviser par zéro"
@@ -158,42 +158,42 @@ End If
 
 **Retourne la partie entière du quotient :**
 ```vba
-Dim Resultat As Integer
-Resultat = 15 \ 4                 ' Résultat : 3 (pas 3.75)
-Resultat = 10 \ 3                 ' Résultat : 3 (pas 3.33)
-Resultat = 20 \ 6                 ' Résultat : 3 (pas 3.33)
+Dim Resultat As Integer  
+Resultat = 15 \ 4                 ' Résultat : 3 (pas 3.75)  
+Resultat = 10 \ 3                 ' Résultat : 3 (pas 3.33)  
+Resultat = 20 \ 6                 ' Résultat : 3 (pas 3.33)  
 ```
 
 **Utilisation pratique :**
 ```vba
 ' Calculer combien de boîtes complètes pour 47 articles
 ' si chaque boîte contient 12 articles
-Dim NombreArticles As Integer
-Dim ArticlesParBoite As Integer
-Dim BoitesCompletes As Integer
+Dim NombreArticles As Integer  
+Dim ArticlesParBoite As Integer  
+Dim BoitesCompletes As Integer  
 
-NombreArticles = 47
-ArticlesParBoite = 12
-BoitesCompletes = NombreArticles \ ArticlesParBoite    ' Résultat : 3
+NombreArticles = 47  
+ArticlesParBoite = 12  
+BoitesCompletes = NombreArticles \ ArticlesParBoite    ' Résultat : 3  
 ```
 
 ### Modulo (Mod)
 
 **Retourne le reste de la division :**
 ```vba
-Dim Reste As Integer
-Reste = 15 Mod 4                  ' Résultat : 3 (15 = 4×3 + 3)
-Reste = 10 Mod 3                  ' Résultat : 1 (10 = 3×3 + 1)
-Reste = 20 Mod 5                  ' Résultat : 0 (division exacte)
+Dim Reste As Integer  
+Reste = 15 Mod 4                  ' Résultat : 3 (15 = 4×3 + 3)  
+Reste = 10 Mod 3                  ' Résultat : 1 (10 = 3×3 + 1)  
+Reste = 20 Mod 5                  ' Résultat : 0 (division exacte)  
 ```
 
 **Applications pratiques :**
 
 **Vérifier les nombres pairs/impairs :**
 ```vba
-Dim Nombre As Integer
-Nombre = 17
-If Nombre Mod 2 = 0 Then
+Dim Nombre As Integer  
+Nombre = 17  
+If Nombre Mod 2 = 0 Then  
     MsgBox "Nombre pair"
 Else
     MsgBox "Nombre impair"        ' Affiché pour 17
@@ -203,10 +203,10 @@ End If
 **Créer des groupes cycliques :**
 ```vba
 ' Alterner les couleurs de lignes : une ligne sur deux
-Dim i As Integer
-For i = 1 To 10
+Dim i As Integer  
+For i = 1 To 10  
     If i Mod 2 = 0 Then
-        Cells(i, 1).Interior.Color = vbLightGray    ' Lignes paires
+        Cells(i, 1).Interior.Color = RGB(192, 192, 192)  ' Gris clair (lignes paires)
     Else
         Cells(i, 1).Interior.Color = vbWhite        ' Lignes impaires
     End If
@@ -217,24 +217,24 @@ Next i
 
 **Élévation à la puissance :**
 ```vba
-Dim Resultat As Double
-Resultat = 2 ^ 3                  ' Résultat : 8 (2×2×2)
-Resultat = 5 ^ 2                  ' Résultat : 25 (5×5)
-Resultat = 9 ^ 0.5                ' Résultat : 3 (racine carrée)
+Dim Resultat As Double  
+Resultat = 2 ^ 3                  ' Résultat : 8 (2×2×2)  
+Resultat = 5 ^ 2                  ' Résultat : 25 (5×5)  
+Resultat = 9 ^ 0.5                ' Résultat : 3 (racine carrée)  
 ```
 
 **Calculs financiers :**
 ```vba
 ' Intérêts composés : Capital × (1 + Taux)^Années
-Dim Capital As Double
-Dim Taux As Double
-Dim Annees As Integer
-Dim Montant As Double
+Dim Capital As Double  
+Dim Taux As Double  
+Dim Annees As Integer  
+Dim Montant As Double  
 
-Capital = 1000.0
-Taux = 0.05                       ' 5%
-Annees = 10
-Montant = Capital * (1 + Taux) ^ Annees    ' Résultat : ~1628.89
+Capital = 1000.0  
+Taux = 0.05                       ' 5%  
+Annees = 10  
+Montant = Capital * (1 + Taux) ^ Annees    ' Résultat : ~1628.89  
 ```
 
 ## Priorité des opérateurs arithmétiques
@@ -252,29 +252,29 @@ Montant = Capital * (1 + Taux) ^ Annees    ' Résultat : ~1628.89
 
 **Sans parenthèses :**
 ```vba
-Dim x As Double
-x = 2 + 3 * 4                     ' Résultat : 14 (pas 20 !)
+Dim x As Double  
+x = 2 + 3 * 4                     ' Résultat : 14 (pas 20 !)  
 ' Calcul : 2 + (3 * 4) = 2 + 12 = 14
 ```
 
 **Avec parenthèses :**
 ```vba
-Dim x As Double
-x = (2 + 3) * 4                   ' Résultat : 20
+Dim x As Double  
+x = (2 + 3) * 4                   ' Résultat : 20  
 ' Calcul : (2 + 3) * 4 = 5 * 4 = 20
 ```
 
 **Cas complexe :**
 ```vba
-Dim x As Double
-x = 2 + 3 * 4 ^ 2 - 1            ' Résultat : 49
+Dim x As Double  
+x = 2 + 3 * 4 ^ 2 - 1            ' Résultat : 49  
 ' Calcul : 2 + 3 * (4 ^ 2) - 1 = 2 + 3 * 16 - 1 = 2 + 48 - 1 = 49
 ```
 
 **Même priorité (de gauche à droite) :**
 ```vba
-Dim x As Double
-x = 20 / 4 * 3                    ' Résultat : 15
+Dim x As Double  
+x = 20 / 4 * 3                    ' Résultat : 15  
 ' Calcul : (20 / 4) * 3 = 5 * 3 = 15
 ```
 
@@ -304,26 +304,26 @@ Montant = Capital * ((1 + TauxMensuel) ^ NombreMois)
 
 **Test d'égalité :**
 ```vba
-Dim EstEgal As Boolean
-EstEgal = (10 = 10)               ' Résultat : True
-EstEgal = (5 = 7)                 ' Résultat : False
-EstEgal = (Range("A1").Value = "Bonjour")
+Dim EstEgal As Boolean  
+EstEgal = (10 = 10)               ' Résultat : True  
+EstEgal = (5 = 7)                 ' Résultat : False  
+EstEgal = (Range("A1").Value = "Bonjour")  
 ```
 
 **Avec des variables :**
 ```vba
-Dim Age As Integer
-Age = Range("B1").Value
-If Age = 18 Then
+Dim Age As Integer  
+Age = Range("B1").Value  
+If Age = 18 Then  
     MsgBox "Vous êtes majeur"
 End If
 ```
 
 **Attention avec les décimaux :**
 ```vba
-Dim x As Double
-x = 0.1 + 0.2
-If x = 0.3 Then                   ' Peut être False à cause de la précision !
+Dim x As Double  
+x = 0.1 + 0.2  
+If x = 0.3 Then                   ' Peut être False à cause de la précision !  
     MsgBox "Égaux"
 Else
     MsgBox "Pas égaux"            ' Souvent affiché
@@ -339,16 +339,16 @@ End If
 
 **Test de différence :**
 ```vba
-Dim EstDifferent As Boolean
-EstDifferent = (10 <> 5)          ' Résultat : True
-EstDifferent = (7 <> 7)           ' Résultat : False
+Dim EstDifferent As Boolean  
+EstDifferent = (10 <> 5)          ' Résultat : True  
+EstDifferent = (7 <> 7)           ' Résultat : False  
 ```
 
 **Usage pratique :**
 ```vba
-Dim Nom As String
-Nom = Range("A1").Value
-If Nom <> "" Then
+Dim Nom As String  
+Nom = Range("A1").Value  
+If Nom <> "" Then  
     MsgBox "Nom saisi : " & Nom
 Else
     MsgBox "Aucun nom saisi"
@@ -359,18 +359,18 @@ End If
 
 **Comparaisons numériques :**
 ```vba
-Dim EstSuperieur As Boolean
-EstSuperieur = (10 > 5)           ' Résultat : True
-EstSuperieur = (3 > 8)            ' Résultat : False
-EstSuperieur = (5 >= 5)           ' Résultat : True
-EstSuperieur = (4 >= 7)           ' Résultat : False
+Dim EstSuperieur As Boolean  
+EstSuperieur = (10 > 5)           ' Résultat : True  
+EstSuperieur = (3 > 8)            ' Résultat : False  
+EstSuperieur = (5 >= 5)           ' Résultat : True  
+EstSuperieur = (4 >= 7)           ' Résultat : False  
 ```
 
 **Validation de seuils :**
 ```vba
-Dim Montant As Double
-Montant = Range("C1").Value
-If Montant > 1000 Then
+Dim Montant As Double  
+Montant = Range("C1").Value  
+If Montant > 1000 Then  
     MsgBox "Montant élevé"
 ElseIf Montant >= 100 Then
     MsgBox "Montant moyen"
@@ -383,18 +383,18 @@ End If
 
 **Comparaisons numériques :**
 ```vba
-Dim EstInferieur As Boolean
-EstInferieur = (5 < 10)           ' Résultat : True
-EstInferieur = (8 < 3)            ' Résultat : False
-EstInferieur = (5 <= 5)           ' Résultat : True
-EstInferieur = (7 <= 4)           ' Résultat : False
+Dim EstInferieur As Boolean  
+EstInferieur = (5 < 10)           ' Résultat : True  
+EstInferieur = (8 < 3)            ' Résultat : False  
+EstInferieur = (5 <= 5)           ' Résultat : True  
+EstInferieur = (7 <= 4)           ' Résultat : False  
 ```
 
 **Contrôle de limites :**
 ```vba
-Dim Age As Integer
-Age = Range("B1").Value
-If Age < 18 Then
+Dim Age As Integer  
+Age = Range("B1").Value  
+If Age < 18 Then  
     MsgBox "Mineur"
 ElseIf Age <= 65 Then
     MsgBox "Adulte actif"
@@ -407,16 +407,16 @@ End If
 
 **Ordre alphabétique :**
 ```vba
-Dim Resultat As Boolean
-Resultat = ("A" < "B")            ' Résultat : True
-Resultat = ("Apple" < "Banana")   ' Résultat : True
-Resultat = ("Z" > "A")            ' Résultat : True
+Dim Resultat As Boolean  
+Resultat = ("A" < "B")            ' Résultat : True  
+Resultat = ("Apple" < "Banana")   ' Résultat : True  
+Resultat = ("Z" > "A")            ' Résultat : True  
 ```
 
 **Sensibilité à la casse :**
 ```vba
-Dim Resultat As Boolean
-Resultat = ("a" = "A")            ' Résultat : False (sensible à la casse)
+Dim Resultat As Boolean  
+Resultat = ("a" = "A")            ' Résultat : False (sensible à la casse)  
 
 ' Pour ignorer la casse :
 Resultat = (UCase("a") = UCase("A"))    ' Résultat : True
@@ -424,9 +424,9 @@ Resultat = (UCase("a") = UCase("A"))    ' Résultat : True
 
 **Comparaison pratique :**
 ```vba
-Dim Nom1 As String, Nom2 As String
-Nom1 = Range("A1").Value
-Nom2 = Range("B1").Value
+Dim Nom1 As String, Nom2 As String  
+Nom1 = Range("A1").Value  
+Nom2 = Range("B1").Value  
 
 If UCase(Nom1) = UCase(Nom2) Then
     MsgBox "Noms identiques (casse ignorée)"
@@ -439,20 +439,20 @@ End If
 
 **Les deux conditions doivent être vraies :**
 ```vba
-Dim Resultat As Boolean
-Resultat = (True And True)        ' Résultat : True
-Resultat = (True And False)       ' Résultat : False
-Resultat = (False And True)       ' Résultat : False
-Resultat = (False And False)      ' Résultat : False
+Dim Resultat As Boolean  
+Resultat = (True And True)        ' Résultat : True  
+Resultat = (True And False)       ' Résultat : False  
+Resultat = (False And True)       ' Résultat : False  
+Resultat = (False And False)      ' Résultat : False  
 ```
 
 **Usage pratique :**
 ```vba
-Dim Age As Integer
-Dim Permis As Boolean
+Dim Age As Integer  
+Dim Permis As Boolean  
 
-Age = Range("A1").Value
-Permis = Range("B1").Value
+Age = Range("A1").Value  
+Permis = Range("B1").Value  
 
 If (Age >= 18) And (Permis = True) Then
     MsgBox "Peut conduire"
@@ -463,11 +463,11 @@ End If
 
 **Validation multiple :**
 ```vba
-Dim Montant As Double
-Dim Stock As Integer
+Dim Montant As Double  
+Dim Stock As Integer  
 
-Montant = Range("C1").Value
-Stock = Range("D1").Value
+Montant = Range("C1").Value  
+Stock = Range("D1").Value  
 
 If (Montant > 0) And (Stock > 0) And (Montant <= 10000) Then
     MsgBox "Commande valide"
@@ -480,17 +480,17 @@ End If
 
 **Au moins une condition doit être vraie :**
 ```vba
-Dim Resultat As Boolean
-Resultat = (True Or True)         ' Résultat : True
-Resultat = (True Or False)        ' Résultat : True
-Resultat = (False Or True)        ' Résultat : True
-Resultat = (False Or False)       ' Résultat : False
+Dim Resultat As Boolean  
+Resultat = (True Or True)         ' Résultat : True  
+Resultat = (True Or False)        ' Résultat : True  
+Resultat = (False Or True)        ' Résultat : True  
+Resultat = (False Or False)       ' Résultat : False  
 ```
 
 **Conditions alternatives :**
 ```vba
-Dim TypeClient As String
-TypeClient = Range("A1").Value
+Dim TypeClient As String  
+TypeClient = Range("A1").Value  
 
 If (TypeClient = "VIP") Or (TypeClient = "Premium") Then
     MsgBox "Client prioritaire"
@@ -501,11 +501,11 @@ End If
 
 **Validation souple :**
 ```vba
-Dim Email As String
-Dim Telephone As String
+Dim Email As String  
+Dim Telephone As String  
 
-Email = Range("B1").Value
-Telephone = Range("C1").Value
+Email = Range("B1").Value  
+Telephone = Range("C1").Value  
 
 If (Email <> "") Or (Telephone <> "") Then
     MsgBox "Contact possible"
@@ -518,15 +518,15 @@ End If
 
 **Inverse la condition :**
 ```vba
-Dim Resultat As Boolean
-Resultat = Not True               ' Résultat : False
-Resultat = Not False              ' Résultat : True
+Dim Resultat As Boolean  
+Resultat = Not True               ' Résultat : False  
+Resultat = Not False              ' Résultat : True  
 ```
 
 **Usage pratique :**
 ```vba
-Dim EstVide As Boolean
-EstVide = (Range("A1").Value = "")
+Dim EstVide As Boolean  
+EstVide = (Range("A1").Value = "")  
 
 If Not EstVide Then
     MsgBox "Cellule remplie"
@@ -548,13 +548,13 @@ If Not EstActif Then
 
 **Parenthèses pour grouper :**
 ```vba
-Dim Age As Integer
-Dim Permis As Boolean
-Dim Experience As Integer
+Dim Age As Integer  
+Dim Permis As Boolean  
+Dim Experience As Integer  
 
-Age = 25
-Permis = True
-Experience = 2
+Age = 25  
+Permis = True  
+Experience = 2  
 
 ' Peut conduire si : (majeur ET a le permis) ET (expérience >= 1 OU âge >= 25)
 If ((Age >= 18) And Permis) And ((Experience >= 1) Or (Age >= 25)) Then
@@ -564,10 +564,10 @@ End If
 
 **Logique métier complexe :**
 ```vba
-Dim EstClient As Boolean
-Dim MontantCommande As Double
-Dim EstEnStock As Boolean
-Dim ModePaiement As String
+Dim EstClient As Boolean  
+Dim MontantCommande As Double  
+Dim EstEnStock As Boolean  
+Dim ModePaiement As String  
 
 ' Commande acceptée si :
 ' Client ET (montant > 0) ET en stock ET (paiement carte OU montant < 500)
@@ -583,33 +583,33 @@ End If
 
 **Assembler du texte :**
 ```vba
-Dim NomComplet As String
-Dim Prenom As String, Nom As String
+Dim NomComplet As String  
+Dim Prenom As String, Nom As String  
 
-Prenom = "Jean"
-Nom = "Dupont"
-NomComplet = Prenom & " " & Nom   ' Résultat : "Jean Dupont"
+Prenom = "Jean"  
+Nom = "Dupont"  
+NomComplet = Prenom & " " & Nom   ' Résultat : "Jean Dupont"  
 ```
 
 **Avec des nombres :**
 ```vba
-Dim Message As String
-Dim Age As Integer
+Dim Message As String  
+Dim Age As Integer  
 
-Age = 25
-Message = "Vous avez " & Age & " ans"    ' "Vous avez 25 ans"
+Age = 25  
+Message = "Vous avez " & Age & " ans"    ' "Vous avez 25 ans"  
 ```
 
 **Construction de messages :**
 ```vba
-Dim Produit As String
-Dim Prix As Double
-Dim Description As String
+Dim Produit As String  
+Dim Prix As Double  
+Dim Description As String  
 
-Produit = Range("A1").Value
-Prix = Range("B1").Value
-Description = "Produit : " & Produit & " - Prix : " & Prix & "€"
-Range("C1").Value = Description
+Produit = Range("A1").Value  
+Prix = Range("B1").Value  
+Description = "Produit : " & Produit & " - Prix : " & Prix & "€"  
+Range("C1").Value = Description  
 ```
 
 ### Différence entre + et &
@@ -623,11 +623,11 @@ Resultat = "Hello" & " " & "World"       ' "Hello World"
 Resultat = "Hello" + " " + "World"       ' Fonctionne mais déconseillé
 
 ' Problème potentiel avec +
-Dim x As Variant, y As Variant
-x = "5"
-y = "3"
-Resultat1 = x + y                        ' "53" (concaténation)
-Resultat2 = CInt(x) + CInt(y)           ' 8 (addition)
+Dim x As Variant, y As Variant  
+x = "5"  
+y = "3"  
+Resultat1 = x + y                        ' "53" (concaténation)  
+Resultat2 = CInt(x) + CInt(y)           ' 8 (addition)  
 ```
 
 ## Opérateurs d'affectation
@@ -636,9 +636,9 @@ Resultat2 = CInt(x) + CInt(y)           ' 8 (addition)
 
 **Attribution de valeur :**
 ```vba
-Dim x As Integer
-x = 10                            ' x prend la valeur 10
-x = x + 5                         ' x devient 15 (10 + 5)
+Dim x As Integer  
+x = 10                            ' x prend la valeur 10  
+x = x + 5                         ' x devient 15 (10 + 5)  
 ```
 
 ### Opérateurs d'affectation composés
@@ -648,15 +648,15 @@ x = x + 5                         ' x devient 15 (10 + 5)
 **Au lieu de :**
 ```vba
 ' Ceci n'existe PAS en VBA
-x += 5                            ' ERREUR !
-y *= 2                            ' ERREUR !
+x += 5                            ' ERREUR !  
+y *= 2                            ' ERREUR !  
 ```
 
 **Utilisez :**
 ```vba
-x = x + 5                         ' Addition et affectation
-y = y * 2                         ' Multiplication et affectation
-Total = Total + Montant           ' Accumulation
+x = x + 5                         ' Addition et affectation  
+y = y * 2                         ' Multiplication et affectation  
+Total = Total + Montant           ' Accumulation  
 ```
 
 ## Évaluation des expressions
@@ -671,8 +671,8 @@ Total = Total + Montant           ' Accumulation
 
 **Exemple complexe :**
 ```vba
-Dim Resultat As Boolean
-Resultat = (10 + 5 > 12) And (Not (3 * 2 = 5)) Or (True)
+Dim Resultat As Boolean  
+Resultat = (10 + 5 > 12) And (Not (3 * 2 = 5)) Or (True)  
 
 ' Évaluation étape par étape :
 ' 1. Parenthèses internes : 10 + 5 = 15, 3 * 2 = 6
@@ -683,18 +683,26 @@ Resultat = (10 + 5 > 12) And (Not (3 * 2 = 5)) Or (True)
 ' Résultat final : True
 ```
 
-### Court-circuit (Short-circuit)
+### Pas de court-circuit en VBA
 
-**VBA évalue parfois partiellement :**
+**Attention : VBA évalue TOUJOURS les deux côtés d'un `And` ou `Or` !**
+
+Contrairement à beaucoup d'autres langages, VBA ne fait **pas** de court-circuit (short-circuit evaluation). Cela peut provoquer des erreurs :
+
 ```vba
-' Si la première condition est False, VBA peut ignorer la suite avec AND
+' DANGEREUX : si x = 0, VBA essaie quand même la division !
 If (x > 0) And (10 / x > 2) Then
-    ' Si x <= 0, la division ne sera pas évaluée (évite l'erreur)
+    ' Erreur "Division par zéro" si x = 0
 End If
+```
 
-' Avec OR, si la première condition est True, la suite peut être ignorée
-If (EstAdmin = True) Or (Age >= 18) Then
-    ' Si EstAdmin est True, Age n'est pas vérifié
+**Solution : utiliser des If imbriqués :**
+```vba
+' CORRECT : la division n'est tentée que si x > 0
+If x > 0 Then
+    If 10 / x > 2 Then
+        MsgBox "Condition remplie"
+    End If
 End If
 ```
 
@@ -704,8 +712,8 @@ End If
 
 **En VBA, utilisez = pour l'affectation ET la comparaison :**
 ```vba
-x = 10                            ' Affectation
-If x = 10 Then                    ' Comparaison (même symbole !)
+x = 10                            ' Affectation  
+If x = 10 Then                    ' Comparaison (même symbole !)  
 ```
 
 **Contexte détermine l'usage :**
@@ -751,9 +759,9 @@ End If
 
 **Problème de précision :**
 ```vba
-Dim x As Double
-x = 0.1 + 0.2
-If x = 0.3 Then                   ' Peut échouer !
+Dim x As Double  
+x = 0.1 + 0.2  
+If x = 0.3 Then                   ' Peut échouer !  
 ```
 
 **Solution :**

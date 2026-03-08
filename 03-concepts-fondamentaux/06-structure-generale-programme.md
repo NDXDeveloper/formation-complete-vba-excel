@@ -73,23 +73,23 @@ End Sub
 '******************************************************************************
 
 ' ===== 1. DIRECTIVES DE COMPILATION =====
-Option Explicit
-Option Compare Text
+Option Explicit  
+Option Compare Text  
 
 ' ===== 2. CONSTANTES PUBLIQUES =====
-Public Const TAUX_TVA_STANDARD As Double = 0.20
-Public Const DEVISE_DEFAUT As String = "EUR"
+Public Const TAUX_TVA_STANDARD As Double = 0.20  
+Public Const DEVISE_DEFAUT As String = "EUR"  
 
 ' ===== 3. CONSTANTES PRIVÉES =====
-Const SEUIL_ALERTE As Double = 1000.0
-Const MESSAGE_ERREUR As String = "Erreur de calcul"
+Const SEUIL_ALERTE As Double = 1000.0  
+Const MESSAGE_ERREUR As String = "Erreur de calcul"  
 
 ' ===== 4. VARIABLES PUBLIQUES =====
 Public ModeDebug As Boolean
 
 ' ===== 5. VARIABLES PRIVÉES =====
-Dim CompteurCalculs As Long
-Dim DerniereErreur As String
+Dim CompteurCalculs As Long  
+Dim DerniereErreur As String  
 
 ' ===== 6. FONCTIONS PUBLIQUES =====
 Public Function CalculerTTC(PrixHT As Double) As Double
@@ -121,14 +121,14 @@ Option Explicit    ' Force la déclaration de toutes les variables
 
 **Option Compare :**
 ```vba
-Option Compare Text        ' Comparaison de texte insensible à la casse
-Option Compare Binary      ' Comparaison binaire (par défaut)
+Option Compare Text        ' Comparaison de texte insensible à la casse  
+Option Compare Binary      ' Comparaison binaire (par défaut)  
 ```
 
 **Option Base :**
 ```vba
-Option Base 1             ' Les tableaux commencent à 1 (rare)
-Option Base 0             ' Les tableaux commencent à 0 (par défaut)
+Option Base 1             ' Les tableaux commencent à 1 (rare)  
+Option Base 0             ' Les tableaux commencent à 0 (par défaut)  
 ```
 
 ### Déclarations globales
@@ -136,17 +136,17 @@ Option Base 0             ' Les tableaux commencent à 0 (par défaut)
 **Constantes au niveau module :**
 ```vba
 ' Constantes utilisables dans tout le module
-Const MAX_TENTATIVES As Integer = 3
-Const REPERTOIRE_TEMP As String = "C:\Temp\"
-Const VERSION_MODULE As String = "1.2.0"
+Const MAX_TENTATIVES As Integer = 3  
+Const REPERTOIRE_TEMP As String = "C:\Temp\"  
+Const VERSION_MODULE As String = "1.2.0"  
 ```
 
 **Variables partagées :**
 ```vba
 ' Variables accessibles à toutes les procédures du module
-Dim CompteurGlobal As Long
-Dim ConfigurationActive As String
-Dim TableauResultats() As Double
+Dim CompteurGlobal As Long  
+Dim ConfigurationActive As String  
+Dim TableauResultats() As Double  
 ```
 
 ## Structure d'une procédure
@@ -297,29 +297,29 @@ End Sub
 Sub TraiterDonneesListe()
     ' ===== PRÉPARATION =====
     Dim i As Long
-    Dim DerniereeLigne As Long
+    Dim DerniereLigne As Long
     Dim CompteurErreurs As Long
 
-    DerniereeLigne = Range("A" & Rows.Count).End(xlUp).Row
+    DerniereLigne = Range("A" & Rows.Count).End(xlUp).Row
     CompteurErreurs = 0
 
     ' ===== BOUCLE PRINCIPALE =====
-    For i = 2 To DerniereeLigne    ' Ligne 1 = en-têtes
+    For i = 2 To DerniereLigne    ' Ligne 1 = en-têtes
 
         ' Validation de la ligne courante
         If ValiderLigne(i) Then
             ' Traitement de la ligne valide
-            TraiterLigne(i)
+            TraiterLigne i
         Else
             ' Gestion des erreurs
             CompteurErreurs = CompteurErreurs + 1
-            MarquerLigneErreur(i)
+            MarquerLigneErreur i
         End If
 
     Next i
 
     ' ===== RAPPORT FINAL =====
-    AfficherResumTraitement(DerniereeLigne - 1, CompteurErreurs)
+    AfficherResumeTraitement DerniereLigne - 1, CompteurErreurs
 End Sub
 ```
 
@@ -355,9 +355,9 @@ Sub TraiterCommande()
     Dim Total As Double
     Total = CalculerTotal()
 
-    FormaterAffichage(Total)
-    SauvegarderDonnees()
-    EnvoyerNotification()
+    FormaterAffichage Total
+    SauvegarderDonnees
+    EnvoyerNotification
 End Sub
 
 Function ValiderDonnees() As Boolean
@@ -379,14 +379,14 @@ End Sub
 ```vba
 Sub ProcessusCompletCommande()
     ' Vue d'ensemble du processus
-    InitialiserEnvironnement()
+    InitialiserEnvironnement
 
     If ValiderPrealables() Then
-        TraiterToutesLesCommandes()
-        GenererRapportFinal()
+        TraiterToutesLesCommandes
+        GenererRapportFinal
     End If
 
-    NettoyerEnvironnement()
+    NettoyerEnvironnement
 End Sub
 ```
 
@@ -399,7 +399,7 @@ Sub TraiterToutesLesCommandes()
     NombreCommandes = ObtenirNombreCommandes()
 
     For i = 1 To NombreCommandes
-        TraiterUneCommande(i)
+        TraiterUneCommande i
     Next i
 End Sub
 ```
@@ -407,13 +407,13 @@ End Sub
 **Niveau 3 : Fonctions de détail**
 ```vba
 Sub TraiterUneCommande(NumeroLigne As Long)
-    Dim Commande As TypeCommande
+    Dim Commande As Variant    ' Objet ou Type personnalisé
 
     Commande = LireCommande(NumeroLigne)
 
     If ValiderCommande(Commande) Then
-        CalculerCommande(Commande)
-        SauvegarderCommande(Commande)
+        CalculerCommande Commande
+        SauvegarderCommande Commande
     End If
 End Sub
 ```
@@ -491,18 +491,18 @@ End Sub
 
 **Verbes d'action pour les procédures :**
 ```vba
-Sub CalculerTotal()          ' Calcule quelque chose
-Sub AfficherResultat()       ' Affiche quelque chose
-Sub SauvegarderDonnees()     ' Sauvegarde quelque chose
-Sub ValiderSaisie()          ' Valide quelque chose
-Sub InitialiserModule()      ' Initialise quelque chose
+Sub CalculerTotal()          ' Calcule quelque chose  
+Sub AfficherResultat()       ' Affiche quelque chose  
+Sub SauvegarderDonnees()     ' Sauvegarde quelque chose  
+Sub ValiderSaisie()          ' Valide quelque chose  
+Sub InitialiserModule()      ' Initialise quelque chose  
 ```
 
 **Noms descriptifs pour les fonctions :**
 ```vba
-Function ObtenirNombreClients() As Long           ' Retourne un nombre
-Function EstValide(Valeur As String) As Boolean   ' Retourne vrai/faux
-Function CalculerRemise(Montant As Double) As Double   ' Retourne un calcul
+Function ObtenirNombreClients() As Long           ' Retourne un nombre  
+Function EstValide(Valeur As String) As Boolean   ' Retourne vrai/faux  
+Function CalculerRemise(Montant As Double) As Double   ' Retourne un calcul  
 ```
 
 ### Préfixes significatifs
@@ -510,24 +510,24 @@ Function CalculerRemise(Montant As Double) As Double   ' Retourne un calcul
 **Par type d'opération :**
 ```vba
 ' Validation
-Function EstNumerique(Texte As String) As Boolean
-Function PeutEtreConverti(Valeur As Variant) As Boolean
+Function EstNumerique(Texte As String) As Boolean  
+Function PeutEtreConverti(Valeur As Variant) As Boolean  
 
 ' Obtention de données
-Function ObtenirDerniereeLigne() As Long
-Function RecupererParametre(Nom As String) As String
+Function ObtenirDerniereLigne() As Long  
+Function RecupererParametre(Nom As String) As String  
 
 ' Vérification d'état
-Function ExisteFeuille(NomFeuille As String) As Boolean
-Function EstOuvert(NomFichier As String) As Boolean
+Function ExisteFeuille(NomFeuille As String) As Boolean  
+Function EstOuvert(NomFichier As String) As Boolean  
 
 ' Création/Génération
-Sub CreerNouvelleCommande()
-Sub GenererRapportMensuel()
+Sub CreerNouvelleCommande()  
+Sub GenererRapportMensuel()  
 
 ' Nettoyage/Suppression
-Sub SupprimerFichiersTemp()
-Sub NettoyerDonneesAnciennes()
+Sub SupprimerFichiersTemp()  
+Sub NettoyerDonneesAnciennes()  
 ```
 
 ## Documentation de structure
@@ -636,14 +636,14 @@ End Function
 '******************************************************************************
 
 ' Paramètres métier
-Public Const TAUX_TVA As Double = 0.20
-Public Const SEUIL_FRANCO_PORT As Double = 100.0
-Public Const REMISE_MAX As Double = 0.30
+Public Const TAUX_TVA As Double = 0.20  
+Public Const SEUIL_FRANCO_PORT As Double = 100.0  
+Public Const REMISE_MAX As Double = 0.30  
 
 ' Paramètres techniques
-Public Const REPERTOIRE_EXPORT As String = "C:\Exports\"
-Public Const FORMAT_DATE As String = "dd/mm/yyyy"
-Public Const NOM_FEUILLE_CONFIG As String = "Parametres"
+Public Const REPERTOIRE_EXPORT As String = "C:\Exports\"  
+Public Const FORMAT_DATE As String = "dd/mm/yyyy"  
+Public Const NOM_FEUILLE_CONFIG As String = "Parametres"  
 
 ' Fonction de lecture dynamique
 Public Function LireParametre(NomParametre As String) As Variant
@@ -693,11 +693,11 @@ End Sub
 **APRÈS : Code factorisé**
 ```vba
 Sub TraiterClientsVIP()
-    TraiterClients("VIP", 0.9)
+    TraiterClients "VIP", 0.9
 End Sub
 
 Sub TraiterClientsPremium()
-    TraiterClients("Premium", 0.95)
+    TraiterClients "Premium", 0.95
 End Sub
 
 Private Sub TraiterClients(TypeClient As String, FacteurRemise As Double)

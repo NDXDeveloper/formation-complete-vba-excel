@@ -15,13 +15,13 @@ Les constantes sont comme des variables spéciales dont la valeur ne peut jamais
 **Différence avec une variable :**
 ```vba
 ' Variable : peut changer
-Dim Prix As Double
-Prix = 10.0
-Prix = 15.0                    ' Changement autorisé
+Dim Prix As Double  
+Prix = 10.0  
+Prix = 15.0                    ' Changement autorisé  
 
 ' Constante : ne peut pas changer
-Const TAUX_TVA As Double = 0.20
-TAUX_TVA = 0.25               ' ERREUR ! Impossible de modifier
+Const TAUX_TVA As Double = 0.20  
+TAUX_TVA = 0.25               ' ERREUR ! Impossible de modifier  
 ```
 
 ### Analogies pratiques
@@ -100,30 +100,30 @@ Const NOM_CONSTANTE As Type = Valeur
 
 **Exemples simples :**
 ```vba
-Const PI As Double = 3.14159
-Const NOM_ENTREPRISE As String = "Ma Société"
-Const NOMBRE_JOURS_SEMAINE As Integer = 7
-Const VALIDATION_ACTIVE As Boolean = True
+Const PI As Double = 3.14159  
+Const NOM_ENTREPRISE As String = "Ma Société"  
+Const NOMBRE_JOURS_SEMAINE As Integer = 7  
+Const VALIDATION_ACTIVE As Boolean = True  
 ```
 
 ### Règles de déclaration
 
 **Valeur obligatoire à la déclaration :**
 ```vba
-Const MA_CONSTANTE As Integer = 100    ' Correct
-Const MA_CONSTANTE As Integer          ' ERREUR : Pas de valeur !
+Const MA_CONSTANTE As Integer = 100    ' Correct  
+Const MA_CONSTANTE As Integer          ' ERREUR : Pas de valeur !  
 ```
 
 **Valeur fixe uniquement :**
 ```vba
-Const TAUX As Double = 0.20           ' Correct : valeur littérale
-Const AUTRE As Double = Range("A1")   ' ERREUR : Valeur variable !
+Const TAUX As Double = 0.20           ' Correct : valeur littérale  
+Const AUTRE As Double = Range("A1")   ' ERREUR : Valeur variable !  
 ```
 
 **Type optionnel mais recommandé :**
 ```vba
-Const PI = 3.14159                    ' Fonctionne (type Variant)
-Const PI As Double = 3.14159          ' Meilleur (type spécifique)
+Const PI = 3.14159                    ' Fonctionne (type Variant)  
+Const PI As Double = 3.14159          ' Meilleur (type spécifique)  
 ```
 
 ## Types de constantes
@@ -132,21 +132,22 @@ Const PI As Double = 3.14159          ' Meilleur (type spécifique)
 
 **Entiers :**
 ```vba
-Const NOMBRE_MOIS_ANNEE As Integer = 12
-Const LIMITE_UTILISATEURS As Long = 1000
-Const TAILLE_BUFFER As Integer = 256
+Const NOMBRE_MOIS_ANNEE As Integer = 12  
+Const LIMITE_UTILISATEURS As Long = 1000  
+Const TAILLE_BUFFER As Integer = 256  
 ```
 
 **Décimaux :**
 ```vba
-Const PI As Double = 3.14159265359
-Const TAUX_TVA As Double = 0.20
-Const FACTEUR_CONVERSION As Double = 2.54    ' Pouce vers cm
+Const PI As Double = 3.14159265359  
+Const TAUX_TVA As Double = 0.20  
+Const FACTEUR_CONVERSION As Double = 2.54    ' Pouce vers cm  
 ```
 
 **Utilisation :**
 ```vba
 Sub ExempleCalcul()
+    Const PI As Double = 3.14159265359
     Const RAYON As Double = 5.0
     Dim Circonference As Double
 
@@ -159,16 +160,16 @@ End Sub
 
 **Messages standardisés :**
 ```vba
-Const MSG_ERREUR As String = "Une erreur s'est produite"
-Const MSG_SUCCES As String = "Opération réussie"
-Const MSG_CONFIRMATION As String = "Voulez-vous continuer ?"
+Const MSG_ERREUR As String = "Une erreur s'est produite"  
+Const MSG_SUCCES As String = "Opération réussie"  
+Const MSG_CONFIRMATION As String = "Voulez-vous continuer ?"  
 ```
 
 **Noms et références :**
 ```vba
-Const NOM_FICHIER_CONFIG As String = "parametres.txt"
-Const REPERTOIRE_DONNEES As String = "C:\Données\"
-Const EMAIL_ADMIN As String = "admin@entreprise.com"
+Const NOM_FICHIER_CONFIG As String = "parametres.txt"  
+Const REPERTOIRE_DONNEES As String = "C:\Données\"  
+Const EMAIL_ADMIN As String = "admin@entreprise.com"  
 ```
 
 **Utilisation :**
@@ -186,9 +187,9 @@ End Sub
 
 **États par défaut :**
 ```vba
-Const MODE_DEBUG As Boolean = True
-Const VALIDATION_STRICTE As Boolean = False
-Const SAUVEGARDE_AUTO As Boolean = True
+Const MODE_DEBUG As Boolean = True  
+Const VALIDATION_STRICTE As Boolean = False  
+Const SAUVEGARDE_AUTO As Boolean = True  
 ```
 
 **Utilisation :**
@@ -211,8 +212,8 @@ End Sub
 
 **Dates fixes :**
 ```vba
-Const DATE_CREATION As Date = #1/1/2024#
-Const HEURE_OUVERTURE As Date = #9:00:00 AM#
+Const DATE_CREATION As Date = #1/1/2024#  
+Const HEURE_OUVERTURE As Date = #9:00:00 AM#  
 ```
 
 **Attention :** Les dates constantes sont peu courantes car souvent calculées.
@@ -243,8 +244,8 @@ End Sub
 **Déclaration en haut du module :**
 ```vba
 ' En haut du module, avant toute procédure
-Const TAUX_TVA As Double = 0.20
-Const NOM_ENTREPRISE As String = "Ma Société"
+Const TAUX_TVA As Double = 0.20  
+Const NOM_ENTREPRISE As String = "Ma Société"  
 
 Sub CalculerPrixTTC()
     Dim PrixHT As Double
@@ -266,8 +267,8 @@ End Sub
 **Déclaration avec Public :**
 ```vba
 ' En haut d'un module
-Public Const VERSION_APPLICATION As String = "1.2.3"
-Public Const COULEUR_ENTREPRISE As Long = RGB(0, 100, 200)
+Public Const VERSION_APPLICATION As String = "1.2.3"  
+Public Const COULEUR_ENTREPRISE As Long = 13107200    ' Équivalent de RGB(0, 100, 200)  
 ```
 
 **Utilisation depuis n'importe quel module :**
@@ -284,17 +285,17 @@ End Sub
 
 **Couleurs de base :**
 ```vba
-Range("A1").Interior.Color = vbRed        ' Rouge
-Range("A2").Interior.Color = vbBlue       ' Bleu
-Range("A3").Interior.Color = vbGreen      ' Vert
-Range("A4").Interior.Color = vbYellow     ' Jaune
-Range("A5").Interior.Color = vbWhite      ' Blanc
-Range("A6").Interior.Color = vbBlack      ' Noir
+Range("A1").Interior.Color = vbRed        ' Rouge  
+Range("A2").Interior.Color = vbBlue       ' Bleu  
+Range("A3").Interior.Color = vbGreen      ' Vert  
+Range("A4").Interior.Color = vbYellow     ' Jaune  
+Range("A5").Interior.Color = vbWhite      ' Blanc  
+Range("A6").Interior.Color = vbBlack      ' Noir  
 ```
 
 **Utilisation pratique :**
 ```vba
-Sub ColorerrCelluleSeuilon()
+Sub ColorerCelluleSelonSeuil()
     Dim Valeur As Double
     Valeur = Range("A1").Value
 
@@ -313,10 +314,10 @@ End Sub
 **Types de boutons :**
 ```vba
 ' Affichage de différents types de boîtes de dialogue
-MsgBox "Message simple", vbInformation
-MsgBox "Attention !", vbExclamation
-MsgBox "Erreur grave", vbCritical
-MsgBox "Voulez-vous continuer ?", vbQuestion + vbYesNo
+MsgBox "Message simple", vbInformation  
+MsgBox "Attention !", vbExclamation  
+MsgBox "Erreur grave", vbCritical  
+MsgBox "Voulez-vous continuer ?", vbQuestion + vbYesNo  
 ```
 
 **Traitement des réponses :**
@@ -338,17 +339,18 @@ End Sub
 
 **Directions :**
 ```vba
-Selection.End(xlDown)                     ' Aller vers le bas
-Selection.End(xlUp)                       ' Aller vers le haut
-Selection.End(xlToLeft)                   ' Aller vers la gauche
-Selection.End(xlToRight)                  ' Aller vers la droite
+Selection.End(xlDown)                     ' Aller vers le bas  
+Selection.End(xlUp)                       ' Aller vers le haut  
+Selection.End(xlToLeft)                   ' Aller vers la gauche  
+Selection.End(xlToRight)                  ' Aller vers la droite  
 ```
 
 **Formats de fichier :**
 ```vba
-ActiveWorkbook.SaveAs "MonFichier", xlWorkbookNormal    ' .xlsx
-ActiveWorkbook.SaveAs "MonFichier", xlCSV               ' .csv
-ActiveWorkbook.SaveAs "MonFichier", xlPDF               ' .pdf
+ActiveWorkbook.SaveAs "MonFichier", xlOpenXMLWorkbook          ' .xlsx  
+ActiveWorkbook.SaveAs "MonFichier", xlCSV                      ' .csv  
+ActiveWorkbook.ExportAsFixedFormat Type:=xlTypePDF, _  
+    Filename:="MonFichier.pdf"                                 ' .pdf
 ```
 
 ## Conventions de nommage
@@ -357,9 +359,9 @@ ActiveWorkbook.SaveAs "MonFichier", xlPDF               ' .pdf
 
 **MAJUSCULES avec underscores :**
 ```vba
-Const TAUX_TVA As Double = 0.20
-Const NOMBRE_MAX_TENTATIVES As Integer = 3
-Const MESSAGE_ERREUR_CONNEXION As String = "Impossible de se connecter"
+Const TAUX_TVA As Double = 0.20  
+Const NOMBRE_MAX_TENTATIVES As Integer = 3  
+Const MESSAGE_ERREUR_CONNEXION As String = "Impossible de se connecter"  
 ```
 
 **Pourquoi ce style :**
@@ -372,36 +374,36 @@ Const MESSAGE_ERREUR_CONNEXION As String = "Impossible de se connecter"
 **Par catégorie :**
 ```vba
 ' Messages
-Const MSG_ERREUR As String = "Erreur"
-Const MSG_SUCCES As String = "Succès"
+Const MSG_ERREUR As String = "Erreur"  
+Const MSG_SUCCES As String = "Succès"  
 
 ' Couleurs
-Const COL_ERREUR As Long = vbRed
-Const COL_SUCCES As Long = vbGreen
+Const COL_ERREUR As Long = vbRed  
+Const COL_SUCCES As Long = vbGreen  
 
 ' Taux et pourcentages
-Const TAUX_TVA As Double = 0.20
-Const TAUX_REMISE As Double = 0.10
+Const TAUX_TVA As Double = 0.20  
+Const TAUX_REMISE As Double = 0.10  
 
 ' Limites
-Const MAX_LIGNES As Long = 10000
-Const MIN_MONTANT As Double = 0.01
+Const MAX_LIGNES As Long = 10000  
+Const MIN_MONTANT As Double = 0.01  
 ```
 
 ### Noms explicites
 
 **Mauvais exemples :**
 ```vba
-Const T As Double = 0.20                  ' Que représente T ?
-Const X As Integer = 100                  ' Trop vague
-Const C1 As String = "Erreur"            ' Code incompréhensible
+Const T As Double = 0.20                  ' Que représente T ?  
+Const X As Integer = 100                  ' Trop vague  
+Const C1 As String = "Erreur"            ' Code incompréhensible  
 ```
 
 **Bons exemples :**
 ```vba
-Const TAUX_TVA_STANDARD As Double = 0.20
-Const LIMITE_CARACTERES_NOM As Integer = 100
-Const MESSAGE_ERREUR_SAISIE As String = "Saisie incorrecte"
+Const TAUX_TVA_STANDARD As Double = 0.20  
+Const LIMITE_CARACTERES_NOM As Integer = 100  
+Const MESSAGE_ERREUR_SAISIE As String = "Saisie incorrecte"  
 ```
 
 ## Erreurs courantes avec les constantes
@@ -410,31 +412,31 @@ Const MESSAGE_ERREUR_SAISIE As String = "Saisie incorrecte"
 
 **Erreur :**
 ```vba
-Const PI As Double = 3.14159
-PI = 3.14                                 ' ERREUR : Impossible !
+Const PI As Double = 3.14159  
+PI = 3.14                                 ' ERREUR : Impossible !  
 ```
 
 **Solution :** Utiliser une variable si la valeur doit changer
 ```vba
-Dim ApproximationPI As Double
-ApproximationPI = 3.14159
-ApproximationPI = 3.14                    ' Maintenant c'est autorisé
+Dim ApproximationPI As Double  
+ApproximationPI = 3.14159  
+ApproximationPI = 3.14                    ' Maintenant c'est autorisé  
 ```
 
 ### Valeur non-constante à la déclaration
 
 **Erreur :**
 ```vba
-Const VALEUR_CELLULE As Double = Range("A1").Value    ' ERREUR !
-Const DATE_JOUR As Date = Date                        ' ERREUR !
+Const VALEUR_CELLULE As Double = Range("A1").Value    ' ERREUR !  
+Const DATE_JOUR As Date = Date                        ' ERREUR !  
 ```
 
 **Explication :** VBA doit connaître la valeur au moment de la compilation
 
 **Solution :** Initialiser dans une procédure
 ```vba
-Dim ValeurCellule As Double               ' Variable, pas constante
-Sub InitialiserValeurs()
+Dim ValeurCellule As Double               ' Variable, pas constante  
+Sub InitialiserValeurs()  
     ValeurCellule = Range("A1").Value     ' Initialisé à l'exécution
 End Sub
 ```
@@ -443,8 +445,8 @@ End Sub
 
 **Erreur :**
 ```vba
-Const PI As Double = 3.14159
-Const PI As Double = 3.14                ' ERREUR : Déjà déclarée !
+Const PI As Double = 3.14159  
+Const PI As Double = 3.14                ' ERREUR : Déjà déclarée !  
 ```
 
 **Solution :** Une seule déclaration par constante
@@ -455,40 +457,40 @@ Const PI As Double = 3.14                ' ERREUR : Déjà déclarée !
 
 **La valeur ne change jamais :**
 ```vba
-Const NOMBRE_JOURS_SEMAINE As Integer = 7
-Const VITESSE_LUMIERE As Long = 299792458     ' m/s
+Const NOMBRE_JOURS_SEMAINE As Integer = 7  
+Const VITESSE_LUMIERE As Long = 299792458     ' m/s  
 ```
 
 **Configuration fixe pour l'exécution :**
 ```vba
-Const MODE_DEBUG As Boolean = True
-Const REPERTOIRE_BACKUP As String = "C:\Sauvegardes\"
+Const MODE_DEBUG As Boolean = True  
+Const REPERTOIRE_BACKUP As String = "C:\Sauvegardes\"  
 ```
 
 **Seuils et limites métier :**
 ```vba
-Const MONTANT_MIN_COMMANDE As Double = 50.0
-Const NOMBRE_MAX_ARTICLES As Integer = 999
+Const MONTANT_MIN_COMMANDE As Double = 50.0  
+Const NOMBRE_MAX_ARTICLES As Integer = 999  
 ```
 
 ### Utilisez une variable quand :
 
 **La valeur peut changer :**
 ```vba
-Dim TauxTVAActuel As Double               ' Peut changer selon la date
-Dim NombreClientsConnectes As Integer     ' Change en temps réel
+Dim TauxTVAActuel As Double               ' Peut changer selon la date  
+Dim NombreClientsConnectes As Integer     ' Change en temps réel  
 ```
 
 **Valeur calculée ou récupérée :**
 ```vba
-Dim DateDuJour As Date
-DateDuJour = Date                         ' Calculé à chaque exécution
+Dim DateDuJour As Date  
+DateDuJour = Date                         ' Calculé à chaque exécution  
 ```
 
 **Stockage temporaire :**
 ```vba
-Dim ResultatCalcul As Double
-ResultatCalcul = Range("A1").Value * 1.2  ' Résultat temporaire
+Dim ResultatCalcul As Double  
+ResultatCalcul = Range("A1").Value * 1.2  ' Résultat temporaire  
 ```
 
 ## Organiser ses constantes
@@ -497,19 +499,19 @@ ResultatCalcul = Range("A1").Value * 1.2  ' Résultat temporaire
 
 ```vba
 ' ===== PARAMETRES TVA =====
-Const TAUX_TVA_STANDARD As Double = 0.20
-Const TAUX_TVA_REDUIT As Double = 0.055
-Const TAUX_TVA_SUPER_REDUIT As Double = 0.021
+Const TAUX_TVA_STANDARD As Double = 0.20  
+Const TAUX_TVA_REDUIT As Double = 0.055  
+Const TAUX_TVA_SUPER_REDUIT As Double = 0.021  
 
 ' ===== MESSAGES UTILISATEUR =====
-Const MSG_ERREUR_SAISIE As String = "Erreur de saisie"
-Const MSG_SAUVEGARDE_OK As String = "Fichier sauvegardé"
-Const MSG_CONFIRMATION_SUPPRESSION As String = "Confirmer la suppression ?"
+Const MSG_ERREUR_SAISIE As String = "Erreur de saisie"  
+Const MSG_SAUVEGARDE_OK As String = "Fichier sauvegardé"  
+Const MSG_CONFIRMATION_SUPPRESSION As String = "Confirmer la suppression ?"  
 
 ' ===== LIMITES SYSTEME =====
-Const MAX_LIGNES_IMPORT As Long = 100000
-Const TAILLE_MAX_FICHIER_MB As Integer = 50
-Const TIMEOUT_CONNEXION_SEC As Integer = 30
+Const MAX_LIGNES_IMPORT As Long = 100000  
+Const TAILLE_MAX_FICHIER_MB As Integer = 50  
+Const TIMEOUT_CONNEXION_SEC As Integer = 30  
 ```
 
 ### Module dédié aux constantes
@@ -520,16 +522,16 @@ Const TIMEOUT_CONNEXION_SEC As Integer = 30
 ' Toutes les constantes publiques de l'application
 
 ' Configuration générale
-Public Const VERSION_APP As String = "2.1.0"
-Public Const NOM_ENTREPRISE As String = "Ma Société SARL"
+Public Const VERSION_APP As String = "2.1.0"  
+Public Const NOM_ENTREPRISE As String = "Ma Société SARL"  
 
 ' Paramètres financiers
-Public Const TAUX_TVA As Double = 0.20
-Public Const DEVISE_DEFAUT As String = "EUR"
+Public Const TAUX_TVA As Double = 0.20  
+Public Const DEVISE_DEFAUT As String = "EUR"  
 
 ' Paramètres techniques
-Public Const REPERTOIRE_DONNEES As String = "C:\Données\"
-Public Const EXTENSION_BACKUP As String = ".bak"
+Public Const REPERTOIRE_DONNEES As String = "C:\Données\"  
+Public Const EXTENSION_BACKUP As String = ".bak"  
 ```
 
 ## Cas d'usage pratiques
@@ -539,7 +541,7 @@ Public Const EXTENSION_BACKUP As String = ".bak"
 ```vba
 Sub ConfigurerApplication()
     Const TITRE_FENETRE As String = "Gestion des Commandes v2.0"
-    Const COULEUR_THEME As Long = RGB(0, 120, 180)
+    Const COULEUR_THEME As Long = 11827200    ' Équivalent de RGB(0, 120, 180)
     Const POLICE_DEFAUT As String = "Calibri"
 
     Application.Caption = TITRE_FENETRE

@@ -38,9 +38,9 @@ La syntaxe, c'est la grammaire du langage VBA. Comme dans toute langue, il faut 
 
 **Exemples d'instructions simples :**
 ```vba
-Range("A1").Value = "Bonjour"        ' Mettre "Bonjour" dans la cellule A1
-Cells(1, 2).Value = 100              ' Mettre 100 dans la cellule B1
-Application.Calculate                ' Recalculer le classeur
+Range("A1").Value = "Bonjour"        ' Mettre "Bonjour" dans la cellule A1  
+Cells(1, 2).Value = 100              ' Mettre 100 dans la cellule B1  
+Application.Calculate                ' Recalculer le classeur  
 ```
 
 **Règle fondamentale :**
@@ -74,9 +74,9 @@ End Sub
 
 **VBA n'est PAS sensible à la casse :**
 ```vba
-range("A1").value = 10          ' Correct
-Range("A1").Value = 10          ' Correct (même chose)
-RANGE("A1").VALUE = 10          ' Correct (même chose)
+range("A1").value = 10          ' Correct  
+Range("A1").Value = 10          ' Correct (même chose)  
+RANGE("A1").VALUE = 10          ' Correct (même chose)  
 ```
 
 **Mais convention recommandée :**
@@ -164,9 +164,9 @@ Range("A1").Value = 10    ' Commentaire en fin de ligne
 
 **Guillemets doubles obligatoires :**
 ```vba
-Range("A1").Value = "Bonjour"           ' Correct
-Range("A1").Value = 'Bonjour'           ' INCORRECT en VBA
-Range("A1").Value = Bonjour             ' INCORRECT (variable non définie)
+Range("A1").Value = "Bonjour"           ' Correct  
+Range("A1").Value = 'Bonjour'           ' INCORRECT en VBA  
+Range("A1").Value = Bonjour             ' INCORRECT (variable non définie)  
 ```
 
 ### Chaînes contenant des guillemets
@@ -186,9 +186,9 @@ Range("A1").Value = "Il a dit ""Bonjour"" hier"
 Range("A1").Value = "Bonjour" & " " & "le monde"
 ' Résultat : Bonjour le monde
 
-Dim Nom As String
-Nom = "Pierre"
-Range("A1").Value = "Bonjour " & Nom
+Dim Nom As String  
+Nom = "Pierre"  
+Range("A1").Value = "Bonjour " & Nom  
 ' Résultat : Bonjour Pierre
 ```
 
@@ -198,17 +198,17 @@ Range("A1").Value = "Bonjour " & Nom
 
 **Syntaxe simple :**
 ```vba
-Range("A1").Value = 42              ' Nombre entier positif
-Range("A2").Value = -15             ' Nombre entier négatif
-Range("A3").Value = 0               ' Zéro
+Range("A1").Value = 42              ' Nombre entier positif  
+Range("A2").Value = -15             ' Nombre entier négatif  
+Range("A3").Value = 0               ' Zéro  
 ```
 
 ### Nombres décimaux
 
 **Utilisation du point décimal :**
 ```vba
-Range("A1").Value = 3.14159         ' Correct (point décimal)
-Range("A2").Value = 3,14159         ' INCORRECT en VBA (virgule française)
+Range("A1").Value = 3.14159         ' Correct (point décimal)  
+Range("A2").Value = 3,14159         ' INCORRECT en VBA (virgule française)  
 ```
 
 **Attention :** VBA utilise toujours le point décimal, même sur un système français !
@@ -217,8 +217,8 @@ Range("A2").Value = 3,14159         ' INCORRECT en VBA (virgule française)
 
 **Pour les très grands ou très petits nombres :**
 ```vba
-Range("A1").Value = 1.5E+10         ' 15 000 000 000
-Range("A2").Value = 2.3E-5          ' 0.000023
+Range("A1").Value = 1.5E+10         ' 15 000 000 000  
+Range("A2").Value = 2.3E-5          ' 0.000023  
 ```
 
 ## Syntaxe des opérateurs
@@ -227,8 +227,8 @@ Range("A2").Value = 2.3E-5          ' 0.000023
 
 **Symbole = :**
 ```vba
-Range("A1").Value = 10              ' Affecte 10 à la cellule A1
-MonNombre = 25                      ' Affecte 25 à la variable MonNombre
+Range("A1").Value = 10              ' Affecte 10 à la cellule A1  
+MonNombre = 25                      ' Affecte 25 à la variable MonNombre  
 ```
 
 **Attention :** L'affectation va toujours de droite vers gauche !
@@ -237,12 +237,12 @@ MonNombre = 25                      ' Affecte 25 à la variable MonNombre
 
 **Opérateurs de base :**
 ```vba
-Range("A1").Value = 10 + 5          ' Addition : 15
-Range("A2").Value = 10 - 3          ' Soustraction : 7
-Range("A3").Value = 4 * 6           ' Multiplication : 24
-Range("A4").Value = 15 / 3          ' Division : 5
-Range("A5").Value = 17 Mod 5        ' Modulo (reste) : 2
-Range("A6").Value = 2 ^ 3           ' Puissance : 8
+Range("A1").Value = 10 + 5          ' Addition : 15  
+Range("A2").Value = 10 - 3          ' Soustraction : 7  
+Range("A3").Value = 4 * 6           ' Multiplication : 24  
+Range("A4").Value = 15 / 3          ' Division : 5  
+Range("A5").Value = 17 Mod 5        ' Modulo (reste) : 2  
+Range("A6").Value = 2 ^ 3           ' Puissance : 8  
 ```
 
 ### Priorité des opérateurs
@@ -255,9 +255,9 @@ Range("A6").Value = 2 ^ 3           ' Puissance : 8
 
 **Exemples :**
 ```vba
-Range("A1").Value = 2 + 3 * 4       ' Résultat : 14 (pas 20 !)
-Range("A2").Value = (2 + 3) * 4     ' Résultat : 20
-Range("A3").Value = 10 / 2 * 3      ' Résultat : 15 (de gauche à droite)
+Range("A1").Value = 2 + 3 * 4       ' Résultat : 14 (pas 20 !)  
+Range("A2").Value = (2 + 3) * 4     ' Résultat : 20  
+Range("A3").Value = 10 / 2 * 3      ' Résultat : 15 (de gauche à droite)  
 ```
 
 ## Syntaxe des références de cellules
@@ -266,17 +266,17 @@ Range("A3").Value = 10 / 2 * 3      ' Résultat : 15 (de gauche à droite)
 
 **Syntaxe de base :**
 ```vba
-Range("A1")                         ' Une seule cellule
-Range("A1:C3")                      ' Plage de cellules
-Range("A:A")                        ' Colonne entière
-Range("1:1")                        ' Ligne entière
+Range("A1")                         ' Une seule cellule  
+Range("A1:C3")                      ' Plage de cellules  
+Range("A:A")                        ' Colonne entière  
+Range("1:1")                        ' Ligne entière  
 ```
 
 **Exemples d'utilisation :**
 ```vba
-Range("A1").Value = "Titre"         ' Mettre "Titre" en A1
-Range("A1:A10").ClearContents       ' Vider A1 à A10
-Range("B:B").Font.Bold = True       ' Mettre la colonne B en gras
+Range("A1").Value = "Titre"         ' Mettre "Titre" en A1  
+Range("A1:A10").ClearContents       ' Vider A1 à A10  
+Range("B:B").Font.Bold = True       ' Mettre la colonne B en gras  
 ```
 
 ### Notation Cells
@@ -288,15 +288,15 @@ Cells(ligne, colonne)
 
 **Exemples :**
 ```vba
-Cells(1, 1).Value = "A1"            ' Équivalent à Range("A1")
-Cells(2, 3).Value = "C2"            ' Équivalent à Range("C2")
-Cells(10, 1).Value = "A10"          ' Équivalent à Range("A10")
+Cells(1, 1).Value = "A1"            ' Équivalent à Range("A1")  
+Cells(2, 3).Value = "C2"            ' Équivalent à Range("C2")  
+Cells(10, 1).Value = "A10"          ' Équivalent à Range("A10")  
 ```
 
 **Avantage :** Utilisation avec variables
 ```vba
-Dim i As Integer
-For i = 1 To 10
+Dim i As Integer  
+For i = 1 To 10  
     Cells(i, 1).Value = i           ' Remplit A1 à A10 avec 1,2,3...10
 Next i
 ```
@@ -331,9 +331,9 @@ Range("A1").Value = 10: Range("B1").Value = 20: Range("C1").Value = 30
 
 **Préférable :**
 ```vba
-Range("A1").Value = 10
-Range("B1").Value = 20
-Range("C1").Value = 30
+Range("A1").Value = 10  
+Range("B1").Value = 20  
+Range("C1").Value = 30  
 ```
 
 ## Sensibilité aux espaces
@@ -342,26 +342,30 @@ Range("C1").Value = 30
 
 **Autour de certains opérateurs :**
 ```vba
-If x > 5 Then                       ' Espaces autour de > recommandés
-Dim MonNombre As Integer            ' Espace autour de As obligatoire
+If x > 5 Then                       ' Espaces autour de > recommandés  
+Dim MonNombre As Integer            ' Espace autour de As obligatoire  
 ```
 
 ### Espaces facultatifs
 
 **VBA est tolérant :**
 ```vba
-Range("A1").Value=10                ' Fonctionne
-Range("A1").Value = 10              ' Plus lisible (recommandé)
-Range( "A1" ).Value = 10            ' Fonctionne mais inhabituel
+Range("A1").Value=10                ' Fonctionne  
+Range("A1").Value = 10              ' Plus lisible (recommandé)  
+Range( "A1" ).Value = 10            ' Fonctionne mais inhabituel  
 ```
 
-### Espaces interdits
+### Espaces à éviter
 
-**Dans les identificateurs :**
+**Attention aux espaces avant les parenthèses :**
 ```vba
-Range("A1").Value = 10              ' Correct
-Range ("A1").Value = 10             ' INCORRECT (espace avant parenthèse)
+Range("A1").Value = 10              ' Correct  
+Range ("A1").Value = 10             ' Fonctionne ici, mais à éviter  
+MsgBox "Bonjour", vbOKOnly         ' Correct  
+MsgBox ("Bonjour"), vbOKOnly       ' Problème : les parenthèses changent l'interprétation  
 ```
+
+**Règle pratique :** N'ajoutez pas d'espace entre un nom de fonction/méthode et sa parenthèse ouvrante. Cela évite des erreurs subtiles, notamment lors des appels de procédures avec plusieurs arguments.
 
 ## Messages d'erreur de syntaxe
 
@@ -418,14 +422,14 @@ End Sub
 **Espacement logique :**
 ```vba
 ' Grouper les instructions liées
-Range("A1").Value = "Nom"
-Range("B1").Value = "Age"
-Range("C1").Value = "Ville"
+Range("A1").Value = "Nom"  
+Range("B1").Value = "Age"  
+Range("C1").Value = "Ville"  
 
 ' Ligne vide pour séparer les groupes
-Range("A2").Value = "Pierre"
-Range("B2").Value = 25
-Range("C2").Value = "Paris"
+Range("A2").Value = "Pierre"  
+Range("B2").Value = 25  
+Range("C2").Value = "Paris"  
 ```
 
 ### Nommage cohérent
@@ -486,14 +490,14 @@ Range("A1").Value = 10              ' VBA : Correct
 
 **Déclaration de type optionnelle :**
 ```vba
-Dim x                               ' Type Variant par défaut
-Dim y As Integer                    ' Type spécifié (recommandé)
+Dim x                               ' Type Variant par défaut  
+Dim y As Integer                    ' Type spécifié (recommandé)  
 ```
 
 **Insensibilité à la casse :**
 ```vba
-RANGE("A1").value = 10              ' Fonctionne
-range("a1").VALUE = 10              ' Fonctionne aussi
+RANGE("A1").value = 10              ' Fonctionne  
+range("a1").VALUE = 10              ' Fonctionne aussi  
 ```
 
 ## Résumé

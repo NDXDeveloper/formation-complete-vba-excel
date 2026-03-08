@@ -169,16 +169,16 @@ End Sub
 
 **Mauvais commentaire (évident) :**
 ```vba
-x = x + 1                    ' Ajoute 1 à x
-Range("A1").Value = "Test"   ' Met "Test" dans A1
-For i = 1 To 10             ' Boucle de 1 à 10
+x = x + 1                    ' Ajoute 1 à x  
+Range("A1").Value = "Test"   ' Met "Test" dans A1  
+For i = 1 To 10             ' Boucle de 1 à 10  
 ```
 
 **Bon commentaire (informatif) :**
 ```vba
-x = x + 1                    ' Passe au numéro de commande suivant
-Range("A1").Value = "Test"   ' Initialise l'en-tête du rapport
-For i = 1 To 10             ' Traite les 10 premiers clients VIP
+x = x + 1                    ' Passe au numéro de commande suivant  
+Range("A1").Value = "Test"   ' Initialise l'en-tête du rapport  
+For i = 1 To 10             ' Traite les 10 premiers clients VIP  
 ```
 
 ### Commentaires au bon niveau de détail
@@ -199,9 +199,9 @@ End If
 **Niveau approprié :**
 ```vba
 ' Vérification de la majorité pour validation du formulaire
-Dim Age As Integer
-Age = Range("A1").Value
-If Age > 18 Then
+Dim Age As Integer  
+Age = Range("A1").Value  
+If Age > 18 Then  
     MsgBox "Majeur"
 End If
 ```
@@ -224,15 +224,15 @@ Const TAUX_TVA As Double = 0.20
 
 **Redondant :**
 ```vba
-Dim Nom As String           ' Variable pour stocker le nom
-Nom = "Pierre"              ' Assigne "Pierre" à Nom
+Dim Nom As String           ' Variable pour stocker le nom  
+Nom = "Pierre"              ' Assigne "Pierre" à Nom  
 ```
 
 **Mieux :**
 ```vba
 ' Initialisation des données de test
-Dim Nom As String
-Nom = "Pierre"
+Dim Nom As String  
+Nom = "Pierre"  
 ```
 
 ## Commentaires pour la documentation
