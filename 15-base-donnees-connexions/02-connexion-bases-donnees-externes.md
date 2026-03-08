@@ -34,8 +34,8 @@ Access est souvent le premier contact avec les bases de données. C'est comme le
 
 ```vba
 ' Pour Access 2007 et plus récent (.accdb)
-Dim connectionString As String
-connectionString = "Provider=Microsoft.ACE.OLEDB.12.0;" & _
+Dim connectionString As String  
+connectionString = "Provider=Microsoft.ACE.OLEDB.12.0;" & _  
                   "Data Source=C:\MesDocuments\MaBase.accdb"
 
 ' Pour Access 2003 et antérieur (.mdb)

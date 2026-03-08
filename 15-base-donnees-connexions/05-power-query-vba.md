@@ -802,9 +802,22 @@ End Sub
 
 ### Export automatique après actualisation
 
+**Note :** L'événement `AfterRefresh` n'existe pas sur l'objet `Workbook`. Il appartient aux objets `QueryTable`. Pour déclencher un export après actualisation, utilisez l'événement au niveau du `QueryTable` dans le module de la feuille concernée :
+
 ```vba
-Private Sub Workbook_AfterRefresh(ByVal Success As Boolean)
-    ' Cet événement se déclenche après chaque actualisation Power Query
+' Dans le module de la feuille contenant le tableau lié à Power Query
+' Déclarer la variable WithEvents au niveau module
+Private WithEvents qt As QueryTable
+
+Private Sub Worksheet_Activate()
+    ' Associer le QueryTable au premier ListObject de la feuille
+    If Me.ListObjects.Count > 0 Then
+        Set qt = Me.ListObjects(1).QueryTable
+    End If
+End Sub
+
+Private Sub qt_AfterRefresh(ByVal Success As Boolean)
+    ' Cet événement se déclenche après chaque actualisation du QueryTable
 
     If Success Then
         ' Actualisation réussie - exporter automatiquement
@@ -1352,7 +1365,7 @@ Sub AjouterStatistiques(ws As Worksheet, ligneDebut As Integer)
     End If
 
     ws.Cells(ligne, 1).Value = "Taux de réussite :"
-    ws.Cells(ligne, 2).Value = pourcentageReussite
+    ws.Cells(ligne, 2).Value = pourcentageReussite / 100 ' Format % multiplie par 100
     ws.Cells(ligne, 2).NumberFormat = "0.0%"
 
     If pourcentageReussite >= 90 Then

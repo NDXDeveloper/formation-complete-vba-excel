@@ -21,8 +21,8 @@ Avec VBA, vous pouvez construire et exécuter des requêtes SQL dynamiquement, c
 **Sans SQL (inefficace) :**
 ```vba
 ' Charger TOUTE la table puis filtrer dans Excel
-Set rs = conn.Execute("SELECT * FROM Commandes")  ' 100 000 lignes !
-Do While Not rs.EOF
+Set rs = conn.Execute("SELECT * FROM Commandes")  ' 100 000 lignes !  
+Do While Not rs.EOF  
     If rs.Fields("DateCommande") >= DateAdd("m", -1, Date) Then
         ' Traiter seulement ces lignes...
     End If
@@ -33,8 +33,8 @@ Loop
 **Avec SQL (efficace) :**
 ```vba
 ' Récupérer seulement ce qui nous intéresse
-sql = "SELECT * FROM Commandes WHERE DateCommande >= DATEADD(month, -1, GETDATE())"
-Set rs = conn.Execute(sql)  ' Peut-être 500 lignes seulement !
+sql = "SELECT * FROM Commandes WHERE DateCommande >= DATEADD(month, -1, GETDATE())"  
+Set rs = conn.Execute(sql)  ' Peut-être 500 lignes seulement !  
 ```
 
 ## Les types de requêtes SQL
@@ -51,10 +51,10 @@ Pour **récupérer** des données. C'est comme demander : "Montre-moi..."
 
 ### Structure générale
 ```sql
-SELECT colonnes
-FROM table
-WHERE conditions
-ORDER BY tri
+SELECT colonnes  
+FROM table  
+WHERE conditions  
+ORDER BY tri  
 ```
 
 ### Exemple simple
@@ -584,7 +584,7 @@ Sub SupprimerAnciennesCommandes()
 
         ' Suppression des anciennes commandes
         sql = "DELETE FROM Commandes " & _
-              "WHERE DateCommande < DATEADD('y', -2, NOW())"
+              "WHERE DateCommande < DATEADD('yyyy', -2, NOW())"
 
         conn.Execute sql
 
@@ -751,7 +751,7 @@ End Sub
 
 ### Bonnes pratiques
 ```vba
-Sub BonnesPratiquesPerfomance()
+Sub BonnesPratiquesPerformance()
     Dim sql As String
 
     ' ✅ Bon : Sélectionner seulement les colonnes nécessaires
@@ -785,7 +785,10 @@ Sub MesurerPerformance()
 
     debut = Now()
 
-    Set rs = conn.Execute("SELECT * FROM GrosseTable WHERE Condition = 'Valeur'")
+    ' Utiliser un curseur statique pour obtenir RecordCount
+    Set rs = New ADODB.Recordset
+    rs.Open "SELECT * FROM GrosseTable WHERE Condition = 'Valeur'", conn, _
+            adOpenStatic, adLockReadOnly
 
     fin = Now()
 

@@ -110,8 +110,8 @@ Set rs = conn.Execute(sql)
 Exécute la requête et stocke le résultat dans un Recordset.
 
 ```vba
-rs.Close
-conn.Close
+rs.Close  
+conn.Close  
 ```
 Ferme proprement les objets (comme raccrocher le téléphone).
 
@@ -264,16 +264,16 @@ Set rs = conn.Execute("SELECT * FROM Clients")
 
 ### Curseur plus flexible
 ```vba
-Dim rs As ADODB.Recordset
-Set rs = New ADODB.Recordset
+Dim rs As ADODB.Recordset  
+Set rs = New ADODB.Recordset  
 
 rs.Open "SELECT * FROM Clients", conn, adOpenKeyset, adLockOptimistic
 
 ' Maintenant vous pouvez :
-rs.MoveFirst  ' Aller au premier
-rs.MoveLast   ' Aller au dernier
-rs.MovePrevious  ' Reculer d'un
-rs.MoveNext   ' Avancer d'un
+rs.MoveFirst  ' Aller au premier  
+rs.MoveLast   ' Aller au dernier  
+rs.MovePrevious  ' Reculer d'un  
+rs.MoveNext   ' Avancer d'un  
 ```
 
 ## Modification de données
@@ -315,7 +315,10 @@ Sub ModifierClient()
     Set conn = New ADODB.Connection
     conn.Open "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\MaBase.accdb"
 
-    Set rs = conn.Execute("SELECT * FROM Clients WHERE NomClient = 'Dupont'")
+    ' Ouvrir un Recordset modifiable (pas conn.Execute qui est en lecture seule)
+    Set rs = New ADODB.Recordset
+    rs.Open "SELECT * FROM Clients WHERE NomClient = 'Dupont'", conn, _
+            adOpenKeyset, adLockOptimistic
 
     If Not rs.EOF Then
         rs.Fields("Ville").Value = "Lyon"
@@ -360,6 +363,7 @@ sql = "SELECT NomClient, Ville FROM Clients WHERE Actif = True"
 ' Pour plusieurs opérations, réutilisez la même connexion
 Sub OperationsMultiples()
     Dim conn As ADODB.Connection
+    Dim rs As ADODB.Recordset
     Set conn = New ADODB.Connection
     conn.Open "votre_chaine_de_connexion"
 
@@ -368,6 +372,9 @@ Sub OperationsMultiples()
 
     ' Opération 2
     Set rs = conn.Execute("SELECT COUNT(*) FROM Clients")
+    Debug.Print "Nombre de clients : " & rs.Fields(0).Value
+    rs.Close
+    Set rs = Nothing
 
     ' Une seule fermeture à la fin
     conn.Close

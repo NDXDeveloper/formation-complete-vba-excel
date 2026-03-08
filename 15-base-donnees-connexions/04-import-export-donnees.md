@@ -403,11 +403,6 @@ Sub ExporterPlusieursFeuilles()
 
     Set nouveauClasseur = Workbooks.Add
 
-    ' Supprimer la feuille par défaut
-    Application.DisplayAlerts = False
-    nouveauClasseur.Worksheets(1).Delete
-    Application.DisplayAlerts = True
-
     nbFeuillesExportees = 0
 
     For Each feuille In ThisWorkbook.Worksheets
@@ -430,6 +425,13 @@ Sub ExporterPlusieursFeuilles()
     Next feuille
 
     Application.CutCopyMode = False
+
+    ' Supprimer la feuille par défaut (après avoir ajouté les autres)
+    If nbFeuillesExportees > 0 Then
+        Application.DisplayAlerts = False
+        nouveauClasseur.Worksheets("Feuil1").Delete
+        Application.DisplayAlerts = True
+    End If
 
     If nbFeuillesExportees > 0 Then
         cheminSauvegarde = Application.GetSaveAsFilename( _
@@ -605,7 +607,7 @@ Sub ExporterVersAccess()
 
     ' Insérer les données (en ignorant la première ligne d'en-têtes)
     For ligne = 2 To feuille.UsedRange.Rows.Count
-        Dim val1, val2, val3 As String
+        Dim val1 As String, val2 As String, val3 As String
         val1 = SecuriserChaine(CStr(feuille.Cells(ligne, 1).Value))
         val2 = SecuriserChaine(CStr(feuille.Cells(ligne, 2).Value))
         val3 = SecuriserChaine(CStr(feuille.Cells(ligne, 3).Value))
@@ -1021,37 +1023,27 @@ Sub ImportParChunks()
               "Data Source=" & cheminFichier & ";" & _
               "Extended Properties=""Excel 12.0 Xml;HDR=Yes"""
 
-    Do
-        ' Requête avec limitation
-        Dim sql As String
-        sql = "SELECT TOP " & tailleChunk & " * FROM [Feuil1$]"
-        ' Note : Cette approche est simplifiée. En réalité, SQL ne permet pas
-        ' facilement de faire du "OFFSET" avec Excel/Access
+    ' Charger toutes les lignes en une seule requête
+    Set rs = conn.Execute("SELECT * FROM [Feuil1$]")
 
-        Set rs = conn.Execute(sql)
+    ' Traitement par chunks : écrire dans Excel par blocs
+    Do While Not rs.EOF
+        Dim col As Integer
+        For col = 0 To rs.Fields.Count - 1
+            Cells(ligneActuelle, col + 1).Value = rs.Fields(col).Value
+        Next col
 
-        If rs.EOF Then Exit Do
+        ligneActuelle = ligneActuelle + 1
+        rs.MoveNext
 
-        ' Traitement du chunk
-        Do While Not rs.EOF
-            Dim col As Integer
-            For col = 0 To rs.Fields.Count - 1
-                Cells(ligneActuelle, col + 1).Value = rs.Fields(col).Value
-            Next col
-
-            ligneActuelle = ligneActuelle + 1
-            rs.MoveNext
-        Loop
-
-        rs.Close
-
-        ' Afficher le progrès
-        Application.StatusBar = "Import en cours : " & ligneActuelle & " lignes traitées"
-
-        ' Permettre à Windows de respirer
-        DoEvents
-
+        ' Rafraîchir l'affichage tous les tailleChunk enregistrements
+        If ligneActuelle Mod tailleChunk = 0 Then
+            Application.StatusBar = "Import en cours : " & ligneActuelle & " lignes traitées"
+            DoEvents ' Permettre à l'interface de se rafraîchir
+        End If
     Loop
+
+    rs.Close
 
     ' Réactiver les fonctionnalités
     Application.ScreenUpdating = True
@@ -1237,13 +1229,14 @@ End Sub
 
 ```vba
 Function DetecterTypeFichier(cheminFichier As String) As String
+    ' Extraire l'extension complète (après le dernier point)
     Dim extension As String
-    extension = LCase(Right(cheminFichier, 4))
+    extension = LCase(Mid(cheminFichier, InStrRev(cheminFichier, ".")))
 
     Select Case extension
         Case ".xls"
             DetecterTypeFichier = "Excel2003"
-        Case "xlsx"
+        Case ".xlsx"
             DetecterTypeFichier = "Excel2007+"
         Case ".csv"
             DetecterTypeFichier = "CSV"
