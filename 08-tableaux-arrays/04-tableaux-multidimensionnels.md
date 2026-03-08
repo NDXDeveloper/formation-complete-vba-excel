@@ -25,9 +25,9 @@ Un tableau 2D est comme une **grille** ou une **matrice** avec des lignes et des
 ```
 Visualisation d'un tableau 2D (3x4) :
         Col1  Col2  Col3  Col4
-Ligne1:  A     B     C     D
-Ligne2:  E     F     G     H
-Ligne3:  I     J     K     L
+Ligne1:  A     B     C     D  
+Ligne2:  E     F     G     H  
+Ligne3:  I     J     K     L  
 ```
 
 ### Déclaration et initialisation
@@ -167,11 +167,11 @@ End Sub
 Un tableau 3D ajoute une **troisième dimension** comme des "couches" ou des "niveaux". C'est comme avoir plusieurs grilles 2D empilées les unes sur les autres.
 
 ```
-Visualisation d'un tableau 3D (2x3x2) :
-Couche 1:          Couche 2:
+Visualisation d'un tableau 3D (2x3x2) :  
+Couche 1:          Couche 2:  
   C1  C2  C3         C1  C2  C3
-L1 A   B   C      L1 G   H   I
-L2 D   E   F      L2 J   K   L
+L1 A   B   C      L1 G   H   I  
+L2 D   E   F      L2 J   K   L  
 ```
 
 ### Déclaration et utilisation
@@ -627,7 +627,7 @@ End Sub
 ### 1. Ordre des boucles pour la performance
 
 ```vba
-Sub OptimisationOrdreBoules()
+Sub OptimisationOrdreBoucles()
     Dim donnees(1 To 1000, 1 To 1000) As Double
     Dim debut As Double
 
@@ -980,7 +980,7 @@ End Sub
 ### 3. Agrégation de données multidimensionnelles
 
 ```vba
-Sub AgregatonDonnees()
+Sub AgregationDonnees()
     ' Simulation de données de ventes 3D : mois x région x produit
     Dim ventes(1 To 12, 1 To 5, 1 To 3) As Double
 

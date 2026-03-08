@@ -217,17 +217,18 @@ Sub AjouterElementsUnParUn()
     Dim taille As Integer
     taille = 0
 
-    ' Fonction pour ajouter un nom
-    Sub AjouterNom(nom As String)
-        taille = taille + 1
-        ReDim Preserve noms(1 To taille)
-        noms(taille) = nom
-    End Sub
+    ' Ajouter des noms un par un
+    taille = taille + 1
+    ReDim Preserve noms(1 To taille)
+    noms(taille) = "Alice"
 
-    ' Utilisation
-    Call AjouterNom("Alice")
-    Call AjouterNom("Bob")
-    Call AjouterNom("Claire")
+    taille = taille + 1
+    ReDim Preserve noms(1 To taille)
+    noms(taille) = "Bob"
+
+    taille = taille + 1
+    ReDim Preserve noms(1 To taille)
+    noms(taille) = "Claire"
 
     Debug.Print "Nombre de noms : " & taille
     Dim i As Integer
@@ -237,6 +238,8 @@ Sub AjouterElementsUnParUn()
 End Sub
 ```
 
+> **Note :** Pour éviter la répétition, créez une procédure séparée (voir section 8.2 pour un exemple avec `AjouterElement`).
+
 #### 2. **Agrandissement par blocs (plus efficace)**
 
 ```vba
@@ -245,13 +248,18 @@ Sub AgrandissementParBlocs()
     Dim tailleUtilisee As Integer
     Dim tailleAllouee As Integer
     Dim tailleBloc As Integer
+    Dim valeur As Double
 
     tailleUtilisee = 0
     tailleAllouee = 0
     tailleBloc = 5  ' Grandir par blocs de 5
 
-    ' Fonction pour ajouter une valeur
-    Sub AjouterValeur(valeur As Double)
+    ' Simuler l'ajout de 6 valeurs
+    Dim valeursAjout As Variant
+    valeursAjout = Array(1.5, 2.7, 3.9, 4.2, 5.8, 6.1)
+
+    Dim i As Integer
+    For i = LBound(valeursAjout) To UBound(valeursAjout)
         tailleUtilisee = tailleUtilisee + 1
 
         ' Agrandir seulement si nécessaire
@@ -261,16 +269,8 @@ Sub AgrandissementParBlocs()
             Debug.Print "Agrandi à " & tailleAllouee & " éléments"
         End If
 
-        donnees(tailleUtilisee) = valeur
-    End Sub
-
-    ' Ajouter plusieurs valeurs
-    Call AjouterValeur(1.5)
-    Call AjouterValeur(2.7)
-    Call AjouterValeur(3.9)
-    Call AjouterValeur(4.2)
-    Call AjouterValeur(5.8)
-    Call AjouterValeur(6.1)  ' Déclenche un agrandissement
+        donnees(tailleUtilisee) = valeursAjout(i)
+    Next i
 
     Debug.Print "Utilisé : " & tailleUtilisee & " / Alloué : " & tailleAllouee
 End Sub
@@ -475,7 +475,7 @@ Sub EstimationTaille()
 
     ' Allouer directement la bonne taille (ou légèrement plus)
     Dim donnees() As Variant
-    ReDim donnees(1 To nbLignes * 1.1)  ' 10% de marge
+    ReDim donnees(1 To CLng(nbLignes * 1.1))  ' 10% de marge
 
     ' Remplir sans redimensionnement
     Dim i As Long
@@ -494,8 +494,8 @@ End Sub
 
 ```vba
 ' Variables globales pour le pool
-Dim poolTableaux(1 To 10) As Variant
-Dim poolUtilise(1 To 10) As Boolean
+Dim poolTableaux(1 To 10) As Variant  
+Dim poolUtilise(1 To 10) As Boolean  
 
 Function ObtenirTableauDuPool(taille As Integer) As Integer
     ' Chercher un tableau libre dans le pool
@@ -586,48 +586,48 @@ End Sub
 
 ```vba
 ' Dans un module de classe nommé "TableauDynamique"
-Private donnees() As Variant
-Private taille As Long
-Private capacite As Long
+Private mDonnees() As Variant  
+Private mTaille As Long  
+Private mCapacite As Long  
 
 Public Sub Initialiser(Optional tailleInitiale As Long = 10)
-    taille = 0
-    capacite = tailleInitiale
-    ReDim donnees(1 To capacite)
+    mTaille = 0
+    mCapacite = tailleInitiale
+    ReDim mDonnees(1 To mCapacite)
 End Sub
 
 Public Sub Ajouter(valeur As Variant)
-    taille = taille + 1
+    mTaille = mTaille + 1
 
     ' Agrandir si nécessaire
-    If taille > capacite Then
-        capacite = capacite * 2  ' Doubler la capacité
-        ReDim Preserve donnees(1 To capacite)
+    If mTaille > mCapacite Then
+        mCapacite = mCapacite * 2  ' Doubler la capacité
+        ReDim Preserve mDonnees(1 To mCapacite)
     End If
 
-    donnees(taille) = valeur
+    mDonnees(mTaille) = valeur
 End Sub
 
 Public Function Obtenir(index As Long) As Variant
-    If index >= 1 And index <= taille Then
-        Obtenir = donnees(index)
+    If index >= 1 And index <= mTaille Then
+        Obtenir = mDonnees(index)
     Else
         Err.Raise 9, , "Index hors limites"
     End If
 End Function
 
 Public Property Get Taille() As Long
-    Taille = taille
+    Taille = mTaille
 End Property
 
-' Utilisation de la classe
+' Utilisation de la classe (dans un module standard)
 Sub UtiliserClasseTableau()
     Dim monTableau As New TableauDynamique
 
-    Call monTableau.Initialiser(5)
-    Call monTableau.Ajouter("Premier")
-    Call monTableau.Ajouter("Deuxième")
-    Call monTableau.Ajouter("Troisième")
+    monTableau.Initialiser 5
+    monTableau.Ajouter "Premier"
+    monTableau.Ajouter "Deuxième"
+    monTableau.Ajouter "Troisième"
 
     Debug.Print "Élément 2 : " & monTableau.Obtenir(2)
     Debug.Print "Taille : " & monTableau.Taille
@@ -650,7 +650,7 @@ Sub PlanificationCroissance()
     tailleEstimee = InputBox("Combien d'éléments prévoyez-vous ?", "Estimation", "10")
 
     ' Allouer avec une marge
-    ReDim donneesUtilisateur(1 To tailleEstimee * 1.2)  ' 20% de marge
+    ReDim donneesUtilisateur(1 To CLng(tailleEstimee * 1.2))  ' 20% de marge
 
     Debug.Print "Tableau préparé pour " & UBound(donneesUtilisateur) & " éléments"
 End Sub
@@ -664,18 +664,21 @@ Sub LoggingRedimensionnements()
     Dim compteurRedim As Integer
     compteurRedim = 0
 
-    ' Fonction pour redimensionner avec log
-    Sub RedimAvecLog(nouvelleTaille As Integer)
-        compteurRedim = compteurRedim + 1
-        ReDim Preserve tableau(1 To nouvelleTaille)
-        Debug.Print "ReDim #" & compteurRedim & " : nouvelle taille = " & nouvelleTaille
-    End Sub
-
-    ' Utilisation
+    ' Initialisation
     ReDim tableau(1 To 5)
-    Call RedimAvecLog(10)
-    Call RedimAvecLog(15)
-    Call RedimAvecLog(20)
+
+    ' Redimensionnement avec log
+    compteurRedim = compteurRedim + 1
+    ReDim Preserve tableau(1 To 10)
+    Debug.Print "ReDim #" & compteurRedim & " : nouvelle taille = 10"
+
+    compteurRedim = compteurRedim + 1
+    ReDim Preserve tableau(1 To 15)
+    Debug.Print "ReDim #" & compteurRedim & " : nouvelle taille = 15"
+
+    compteurRedim = compteurRedim + 1
+    ReDim Preserve tableau(1 To 20)
+    Debug.Print "ReDim #" & compteurRedim & " : nouvelle taille = 20"
 
     Debug.Print "Total de redimensionnements : " & compteurRedim
 End Sub

@@ -28,8 +28,8 @@ Au lieu de créer des dizaines de variables individuelles, vous pouvez stocker t
 
 ```vba
 ' SANS tableau - fastidieux et peu pratique
-Dim note1 As Integer, note2 As Integer, note3 As Integer
-Dim note4 As Integer, note5 As Integer, note6 As Integer
+Dim note1 As Integer, note2 As Integer, note3 As Integer  
+Dim note4 As Integer, note5 As Integer, note6 As Integer  
 ' ... et ainsi de suite pour 50 étudiants
 
 ' AVEC tableau - simple et élégant
@@ -41,12 +41,12 @@ Les tableaux permettent de traiter facilement de grandes quantités de données 
 
 ```vba
 ' Calculer la moyenne de 50 notes avec une simple boucle
-Dim somme As Double
-For i = 1 To 50
+Dim somme As Double  
+For i = 1 To 50  
     somme = somme + notes(i)
-Next i
-Dim moyenne As Double
-moyenne = somme / 50
+Next i  
+Dim moyenne As Double  
+moyenne = somme / 50  
 ```
 
 #### 3. **Performance exceptionnelle**
@@ -59,12 +59,12 @@ For i = 1 To 1000
 Next i
 
 ' RAPIDE : Utilisation d'un tableau
-Dim donnees As Variant
-donnees = Range("A1:A1000").Value  ' Charger dans un tableau
-For i = 1 To 1000
+Dim donnees As Variant  
+donnees = Range("A1:A1000").Value  ' Charger dans un tableau  
+For i = 1 To 1000  
     donnees(i, 1) = donnees(i, 1) * 2
-Next i
-Range("A1:A1000").Value = donnees  ' Réécrire en une fois
+Next i  
+Range("A1:A1000").Value = donnees  ' Réécrire en une fois  
 ```
 
 ### Types de tableaux en VBA
@@ -72,17 +72,17 @@ Range("A1:A1000").Value = donnees  ' Réécrire en une fois
 #### Tableaux à une dimension (1D)
 Comme une liste ou une colonne :
 ```
-Index:  1    2    3    4    5
-Valeur: 10   25   30   15   40
+Index:  1    2    3    4    5  
+Valeur: 10   25   30   15   40  
 ```
 
 #### Tableaux à deux dimensions (2D)
 Comme un tableau Excel avec lignes et colonnes :
 ```
         Col1  Col2  Col3
-Ligne1:  10    20    30
-Ligne2:  40    50    60
-Ligne3:  70    80    90
+Ligne1:  10    20    30  
+Ligne2:  40    50    60  
+Ligne3:  70    80    90  
 ```
 
 #### Tableaux multidimensionnels

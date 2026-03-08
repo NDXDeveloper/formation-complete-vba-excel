@@ -140,7 +140,7 @@ End Sub
 La recherche la plus simple : examiner chaque élément jusqu'à trouver celui recherché.
 
 ```vba
-Function RechercheLineaire(tableau() As Variant, valeurCherchee As Variant) As Integer
+Function RechercheLineaire(ByRef tableau As Variant, valeurCherchee As Variant) As Integer
     ' Retourne l'indice de la première occurrence, ou -1 si non trouvé
 
     Dim i As Integer
@@ -232,7 +232,7 @@ End Sub
 Trouver toutes les positions où apparaît une valeur.
 
 ```vba
-Function RechercherToutesOccurrences(tableau() As Variant, valeur As Variant) As Variant
+Function RechercherToutesOccurrences(ByRef tableau As Variant, valeur As Variant) As Variant
     ' Retourne un tableau avec tous les indices où la valeur apparaît
 
     Dim resultats() As Integer
@@ -299,7 +299,7 @@ End Sub
 L'algorithme de tri le plus simple : comparer des éléments adjacents et les échanger si nécessaire.
 
 ```vba
-Sub TriBulles(tableau() As Variant)
+Sub TriBulles(ByRef tableau As Variant)
     ' Tri croissant par bulles
     Dim n As Integer
     n = UBound(tableau) - LBound(tableau) + 1
@@ -347,7 +347,7 @@ End Sub
 Trouve répétitivement le plus petit élément et le place à sa position finale.
 
 ```vba
-Sub TriSelection(tableau() As Variant)
+Sub TriSelection(ByRef tableau As Variant)
     ' Tri croissant par sélection
     Dim i As Integer, j As Integer
     Dim indexMin As Integer
@@ -455,7 +455,7 @@ End Sub
 Extraire les éléments qui répondent à certains critères.
 
 ```vba
-Function FiltrerTableau(tableau() As Variant, critere As String, valeurSeuil As Variant) As Variant
+Function FiltrerTableau(ByRef tableau As Variant, critere As String, valeurSeuil As Variant) As Variant
     ' Filtrer selon différents critères : ">", "<", "=", "<>", ">=", "<="
 
     Dim resultatsTemp() As Variant
@@ -556,7 +556,7 @@ End Sub
 Appliquer une fonction à chaque élément d'un tableau.
 
 ```vba
-Function TransformerTableau(tableau() As Variant, operation As String, parametre As Variant) As Variant
+Function TransformerTableau(ByRef tableau As Variant, operation As String, parametre As Variant) As Variant
     ' Appliquer une transformation à chaque élément
 
     Dim resultat() As Variant
@@ -618,7 +618,7 @@ End Sub
 Calculer des valeurs statistiques sur les tableaux.
 
 ```vba
-Function CalculerStatistiques(tableau() As Variant) As Variant
+Function CalculerStatistiques(ByRef tableau As Variant) As Variant
     ' Retourne un tableau avec : minimum, maximum, somme, moyenne, médiane
 
     If UBound(tableau) < LBound(tableau) Then
@@ -705,7 +705,7 @@ End Sub
 Combiner plusieurs tableaux en un seul.
 
 ```vba
-Function FusionnerTableaux(tableau1() As Variant, tableau2() As Variant) As Variant
+Function FusionnerTableaux(ByRef tableau1 As Variant, ByRef tableau2 As Variant) As Variant
     ' Fusionner deux tableaux en un seul
 
     Dim taille1 As Integer, taille2 As Integer
@@ -755,7 +755,7 @@ End Sub
 Supprimer des éléments selon différents critères.
 
 ```vba
-Function SupprimerElements(tableau() As Variant, valeurASupprimer As Variant) As Variant
+Function SupprimerElements(ByRef tableau As Variant, valeurASupprimer As Variant) As Variant
     ' Supprimer toutes les occurrences d'une valeur
 
     Dim compteurNouveaux As Integer
@@ -790,7 +790,7 @@ Function SupprimerElements(tableau() As Variant, valeurASupprimer As Variant) As
     SupprimerElements = resultat
 End Function
 
-Function SupprimerDoublons(tableau() As Variant) As Variant
+Function SupprimerDoublons(ByRef tableau As Variant) As Variant
     ' Supprimer les doublons en gardant la première occurrence
 
     Dim resultatsTemp() As Variant
@@ -863,7 +863,7 @@ End Sub
 Manipuler l'ordre des éléments dans un tableau.
 
 ```vba
-Sub InverserTableau(tableau() As Variant)
+Sub InverserTableau(ByRef tableau As Variant)
     ' Inverser l'ordre des éléments dans le tableau
 
     Dim debut As Integer, fin As Integer
@@ -884,7 +884,7 @@ Sub InverserTableau(tableau() As Variant)
     Loop
 End Sub
 
-Function RoterTableau(tableau() As Variant, positions As Integer) As Variant
+Function RoterTableau(ByRef tableau As Variant, positions As Integer) As Variant
     ' Faire une rotation des éléments vers la droite
 
     Dim taille As Integer
@@ -1136,9 +1136,9 @@ End Sub
 
 ```vba
 ' Variables globales pour le cache
-Dim cacheCalculs() As Double
-Dim cacheIndices() As Integer
-Dim cacheInitialise As Boolean
+Dim cacheCalculs() As Double  
+Dim cacheIndices() As Integer  
+Dim cacheInitialise As Boolean  
 
 Function CalculAvecCache(valeur As Integer) As Double
     ' Fonction coûteuse qui bénéficie d'un cache
@@ -1345,10 +1345,10 @@ Next i
 
 ### Erreurs courantes à éviter
 
-❌ **Modifier un tableau pendant un For Each**
-❌ **Oublier de vérifier les limites de tableau**
-❌ **Redimensionner répétitivement sans stratégie**
-❌ **Accéder à Excel cellule par cellule pour de gros volumes**
+❌ **Modifier un tableau pendant un For Each**  
+❌ **Oublier de vérifier les limites de tableau**  
+❌ **Redimensionner répétitivement sans stratégie**  
+❌ **Accéder à Excel cellule par cellule pour de gros volumes**  
 ❌ **Ne pas gérer les tableaux vides**
 
 ### Conseils pour débuter

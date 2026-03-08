@@ -293,19 +293,19 @@ Sub OptimisationMemoire()
     Dim donnees() As Double
 
     ' Lire le nombre de lignes dans Excel
-    Dim dernirereLigne As Long
-    dernirereLigne = Cells(Rows.Count, 1).End(xlUp).Row
+    Dim derniereLigne As Long
+    derniereLigne = Cells(Rows.Count, 1).End(xlUp).Row
 
     ' Allouer exactement la mémoire nécessaire
-    ReDim donnees(1 To dernirereLigne)
+    ReDim donnees(1 To derniereLigne)
 
     ' Charger les données
     Dim i As Long
-    For i = 1 To dernirereLigne
+    For i = 1 To derniereLigne
         donnees(i) = Cells(i, 1).Value
     Next i
 
-    Debug.Print "Mémoire utilisée optimalement pour " & dernirereLigne & " éléments"
+    Debug.Print "Mémoire utilisée optimalement pour " & derniereLigne & " éléments"
 End Sub
 ```
 
@@ -584,8 +584,8 @@ End Sub
 
 ✅ **La taille est connue et constante**
 ```vba
-Dim joursSemaine(1 To 7) As String
-Dim moisAnnee(1 To 12) As String
+Dim joursSemaine(1 To 7) As String  
+Dim moisAnnee(1 To 12) As String  
 ```
 
 ✅ **Performance maximale requise**
@@ -642,16 +642,16 @@ Dim resultatsRecherche() As Variant  ' Varie selon critères
 #### Tableau statique type
 ```vba
 ' Quand la taille est connue et fixe
-Dim donnees(1 To NB_ELEMENTS) As Type
-donnees(1) = valeur1
+Dim donnees(1 To NB_ELEMENTS) As Type  
+donnees(1) = valeur1  
 ' ... utilisation directe
 ```
 
 #### Tableau dynamique type
 ```vba
 ' Quand la taille varie
-Dim donnees() As Type
-ReDim donnees(1 To tailleCalculee)
+Dim donnees() As Type  
+ReDim donnees(1 To tailleCalculee)  
 ' ou ReDim Preserve pour agrandir
 ```
 

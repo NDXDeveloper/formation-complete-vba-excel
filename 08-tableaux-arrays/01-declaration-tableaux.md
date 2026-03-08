@@ -469,7 +469,7 @@ Sub ErreurTypes()
     Dim nombres(1 To 5) As Integer
 
     ' ❌ PROBLÈME : Perte de précision
-    nombres(1) = 3.14  ' Devient 3 (troncature)
+    nombres(1) = 3.14  ' Devient 3 (arrondi, pas troncature)
 
     ' ❌ ERREUR : Type incompatible
     ' nombres(2) = "Texte"  ' Provoque "Type mismatch"
