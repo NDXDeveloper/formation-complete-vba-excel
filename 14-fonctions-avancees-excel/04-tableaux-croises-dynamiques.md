@@ -20,17 +20,17 @@ Un TCD peut instantanément vous dire :
 - 🗺️ Quelle région performe le mieux ?
 - 📱 Quel produit se vend le plus ?
 
-**Sans VBA :** Vous créez manuellement chaque TCD, un par un.
-**Avec VBA :** Vous automatisez la création de dizaines de TCD en quelques secondes !
+**Sans VBA :** Vous créez manuellement chaque TCD, un par un.  
+**Avec VBA :** Vous automatisez la création de dizaines de TCD en quelques secondes !  
 
 ## Pourquoi automatiser les TCD avec VBA ?
 
 ### Avantages de l'automatisation
 
-✅ **Gain de temps** : Créer plusieurs analyses en une fois
-✅ **Reproductibilité** : Même analyse chaque mois/semaine
-✅ **Cohérence** : Toujours la même mise en forme
-✅ **Actualisation automatique** : Données toujours à jour
+✅ **Gain de temps** : Créer plusieurs analyses en une fois  
+✅ **Reproductibilité** : Même analyse chaque mois/semaine  
+✅ **Cohérence** : Toujours la même mise en forme  
+✅ **Actualisation automatique** : Données toujours à jour  
 ✅ **Rapports standardisés** : Format uniforme pour toute l'équipe
 
 ### Cas d'usage typiques
@@ -53,10 +53,10 @@ Un TCD peut instantanément vous dire :
 └─────────────────┴─────────────────┘
 ```
 
-**Zone FILTRES** : Filtre général sur toutes les données
-**Zone LIGNES** : Ce qui apparaît en lignes (ex: Produits)
-**Zone COLONNES** : Ce qui apparaît en colonnes (ex: Mois)
-**Zone VALEURS** : Les calculs (ex: Somme des ventes)
+**Zone FILTRES** : Filtre général sur toutes les données  
+**Zone LIGNES** : Ce qui apparaît en lignes (ex: Produits)  
+**Zone COLONNES** : Ce qui apparaît en colonnes (ex: Mois)  
+**Zone VALEURS** : Les calculs (ex: Somme des ventes)  
 
 ## Votre premier TCD en VBA
 
@@ -70,18 +70,21 @@ Sub PreparerDonneesVentes()
     ' En-têtes
     ws.Range("A1:E1").Value = Array("Date", "Vendeur", "Produit", "Région", "Montant")
 
-    ' Quelques données d'exemple
-    ws.Range("A2:E11").Value = Array( _
-        Array("01/01/2024", "Pierre", "Ordinateur", "Nord", 1200), _
-        Array("02/01/2024", "Marie", "Souris", "Sud", 25), _
-        Array("03/01/2024", "Paul", "Clavier", "Est", 45), _
-        Array("04/01/2024", "Pierre", "Écran", "Nord", 300), _
-        Array("05/01/2024", "Marie", "Ordinateur", "Sud", 1100), _
-        Array("06/01/2024", "Paul", "Souris", "Est", 30), _
-        Array("07/01/2024", "Pierre", "Clavier", "Nord", 50), _
-        Array("08/01/2024", "Marie", "Écran", "Sud", 280), _
-        Array("09/01/2024", "Paul", "Ordinateur", "Est", 1250), _
-        Array("10/01/2024", "Pierre", "Souris", "Nord", 28))
+    ' Quelques données d'exemple (remplissage colonne par colonne)
+    ws.Range("A2:A11").Value = Application.Transpose(Array( _
+        "01/01/2024", "02/01/2024", "03/01/2024", "04/01/2024", "05/01/2024", _
+        "06/01/2024", "07/01/2024", "08/01/2024", "09/01/2024", "10/01/2024"))
+    ws.Range("B2:B11").Value = Application.Transpose(Array( _
+        "Pierre", "Marie", "Paul", "Pierre", "Marie", _
+        "Paul", "Pierre", "Marie", "Paul", "Pierre"))
+    ws.Range("C2:C11").Value = Application.Transpose(Array( _
+        "Ordinateur", "Souris", "Clavier", "Écran", "Ordinateur", _
+        "Souris", "Clavier", "Écran", "Ordinateur", "Souris"))
+    ws.Range("D2:D11").Value = Application.Transpose(Array( _
+        "Nord", "Sud", "Est", "Nord", "Sud", _
+        "Est", "Nord", "Sud", "Est", "Nord"))
+    ws.Range("E2:E11").Value = Application.Transpose(Array( _
+        1200, 25, 45, 300, 1100, 30, 50, 280, 1250, 28))
 
     MsgBox "Données d'exemple créées !"
 End Sub

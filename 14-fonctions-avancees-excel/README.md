@@ -38,8 +38,8 @@ Cette section explore comment utiliser les fonctions Excel natives dans votre co
 **Exemple d'usage typique :**
 ```vba
 ' Au lieu d'écrire une boucle pour calculer une moyenne
-Dim moyenne As Double
-moyenne = Application.WorksheetFunction.Average(Range("A1:A100"))
+Dim moyenne As Double  
+moyenne = Application.WorksheetFunction.Average(Range("A1:A100"))  
 ```
 
 ### Création de fonctions personnalisées (UDF)

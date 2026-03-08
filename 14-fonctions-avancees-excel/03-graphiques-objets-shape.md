@@ -49,7 +49,7 @@ End Sub
 
 **Explication du code :**
 - `ChartObjects.Add` : Crée un nouvel emplacement pour le graphique
-- `Left`, `Top` : Position du graphique (en pixels depuis le coin supérieur gauche)
+- `Left`, `Top` : Position du graphique (en points depuis le coin supérieur gauche)
 - `Width`, `Height` : Taille du graphique
 - `SetSourceData` : Définit les données à représenter
 - `ChartType` : Type de graphique (secteurs, colonnes, courbes...)
@@ -202,7 +202,7 @@ End Sub
 | `msoShapeTriangle` | Triangle |
 | `msoShapeDiamond` | Losange |
 | `msoShapeHeart` | Cœur |
-| `msoShapeStar` | Étoile |
+| `msoShape5pointStar` | Étoile à 5 branches |
 
 ### Ajouter des flèches et connecteurs
 
@@ -331,13 +331,18 @@ Sub CreerTableauDeBord()
     ' Nettoyer la feuille d'abord
     ActiveSheet.Cells.Clear
     ActiveSheet.ChartObjects.Delete
-    ActiveSheet.Shapes.Delete
+
+    ' Supprimer les formes une par une (la collection Shapes n'a pas de méthode Delete)
+    Dim shp As Shape
+    For Each shp In ActiveSheet.Shapes
+        shp.Delete
+    Next shp
 
     ' 1. Créer des données d'exemple
-    Range("A1:B1").Value = Array("Mois", "Ventes")
-    Range("A2:B7").Value = Array( _
-        Array("Jan", 1200), Array("Fév", 1500), Array("Mar", 1800), _
-        Array("Avr", 1600), Array("Mai", 2100), Array("Jun", 1900))
+    Range("A1").Value = "Mois"
+    Range("B1").Value = "Ventes"
+    Range("A2:A7").Value = Application.Transpose(Array("Jan", "Fév", "Mar", "Avr", "Mai", "Jun"))
+    Range("B2:B7").Value = Application.Transpose(Array(1200, 1500, 1800, 1600, 2100, 1900))
 
     ' 2. Créer un titre principal
     Dim titreShape As Shape

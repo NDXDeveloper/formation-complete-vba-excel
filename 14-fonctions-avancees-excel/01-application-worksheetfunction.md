@@ -98,6 +98,9 @@ Voici un tableau des fonctions Excel les plus utiles en VBA :
 ## Exemples avec différents types de données
 
 ### Fonctions de texte
+
+**Attention :** Les fonctions texte comme `Len`, `Left`, `Right`, `Mid`, `Trim`, `UCase`, `LCase` ne sont **pas disponibles** via `WorksheetFunction` car VBA possède déjà ses propres versions natives. Utilisez directement les fonctions VBA :
+
 ```vba
 Sub ExempleTexte()
     Dim texte As String
@@ -105,18 +108,29 @@ Sub ExempleTexte()
 
     texte = "Bonjour le monde"
 
-    ' Calculer la longueur du texte
-    longueur = Application.WorksheetFunction.Len(texte)
+    ' Utiliser les fonctions VBA natives (pas WorksheetFunction)
+    longueur = Len(texte)
     MsgBox "Le texte contient " & longueur & " caractères"
 
     ' Extraire les 7 premiers caractères
     Dim debut As String
-    debut = Application.WorksheetFunction.Left(texte, 7)
+    debut = Left(texte, 7)
     MsgBox "Les 7 premiers caractères : " & debut
 End Sub
 ```
 
+En revanche, certaines fonctions texte Excel sans équivalent VBA sont disponibles, comme `Substitute` :
+
+```vba
+Dim resultat As String  
+resultat = Application.WorksheetFunction.Substitute("Bonjour le monde", "monde", "VBA")  
+' Résultat : "Bonjour le VBA"
+```
+
 ### Fonctions de date
+
+Comme pour les fonctions texte, les fonctions de date basiques (`Year`, `Month`, `Day`, `Hour`, `Minute`, `Second`) sont des fonctions VBA natives et ne sont **pas disponibles** via `WorksheetFunction` :
+
 ```vba
 Sub ExempleDate()
     Dim aujourdhui As Date
@@ -124,10 +138,17 @@ Sub ExempleDate()
 
     aujourdhui = Date ' Date actuelle
 
-    ' Extraire l'année de la date actuelle
-    annee = Application.WorksheetFunction.Year(aujourdhui)
+    ' Utiliser la fonction VBA native (pas WorksheetFunction)
+    annee = Year(aujourdhui)
     MsgBox "Nous sommes en " & annee
 End Sub
+```
+
+En revanche, des fonctions date Excel sans équivalent VBA sont disponibles, comme `EDate` (date décalée de N mois) ou `WorkDay` (jours ouvrés) :
+
+```vba
+Dim dateFuture As Date  
+dateFuture = Application.WorksheetFunction.EDate(Date, 3) ' Date + 3 mois  
 ```
 
 ## Gestion des erreurs avec WorksheetFunction
@@ -168,26 +189,28 @@ VBA possède aussi ses propres fonctions mathématiques. Voici les différences 
 ### Fonctions VBA natives
 ```vba
 ' Fonctions intégrées à VBA
-Dim longueur As Integer
-longueur = Len("Bonjour") ' Fonction VBA native
+Dim longueur As Integer  
+longueur = Len("Bonjour") ' Fonction VBA native  
 
-Dim racine As Double
-racine = Sqr(25) ' Racine carrée en VBA
+Dim racine As Double  
+racine = Sqr(25) ' Racine carrée en VBA  
 ```
 
 ### Fonctions Excel via WorksheetFunction
 ```vba
-' Fonctions Excel utilisées en VBA
-Dim longueur As Integer
-longueur = Application.WorksheetFunction.Len("Bonjour") ' Fonction Excel
+' Fonctions Excel utilisées en VBA (uniquement celles sans équivalent VBA)
+Dim racine As Double  
+racine = Application.WorksheetFunction.Sqrt(25) ' Racine carrée Excel  
 
-Dim racine As Double
-racine = Application.WorksheetFunction.Sqrt(25) ' Racine carrée Excel
+Dim nbValeurs As Long  
+nbValeurs = Application.WorksheetFunction.CountIf(Range("A1:A100"), ">50") ' Pas d'équivalent VBA  
 ```
 
 **Quand utiliser quoi ?**
-- **Fonctions VBA natives** : Plus rapides pour des opérations simples sur des variables
-- **WorksheetFunction** : Plus puissantes pour des calculs complexes ou sur des plages de cellules
+- **Fonctions VBA natives** (`Len`, `Left`, `Year`, `Sqr`...) : Pour des opérations simples sur des variables
+- **WorksheetFunction** (`Sum`, `Average`, `CountIf`, `VLookup`...) : Pour des calculs sur des plages de cellules ou des fonctions Excel sans équivalent VBA
+
+**Note :** Les fonctions qui existent déjà en VBA (`Len`, `Left`, `Right`, `Mid`, `Year`, `Month`, etc.) ne sont **pas disponibles** via `WorksheetFunction` et génèrent une erreur si vous essayez de les utiliser ainsi.
 
 ## Exemple concret : Analyse de données de ventes
 
@@ -244,7 +267,8 @@ Utilisez `Debug.Print` pour afficher les résultats dans la fenêtre d'exécutio
 ```vba
 Sub TestWorksheetFunction()
     ' Placer quelques nombres dans A1:A5 pour tester
-    Range("A1:A5").Value = Array(10, 20, 30, 40, 50)
+    ' Array() crée un tableau horizontal, Transpose le convertit en vertical
+    Range("A1:A5").Value = Application.Transpose(Array(10, 20, 30, 40, 50))
 
     ' Tester différentes fonctions et afficher les résultats
     Debug.Print "Somme : " & Application.WorksheetFunction.Sum(Range("A1:A5"))

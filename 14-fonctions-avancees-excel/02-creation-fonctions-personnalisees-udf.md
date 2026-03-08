@@ -18,10 +18,10 @@ Au lieu de répéter le même code VBA partout ou d'utiliser des formules compli
 
 ### Avantages des UDF
 
-✅ **Simplicité** : Une formule simple au lieu de calculs complexes
-✅ **Réutilisabilité** : Écrite une fois, utilisée partout
-✅ **Lisibilité** : Le nom de votre fonction explique ce qu'elle fait
-✅ **Maintenance** : Modifier la fonction met à jour tous les calculs
+✅ **Simplicité** : Une formule simple au lieu de calculs complexes  
+✅ **Réutilisabilité** : Écrite une fois, utilisée partout  
+✅ **Lisibilité** : Le nom de votre fonction explique ce qu'elle fait  
+✅ **Maintenance** : Modifier la fonction met à jour tous les calculs  
 ✅ **Partage** : Vos collègues peuvent utiliser vos fonctions
 
 ## Différence entre Sub et Function
@@ -76,8 +76,8 @@ Function CalculerTVAVariable(prixHT As Double, tauxTVA As Double) As Double
 End Function
 ```
 
-**Utilisation :** `=CalculerTVAVariable(100; 20)` → Résultat : 20
-**Utilisation :** `=CalculerTVAVariable(100; 5.5)` → Résultat : 5.5
+**Utilisation :** `=CalculerTVAVariable(100; 20)` → Résultat : 20  
+**Utilisation :** `=CalculerTVAVariable(100; 5.5)` → Résultat : 5.5  
 
 ### Exemple 3 : Calculer le prix TTC complet
 ```vba

@@ -15,8 +15,8 @@ Avec les filtres, vous pouvez instantanément afficher :
 - 💼 Les architectes qui génèrent plus de 50 000€
 - 🎯 Les prospects contactés la semaine dernière
 
-**Sans VBA :** Vous cliquez manuellement sur chaque filtre.
-**Avec VBA :** Vous automatisez des filtres complexes en une ligne de code !
+**Sans VBA :** Vous cliquez manuellement sur chaque filtre.  
+**Avec VBA :** Vous automatisez des filtres complexes en une ligne de code !  
 
 ## Types de filtres Excel
 
@@ -62,23 +62,28 @@ Sub CreerDonneesExemple()
     ' En-têtes
     ws.Range("A1:F1").Value = Array("Nom", "Âge", "Ville", "Profession", "Salaire", "Date_Embauche")
 
-    ' Données d'exemple
-    ws.Range("A2:F16").Value = Array( _
-        Array("Dupont", 28, "Paris", "Ingénieur", 45000, "01/01/2020"), _
-        Array("Martin", 35, "Lyon", "Comptable", 38000, "15/03/2019"), _
-        Array("Bernard", 42, "Paris", "Manager", 65000, "10/06/2018"), _
-        Array("Petit", 29, "Marseille", "Ingénieur", 42000, "22/09/2021"), _
-        Array("Durand", 31, "Paris", "Comptable", 41000, "05/12/2020"), _
-        Array("Moreau", 26, "Lyon", "Ingénieur", 39000, "18/04/2022"), _
-        Array("Simon", 38, "Toulouse", "Manager", 58000, "30/08/2017"), _
-        Array("Michel", 33, "Paris", "Comptable", 43000, "12/02/2019"), _
-        Array("Lefebvre", 27, "Marseille", "Ingénieur", 40000, "25/11/2021"), _
-        Array("Leroy", 45, "Lyon", "Manager", 70000, "08/07/2016"), _
-        Array("Roux", 30, "Paris", "Ingénieur", 46000, "14/05/2020"), _
-        Array("Vincent", 36, "Toulouse", "Comptable", 39500, "03/10/2018"), _
-        Array("Fournier", 24, "Marseille", "Ingénieur", 37000, "20/01/2023"), _
-        Array("Morel", 39, "Paris", "Manager", 62000, "16/09/2017"), _
-        Array("Girard", 32, "Lyon", "Comptable", 42500, "28/06/2019"))
+    ' Données d'exemple (colonne par colonne avec Transpose)
+    ws.Range("A2:A16").Value = Application.Transpose(Array( _
+        "Dupont", "Martin", "Bernard", "Petit", "Durand", _
+        "Moreau", "Simon", "Michel", "Lefebvre", "Leroy", _
+        "Roux", "Vincent", "Fournier", "Morel", "Girard"))
+    ws.Range("B2:B16").Value = Application.Transpose(Array( _
+        28, 35, 42, 29, 31, 26, 38, 33, 27, 45, 30, 36, 24, 39, 32))
+    ws.Range("C2:C16").Value = Application.Transpose(Array( _
+        "Paris", "Lyon", "Paris", "Marseille", "Paris", _
+        "Lyon", "Toulouse", "Paris", "Marseille", "Lyon", _
+        "Paris", "Toulouse", "Marseille", "Paris", "Lyon"))
+    ws.Range("D2:D16").Value = Application.Transpose(Array( _
+        "Ingénieur", "Comptable", "Manager", "Ingénieur", "Comptable", _
+        "Ingénieur", "Manager", "Comptable", "Ingénieur", "Manager", _
+        "Ingénieur", "Comptable", "Ingénieur", "Manager", "Comptable"))
+    ws.Range("E2:E16").Value = Application.Transpose(Array( _
+        45000, 38000, 65000, 42000, 41000, 39000, 58000, 43000, _
+        40000, 70000, 46000, 39500, 37000, 62000, 42500))
+    ws.Range("F2:F16").Value = Application.Transpose(Array( _
+        "01/01/2020", "15/03/2019", "10/06/2018", "22/09/2021", "05/12/2020", _
+        "18/04/2022", "30/08/2017", "12/02/2019", "25/11/2021", "08/07/2016", _
+        "14/05/2020", "03/10/2018", "20/01/2023", "16/09/2017", "28/06/2019"))
 
     ' Formater les en-têtes
     With ws.Range("A1:F1")
@@ -195,8 +200,16 @@ Sub CompterLignesVisibles()
     ws.Range("A1").AutoFilter Field:=4, Criteria1:="Ingénieur"
 
     ' Compter les lignes visibles (sans l'en-tête)
+    ' Attention : SpecialCells retourne une plage non contiguë,
+    ' .Rows.Count ne donnerait que le compte de la première zone.
+    ' Il faut parcourir toutes les zones (Areas) :
     Set plageVisible = ws.Range("A1").CurrentRegion.SpecialCells(xlCellTypeVisible)
-    nombreLignes = plageVisible.Rows.Count - 1  ' -1 pour exclure l'en-tête
+
+    Dim zone As Range
+    For Each zone In plageVisible.Areas
+        nombreLignes = nombreLignes + zone.Rows.Count
+    Next zone
+    nombreLignes = nombreLignes - 1  ' -1 pour exclure l'en-tête
 
     MsgBox nombreLignes & " ingénieur(s) trouvé(s)."
 End Sub
@@ -253,9 +266,9 @@ Les filtres avancés utilisent une **zone de critères** séparée où vous déf
 
 ### Structure de la zone de critères
 ```
-A1: Nom       B1: Âge      C1: Ville      D1: Salaire
-A2: Dupont    B2:          C2: Paris      D2: >45000
-A3:           B3: >30      C3: Lyon       D3:
+A1: Nom       B1: Âge      C1: Ville      D1: Salaire  
+A2: Dupont    B2:          C2: Paris      D2: >45000  
+A3:           B3: >30      C3: Lyon       D3:  
 ```
 
 - **Ligne 1** : Noms des champs (identiques aux en-têtes)
@@ -266,7 +279,7 @@ A3:           B3: >30      C3: Lyon       D3:
 
 #### Préparation de la zone de critères
 ```vba
-Sub Preparer ZoneCriteres()
+Sub PreparerZoneCriteres()
     Dim ws As Worksheet
     Set ws = ActiveSheet
 
