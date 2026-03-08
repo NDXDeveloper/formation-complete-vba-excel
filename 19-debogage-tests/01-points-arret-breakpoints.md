@@ -98,9 +98,10 @@ Allez dans **Affichage** > **Fenêtre des variables locales** pour voir toutes l
 Une fois que vous avez examiné ce que vous vouliez, vous pouvez reprendre l'exécution :
 
 - **F5** ou **Continuer** : Reprend l'exécution normale jusqu'au prochain point d'arrêt
-- **F8** ou **Pas à pas détaillé** : Exécute la ligne suivante puis s'arrête à nouveau
-- **Maj + F8** ou **Pas à pas sortant** : Sort de la procédure actuelle
-- **Ctrl + F8** ou **Pas à pas principal** : Exécute la procédure sans entrer dans les détails
+- **F8** ou **Pas à pas détaillé** (Step Into) : Exécute la ligne suivante puis s'arrête à nouveau (entre dans les sous-procédures)
+- **Maj + F8** ou **Pas à pas principal** (Step Over) : Exécute la ligne suivante sans entrer dans les sous-procédures
+- **Ctrl + Maj + F8** ou **Pas à pas sortant** (Step Out) : Exécute le reste de la procédure actuelle et s'arrête au retour
+- **Ctrl + F8** ou **Exécuter jusqu'au curseur** : Exécute le code jusqu'à la ligne où se trouve le curseur
 
 ## Bonnes pratiques avec les points d'arrêt
 

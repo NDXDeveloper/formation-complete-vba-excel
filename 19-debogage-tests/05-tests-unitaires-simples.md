@@ -261,8 +261,8 @@ End Sub
 
 ```vba
 ' Variables globales pour compter les résultats
-Dim testsExecutes As Integer
-Dim testsReussis As Integer
+Dim testsExecutes As Integer  
+Dim testsReussis As Integer  
 
 Sub InitialiserTests()
     testsExecutes = 0
@@ -418,8 +418,8 @@ End Function
 ' =====================================
 
 ' Variables pour les statistiques
-Dim totalTests As Integer
-Dim testsOK As Integer
+Dim totalTests As Integer  
+Dim testsOK As Integer  
 
 Sub ExecuterTousLesTestsRemise()
     InitialiserCompteurs

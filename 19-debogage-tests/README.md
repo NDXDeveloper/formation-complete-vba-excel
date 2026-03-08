@@ -33,8 +33,8 @@ If x > 10 Then
 
 ```vba
 ' Exemple d'erreur d'exécution - division par zéro
-Dim result As Double
-result = 10 / 0  ' Provoquera une erreur d'exécution
+Dim result As Double  
+result = 10 / 0  ' Provoquera une erreur d'exécution  
 ```
 
 **Erreurs logiques** : Ces erreurs sont les plus difficiles à détecter car le code s'exécute sans erreur, mais ne produit pas le résultat attendu. Le programme fait quelque chose, mais pas ce que vous vouliez qu'il fasse.

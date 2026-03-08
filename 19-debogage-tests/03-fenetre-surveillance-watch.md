@@ -38,10 +38,10 @@ Quand vous êtes en mode débogage (programme en pause), la fenêtre de surveill
 
 La fenêtre de surveillance se présente comme un tableau avec plusieurs colonnes :
 
-**Expression** : Le nom de la variable ou l'expression que vous surveillez
-**Valeur** : La valeur actuelle de cette expression
-**Type** : Le type de données (Integer, String, Object, etc.)
-**Contexte** : La procédure et le module où l'expression est définie
+**Expression** : Le nom de la variable ou l'expression que vous surveillez  
+**Valeur** : La valeur actuelle de cette expression  
+**Type** : Le type de données (Integer, String, Object, etc.)  
+**Contexte** : La procédure et le module où l'expression est définie  
 
 ## Comment ajouter une expression à surveiller
 
@@ -77,20 +77,20 @@ C'est ce que vous voulez surveiller. Cela peut être :
 - **Un élément de tableau** : `monTableau(2)`
 
 ### Contexte
-**Procédure** : Spécifie dans quelle procédure cette variable existe
-**Module** : Spécifie dans quel module chercher la variable
+**Procédure** : Spécifie dans quelle procédure cette variable existe  
+**Module** : Spécifie dans quel module chercher la variable  
 
 ### Type d'espion
-**Expression espion** : Surveille simplement la valeur (le plus courant)
-**Arrêt si la valeur est True** : Arrête l'exécution quand l'expression devient vraie
-**Arrêt si la valeur change** : Arrête l'exécution quand la valeur change
+**Expression espion** : Surveille simplement la valeur (le plus courant)  
+**Arrêt si la valeur est True** : Arrête l'exécution quand l'expression devient vraie  
+**Arrêt si la valeur change** : Arrête l'exécution quand la valeur change  
 
 ## Types d'expressions que vous pouvez surveiller
 
 ### Variables simples
 ```vba
-Dim nombre As Integer
-nombre = 42
+Dim nombre As Integer  
+nombre = 42  
 ' Surveillez : nombre
 ```
 
@@ -103,25 +103,25 @@ nombre = 42
 
 ### Expressions calculées
 ```vba
-Dim a As Integer, b As Integer
-a = 10
-b = 20
+Dim a As Integer, b As Integer  
+a = 10  
+b = 20  
 ' Surveillez : a + b
 ' Surveillez : a * b / 2
 ```
 
 ### Éléments de tableaux
 ```vba
-Dim notes(1 To 5) As Integer
-notes(1) = 15
+Dim notes(1 To 5) As Integer  
+notes(1) = 15  
 ' Surveillez : notes(1)
 ' Surveillez : UBound(notes)
 ```
 
 ### Expressions conditionnelles
 ```vba
-Dim age As Integer
-age = 25
+Dim age As Integer  
+age = 25  
 ' Surveillez : age >= 18
 ' Surveillez : age > 65
 ```
@@ -132,10 +132,10 @@ age = 25
 Les valeurs s'affichent normalement : `42`, `"Bonjour"`, `True`, etc.
 
 ### Valeurs spéciales
-**<Hors de portée>** : La variable n'existe pas dans le contexte actuel
-**<Non défini>** : La variable n'a pas encore été initialisée
-**<Erreur d'objet>** : Problème avec une référence d'objet
-**<Expression non valide>** : L'expression contient une erreur de syntaxe
+**<Hors de portée>** : La variable n'existe pas dans le contexte actuel  
+**<Non défini>** : La variable n'a pas encore été initialisée  
+**<Erreur d'objet>** : Problème avec une référence d'objet  
+**<Expression non valide>** : L'expression contient une erreur de syntaxe  
 
 ### Objets complexes
 Pour les objets, vous voyez souvent le type d'objet entre crochets : `[Worksheet]`, `[Range]`, etc.
@@ -219,16 +219,16 @@ Au lieu de surveiller `x`, surveillez plutôt `prixTotalHT` ou `nombreClients` -
 ### Surveillez les propriétés d'objets
 ```vba
 ' Très utile pour surveiller :
-Range("A1").Value
-ActiveSheet.Name
-Workbooks.Count
+Range("A1").Value  
+ActiveSheet.Name  
+Workbooks.Count  
 ```
 
 ### Surveillez les calculs
 ```vba
 ' Au lieu de calculer mentalement, surveillez :
-prixHT * tauxTVA
-nombreHeures * tarifHoraire
+prixHT * tauxTVA  
+nombreHeures * tarifHoraire  
 ```
 
 ### Utilisez les espions conditionnels avec parcimonie

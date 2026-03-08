@@ -19,9 +19,9 @@ Imaginez que vous voulez savoir ce qui se passe dans votre programme, mais sans 
 ### Syntaxe de base
 
 ```vba
-Debug.Print "Votre message ici"
-Debug.Print variable
-Debug.Print "Message : " & variable
+Debug.Print "Votre message ici"  
+Debug.Print variable  
+Debug.Print "Message : " & variable  
 ```
 
 ### Exemples simples
@@ -43,10 +43,10 @@ End Sub
 
 Quand vous exécutez ce code, dans la fenêtre d'exécution immédiate (Ctrl+G), vous verrez :
 ```
-Début du programme
-Nom : Marie
-Age : 25
-Fin du programme
+Début du programme  
+Nom : Marie  
+Age : 25  
+Fin du programme  
 ```
 
 ### Pourquoi utiliser Debug.Print ?
@@ -146,8 +146,8 @@ C'est comme avoir un garde du corps qui surveille constamment que tout va bien e
 Debug.Assert condition
 ```
 
-Si `condition` est `True`, le programme continue normalement.
-Si `condition` est `False`, le programme s'arrête sur cette ligne.
+Si `condition` est `True`, le programme continue normalement.  
+Si `condition` est `False`, le programme s'arrête sur cette ligne.  
 
 ### Exemples de base
 
@@ -232,9 +232,8 @@ Function DiviserNombres(dividende As Double, diviseur As Double) As Double
 
     DiviserNombres = dividende / diviseur
 
-    ' Vérifier que le résultat est valide (pas d'erreur)
-    Debug.Assert Not IsEmpty(DiviserNombres)
-    Debug.Assert IsNumeric(DiviserNombres)
+    ' Vérifier que le résultat est dans une plage raisonnable
+    Debug.Assert Not (DiviserNombres > 1E+15)  ' Pas de valeur astronomique
 End Function
 ```
 
@@ -304,11 +303,11 @@ Debug.Print prixFinal
 
 **Structuration des messages** : Utilisez des préfixes pour organiser vos messages.
 ```vba
-Debug.Print "*** DEBUT ProcedureImportante ***"
-Debug.Print "  -> Paramètre reçu : " & parametre
-Debug.Print "  -> Calcul en cours..."
-Debug.Print "  -> Résultat : " & resultat
-Debug.Print "*** FIN ProcedureImportante ***"
+Debug.Print "*** DEBUT ProcedureImportante ***"  
+Debug.Print "  -> Paramètre reçu : " & parametre  
+Debug.Print "  -> Calcul en cours..."  
+Debug.Print "  -> Résultat : " & resultat  
+Debug.Print "*** FIN ProcedureImportante ***"  
 ```
 
 **Utilisation temporaire** : N'oubliez pas de retirer ou commenter les Debug.Print avant la version finale.
