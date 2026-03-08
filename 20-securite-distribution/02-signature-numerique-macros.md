@@ -96,9 +96,9 @@ Une signature numérique utilise des **mathématiques complexes** (cryptographie
 
 ### Recommandations pour le nom
 
-**Nom descriptif** : Utilisez votre vrai nom ou le nom de votre organisation
-**Objectif clair** : Ajoutez "Développeur VBA" ou "Macros Excel" pour clarifier l'usage
-**Exemples** :
+**Nom descriptif** : Utilisez votre vrai nom ou le nom de votre organisation  
+**Objectif clair** : Ajoutez "Développeur VBA" ou "Macros Excel" pour clarifier l'usage  
+**Exemples** :  
 - "Jean Dupont - Développeur VBA"
 - "Entreprise ABC - Macros Internes"
 - "Service Informatique - Solutions Excel"

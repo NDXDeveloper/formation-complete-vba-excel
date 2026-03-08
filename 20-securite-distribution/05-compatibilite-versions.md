@@ -10,7 +10,7 @@ Imaginez que vous développez une solution VBA géniale sur Excel 2021, mais que
 
 ## Pourquoi la compatibilité est-elle importante ?
 
-**Adoption maximale** : Plus votre code est compatible, plus il peut être utilisé par d'utilisateurs différents dans des environnements variés.
+**Adoption maximale** : Plus votre code est compatible, plus il peut être utilisé par des utilisateurs différents dans des environnements variés.
 
 **Coût de maintenance réduit** : Maintenir une seule version compatible coûte moins cher que développer des versions spécifiques pour chaque plateforme.
 
@@ -40,14 +40,14 @@ Imaginez que vous développez une solution VBA géniale sur Excel 2021, mais que
 - Améliorations de performance
 
 **Excel 2019** :
-- Fonctions dynamiques (UNIQUE, SORT, FILTER)
 - Améliorations des graphiques
-- Types de données liés
+- Types de données liés (Actions, Géographie)
+- Nouvelles fonctions comme IFS, SWITCH, MAXIFS, MINIFS
 
 **Excel 2021** :
 - Fonctions XLOOKUP, LET
+- Fonctions de tableaux dynamiques (UNIQUE, SORT, FILTER, SEQUENCE)
 - Types de données étendus
-- Nouvelles fonctions matricielles dynamiques
 
 **Microsoft 365 (Office 365)** :
 - Mises à jour continues
@@ -100,15 +100,14 @@ Private Declare Function GetWindowsDirectory Lib "kernel32" _
 
 ```vba
 Sub ExempleCompatibilite()
-    ' Cette propriété n'existe que depuis Excel 2013
     On Error Resume Next
 
     Dim ws As Worksheet
     Set ws = ActiveSheet
 
-    ' Vérifier si la propriété existe avant de l'utiliser
-    If IsPropertyAvailable(ws, "AutoFilter") Then
-        ' Code utilisant AutoFilter avancé
+    ' Vérifier si une propriété récente existe avant de l'utiliser
+    If ProprieteExiste(ws, "EnableAnimations") Then
+        ' Code utilisant la propriété récente
     Else
         ' Code alternatif pour les anciennes versions
     End If
@@ -121,14 +120,14 @@ End Sub
 
 ```vba
 Sub UtiliserConstantes()
-    ' Vérifier si une constante existe
     Dim formatFichier As Long
 
-    #If VBA7 Then
-        formatFichier = xlOpenXMLWorkbook ' Existe depuis Excel 2007
-    #Else
-        formatFichier = xlNormal ' Version de compatibilité
-    #End If
+    ' Vérifier la version pour choisir le bon format de fichier
+    If Val(Application.Version) >= 12 Then  ' Excel 2007+
+        formatFichier = xlOpenXMLWorkbook  ' Format .xlsx
+    Else
+        formatFichier = xlNormal  ' Format .xls (Excel 97-2003)
+    End If
 
     ActiveWorkbook.SaveAs "MonFichier", formatFichier
 End Sub
@@ -207,9 +206,9 @@ End Sub
 
 ```vba
 ' Module: CompatibiliteExcel
-Public Const EXCEL_2010 As Double = 14
-Public Const EXCEL_2013 As Double = 15
-Public Const EXCEL_2016 As Double = 16
+Public Const EXCEL_2010 As Double = 14  
+Public Const EXCEL_2013 As Double = 15  
+Public Const EXCEL_2016 As Double = 16  
 
 Function EstVersionMinimum(versionMinimum As Double) As Boolean
     EstVersionMinimum = (Val(Application.Version) >= versionMinimum)
@@ -299,8 +298,8 @@ End Function
 
 ### Formats supportés par version
 
-**Excel 2007+** : .xlsx, .xlsm, .xlam
-**Excel 2003 et antérieur** : .xls, .xla
+**Excel 2007+** : .xlsx, .xlsm, .xlam  
+**Excel 2003 et antérieur** : .xls, .xla  
 
 **Code adaptatif pour la sauvegarde** :
 ```vba
@@ -403,25 +402,9 @@ Sub VerifierPrerequisAvantInstallation()
         Exit Sub
     End If
 
-    ' Vérifications supplémentaires
-    If Not MacrosActivees() Then
-        MsgBox "Les macros doivent être activées pour utiliser cette solution.", vbExclamation
-        Exit Sub
-    End If
-
     ' Procéder à l'installation
     InstallerSolution
 End Sub
-
-Function MacrosActivees() As Boolean
-    On Error GoTo MacrosDesactivees
-    Application.Volatile  ' Cette ligne échoue si les macros sont désactivées
-    MacrosActivees = True
-    Exit Function
-
-MacrosDesactivees:
-    MacrosActivees = False
-End Function
 ```
 
 ### Messages d'erreur informatifs
@@ -458,11 +441,11 @@ MATRICE DE COMPATIBILITÉ - MON OUTIL VBA
 
 Fonctionnalité          | Excel 2010 | Excel 2013 | Excel 2016 | Excel 2019 | Excel 365
 -----------------------|------------|------------|------------|------------|----------
-Import CSV             |     ✓      |     ✓      |     ✓      |     ✓      |     ✓
-Export PDF             |     ✓      |     ✓      |     ✓      |     ✓      |     ✓
-Recherche avancée      |     ✓      |     ✓      |     ✓      |     ✓      |     ✓
-Tableaux dynamiques    |     -      |     -      |     ✓      |     ✓      |     ✓
-Fonctions modernes     |     -      |     -      |     -      |     ✓      |     ✓
+Import CSV             |     ✓      |     ✓      |     ✓      |     ✓      |     ✓  
+Export PDF             |     ✓      |     ✓      |     ✓      |     ✓      |     ✓  
+Recherche avancée      |     ✓      |     ✓      |     ✓      |     ✓      |     ✓  
+Tableaux dynamiques    |     -      |     -      |     ✓      |     ✓      |     ✓  
+Fonctions modernes     |     -      |     -      |     -      |     ✓      |     ✓  
 ```
 
 ### Notes de version

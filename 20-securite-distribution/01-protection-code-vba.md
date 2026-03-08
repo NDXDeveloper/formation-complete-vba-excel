@@ -60,9 +60,9 @@ End Function
 
 **Exemple de code obfusqué** :
 ```vba
-Function a1b2c3(x9z As Double) As Double
-Dim y8w: y8w = 0.2: a1b2c3 = x9z * y8w
-End Function
+Function a1b2c3(x9z As Double) As Double  
+Dim y8w: y8w = 0.2: a1b2c3 = x9z * y8w  
+End Function  
 ```
 
 ### Protection par compilation

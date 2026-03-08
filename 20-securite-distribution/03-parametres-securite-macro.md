@@ -85,7 +85,7 @@ Excel propose plusieurs niveaux de sécurité, depuis "laisser passer tout le mo
 **Comment ça marche** :
 - Quand vous ouvrez un fichier avec macros, une barre jaune apparaît
 - Cliquez sur **"Activer le contenu"** pour autoriser les macros
-- L'autorisation ne vaut que pour cette session
+- Le fichier est ajouté aux Documents approuvés et les macros s'exécuteront automatiquement lors des ouvertures suivantes
 
 ### 3. Désactiver toutes les macros sauf celles signées numériquement
 
@@ -139,7 +139,7 @@ Les emplacements approuvés sont des **dossiers spéciaux** sur votre ordinateur
 
 **Autorisation automatique** : Tous les fichiers dans ces dossiers peuvent exécuter leurs macros sans restriction, quel que soit votre niveau de sécurité.
 
-**Sous-dossiers inclus** : Par défaut, les sous-dossiers sont aussi considérés comme approuvés.
+**Sous-dossiers optionnels** : Les sous-dossiers peuvent être inclus en cochant l'option correspondante lors de l'ajout de l'emplacement.
 
 **Paramètre par utilisateur** : Chaque utilisateur Windows a ses propres emplacements approuvés.
 
@@ -276,31 +276,31 @@ Les éditeurs approuvés sont des **développeurs en qui vous avez confiance**. 
 
 ### Utilisateur débutant
 
-**Paramètre macro** : "Désactiver toutes les macros avec notification"
-**Emplacements approuvés** : Aucun ajout initial
-**Éditeurs approuvés** : Ajouter au cas par cas
-**Avantage** : Protection maximale avec possibilité d'apprentissage
+**Paramètre macro** : "Désactiver toutes les macros avec notification"  
+**Emplacements approuvés** : Aucun ajout initial  
+**Éditeurs approuvés** : Ajouter au cas par cas  
+**Avantage** : Protection maximale avec possibilité d'apprentissage  
 
 ### Développeur VBA
 
-**Paramètre macro** : "Désactiver toutes les macros avec notification"
-**Emplacements approuvés** : Dossier de développement personnel
-**Éditeurs approuvés** : Votre propre certificat
-**Avantage** : Productivité pour le développement, sécurité pour les autres fichiers
+**Paramètre macro** : "Désactiver toutes les macros avec notification"  
+**Emplacements approuvés** : Dossier de développement personnel  
+**Éditeurs approuvés** : Votre propre certificat  
+**Avantage** : Productivité pour le développement, sécurité pour les autres fichiers  
 
 ### Entreprise avec politique stricte
 
-**Paramètre macro** : "Désactiver toutes les macros sauf celles signées numériquement"
-**Emplacements approuvés** : Dossiers d'applications métier
-**Éditeurs approuvés** : Développeurs internes certifiés
-**Avantage** : Sécurité maximale avec fonctionnalité contrôlée
+**Paramètre macro** : "Désactiver toutes les macros sauf celles signées numériquement"  
+**Emplacements approuvés** : Dossiers d'applications métier  
+**Éditeurs approuvés** : Développeurs internes certifiés  
+**Avantage** : Sécurité maximale avec fonctionnalité contrôlée  
 
 ### Environnement de formation
 
-**Paramètre macro** : "Désactiver toutes les macros avec notification"
-**Emplacements approuvés** : Dossier des exercices de formation
-**Éditeurs approuvés** : Instructeur/formateur
-**Avantage** : Apprentissage facilité tout en maintenant la sécurité
+**Paramètre macro** : "Désactiver toutes les macros avec notification"  
+**Emplacements approuvés** : Dossier des exercices de formation  
+**Éditeurs approuvés** : Instructeur/formateur  
+**Avantage** : Apprentissage facilité tout en maintenant la sécurité  
 
 ## Dépannage des problèmes de sécurité
 

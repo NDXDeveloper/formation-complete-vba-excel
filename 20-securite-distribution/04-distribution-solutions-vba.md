@@ -12,7 +12,7 @@ Distribuer une solution VBA, c'est plus que simplement envoyer un fichier Excel 
 
 ### Distribution directe de fichiers
 
-**Ce que c'est** : Partager directement vos fichiers Excel (.xlsx, .xlsm) contenant les macros.
+**Ce que c'est** : Partager directement vos fichiers Excel (.xlsm) contenant les macros.
 
 **Avantages** :
 - Simple et immédiat
@@ -129,13 +129,13 @@ End Sub
 **Centralisez les paramètres** :
 ```vba
 ' Module de configuration
-Public Const VERSION_APPLICATION As String = "1.0"
-Public Const NOM_APPLICATION As String = "Mon Outil VBA"
-Public Const EMAIL_SUPPORT As String = "support@monentreprise.com"
+Public Const VERSION_APPLICATION As String = "1.0"  
+Public Const NOM_APPLICATION As String = "Mon Outil VBA"  
+Public Const EMAIL_SUPPORT As String = "support@monentreprise.com"  
 
 ' Paramètres modifiables
-Public CheminFichiers As String
-Public FormatDate As String
+Public CheminFichiers As String  
+Public FormatDate As String  
 ```
 
 **Créez des options utilisateur** :
@@ -251,9 +251,9 @@ VÉRIFICATION :
 ```
 === FONCTION : NETTOYER LES DONNÉES ===
 
-DESCRIPTION :
-Cette fonction supprime les espaces inutiles, corrige la casse,
-et standardise le format des données dans une plage sélectionnée.
+DESCRIPTION :  
+Cette fonction supprime les espaces inutiles, corrige la casse,  
+et standardise le format des données dans une plage sélectionnée.  
 
 UTILISATION :
 1. Sélectionnez la plage de cellules à nettoyer
@@ -291,8 +291,8 @@ Version 1.0 (15/01/2024)
 
 ### Email et partage de fichiers
 
-**Avantages** : Simple, direct, contrôle total
-**Inconvénients** : Difficile de suivre les versions, pas de statistiques
+**Avantages** : Simple, direct, contrôle total  
+**Inconvénients** : Difficile de suivre les versions, pas de statistiques  
 
 **Bonnes pratiques** :
 - Utilisez des noms de fichiers versionnés : "MonOutil_v1.2.xlam"
@@ -303,8 +303,8 @@ Version 1.0 (15/01/2024)
 
 **SharePoint, OneDrive Entreprise, serveurs partagés**
 
-**Avantages** : Centralisé, contrôle d'accès, historique des versions
-**Inconvénients** : Nécessite une infrastructure, formation utilisateur
+**Avantages** : Centralisé, contrôle d'accès, historique des versions  
+**Inconvénients** : Nécessite une infrastructure, formation utilisateur  
 
 **Organisation recommandée** :
 ```
@@ -324,15 +324,15 @@ Version 1.0 (15/01/2024)
 
 **Pour les grandes entreprises**
 
-**Avantages** : Professionnel, processus d'approbation, statistiques d'usage
-**Inconvénients** : Complexe à mettre en place, processus lourd
+**Avantages** : Professionnel, processus d'approbation, statistiques d'usage  
+**Inconvénients** : Complexe à mettre en place, processus lourd  
 
 ### GitHub et plateformes de développement
 
 **Pour les solutions open source ou collaboratives**
 
-**Avantages** : Gestion de versions professionnelle, collaboration, visibilité
-**Inconvénients** : Courbe d'apprentissage, public technique
+**Avantages** : Gestion de versions professionnelle, collaboration, visibilité  
+**Inconvénients** : Courbe d'apprentissage, public technique  
 
 ## Gestion des versions et mises à jour
 
@@ -400,11 +400,14 @@ End Sub
 Sub EnregistrerUtilisation(nomFonction As String)
     ' Log d'utilisation simple
     Dim fichierLog As String
-    fichierLog = Environ("TEMP") & "\MonOutil_Usage.log"
+    Dim numFichier As Integer
 
-    Open fichierLog For Append As #1
-    Print #1, Now & " - " & Environ("USERNAME") & " - " & nomFonction
-    Close #1
+    fichierLog = Environ("TEMP") & "\MonOutil_Usage.log"
+    numFichier = FreeFile
+
+    Open fichierLog For Append As #numFichier
+    Print #numFichier, Now & " - " & Environ("USERNAME") & " - " & nomFonction
+    Close #numFichier
 End Sub
 ```
 
@@ -420,10 +423,10 @@ End Sub
 
 **Exemple de clause** :
 ```
-Cette solution VBA est fournie "en l'état" sans garantie.
-L'auteur n'est pas responsable des dommages résultant de son utilisation.
-Usage autorisé uniquement dans le cadre professionnel de [Entreprise].
-Redistribution interdite sans autorisation écrite.
+Cette solution VBA est fournie "en l'état" sans garantie.  
+L'auteur n'est pas responsable des dommages résultant de son utilisation.  
+Usage autorisé uniquement dans le cadre professionnel de [Entreprise].  
+Redistribution interdite sans autorisation écrite.  
 ```
 
 ### Protection des données
