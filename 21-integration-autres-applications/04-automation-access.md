@@ -726,4 +726,4 @@ End Sub
 
 L'automation avec Access transforme Excel en véritable front-end pour des applications de gestion de données. Cette combinaison offre le meilleur des deux mondes : la puissance d'analyse d'Excel et la robustesse de gestion de données d'Access !
 
-⏭️
+⏭️ [Applications tierces](/21-integration-autres-applications/05-applications-tierces.md)

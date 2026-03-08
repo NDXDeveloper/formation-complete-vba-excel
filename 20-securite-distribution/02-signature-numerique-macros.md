@@ -304,4 +304,4 @@ Quand vous faites confiance à un développeur :
 
 La signature numérique des macros est un outil puissant pour établir la confiance et la sécurité dans la distribution de code VBA. Bien qu'elle ajoute une étape au processus de développement, elle est essentielle pour toute distribution professionnelle ou commerciale de solutions VBA.
 
-⏭️
+⏭️ [Paramètres de sécurité macro](/20-securite-distribution/03-parametres-securite-macro.md)

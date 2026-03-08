@@ -489,4 +489,4 @@ End Sub
 
 Les UserForms ouvrent un monde de possibilités pour créer des interfaces utilisateur sophistiquées. Avec ces bases solides, vous pouvez maintenant créer des formulaires professionnels qui amélioreront considérablement l'expérience de vos utilisateurs. Dans la section suivante, nous explorerons les différents types de contrôles disponibles et leurs utilisations spécifiques.
 
-⏭️
+⏭️ [Contrôles de base (TextBox, ComboBox, ListBox)](/12-interface-utilisateur/03-controles-base.md)

@@ -687,4 +687,4 @@ End Sub
 
 Ces techniques avancées, appliquées judicieusement selon vos besoins spécifiques, peuvent transformer une application VBA lente en solution haute performance. L'important est de profiler d'abord pour identifier où ces optimisations auront le plus d'impact.
 
-⏭️
+⏭️ [19. Débogage et tests](/19-debogage-tests/)

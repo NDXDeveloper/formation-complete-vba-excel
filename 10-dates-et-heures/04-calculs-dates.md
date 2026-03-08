@@ -518,4 +518,4 @@ End Function
 
 *Les calculs de dates sont au cœur de nombreuses applications métier. Une maîtrise de ces techniques vous permettra de résoudre facilement des problèmes temporels complexes et de créer des fonctionnalités sophistiquées.*
 
-⏭️
+⏭️ [Gestion des fuseaux horaires](/10-dates-et-heures/05-gestion-fuseaux-horaires.md)

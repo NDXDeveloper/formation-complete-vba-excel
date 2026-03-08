@@ -797,4 +797,4 @@ L'utilisation des API Windows en VBA est un domaine avancé qui demande rigueur 
 
 En suivant ces principes, vous transformerez VBA en outil professionnel capable de rivaliser avec des langages plus avancés, tout en gardant la simplicité et l'accessibilité qui font sa force.
 
-⏭️
+⏭️ [18. Optimisation et performance](/18-optimisation-performance/)

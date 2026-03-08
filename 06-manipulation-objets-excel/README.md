@@ -110,4 +110,4 @@ La manipulation des objets Excel s'apprend mieux par la pratique. N'hésitez pas
 
 **Prêt à découvrir la puissance des objets Excel ?** Dans la section suivante, nous commencerons par explorer en détail le modèle objet Excel, fondation de tout ce que nous construirons par la suite.
 
-⏭️
+⏭️ [Modèle objet Excel](/06-manipulation-objets-excel/01-modele-objet-excel.md)

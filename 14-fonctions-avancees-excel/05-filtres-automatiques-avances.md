@@ -774,4 +774,4 @@ Les filtres Excel automatisés avec VBA vous permettent de :
 
 **Prochaine étape :** Vous maîtrisez maintenant tous les outils avancés d'Excel en VBA ! Ces compétences vous permettront de créer des solutions complètes d'analyse et de traitement de données.
 
-⏭️
+⏭️ [15. Base de données et connexions](/15-base-donnees-connexions/)

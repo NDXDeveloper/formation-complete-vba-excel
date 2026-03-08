@@ -334,4 +334,4 @@ Application.EnableEvents = False
 
 Vous pouvez obtenir des gains de performance considérables avec un effort minimal. N'oubliez jamais de les restaurer en fin de macro, et utilisez toujours une gestion d'erreur appropriée pour garantir la stabilité de votre application.
 
-⏭️
+⏭️ [Optimisation des boucles](/18-optimisation-performance/02-optimisation-boucles.md)

@@ -471,4 +471,4 @@ End Function
 
 La maîtrise de la recherche et du remplacement vous permettra de traiter efficacement de grandes quantités de données textuelles et d'automatiser de nombreuses tâches de nettoyage et de standardisation.
 
-⏭️
+⏭️ [Conversion de types](/09-chaines-caracteres/04-conversion-types.md)

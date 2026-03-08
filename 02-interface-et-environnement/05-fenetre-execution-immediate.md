@@ -433,4 +433,4 @@ La fenêtre d'exécution immédiate est votre outil d'expérimentation :
 
 Dans la section suivante, nous verrons comment personnaliser votre environnement de développement pour optimiser votre confort et votre productivité.
 
-⏭️
+⏭️ [Personnalisation de l'environnement](/02-interface-et-environnement/06-personnalisation-environnement.md)

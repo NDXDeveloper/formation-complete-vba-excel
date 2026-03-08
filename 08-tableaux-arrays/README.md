@@ -236,4 +236,4 @@ N'hésitez pas à expérimenter, à faire des erreurs, et à recommencer. Chaque
 
 **Prêt à découvrir la puissance des tableaux ?** Dans la section suivante, nous commencerons par les bases : comment déclarer et créer vos premiers tableaux en VBA.
 
-⏭️
+⏭️ [Déclaration de tableaux](/08-tableaux-arrays/01-declaration-tableaux.md)

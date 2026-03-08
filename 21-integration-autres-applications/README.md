@@ -234,4 +234,4 @@ Chaque section comprendra des exemples pratiques pour maîtriser l'intégration 
 
 **Durée estimée :** 8-10 heures de formation pratique
 
-⏭️
+⏭️ [Automation avec Word](/21-integration-autres-applications/01-automation-word.md)

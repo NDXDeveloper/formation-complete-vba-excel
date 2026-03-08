@@ -262,4 +262,4 @@ Comme les points d'arrêt, les espions ne sont pas sauvegardés avec votre fichi
 
 La fenêtre de surveillance est un outil puissant qui complète parfaitement les points d'arrêt et l'exécution pas à pas. Elle vous donne une vision continue et détaillée de l'état de votre programme, rendant le débogage plus efficace et plus intuitif.
 
-⏭️
+⏭️ [Debug.Print et Assert](/19-debogage-tests/04-debug-print-assert.md)

@@ -493,4 +493,4 @@ Public Sub Deposer(montant As Double, Optional motif As String = "Dépôt")
 
 L'encapsulation est la fondation d'un code robuste et maintenable. Elle transforme vos données brutes en objets intelligents qui se protègent eux-mêmes et offrent une interface claire et sécurisée.
 
-⏭️
+⏭️ [Collections personnalisées](/16-programmation-orientee-objet/04-collections-personnalisees.md)

@@ -485,4 +485,4 @@ AVANT MISE EN PRODUCTION :
 
 Le versioning et la sauvegarde peuvent sembler fastidieux au début, mais ils deviennent rapidement des habitudes naturelles. Et le jour où ils vous sauveront des heures de travail, vous serez très content de les avoir mis en place !
 
-⏭️
+⏭️ [Communauté et ressources en ligne](/23-ressources-bonnes-pratiques/04-communaute-ressources-ligne.md)

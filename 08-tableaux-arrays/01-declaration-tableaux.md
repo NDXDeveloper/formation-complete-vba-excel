@@ -597,4 +597,4 @@ End Sub
 
 Maintenant que vous savez déclarer des tableaux, la section suivante vous apprendra la différence entre tableaux statiques et dynamiques, et quand utiliser chaque type pour optimiser vos programmes.
 
-⏭️
+⏭️ [Tableaux statiques et dynamiques](/08-tableaux-arrays/02-tableaux-statiques-dynamiques.md)

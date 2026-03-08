@@ -419,4 +419,4 @@ prix = Format(1234.56, "0.00 €") ' Résultat : "1234.56 €"
 
 Cette référence couvre les fonctions VBA les plus utilisées au quotidien. Gardez-la à portée de main lors de vos développements !
 
-⏭️
+⏭️ [B. Codes d'erreur courants](/annexes/b-codes-erreur-courants.md)

@@ -217,4 +217,4 @@ Cette méthode progressive vous permettra de maîtriser chaque structure avant d
 
 Les structures de contrôle sont le cœur de la logique de programmation. Elles transforment vos scripts linéaires en véritables programmes intelligents capables de s'adapter à toute situation !
 
-⏭️
+⏭️ [Instructions conditionnelles](/05-structures-controle/01-instructions-conditionnelles.md)

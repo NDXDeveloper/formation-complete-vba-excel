@@ -503,4 +503,4 @@ End Sub
 
 Les tests unitaires simples en VBA vous permettent de créer un filet de sécurité autour de votre code. Bien qu'ils ne remplacent pas des frameworks de test professionnels, ils constituent un excellent point de départ pour améliorer la qualité et la fiabilité de vos programmes VBA.
 
-⏭️
+⏭️ [20. Sécurité et distribution](/20-securite-distribution/)

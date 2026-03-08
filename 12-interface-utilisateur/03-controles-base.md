@@ -713,4 +713,4 @@ txtEmail.ControlTipText = "Entrez votre adresse email complète"
 
 Maîtriser ces trois contrôles fondamentaux vous donne les outils nécessaires pour créer des interfaces utilisateur complètes et intuitives. Dans la section suivante, nous explorerons la gestion des événements de ces contrôles pour créer des interactions sophistiquées et réactives.
 
-⏭️
+⏭️ [Événements des contrôles](/12-interface-utilisateur/04-evenements-controles.md)

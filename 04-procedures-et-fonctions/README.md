@@ -78,4 +78,4 @@ Ce chapitre est structuré de manière progressive :
 
 Cette approche méthodique vous permettra de construire une base solide pour la programmation modulaire en VBA, compétence essentielle pour tout développeur VBA efficace.
 
-⏭️
+⏭️ [Différence entre Sub et Function](/04-procedures-et-fonctions/01-difference-sub-function.md)

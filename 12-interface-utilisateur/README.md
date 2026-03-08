@@ -100,4 +100,4 @@ Chaque concept sera illustré par des exemples pratiques et des cas d'usage conc
 
 *Cette introduction pose les bases théoriques nécessaires pour comprendre l'importance de l'interface utilisateur en VBA. Les sections suivantes vous donneront les outils pratiques pour implémenter ces concepts.*
 
-⏭️
+⏭️ [InputBox et MsgBox](/12-interface-utilisateur/01-inputbox-msgbox.md)

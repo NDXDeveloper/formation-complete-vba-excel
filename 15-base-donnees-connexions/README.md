@@ -176,4 +176,4 @@ Les techniques présentées dans ce chapitre sont compatibles avec Excel 2010 et
 
 *Prêt à transformer Excel en véritable plateforme d'intégration de données ? Plongeons dans l'univers d'ADO et des connexions de données !*
 
-⏭️
+⏭️ [ADO (ActiveX Data Objects)](/15-base-donnees-connexions/01-ado-activex-data-objects.md)

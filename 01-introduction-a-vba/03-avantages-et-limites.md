@@ -228,4 +228,4 @@ Ses limites ne doivent pas être ignorées, mais elles peuvent souvent être con
 
 Dans la section suivante, nous verrons comment installer et configurer votre environnement de développement VBA pour commencer à programmer efficacement.
 
-⏭️
+⏭️ [Installation et activation des outils de développement](/01-introduction-a-vba/04-installation-et-activation.md)

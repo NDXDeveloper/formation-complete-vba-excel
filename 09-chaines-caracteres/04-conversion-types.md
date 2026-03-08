@@ -501,4 +501,4 @@ End Function
 
 La maîtrise des conversions de types vous permettra de manipuler efficacement les données dans vos programmes VBA, en évitant les erreurs courantes et en créant des solutions robustes.
 
-⏭️
+⏭️ [Expressions régulières simples](/09-chaines-caracteres/05-expressions-regulieres-simples.md)

@@ -630,4 +630,4 @@ End Sub
 
 *Vous maîtrisez maintenant les connexions aux principales bases de données ! La prochaine étape sera d'apprendre à exploiter la puissance du SQL directement depuis VBA.*
 
-⏭️
+⏭️ [Requêtes SQL depuis VBA](/15-base-donnees-connexions/03-requetes-sql-vba.md)

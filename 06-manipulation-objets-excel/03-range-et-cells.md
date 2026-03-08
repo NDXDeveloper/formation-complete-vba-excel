@@ -537,4 +537,4 @@ Next cellule
 
 Ces objets Range et Cells sont les outils fondamentaux pour toute manipulation de données dans Excel via VBA. Maîtriser leur utilisation vous permettra de créer des macros puissantes et efficaces pour automatiser vos tâches quotidiennes.
 
-⏭️
+⏭️ [Propriétés et méthodes essentielles](/06-manipulation-objets-excel/04-proprietes-methodes-essentielles.md)

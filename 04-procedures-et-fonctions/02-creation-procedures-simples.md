@@ -293,4 +293,4 @@ End Sub
 
 Maintenant que vous savez créer des procédures simples, vous êtes prêt à apprendre à les rendre plus flexibles avec des paramètres. Cette compétence vous permettra de créer des procédures réutilisables qui s'adaptent à différentes situations.
 
-⏭️
+⏭️ [Paramètres et arguments](/04-procedures-et-fonctions/03-parametres-arguments.md)

@@ -485,4 +485,4 @@ Les graphiques et objets Shape en VBA vous permettent de :
 
 **Prochaine étape :** Nous verrons comment automatiser les tableaux croisés dynamiques pour des analyses de données encore plus poussées !
 
-⏭️
+⏭️ [Tableaux croisés dynamiques](/14-fonctions-avancees-excel/04-tableaux-croises-dynamiques.md)

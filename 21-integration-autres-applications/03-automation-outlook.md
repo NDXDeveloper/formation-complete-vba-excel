@@ -678,4 +678,4 @@ End Sub
 
 L'automation avec Outlook transforme Excel en véritable centre de communication automatisé. Une fois maîtrisée, cette fonctionnalité vous permettra de créer des systèmes de notification très sophistiqués !
 
-⏭️
+⏭️ [Automation avec Access](/21-integration-autres-applications/04-automation-access.md)

@@ -459,4 +459,4 @@ Les fonctions personnalisées (UDF) vous permettent de :
 
 **Prochaine étape :** Nous verrons maintenant comment automatiser la création et manipulation des graphiques Excel via VBA !
 
-⏭️
+⏭️ [Graphiques et objets Shape](/14-fonctions-avancees-excel/03-graphiques-objets-shape.md)

@@ -629,4 +629,4 @@ End Sub
 
 Ces techniques de copie, collage et suppression forment la base de la plupart des automatisations Excel. Maîtriser ces opérations vous permettra de créer des macros robustes pour organiser, nettoyer et restructurer vos données efficacement.
 
-⏭️
+⏭️ [7. Gestion des erreurs](/07-gestion-erreurs/)

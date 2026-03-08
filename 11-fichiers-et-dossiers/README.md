@@ -98,4 +98,4 @@ Cet exemple simple illustre l'une des opérations les plus courantes : vérifier
 
 *Dans les sections suivantes, nous explorerons en détail chaque aspect de la manipulation de fichiers et dossiers, avec de nombreux exemples pratiques et des exercices pour consolider vos connaissances.*
 
-⏭️
+⏭️ [Ouvrir et fermer des fichiers](/11-fichiers-et-dossiers/01-ouvrir-fermer-fichiers.md)

@@ -294,4 +294,4 @@ Les événements de classeur sont des outils puissants pour :
 
 Ils constituent la base d'applications Excel professionnelles et interactives. Dans la section suivante, nous découvrirons les événements de feuille qui permettent de réagir aux modifications des données en temps réel.
 
-⏭️
+⏭️ [Événements de feuille (Change, SelectionChange)](/13-evenements/02-evenements-feuille.md)

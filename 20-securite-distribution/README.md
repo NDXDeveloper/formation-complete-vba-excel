@@ -106,4 +106,4 @@ La sécurité et la distribution ne sont pas des aspects techniques isolés, mai
 
 Dans les sections suivantes, nous explorerons en détail les techniques et outils spécifiques pour sécuriser votre code VBA, le signer numériquement, configurer les paramètres de sécurité appropriés, et le distribuer efficacement tout en maintenant un niveau de sécurité optimal.
 
-⏭️
+⏭️ [Protection du code VBA](/20-securite-distribution/01-protection-code-vba.md)

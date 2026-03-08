@@ -518,4 +518,4 @@ Range("B1:B1000").Formula = "=VLOOKUP(A1,F:G,2,FALSE)"
 
 En appliquant ces techniques, vous pouvez transformer des boucles qui prennent des minutes en processus de quelques secondes. L'investissement en temps pour optimiser est généralement largement rentabilisé par les gains de performance obtenus.
 
-⏭️
+⏭️ [Gestion de la mémoire](/18-optimisation-performance/03-gestion-memoire.md)

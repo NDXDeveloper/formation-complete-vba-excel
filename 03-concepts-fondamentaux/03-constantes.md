@@ -631,4 +631,4 @@ Les constantes apportent stabilité et clarté à vos programmes :
 
 Dans la section suivante, nous découvrirons les opérateurs arithmétiques et logiques qui vous permettront de calculer et de prendre des décisions dans vos programmes.
 
-⏭️
+⏭️ [Opérateurs arithmétiques et logiques](/03-concepts-fondamentaux/04-operateurs-arithmetiques-logiques.md)

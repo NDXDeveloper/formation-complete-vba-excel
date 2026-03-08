@@ -370,4 +370,4 @@ La fenêtre des propriétés est votre outil de personnalisation :
 
 Dans la section suivante, nous découvrirons la fenêtre d'exécution immédiate, un outil puissant pour tester et déboguer votre code en temps réel.
 
-⏭️
+⏭️ [La fenêtre d'exécution immédiate](/02-interface-et-environnement/05-fenetre-execution-immediate.md)

@@ -192,4 +192,4 @@ Dans les sections suivantes, nous explorerons en détail :
 
 Les événements transformeront votre façon de concevoir des applications Excel, en passant de simples macros à de véritables applications interactives et intelligentes.
 
-⏭️
+⏭️ [Événements de classeur (Workbook_Open, Before_Close)](/13-evenements/01-evenements-classeur.md)

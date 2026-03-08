@@ -692,4 +692,4 @@ End Sub
 
 La validation des données est un investissement essentiel qui améliore considérablement la qualité et la robustesse de vos applications VBA. En appliquant ces techniques de manière cohérente, vous créerez des interfaces fiables qui guident l'utilisateur vers des saisies correctes et préviennent les erreurs de traitement. Une validation bien conçue transforme un simple formulaire en une véritable application professionnelle.
 
-⏭️
+⏭️ [13. Événements](/13-evenements/)

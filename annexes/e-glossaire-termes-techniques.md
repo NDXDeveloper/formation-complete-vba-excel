@@ -506,4 +506,4 @@ Ce glossaire définit tous les termes techniques VBA que vous rencontrerez dans 
 
 **Rappelez-vous :** Il est normal de ne pas connaître tous ces termes au début. Ce glossaire est là pour vous accompagner tout au long de votre apprentissage VBA !
 
-⏭️
+⏭️ Retour au [Sommaire](/SOMMAIRE.md)

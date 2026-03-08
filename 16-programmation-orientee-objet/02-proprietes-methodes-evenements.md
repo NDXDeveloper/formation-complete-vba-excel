@@ -424,4 +424,4 @@ End Sub
 
 Cette approche structurée avec propriétés, méthodes et événements rend vos objets VBA aussi professionnels et faciles à utiliser que les objets intégrés d'Excel.
 
-⏭️
+⏭️ [Encapsulation](/16-programmation-orientee-objet/03-encapsulation.md)

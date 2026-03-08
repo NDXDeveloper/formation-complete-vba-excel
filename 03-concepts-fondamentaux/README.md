@@ -238,4 +238,4 @@ Pour chaque concept de ce chapitre :
 
 *Prêt à découvrir les bases de la programmation VBA ? Commençons par la syntaxe fondamentale qui vous permettra de communiquer efficacement avec l'ordinateur.*
 
-⏭️
+⏭️ [Syntaxe de base VBA](/03-concepts-fondamentaux/01-syntaxe-base-vba.md)

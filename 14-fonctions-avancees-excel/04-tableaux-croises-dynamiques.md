@@ -628,4 +628,4 @@ Les tableaux croisés dynamiques en VBA vous permettent de :
 
 **Prochaine étape :** Nous verrons maintenant comment créer des systèmes de filtrage avancés pour traiter efficacement vos bases de données !
 
-⏭️
+⏭️ [Filtres automatiques et avancés](/14-fonctions-avancees-excel/05-filtres-automatiques-avances.md)

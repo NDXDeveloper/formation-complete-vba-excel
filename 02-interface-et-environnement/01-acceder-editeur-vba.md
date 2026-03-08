@@ -244,4 +244,4 @@ L'accès à l'éditeur VBA doit devenir un automatisme. Les méthodes principale
 
 Dans la section suivante, nous explorerons l'explorateur de projets, qui vous permettra de naviguer efficacement dans vos projets VBA.
 
-⏭️
+⏭️ [L'explorateur de projets](/02-interface-et-environnement/02-explorateur-projets.md)

@@ -196,4 +196,4 @@ Dans cet exemple :
 
 Cette combinaison illustre parfaitement comment les deux types de blocs de code peuvent travailler ensemble pour créer des solutions efficaces et bien organisées.
 
-⏭️
+⏭️ [Création de procédures simples](/04-procedures-et-fonctions/02-creation-procedures-simples.md)

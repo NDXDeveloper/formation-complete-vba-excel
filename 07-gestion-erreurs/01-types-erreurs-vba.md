@@ -517,4 +517,4 @@ End Sub
 
 Dans la section suivante, nous apprendrons à utiliser `On Error Resume Next` pour gérer les erreurs d'exécution de manière contrôlée.
 
-⏭️
+⏭️ [On Error Resume Next](/07-gestion-erreurs/02-on-error-resume-next.md)

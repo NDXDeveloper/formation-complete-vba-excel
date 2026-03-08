@@ -666,4 +666,4 @@ End Sub
 
 *Dans la section suivante, nous découvrirons FileDialog, une interface moderne pour permettre aux utilisateurs de sélectionner des fichiers et dossiers de manière conviviale.*
 
-⏭️
+⏭️ [FileDialog pour sélection de fichiers](/11-fichiers-et-dossiers/05-filedialog-selection-fichiers.md)

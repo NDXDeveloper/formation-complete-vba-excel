@@ -799,4 +799,4 @@ La gestion d'erreurs robuste ne s'apprend pas en un jour. Commencez par applique
 
 **Rappelez-vous** : un code qui gère bien les erreurs est la marque d'un développeur qui pense à ses utilisateurs et à la maintenance future de son application.
 
-⏭️
+⏭️ [8. Tableaux (Arrays)](/08-tableaux-arrays/)

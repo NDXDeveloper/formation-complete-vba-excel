@@ -1488,4 +1488,4 @@ End Sub
 
 *Power Query combiné à VBA vous donne un contrôle total sur vos flux de données ! Vous pouvez maintenant créer des solutions d'automatisation complètes et robustes.*
 
-⏭️
+⏭️ [16. Programmation orientée objet](/16-programmation-orientee-objet/)

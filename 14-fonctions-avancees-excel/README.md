@@ -119,4 +119,4 @@ La maîtrise de ces outils transformera votre façon de concevoir les solutions 
 
 Commençons par découvrir comment exploiter la bibliothèque de fonctions Excel depuis VBA avec `Application.WorksheetFunction`.
 
-⏭️
+⏭️ [Application.WorksheetFunction](/14-fonctions-avancees-excel/01-application-worksheetfunction.md)

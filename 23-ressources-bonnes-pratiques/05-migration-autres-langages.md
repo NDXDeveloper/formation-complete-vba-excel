@@ -656,4 +656,4 @@ Votre parcours VBA vous a donné des bases solides. Quelle que soit la direction
 
 L'important n'est pas de choisir le "meilleur" langage, mais celui qui correspond le mieux à vos objectifs, votre contexte et vos projets. Et rappelez-vous : un bon développeur n'est pas défini par les langages qu'il maîtrise, mais par sa capacité à résoudre des problèmes et à s'adapter aux besoins.
 
-⏭️
+⏭️ [Annexes](/annexes/)

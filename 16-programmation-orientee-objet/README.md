@@ -149,4 +149,4 @@ Avant d'aborder cette section, assurez-vous de maîtriser :
 
 **Dans le prochain chapitre**, nous verrons comment créer votre première classe VBA et instancier des objets, posant ainsi les fondations de votre apprentissage de la programmation orientée objet.
 
-⏭️
+⏭️ [Classes et objets](/16-programmation-orientee-objet/01-classes-objets.md)

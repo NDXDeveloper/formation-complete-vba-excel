@@ -624,4 +624,4 @@ Le profilage est essentiel pour optimiser efficacement votre code VBA. Les point
 
 Le profilage vous permet de passer d'optimisations "à l'aveugle" à des améliorations ciblées et efficaces, garantissant que votre temps d'optimisation soit bien investi.
 
-⏭️
+⏭️ [Techniques d'optimisation avancées](/18-optimisation-performance/05-techniques-optimisation-avancees.md)

@@ -606,5 +606,5 @@ End Sub
 ```
 
 La manipulation du registre est un outil puissant mais qui nécessite des précautions. Commencez toujours par les méthodes les plus sûres (WScript.Shell) et ne passez aux API natives que si vous avez besoin de fonctionnalités avancées spécifiques.
-
-⏭️
+ 
+⏭️ [Interaction avec le système](/17-api-windows/04-interaction-systeme.md)

@@ -1176,4 +1176,4 @@ End Sub
 
 L'interaction avec le système via les API Windows ouvre des possibilités immenses pour vos applications VBA. Utilisez ces fonctionnalités avec prudence et toujours dans l'intérêt de l'utilisateur et de la stabilité du système.
 
-⏭️
+⏭️ [Précautions et bonnes pratiques](/17-api-windows/05-precautions-bonnes-pratiques.md)

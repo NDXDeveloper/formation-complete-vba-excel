@@ -71,4 +71,4 @@ De plus, ces compétences en bonnes pratiques sont transférables à d'autres la
 
 *Les bonnes pratiques ne sont pas des contraintes, mais des outils qui libèrent votre créativité en vous donnant une base solide sur laquelle construire des solutions robustes et élégantes.*
 
-⏭️
+⏭️ [Conventions de nommage](/23-ressources-bonnes-pratiques/01-conventions-nommage.md)

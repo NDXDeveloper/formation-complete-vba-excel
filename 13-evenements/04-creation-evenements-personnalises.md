@@ -483,4 +483,4 @@ Les événements personnalisés permettent de :
 
 Ils représentent un concept avancé qui, une fois maîtrisé, ouvre de nouvelles possibilités pour créer des applications VBA sophistiquées et bien structurées. Dans la section suivante, nous apprendrons à désactiver temporairement les événements pour optimiser les performances.
 
-⏭️
+⏭️ [Désactivation temporaire des événements](/13-evenements/05-desactivation-temporaire-evenements.md)

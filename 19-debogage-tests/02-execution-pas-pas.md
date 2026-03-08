@@ -195,4 +195,4 @@ Combinez l'exécution pas à pas avec les points d'arrêt :
 
 L'exécution pas à pas est un outil indispensable pour comprendre et déboguer votre code VBA. Combinée avec l'observation des variables et l'utilisation judicieuse des points d'arrêt, elle vous permet de résoudre même les problèmes les plus complexes.
 
-⏭️
+⏭️ [Fenêtre de surveillance (Watch)](/19-debogage-tests/03-fenetre-surveillance-watch.md)

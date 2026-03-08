@@ -355,4 +355,4 @@ Dans les grandes organisations :
 
 Les paramètres de sécurité macro sont un élément crucial pour trouver l'équilibre entre productivité et sécurité. Une configuration réfléchie, adaptée à votre contexte d'usage, vous permettra de bénéficier de la puissance des macros VBA tout en protégeant votre système contre les menaces potentielles.
 
-⏭️
+⏭️ [Distribution de solutions VBA](/20-securite-distribution/04-distribution-solutions-vba.md)

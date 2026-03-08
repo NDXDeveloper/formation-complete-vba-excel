@@ -220,4 +220,4 @@ L'interopérabilité entre ces applications fait la vraie force de VBA, permetta
 
 Dans la section suivante, nous examinerons les avantages et limites de VBA pour vous aider à évaluer si c'est le bon outil pour vos projets.
 
-⏭️
+⏭️ [Avantages et limites de VBA](/01-introduction-a-vba/03-avantages-et-limites.md)

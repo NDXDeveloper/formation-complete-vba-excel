@@ -522,4 +522,4 @@ End Sub
 
 La compatibilité entre versions est un défi technique qui nécessite une approche méthodique et une planification soigneuse. En anticipant ces questions dès le début du développement, vous créez des solutions VBA robustes qui peuvent évoluer avec l'écosystème Office et servir efficacement vos utilisateurs, quelle que soit leur configuration.
 
-⏭️
+⏭️ [21. Intégration avec autres applications](/21-integration-autres-applications/)

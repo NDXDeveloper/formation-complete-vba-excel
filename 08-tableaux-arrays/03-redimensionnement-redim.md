@@ -754,4 +754,4 @@ End Function
 
 **ReDim** est un outil puissant mais qui doit être utilisé intelligemment. Dans la section suivante, nous explorerons les tableaux multidimensionnels qui ajoutent encore plus de possibilités à vos programmes VBA.
 
-⏭️
+⏭️ [Tableaux multidimensionnels](/08-tableaux-arrays/04-tableaux-multidimensionnels.md)

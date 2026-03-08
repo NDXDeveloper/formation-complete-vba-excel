@@ -710,4 +710,4 @@ Set cadres = entreprise.ChercherParSalaire(4000)
 
 Les collections personnalisées transforment votre code en rendant la gestion de groupes d'objets intuitive, sûre et puissante. Elles sont essentielles pour créer des applications VBA robustes et maintenables.
 
-⏭️
+⏭️ [Modules de classe](/16-programmation-orientee-objet/05-modules-classe.md)

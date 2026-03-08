@@ -651,4 +651,4 @@ End Sub
 
 *FileDialog offre une interface moderne et conviviale pour la sélection de fichiers et dossiers. Maîtriser cet outil vous permettra de créer des applications VBA avec une expérience utilisateur professionnelle et intuitive.*
 
-⏭️
+⏭️ [12. Interface utilisateur](/12-interface-utilisateur/)

@@ -1378,4 +1378,4 @@ Next i
 
 La maîtrise du parcours et de la manipulation des tableaux vous donne un contrôle total sur vos données et vous permet de créer des solutions VBA sophistiquées et performantes. Ces techniques sont la base de tout traitement de données professionnel en VBA.
 
-⏭️
+⏭️ [9. Chaînes de caractères](/09-chaines-caracteres/)

@@ -366,4 +366,4 @@ End Sub
 
 En suivant ces conventions, votre code VBA sera beaucoup plus professionnel, lisible et maintenable. C'est un investissement en temps au début qui vous fera gagner énormément de temps par la suite !
 
-⏭️
+⏭️ [Documentation du code](/23-ressources-bonnes-pratiques/02-documentation-code.md)

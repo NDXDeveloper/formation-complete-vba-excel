@@ -40,4 +40,4 @@ Nous aborderons également les techniques avancées comme la gestion des fuseaux
 
 *Les dates et heures sont au cœur de nombreuses applications métier. Une bonne compréhension de ces concepts vous permettra de développer des solutions VBA plus robustes et plus professionnelles.*
 
-⏭️
+⏭️ [Type de données Date](/10-dates-et-heures/01-type-donnees-date.md)

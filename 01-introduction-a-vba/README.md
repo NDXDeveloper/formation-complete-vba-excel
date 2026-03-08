@@ -59,4 +59,4 @@ Cette formation suit une approche progressive et pratique :
 
 *Dans la section suivante, nous définirons précisément ce qu'est VBA et explorerons ses caractéristiques principales.*
 
-⏭️
+⏭️ [Qu'est-ce que VBA (Visual Basic for Applications)](/01-introduction-a-vba/01-quest-ce-que-vba.md)

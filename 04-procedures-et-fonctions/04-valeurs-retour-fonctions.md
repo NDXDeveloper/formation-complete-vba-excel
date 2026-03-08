@@ -470,4 +470,4 @@ End Function
 
 Les fonctions sont des outils puissants qui transforment vos calculs en blocs réutilisables, rendant votre code plus efficace et plus professionnel !
 
-⏭️
+⏭️ [Portée des variables (Public, Private, Static)](/04-procedures-et-fonctions/05-portee-variables.md)

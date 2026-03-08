@@ -671,4 +671,4 @@ End Sub
 
 L'automation avec PowerPoint ouvre de nombreuses possibilités pour créer des présentations dynamiques et toujours à jour avec vos données Excel. Une fois maîtrisée, cette technique vous fera gagner énormément de temps !
 
-⏭️
+⏭️ [Automation avec Outlook](/21-integration-autres-applications/03-automation-outlook.md)

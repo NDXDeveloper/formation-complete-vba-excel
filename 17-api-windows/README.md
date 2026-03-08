@@ -260,4 +260,4 @@ Avant d'aborder cette section, assurez-vous de maîtriser :
 
 **Dans le prochain chapitre**, nous verrons comment déclarer et utiliser vos premières fonctions API Windows, en commençant par des exemples simples et sécurisés.
 
-⏭️
+⏭️ [Déclaration d'API](/17-api-windows/01-declaration-api.md)

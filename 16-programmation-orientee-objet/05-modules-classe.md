@@ -683,4 +683,4 @@ End Function
 
 Les modules de classe bien structurés sont la fondation d'applications VBA robustes et professionnelles. Ils transforment vos idées en outils réutilisables et maintenables.
 
-⏭️
+⏭️ [17. API Windows](/17-api-windows/)

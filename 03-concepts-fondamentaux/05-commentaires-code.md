@@ -657,4 +657,4 @@ Les commentaires sont essentiels pour un code maintenable :
 
 Dans la section suivante, nous découvrirons comment structurer un programme VBA de manière logique et professionnelle.
 
-⏭️
+⏭️ [Structure générale d'un programme](/03-concepts-fondamentaux/06-structure-generale-programme.md)

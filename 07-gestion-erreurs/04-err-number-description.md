@@ -653,4 +653,4 @@ End Sub
 
 Maîtriser `Err.Number` et `Err.Description` vous donne les outils pour créer une gestion d'erreurs précise et informative. Dans la section suivante, nous découvrirons les bonnes pratiques générales pour créer du code VBA robuste et professionnel.
 
-⏭️
+⏭️ [Bonnes pratiques de gestion d'erreurs](/07-gestion-erreurs/05-bonnes-pratiques-gestion-erreurs.md)

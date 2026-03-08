@@ -639,4 +639,4 @@ End Sub
 
 Une bonne gestion de la mémoire en VBA n'est pas seulement une question de performance, c'est aussi une question de stabilité. En appliquant ces bonnes pratiques, vous créerez des applications VBA plus robustes et plus professionnelles.
 
-⏭️
+⏭️ [Profilage du code](/18-optimisation-performance/04-profilage-code.md)

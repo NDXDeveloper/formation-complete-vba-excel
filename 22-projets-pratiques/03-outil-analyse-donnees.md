@@ -2357,4 +2357,4 @@ Ce projet illustre parfaitement comment VBA peut transformer des tâches analyti
 
 Ce projet constitue un excellent tremplin vers des solutions d'analyse de données plus avancées et prépare efficacement à l'utilisation d'outils spécialisés comme R, Python ou Power BI.
 
-⏭️
+⏭️ [Interface de saisie complète](/22-projets-pratiques/04-interface-saisie-complete.md)

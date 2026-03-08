@@ -291,4 +291,4 @@ End Sub
 
 **Prochaine étape :** Maintenant que vous savez utiliser les fonctions Excel existantes, nous allons apprendre à créer vos propres fonctions personnalisées avec les UDF (User Defined Functions).
 
-⏭️
+⏭️ [Création de fonctions personnalisées (UDF)](/14-fonctions-avancees-excel/02-creation-fonctions-personnalisees-udf.md)

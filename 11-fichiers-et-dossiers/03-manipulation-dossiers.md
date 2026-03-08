@@ -633,4 +633,4 @@ Set dossier = Nothing
 
 *Dans la section suivante, nous découvrirons les fonctions système de VBA pour des opérations plus avancées sur les fichiers et dossiers.*
 
-⏭️
+⏭️ [Dir, Kill, MkDir, RmDir](/11-fichiers-et-dossiers/04-dir-kill-mkdir-rmdir.md)

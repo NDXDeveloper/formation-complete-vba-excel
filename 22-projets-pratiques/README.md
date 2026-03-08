@@ -173,4 +173,4 @@ Pour chaque projet, nous recommandons de :
 
 Les projets pratiques qui suivent constituent le point culminant de votre apprentissage VBA. Ils vous permettront de développer des solutions réelles et d'acquérir l'expérience nécessaire pour devenir autonome dans vos développements futurs.
 
-⏭️
+⏭️ [Générateur de rapports automatisé](/22-projets-pratiques/01-generateur-rapports-automatise.md)

@@ -117,4 +117,4 @@ Avant de plonger dans les détails, quelques conseils pour organiser votre écra
 
 *Prêt à découvrir votre nouvel environnement de développement ? Commençons par explorer les différentes façons d'accéder à l'éditeur VBA.*
 
-⏭️
+⏭️ [Accéder à l'éditeur VBA (Alt+F11)](/02-interface-et-environnement/01-acceder-editeur-vba.md)

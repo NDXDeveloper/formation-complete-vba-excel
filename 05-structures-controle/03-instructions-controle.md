@@ -709,4 +709,4 @@ End Sub
 
 Les instructions de contrôle sont des outils puissants qui, utilisés avec sagesse, peuvent considérablement améliorer la lisibilité et la robustesse de votre code. L'objectif est toujours de créer un code facile à comprendre et à maintenir !
 
-⏭️
+⏭️ [6. Manipulation des objets Excel](/06-manipulation-objets-excel/)

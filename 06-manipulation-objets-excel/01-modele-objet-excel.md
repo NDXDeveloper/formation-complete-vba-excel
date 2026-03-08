@@ -249,4 +249,4 @@ N'hésitez pas à tester chaque ligne de code séparément pour comprendre son e
 
 Maîtriser ce modèle objet est essentiel car il constitue la fondation de toute programmation VBA efficace dans Excel. Dans les sections suivantes, nous approfondirons chacun de ces objets avec des exemples pratiques concrets.
 
-⏭️
+⏭️ [Application, Workbook, Worksheet](/06-manipulation-objets-excel/02-application-workbook-worksheet.md)

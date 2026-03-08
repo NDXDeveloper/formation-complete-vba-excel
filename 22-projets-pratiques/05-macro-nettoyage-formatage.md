@@ -770,4 +770,4 @@ Cette macro de nettoyage et formatage constitue un outil puissant pour automatis
 
 L'approche modulaire du code permet de facilement adapter et étendre les fonctionnalités selon vos besoins spécifiques. Avec ces bases, vous pouvez créer des outils de nettoyage sur mesure pour votre organisation.
 
-⏭️
+⏭️ [23. Ressources et bonnes pratiques](/23-ressources-bonnes-pratiques/)

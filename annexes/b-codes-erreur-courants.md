@@ -324,4 +324,4 @@ End Sub
 
 **Rappelez-vous :** Chaque erreur est une occasion d'apprendre. Plus vous en rencontrerez, plus vous deviendrez expert en VBA !
 
-⏭️
+⏭️ [C. Raccourcis clavier de l'éditeur VBA](/annexes/c-raccourcis-clavier-editeur-vba.md)

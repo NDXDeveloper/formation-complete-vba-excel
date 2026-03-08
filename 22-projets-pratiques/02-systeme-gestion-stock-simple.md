@@ -2099,4 +2099,4 @@ Ce système de gestion de stock constitue un excellent tremplin vers des projets
 
 **Prochaine étape recommandée :** Implémenter ce système dans votre environnement de travail et l'adapter à vos besoins spécifiques. L'expérience pratique reste le meilleur moyen de progresser en développement VBA !
 
-⏭️
+⏭️ [Outil d'analyse de données](/22-projets-pratiques/03-outil-analyse-donnees.md)

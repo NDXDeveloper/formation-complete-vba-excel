@@ -405,4 +405,4 @@ La fenêtre de code est votre environnement de travail principal :
 
 Dans la section suivante, nous explorerons la fenêtre des propriétés, qui vous permettra de consulter et modifier les caractéristiques des objets VBA.
 
-⏭️
+⏭️ [La fenêtre des propriétés](/02-interface-et-environnement/04-fenetre-proprietes.md)

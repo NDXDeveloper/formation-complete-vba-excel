@@ -420,4 +420,4 @@ Print #NumFichier, "Machine : " & Environ("COMPUTERNAME")
 
 *Dans la section suivante, nous apprendrons à manipuler les dossiers pour organiser nos fichiers de manière automatique.*
 
-⏭️
+⏭️ [Manipulation de dossiers](/11-fichiers-et-dossiers/03-manipulation-dossiers.md)

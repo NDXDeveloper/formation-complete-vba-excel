@@ -269,4 +269,4 @@ Open CheminFichier For Input As #NumFichier
 
 *Dans la prochaine section, nous verrons comment lire et écrire effectivement le contenu des fichiers une fois qu'ils sont ouverts.*
 
-⏭️
+⏭️ [Lecture et écriture de fichiers texte](/11-fichiers-et-dossiers/02-lecture-ecriture-fichiers-texte.md)

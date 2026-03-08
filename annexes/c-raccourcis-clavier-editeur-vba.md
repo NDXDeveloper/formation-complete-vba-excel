@@ -266,4 +266,4 @@ Vous pouvez personnaliser certains raccourcis via :
 
 **Conseil final :** Ne tentez pas d'apprendre tous les raccourcis d'un coup. Commencez par les essentiels et ajoutez-en de nouveaux au fur et à mesure que vous vous sentez à l'aise. Les raccourcis deviennent vraiment utiles quand ils deviennent automatiques !
 
-⏭️
+⏭️ [D. Exemples de code réutilisables](/annexes/d-exemples-code-reutilisables.md)

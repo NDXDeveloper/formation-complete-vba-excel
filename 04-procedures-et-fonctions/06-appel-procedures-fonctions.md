@@ -602,4 +602,4 @@ End Sub
 
 La maîtrise des appels de procédures et fonctions vous permet de créer des programmes modulaires, réutilisables et maintenables. C'est la clé pour transformer vos scripts simples en véritables applications robustes !
 
-⏭️
+⏭️ [5. Structures de contrôle](/05-structures-controle/)

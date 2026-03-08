@@ -615,4 +615,4 @@ End Sub
 
 Les instructions conditionnelles sont la base de la logique de programmation. Elles permettent à vos programmes de prendre des décisions intelligentes et de s'adapter à toutes les situations !
 
-⏭️
+⏭️ [Boucles](/05-structures-controle/02-boucles.md)

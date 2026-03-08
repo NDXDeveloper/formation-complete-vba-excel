@@ -497,4 +497,4 @@ End Sub
 
 Les expressions régulières sont un outil puissant mais qui demande de la pratique. Commencez par des patterns simples et augmentez progressivement la complexité. Elles vous feront gagner beaucoup de temps pour valider et extraire des données dans vos projets VBA.
 
-⏭️
+⏭️ [10. Dates et heures](/10-dates-et-heures/)

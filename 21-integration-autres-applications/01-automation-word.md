@@ -457,4 +457,4 @@ End Sub
 
 L'automation avec Word offre des possibilités infinies pour automatiser la création de documents. Une fois ces bases maîtrisées, vous pourrez créer des solutions sophistiquées de génération de rapports et de publipostage.
 
-⏭️
+⏭️ [Automation avec PowerPoint](/21-integration-autres-applications/02-automation-powerpoint.md)

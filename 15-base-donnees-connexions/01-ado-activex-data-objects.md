@@ -414,4 +414,4 @@ End Sub
 
 *Avec ADO, vous avez maintenant les clés pour faire communiquer Excel avec le monde des bases de données. La prochaine étape sera d'apprendre à se connecter à différents types de bases de données spécifiques !*
 
-⏭️
+⏭️ [Connexion à des bases de données externes](/15-base-donnees-connexions/02-connexion-bases-donnees-externes.md)

@@ -202,4 +202,4 @@ heureSeule = #2:30 PM#
 
 *Le type Date est la fondation de toute manipulation temporelle en VBA. Sa compréhension est essentielle pour créer des applications robustes travaillant avec des données temporelles.*
 
-⏭️
+⏭️ [Fonctions de date (Now, Date, Time)](/10-dates-et-heures/02-fonctions-date.md)

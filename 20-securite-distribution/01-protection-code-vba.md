@@ -265,4 +265,4 @@ Maintenant, quand quelqu'un essaiera d'accéder au code VBA :
 
 La protection du code VBA est un équilibre délicat entre sécurité, utilisabilité et praticité. Une approche réfléchie, combinant protection technique et bonnes pratiques organisationnelles, vous aidera à protéger efficacement votre travail tout en maintenant la flexibilité nécessaire pour le développement et la maintenance.
 
-⏭️
+⏭️ [Signature numérique des macros](/20-securite-distribution/02-signature-numerique-macros.md)

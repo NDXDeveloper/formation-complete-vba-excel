@@ -338,4 +338,4 @@ End Sub
 
 *Ces trois fonctions sont les piliers de la gestion du temps en VBA. Leur maîtrise vous permettra de créer des applications temporellement intelligentes et robustes.*
 
-⏭️
+⏭️ [Formatage des dates](/10-dates-et-heures/03-formatage-dates.md)

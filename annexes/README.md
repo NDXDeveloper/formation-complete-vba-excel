@@ -50,4 +50,4 @@ Ces annexes s'adressent à tous les niveaux d'utilisateurs VBA :
 
 Nous vous encourageons à utiliser ces annexes comme un complément indispensable à votre formation et à votre pratique quotidienne du VBA. Elles représentent un investissement dans votre efficacité et votre expertise en développement d'applications Office.
 
-⏭️
+⏭️ [A. Référence des fonctions VBA](/annexes/a-reference-fonctions-vba.md)

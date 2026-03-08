@@ -1395,4 +1395,4 @@ End Sub
 
 *Avec ces techniques d'import/export, vous pouvez maintenant automatiser complètement vos flux de données ! La prochaine étape sera d'intégrer Power Query pour des transformations encore plus puissantes.*
 
-⏭️
+⏭️ [Power Query et VBA](/15-base-donnees-connexions/05-power-query-vba.md)

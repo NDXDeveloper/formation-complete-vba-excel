@@ -1216,4 +1216,4 @@ End Sub
 
 Les tableaux multidimensionnels sont des outils puissants pour organiser et traiter des données complexes. Maîtrisés correctement, ils vous permettront de créer des solutions VBA élégantes et performantes pour vos projets professionnels. Dans la section suivante, nous explorerons les techniques de parcours et manipulation qui vous donneront encore plus de contrôle sur vos données.
 
-⏭️
+⏭️ [Parcours et manipulation des tableaux](/08-tableaux-arrays/05-parcours-manipulation-tableaux.md)

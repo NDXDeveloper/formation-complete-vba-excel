@@ -92,4 +92,4 @@ Bien que VBA ne dispose pas d'un framework de test intégré comme d'autres lang
 
 Le débogage et les tests ne sont pas des activités optionnelles dans le développement VBA - ils sont essentiels pour créer des solutions robustes et fiables. Dans les sections suivantes, nous explorerons en détail les outils et techniques spécifiques qui vous aideront à maîtriser ces compétences cruciales.
 
-⏭️
+⏭️ [Points d'arrêt (Breakpoints)](/19-debogage-tests/01-points-arret-breakpoints.md)

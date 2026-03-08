@@ -750,4 +750,4 @@ End Sub
 
 Les boucles sont l'outil le plus puissant pour automatiser les tâches répétitives. Maîtrisez-les et vous pourrez traiter des milliers de données en quelques secondes !
 
-⏭️
+⏭️ [Instructions de contrôle (Exit, GoTo)](/05-structures-controle/03-instructions-controle.md)

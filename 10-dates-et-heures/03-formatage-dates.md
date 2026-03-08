@@ -416,4 +416,4 @@ End Function
 
 *Le formatage des dates est un art qui équilibre fonctionnalité et esthétique. Une maîtrise de ces techniques vous permettra de créer des interfaces et des rapports véritablement professionnels.*
 
-⏭️
+⏭️ [Calculs sur les dates](/10-dates-et-heures/04-calculs-dates.md)

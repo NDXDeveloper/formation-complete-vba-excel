@@ -639,4 +639,4 @@ End Sub
 
 La maîtrise des événements est essentielle pour créer des interfaces utilisateur réactives et intuitives. En comprenant quand et comment utiliser chaque type d'événement, vous pouvez créer des formulaires qui anticipent les besoins de l'utilisateur et offrent une expérience fluide et professionnelle. Dans la section suivante, nous explorerons les techniques de validation des données pour garantir la qualité des informations saisies.
 
-⏭️
+⏭️ [Validation des données saisies](/12-interface-utilisateur/05-validation-donnees-saisies.md)

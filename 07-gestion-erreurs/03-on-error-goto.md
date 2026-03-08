@@ -629,4 +629,4 @@ Commencez par des gestionnaires simples avec juste un message d'erreur. Progress
 
 Dans la section suivante, nous découvrirons en détail les propriétés `Err.Number` et `Err.Description` pour analyser finement les erreurs.
 
-⏭️
+⏭️ [Err.Number et Err.Description](/07-gestion-erreurs/04-err-number-description.md)

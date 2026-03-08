@@ -510,4 +510,4 @@ Public AppConfig As String  ' Vraiment nécessaire globalement
 
 La maîtrise de la portée des variables vous permettra de créer des programmes plus robustes, organisés et faciles à maintenir !
 
-⏭️
+⏭️ [Appel de procédures et fonctions](/04-procedures-et-fonctions/06-appel-procedures-fonctions.md)

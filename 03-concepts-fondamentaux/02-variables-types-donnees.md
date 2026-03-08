@@ -696,4 +696,4 @@ Les variables sont les fondations du stockage de données en VBA :
 
 Dans la section suivante, nous découvrirons les constantes, qui permettent de définir des valeurs qui ne changent jamais dans votre programme.
 
-⏭️
+⏭️ [Constantes](/03-concepts-fondamentaux/03-constantes.md)

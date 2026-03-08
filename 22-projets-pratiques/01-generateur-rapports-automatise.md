@@ -585,4 +585,4 @@ Ce projet démontre les concepts fondamentaux de VBA tout en résolvant un probl
 
 L'automatisation avec VBA ouvre de nombreuses possibilités - ce projet n'est que le début de votre parcours vers des solutions encore plus sophistiquées !
 
-⏭️
+⏭️ [Système de gestion de stock simple](/22-projets-pratiques/02-systeme-gestion-stock-simple.md)

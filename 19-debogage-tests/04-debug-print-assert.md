@@ -365,4 +365,4 @@ Debug.Assert diviseur <> 0  ' Division par zéro interdite
 
 Debug.Print et Debug.Assert sont des outils essentiels pour tout développeur VBA. Ils vous permettent de créer un système de débogage personnalisé, discret mais puissant, qui vous aide à comprendre et à valider le comportement de votre code en temps réel.
 
-⏭️
+⏭️ [Tests unitaires simples](/19-debogage-tests/05-tests-unitaires-simples.md)

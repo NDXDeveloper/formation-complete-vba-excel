@@ -473,4 +473,4 @@ Redistribution interdite sans autorisation écrite.
 
 La distribution de solutions VBA est un art qui combine technique, communication et gestion de projet. Une approche professionnelle et réfléchie de la distribution transforme un simple script en un véritable outil d'entreprise, adopté et apprécié par ses utilisateurs.
 
-⏭️
+⏭️ [Compatibilité entre versions](/20-securite-distribution/05-compatibilite-versions.md)

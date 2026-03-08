@@ -425,4 +425,4 @@ La personnalisation de votre environnement VBA améliore significativement votre
 
 Votre environnement VBA est maintenant optimisé pour votre apprentissage et votre développement futur. Dans le chapitre suivant, nous aborderons les concepts fondamentaux de programmation qui constituent les bases de tout code VBA.
 
-⏭️
+⏭️ [3. Concepts fondamentaux de programmation](/03-concepts-fondamentaux/)

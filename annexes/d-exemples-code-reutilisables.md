@@ -503,4 +503,4 @@ End Sub
 
 **Conseil final :** Ces exemples sont des points de départ. N'hésitez pas à les combiner, les modifier et les adapter selon vos besoins spécifiques. Plus vous pratiquerez avec ces "briques" de code, plus vous deviendrez autonome en VBA !
 
-⏭️
+⏭️ [E. Glossaire des termes techniques](/annexes/e-glossaire-termes-techniques.md)

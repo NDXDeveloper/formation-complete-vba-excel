@@ -468,4 +468,4 @@ End Sub
 
 La déclaration d'API est la première étape cruciale pour utiliser les fonctionnalités Windows avancées. Une déclaration correcte garantit un fonctionnement stable et compatible de vos applications VBA.
 
-⏭️
+⏭️ [API courantes (GetUserName, Sleep)](/17-api-windows/02-api-courantes.md)

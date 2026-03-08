@@ -180,4 +180,4 @@ Rappelez-vous : il vaut mieux un code qui fonctionne avec une gestion d'erreurs 
 
 **Prêt à rendre votre code VBA incassable ?** Dans la section suivante, nous commencerons par identifier et comprendre les différents types d'erreurs que vous rencontrerez dans vos projets VBA.
 
-⏭️
+⏭️ [Types d'erreurs en VBA](/07-gestion-erreurs/01-types-erreurs-vba.md)

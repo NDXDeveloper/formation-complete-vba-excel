@@ -530,4 +530,4 @@ La syntaxe VBA suit des règles précises mais accessibles :
 
 Dans la section suivante, nous découvrirons les variables et types de données, qui vous permettront de stocker et manipuler les informations dans vos programmes.
 
-⏭️
+⏭️ [Variables et types de données](/03-concepts-fondamentaux/02-variables-types-donnees.md)

@@ -323,4 +323,4 @@ L'explorateur de projets est votre carte routière dans VBA :
 
 Dans la section suivante, nous explorerons la fenêtre de code, là où vous écrirez concrètement vos programmes VBA.
 
-⏭️
+⏭️ [La fenêtre de code](/02-interface-et-environnement/03-fenetre-code.md)

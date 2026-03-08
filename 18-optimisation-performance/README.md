@@ -165,4 +165,4 @@ Si une fonction n'est exécutée qu'occasionnellement avec de petits volumes, l'
 
 Cette introduction pose les bases théoriques et méthodologiques nécessaires avant d'aborder les techniques spécifiques d'optimisation. La suite du chapitre détaillera les méthodes concrètes pour améliorer les performances de vos applications VBA.
 
-⏭️
+⏭️ [Désactivation des calculs et de l'affichage](/18-optimisation-performance/01-desactivation-calculs-affichage.md)

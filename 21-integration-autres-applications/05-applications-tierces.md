@@ -667,4 +667,4 @@ End Sub
 
 L'automation avec des applications tierces est puissante mais complexe. Elle nécessite une bonne compréhension des applications cibles et une gestion d'erreurs robuste. Commencez simple et évoluez progressivement vers des intégrations plus sophistiquées !
 
-⏭️
+⏭️ [22. Projets pratiques](/22-projets-pratiques/)

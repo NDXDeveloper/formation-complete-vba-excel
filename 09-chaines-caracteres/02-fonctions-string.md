@@ -404,4 +404,4 @@ End Function
 
 Ces fonctions String sont vos alliées quotidiennes en VBA. Maîtrisez-les bien, car elles constituent la base de nombreuses opérations plus complexes sur les chaînes de caractères.
 
-⏭️
+⏭️ [Recherche et remplacement](/09-chaines-caracteres/03-recherche-remplacement.md)

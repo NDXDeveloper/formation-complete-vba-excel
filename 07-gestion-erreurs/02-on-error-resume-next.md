@@ -553,4 +553,4 @@ Commencez par utiliser `On Error Resume Next` pour des cas simples comme vérifi
 
 Dans la section suivante, nous découvrirons `On Error GoTo`, qui permet une gestion d'erreurs plus structurée et puissante.
 
-⏭️
+⏭️ [On Error GoTo](/07-gestion-erreurs/03-on-error-goto.md)

@@ -394,4 +394,4 @@ End Sub
 
 Les paramètres transforment vos procédures de "robots rigides" en "assistants intelligents" qui s'adaptent à vos besoins spécifiques !
 
-⏭️
+⏭️ [Valeurs de retour des fonctions](/04-procedures-et-fonctions/04-valeurs-retour-fonctions.md)

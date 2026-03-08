@@ -303,4 +303,4 @@ End Sub
 
 Les `InputBox` et `MsgBox` sont les fondations de l'interaction utilisateur en VBA. Maîtriser ces outils vous permettra de créer des macros interactives et conviviales. Dans la section suivante, nous découvrirons comment créer des interfaces plus sophistiquées avec les UserForms.
 
-⏭️
+⏭️ [Création de UserForms](/12-interface-utilisateur/02-creation-userforms.md)

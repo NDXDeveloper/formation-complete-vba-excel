@@ -781,4 +781,4 @@ Une bonne structure de programme est la clé de la qualité :
 
 Ce chapitre 3 vous a donné toutes les bases fondamentales de VBA. Dans le chapitre suivant, nous découvrirons les procédures et fonctions, qui vous permettront de structurer votre code en blocs réutilisables et efficaces.
 
-⏭️
+⏭️ [4. Les procédures et fonctions](/04-procedures-et-fonctions/)

@@ -646,4 +646,4 @@ maPlage.Borders.LineStyle = xlContinuous
 
 Maîtriser ces propriétés et méthodes vous donne les outils nécessaires pour créer des macros puissantes et professionnelles. Dans la section suivante, nous verrons comment bien sélectionner et naviguer dans vos données.
 
-⏭️
+⏭️ [Sélection et navigation](/06-manipulation-objets-excel/05-selection-navigation.md)

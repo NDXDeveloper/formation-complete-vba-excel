@@ -838,4 +838,4 @@ End Sub
 
 *Avec ces connaissances SQL, vous pouvez maintenant extraire et manipuler les données avec une précision chirurgicale ! La prochaine étape sera d'apprendre à automatiser les imports et exports de données.*
 
-⏭️
+⏭️ [Import/Export de données](/15-base-donnees-connexions/04-import-export-donnees.md)

@@ -620,4 +620,4 @@ End Sub
 
 La maîtrise de la sélection et navigation vous permet de créer des macros qui se déplacent intelligemment dans vos données, rendant votre code plus robuste et adaptatif aux variations de taille des datasets.
 
-⏭️
+⏭️ [Copier, coller, supprimer des données](/06-manipulation-objets-excel/06-copier-coller-supprimer.md)

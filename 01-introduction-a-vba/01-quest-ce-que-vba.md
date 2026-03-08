@@ -140,4 +140,4 @@ VBA est un langage de programmation :
 
 Dans la prochaine section, nous découvrirons quelles applications Office sont compatibles avec VBA et ce que vous pouvez accomplir avec chacune d'elles.
 
-⏭️
+⏭️ [Applications compatibles (Excel, Word, Access, PowerPoint)](/01-introduction-a-vba/02-applications-compatibles.md)

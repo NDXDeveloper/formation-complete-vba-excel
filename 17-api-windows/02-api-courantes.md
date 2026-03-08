@@ -588,4 +588,4 @@ NomUtilisateur()  ' Simple à utiliser
 
 Ces API de base constituent une excellente introduction au monde des API Windows. Elles sont sûres, utiles et vous donnent un aperçu de la puissance disponible dans Windows sans risquer de compromettre la stabilité de votre système.
 
-⏭️
+⏭️ [Manipulation du registre](/17-api-windows/03-manipulation-registre.md)

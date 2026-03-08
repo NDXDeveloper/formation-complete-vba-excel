@@ -877,4 +877,4 @@ Les opérateurs sont les outils de calcul et de logique en VBA :
 
 Dans la section suivante, nous découvrirons l'art de commenter votre code pour le rendre compréhensible et maintenable.
 
-⏭️
+⏭️ [Commentaires dans le code](/03-concepts-fondamentaux/05-commentaires-code.md)

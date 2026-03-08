@@ -304,4 +304,4 @@ Votre environnement de développement VBA est maintenant opérationnel ! Vous av
 
 Dans le chapitre suivant, nous explorerons en détail l'interface de l'éditeur VBA et apprendrons à naviguer efficacement dans cet environnement de développement.
 
-⏭️
+⏭️ [2. Interface et environnement de développement](/02-interface-et-environnement/)

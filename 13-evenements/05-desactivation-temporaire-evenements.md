@@ -496,4 +496,4 @@ La désactivation temporaire des événements est une technique **essentielle** 
 
 Cette technique, bien maîtrisée, transformera vos applications VBA en outils performants et fiables.
 
-⏭️
+⏭️ [14. Fonctions avancées Excel en VBA](/14-fonctions-avancees-excel/)

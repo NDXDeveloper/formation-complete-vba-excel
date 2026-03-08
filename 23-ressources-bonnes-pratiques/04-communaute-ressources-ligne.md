@@ -567,4 +567,4 @@ La clé du succès avec les ressources en ligne est la régularité et la partic
 
 Rappelez-vous : chaque expert était un jour débutant, et la plupart ont appris grâce à la communauté. À votre tour de contribuer à cette chaîne d'entraide qui fait la richesse de l'écosystème VBA !
 
-⏭️
+⏭️ [Migration vers d'autres langages](/23-ressources-bonnes-pratiques/05-migration-autres-langages.md)

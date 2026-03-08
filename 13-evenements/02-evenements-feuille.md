@@ -446,4 +446,4 @@ Les événements de feuille sont essentiels pour créer des interfaces Excel int
 
 Ces événements, utilisés correctement, transforment une simple feuille de calcul en une véritable application interactive. Dans la section suivante, nous découvrirons les événements d'application qui permettent de surveiller Excel dans son ensemble.
 
-⏭️
+⏭️ [Événements d'application](/13-evenements/03-evenements-application.md)

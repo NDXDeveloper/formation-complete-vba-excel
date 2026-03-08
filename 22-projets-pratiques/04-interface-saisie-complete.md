@@ -496,4 +496,4 @@ Cette interface de base peut être améliorée avec :
 
 Cette interface de saisie complète démontre les principes essentiels de création d'applications VBA professionnelles : validation des données, gestion des erreurs, interface utilisateur intuitive et manipulation sécurisée des données Excel. Elle constitue une base solide pour développer des applications plus complexes selon les besoins spécifiques de votre organisation.
 
-⏭️
+⏭️ [Macro de nettoyage et formatage](/22-projets-pratiques/05-macro-nettoyage-formatage.md)

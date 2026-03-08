@@ -302,4 +302,4 @@ End Function
 
 La manipulation de texte est un art qui s'améliore avec la pratique. Ces techniques de base vous permettront de traiter efficacement la majorité des situations courantes en VBA.
 
-⏭️
+⏭️ [Fonctions String (Len, Mid, Left, Right)](/09-chaines-caracteres/02-fonctions-string.md)

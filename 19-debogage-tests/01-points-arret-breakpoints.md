@@ -152,4 +152,4 @@ Dans cet exemple, le programme s'arrêtera 5 fois, une fois pour chaque valeur d
 
 Les points d'arrêt sont votre premier outil de débogage et l'un des plus puissants. Maîtriser leur utilisation vous fera gagner énormément de temps dans l'identification et la résolution des problèmes dans votre code VBA.
 
-⏭️
+⏭️ [Exécution pas à pas](/19-debogage-tests/02-execution-pas-pas.md)

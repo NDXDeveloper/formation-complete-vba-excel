@@ -499,4 +499,4 @@ End Sub
 
 *La gestion des fuseaux horaires en VBA demande une approche méthodique et une bonne compréhension des contraintes. Bien que limitée, elle peut répondre à de nombreux besoins pratiques avec les bonnes techniques et précautions.*
 
-⏭️
+⏭️ [11. Fichiers et dossiers](/11-fichiers-et-dossiers/)

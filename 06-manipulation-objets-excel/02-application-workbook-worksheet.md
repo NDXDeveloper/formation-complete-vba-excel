@@ -484,4 +484,4 @@ End Sub
 
 Dans la section suivante, nous découvrirons comment manipuler les cellules et plages de cellules avec les objets Range et Cells.
 
-⏭️
+⏭️ [Range et Cells](/06-manipulation-objets-excel/03-range-et-cells.md)

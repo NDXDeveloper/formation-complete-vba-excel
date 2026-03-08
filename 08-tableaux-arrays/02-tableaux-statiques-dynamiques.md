@@ -664,4 +664,4 @@ ReDim donnees(1 To tailleCalculee)
 
 Le choix entre statique et dynamique dépend de votre contexte spécifique. Dans le doute, commencez par statique pour la simplicité, puis passez au dynamique si vous avez besoin de flexibilité. Dans la section suivante, nous approfondirons l'utilisation de `ReDim` pour maîtriser complètement les tableaux dynamiques.
 
-⏭️
+⏭️ [Redimensionnement (ReDim)](/08-tableaux-arrays/03-redimensionnement-redim.md)

@@ -148,4 +148,4 @@ Ce chapitre vous guidera à travers cinq sections principales :
 
 Chaque section combinera théorie et exemples pratiques pour vous permettre de maîtriser progressivement tous les aspects de la manipulation des chaînes de caractères en VBA.
 
-⏭️
+⏭️ [Manipulation de texte](/09-chaines-caracteres/01-manipulation-texte.md)

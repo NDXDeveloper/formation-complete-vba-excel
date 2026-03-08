@@ -342,4 +342,4 @@ End Sub
 
 Cette approche orientée objet rend votre code plus organisé, plus facile à maintenir et plus proche de la logique métier de votre application.
 
-⏭️
+⏭️ [Propriétés, méthodes et événements](/16-programmation-orientee-objet/02-proprietes-methodes-evenements.md)
