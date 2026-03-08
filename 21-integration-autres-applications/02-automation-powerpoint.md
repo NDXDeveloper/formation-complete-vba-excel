@@ -30,7 +30,8 @@ Sub PremierTestPowerPoint()
     ' Ajouter du texte au titre
     slide.Shapes(1).TextFrame.TextRange.Text = "Ma première diapositive automatisée !"
 
-    ' Important : Libérer la mémoire
+    ' Important : Fermer proprement
+    pptApp.Quit
     Set slide = Nothing
     Set pres = Nothing
     Set pptApp = Nothing
@@ -81,6 +82,7 @@ Sub ExempleHierarchiePowerPoint()
     slide.Shapes(2).TextFrame.TextRange.Text = "Sous-titre de ma présentation"
 
     ' Nettoyer
+    pptApp.Quit
     Set slide = Nothing
     Set pres = Nothing
     Set pptApp = Nothing
@@ -118,6 +120,7 @@ Sub DifferentesMisesEnPage()
     ' 11 = Vide (pour créer entièrement sa mise en page)
     pres.Slides.Add(4, 11)
 
+    pptApp.Quit
     Set slide3 = Nothing
     Set slide2 = Nothing
     Set pres = Nothing
@@ -150,6 +153,7 @@ Sub AjouterTexteSimple()
                                                "• Nouveaux clients : 25" & vbCrLf & _
                                                "• Objectifs dépassés"
 
+    pptApp.Quit
     Set slide = Nothing
     Set pres = Nothing
     Set pptApp = Nothing
@@ -187,6 +191,7 @@ Sub FormaterTexte()
         .Color.RGB = RGB(128, 128, 128)  ' Gris
     End With
 
+    pptApp.Quit
     Set slide = Nothing
     Set pres = Nothing
     Set pptApp = Nothing
@@ -221,6 +226,7 @@ Sub AjouterZoneTextePersonnalisee()
         .Color.RGB = RGB(255, 0, 0)  ' Rouge
     End With
 
+    pptApp.Quit
     Set textBox = Nothing
     Set slide = Nothing
     Set pres = Nothing
@@ -254,6 +260,7 @@ Sub TransfererDonneesExcel()
 
     slide.Shapes(2).TextFrame.TextRange.Text = contenu
 
+    pptApp.Quit
     Set slide = Nothing
     Set pres = Nothing
     Set pptApp = Nothing
@@ -297,6 +304,7 @@ Sub CreerTableauPowerPoint()
         tableau.Table.Cell(1, j).Shape.Fill.ForeColor.RGB = RGB(200, 200, 200)
     Next j
 
+    pptApp.Quit
     Set tableau = Nothing
     Set slide = Nothing
     Set pres = Nothing
@@ -334,6 +342,7 @@ Sub CopierGraphiqueExcel()
         .Height = 400
     End With
 
+    pptApp.Quit
     Set slide = Nothing
     Set pres = Nothing
     Set pptApp = Nothing
@@ -363,6 +372,7 @@ Sub AjouterImage()
     ' Alternative : utiliser une image depuis les ressources Windows
     ' Set image = slide.Shapes.AddPicture(Environ("WINDIR") & "\Web\Wallpaper\Windows\img0.jpg", False, True, 100, 100, 300, 200)
 
+    pptApp.Quit
     Set image = Nothing
     Set slide = Nothing
     Set pres = Nothing
@@ -403,6 +413,7 @@ Sub CreerPresentationComplete()
     slide.Shapes(1).TextFrame.TextRange.Text = "Merci pour votre attention"
     slide.Shapes(2).TextFrame.TextRange.Text = "Questions ?"
 
+    pptApp.Quit
     Set slide = Nothing
     Set pres = Nothing
     Set pptApp = Nothing
@@ -434,6 +445,7 @@ Sub ModifierPresentationExistante()
     ' Sauvegarder
     pres.Save
 
+    pptApp.Quit
     Set nouvelleSlide = Nothing
     Set pres = Nothing
     Set pptApp = Nothing
@@ -465,6 +477,7 @@ Sub AppliquerTheme()
     slide.Background.Fill.Solid
     slide.Background.Fill.ForeColor.RGB = RGB(240, 248, 255)  ' Bleu très clair
 
+    pptApp.Quit
     Set slide = Nothing
     Set pres = Nothing
     Set pptApp = Nothing
@@ -493,6 +506,7 @@ Sub SauvegarderPresentation()
     ' Alternative : Exporter en PDF
     pres.SaveAs Environ("USERPROFILE") & "\Desktop\MaPresentation.pdf", 32  ' 32 = Format PDF
 
+    pptApp.Quit
     Set slide = Nothing
     Set pres = Nothing
     Set pptApp = Nothing
@@ -619,6 +633,7 @@ Sub GenererRapportVentesPowerPoint()
     MsgBox "Présentation créée avec succès !" & vbCrLf & cheminFichier
 
     ' Nettoyage
+    pptApp.Quit
     Set titreTableau = Nothing
     Set tableau = Nothing
     Set slide = Nothing

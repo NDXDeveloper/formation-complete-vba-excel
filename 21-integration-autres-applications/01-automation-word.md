@@ -26,6 +26,7 @@ Sub PremierTestWord()
     wordApp.Selection.TypeText "Bonjour depuis Excel !"
 
     ' Important : Fermer proprement
+    wordApp.Quit SaveChanges:=False
     Set wordApp = Nothing
 End Sub
 ```
@@ -36,6 +37,7 @@ End Sub
 - `wordApp.Visible = True` : Rend Word visible à l'écran
 - `wordApp.Documents.Add` : Crée un nouveau document vide
 - `wordApp.Selection.TypeText` : Écrit du texte dans le document
+- `wordApp.Quit` : Ferme Word complètement
 - `Set wordApp = Nothing` : Libère la mémoire
 
 ## Comprendre la hiérarchie des objets Word
@@ -68,6 +70,7 @@ Sub ExempleHierarchie()
     monDoc.Range.Text = "Ceci est mon premier document automatisé !"
 
     ' Nettoyer
+    wordApp.Quit SaveChanges:=False
     Set monDoc = Nothing
     Set wordApp = Nothing
 End Sub
@@ -97,6 +100,7 @@ Sub AjouterTexte()
     ' Méthode 3 : Définir tout le contenu d'un coup
     doc.Range.Text = doc.Range.Text & "Troisième ligne"
 
+    wordApp.Quit SaveChanges:=False
     Set doc = Nothing
     Set wordApp = Nothing
 End Sub
@@ -127,6 +131,7 @@ Sub FormaterTexte()
         .Color = RGB(255, 0, 0)  ' Rouge
     End With
 
+    wordApp.Quit SaveChanges:=False
     Set doc = Nothing
     Set wordApp = Nothing
 End Sub
@@ -157,6 +162,7 @@ Sub GererParagraphes()
     ' Centrer le deuxième paragraphe
     doc.Paragraphs(2).Alignment = 1  ' 1 = Centré
 
+    wordApp.Quit SaveChanges:=False
     Set doc = Nothing
     Set wordApp = Nothing
 End Sub
@@ -182,6 +188,7 @@ Sub TransfererDonneeSimple()
     ' L'insérer dans Word
     doc.Range.Text = "Valeur depuis Excel : " & valeurExcel
 
+    wordApp.Quit SaveChanges:=False
     Set doc = Nothing
     Set wordApp = Nothing
 End Sub
@@ -218,6 +225,7 @@ Sub CreerTableauWord()
     ' Formater les en-têtes
     tableau.Rows(1).Range.Font.Bold = True
 
+    wordApp.Quit SaveChanges:=False
     Set tableau = Nothing
     Set doc = Nothing
     Set wordApp = Nothing
@@ -247,6 +255,7 @@ Sub ModifierDocumentExistant()
     ' Sauvegarder
     doc.Save
 
+    wordApp.Quit
     Set doc = Nothing
     Set wordApp = Nothing
 End Sub
@@ -281,6 +290,7 @@ Sub RechercherRemplacer()
         .Execute Replace:=2
     End With
 
+    wordApp.Quit SaveChanges:=False
     Set doc = Nothing
     Set wordApp = Nothing
 End Sub
@@ -306,6 +316,7 @@ Sub SauvegarderDocument()
     ' Alternative : Sauvegarder en PDF
     ' doc.SaveAs2 "C:\MonDossier\Rapport.pdf", 17  ' 17 = Format PDF
 
+    wordApp.Quit
     Set doc = Nothing
     Set wordApp = Nothing
 End Sub

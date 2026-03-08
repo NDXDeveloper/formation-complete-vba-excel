@@ -26,6 +26,8 @@ Il existe plusieurs façons d'interagir avec des applications tierces :
 
 ## Automation avec Internet Explorer
 
+**Note importante** : Internet Explorer a été officiellement retiré par Microsoft en 2023. Sur les systèmes récents (Windows 11), `CreateObject("InternetExplorer.Application")` peut ne plus fonctionner. Pour les projets modernes, privilégiez les API REST ou des outils comme Selenium. Les exemples ci-dessous restent utiles pour comprendre les principes d'automation web et fonctionnent encore sur certains systèmes.
+
 ### Premier exemple simple
 
 ```vba
@@ -136,32 +138,31 @@ Sub ExtraireTableauWeb()
 End Sub
 ```
 
-## Automation avec Microsoft Edge (méthode moderne)
+## Automation avec les navigateurs modernes
+
+Microsoft Edge et Google Chrome ne disposent pas d'interface COM Automation comme Internet Explorer. Pour automatiser les navigateurs modernes, il existe plusieurs approches :
+
+**Selenium WebDriver** : Bibliothèque externe permettant de contrôler Chrome, Edge et Firefox depuis VBA. Nécessite l'installation de Selenium et du driver correspondant au navigateur.
+
+**API REST** : La méthode la plus fiable et moderne pour interagir avec des services web depuis VBA, en utilisant l'objet `XMLHTTP` :
 
 ```vba
-Sub UtiliserEdge()
-    ' Edge nécessite une approche différente via Selenium ou EdgeDriver
-    ' Voici un exemple conceptuel
+Sub RequeteAPISimple()
+    Dim http As Object
+    Set http = CreateObject("MSXML2.XMLHTTP.6.0")
 
-    Dim edge As Object
+    ' Envoyer une requête GET
+    http.Open "GET", "https://api.exemple.com/donnees", False
+    http.Send
 
-    ' Tenter de créer une instance Edge
-    On Error Resume Next
-    Set edge = CreateObject("MsEdge.Application")
-
-    If Err.Number <> 0 Then
-        MsgBox "Edge automation nécessite des composants spéciaux." & vbCrLf & _
-               "Utilisez Internet Explorer pour débuter."
-        Exit Sub
+    ' Vérifier le statut de la réponse
+    If http.Status = 200 Then
+        Debug.Print "Réponse reçue : " & Left(http.responseText, 500)
+    Else
+        MsgBox "Erreur HTTP : " & http.Status & " - " & http.statusText
     End If
-    On Error GoTo 0
 
-    edge.Visible = True
-    edge.Navigate "https://www.microsoft.com"
-
-    ' Logique similaire à IE...
-
-    Set edge = Nothing
+    Set http = Nothing
 End Sub
 ```
 
@@ -385,13 +386,26 @@ Sub TraiterFichiersDeposes()
         MkDir dossierTraite
     End If
 
+    ' Collecter d'abord tous les fichiers CSV
+    ' (important : ne pas faire d'opérations fichiers entre les appels Dir)
     Dim fichier As String
-    fichier = Dir(dossierEntree & "*.csv")
+    Dim listeFichiers() As String
+    Dim nbFichiers As Integer
+    nbFichiers = 0
 
+    fichier = Dir(dossierEntree & "*.csv")
     Do While fichier <> ""
-        ' Traiter chaque fichier CSV trouvé
-        Dim cheminComplet As String
-        cheminComplet = dossierEntree & fichier
+        nbFichiers = nbFichiers + 1
+        ReDim Preserve listeFichiers(1 To nbFichiers)
+        listeFichiers(nbFichiers) = fichier
+        fichier = Dir
+    Loop
+
+    ' Traiter chaque fichier
+    Dim j As Integer
+    Dim cheminComplet As String
+    For j = 1 To nbFichiers
+        cheminComplet = dossierEntree & listeFichiers(j)
 
         ' Ouvrir et traiter le fichier
         Workbooks.Open cheminComplet
@@ -401,15 +415,12 @@ Sub TraiterFichiersDeposes()
         Range("A1").Value = "Traité le " & Now()
 
         ' Sauvegarder dans le dossier de traitement
-        ActiveWorkbook.SaveAs dossierTraite & "Traite_" & fichier
+        ActiveWorkbook.SaveAs dossierTraite & "Traite_" & listeFichiers(j)
         ActiveWorkbook.Close
 
         ' Déplacer le fichier original (optionnel)
-        Name cheminComplet As dossierTraite & "Original_" & fichier
-
-        ' Fichier suivant
-        fichier = Dir
-    Loop
+        Name cheminComplet As dossierTraite & "Original_" & listeFichiers(j)
+    Next j
 
     MsgBox "Traitement terminé. Vérifiez le dossier : " & dossierTraite
 End Sub
@@ -536,8 +547,8 @@ Sub SystemeEchangeComptabilite()
 
     ' Données
     Dim i As Integer
+    Dim ligne As String
     For i = 2 To derniereLigne
-        Dim ligne As String
         ligne = Format(Cells(i, 1).Value, "dd/mm/yyyy") & ";"  ' Date
         ligne = ligne & Cells(i, 2).Value & ";"               ' Compte
         ligne = ligne & Cells(i, 3).Value & ";"               ' Libellé

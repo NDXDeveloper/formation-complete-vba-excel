@@ -14,8 +14,8 @@ L'Automation est une technologie qui permet à une application (appelée **clien
 
 ```vba
 ' Exemple conceptuel
-Dim appWord As Object
-Set appWord = CreateObject("Word.Application")
+Dim appWord As Object  
+Set appWord = CreateObject("Word.Application")  
 ' Excel peut maintenant contrôler Word via l'objet appWord
 ```
 
@@ -43,8 +43,8 @@ Set appWord = CreateObject("Word.Application")
 ### 1. **CreateObject() - Liaison tardive (Late Binding)**
 
 ```vba
-Dim appWord As Object
-Set appWord = CreateObject("Word.Application")
+Dim appWord As Object  
+Set appWord = CreateObject("Word.Application")  
 ```
 
 **Avantages :**
@@ -61,8 +61,8 @@ Set appWord = CreateObject("Word.Application")
 
 ```vba
 ' Nécessite d'ajouter la référence Microsoft Word Object Library
-Dim appWord As Word.Application
-Set appWord = New Word.Application
+Dim appWord As Word.Application  
+Set appWord = New Word.Application  
 ```
 
 **Avantages :**
@@ -79,8 +79,8 @@ Set appWord = New Word.Application
 
 ```vba
 ' Se connecte à une instance Word déjà ouverte
-Dim appWord As Object
-Set appWord = GetObject(, "Word.Application")
+Dim appWord As Object  
+Set appWord = GetObject(, "Word.Application")  
 
 ' Ou ouvre un document spécifique
 Set appWord = GetObject("C:\MonDocument.docx")
@@ -223,7 +223,7 @@ Dans les sections suivantes de ce chapitre, nous explorerons en détail :
 - **21.4** : Automation avec Access (requêtes, rapports, synchronisation)
 - **21.5** : Applications tierces (PDF, navigateurs web, logiciels métiers)
 
-Chaque section comprendra des exemples pratiques, des exercices et des projets réels pour maîtriser l'intégration inter-applications.
+Chaque section comprendra des exemples pratiques pour maîtriser l'intégration inter-applications.
 
 ---
 

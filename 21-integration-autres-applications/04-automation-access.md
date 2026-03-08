@@ -212,7 +212,6 @@ Sub ExporterTableAccessVersExcel()
     ' Ajouter les données
     Dim ligne As Integer
     ligne = 2
-    rs.MoveFirst
     Do While Not rs.EOF
         For col = 0 To rs.Fields.Count - 1
             Cells(ligne, col + 1).Value = rs.Fields(col).Value
@@ -405,15 +404,15 @@ Sub MettreAJourDepuisExcel()
     Dim derniereLigne As Integer
     derniereLigne = Cells(Rows.Count, 1).End(xlUp).Row
 
-    For i = 2 To derniereLigne
-        Dim idProduit As Long
-        Dim nouveauPrix As Double
+    Dim idProduit As Long
+    Dim nouveauPrix As Double
+    Dim sql As String
 
+    For i = 2 To derniereLigne
         idProduit = Cells(i, 1).Value
         nouveauPrix = Cells(i, 2).Value
 
         ' Mettre à jour chaque enregistrement
-        Dim sql As String
         sql = "UPDATE Ventes SET Prix = " & nouveauPrix & " WHERE ID = " & idProduit
         db.Execute sql
     Next i
@@ -439,7 +438,7 @@ Sub CreerRapportAccess()
 
     ' Ouvrir un rapport existant (si il existe)
     On Error Resume Next
-    accessApp.DoCmd.OpenReport "RapportVentes", 0  ' 0 = Mode Aperçu
+    accessApp.DoCmd.OpenReport "RapportVentes", 2  ' 2 = acViewPreview (Aperçu avant impression)
 
     If Err.Number <> 0 Then
         MsgBox "Le rapport 'RapportVentes' n'existe pas. Créez-le d'abord dans Access."

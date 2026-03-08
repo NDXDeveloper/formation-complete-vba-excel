@@ -459,8 +459,9 @@ Sub LireEmailsRecus()
     Set outlookApp = CreateObject("Outlook.Application")
     Set boiteReception = outlookApp.GetNamespace("MAPI").GetDefaultFolder(6)  ' 6 = Boîte de réception
     Set emails = boiteReception.Items
+    emails.Sort "[ReceivedTime]", True  ' Trier par date décroissante
 
-    ' Lire les 5 derniers emails reçus
+    ' Lire les 5 emails les plus récents
     For i = 1 To 5
         If i <= emails.Count Then
             Set email = emails(i)
