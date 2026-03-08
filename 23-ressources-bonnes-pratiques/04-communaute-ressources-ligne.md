@@ -45,8 +45,8 @@ Recherche efficace sur Stack Overflow :
 **Exemple de recherche :**
 Si vous cherchez comment parcourir une plage de cellules :
 ```
-Mots-clés : "VBA Excel loop cells range"
-Tags : [vba] [excel] [loops]
+Mots-clés : "VBA Excel loop cells range"  
+Tags : [vba] [excel] [loops]  
 ```
 
 ### 2. Developpez.com (en français)
@@ -84,8 +84,8 @@ Tags : [vba] [excel] [loops]
 
 **Comment poster efficacement sur Reddit :**
 ```
-Titre clair : [VBA] Comment calculer automatiquement une remise client ?
-Description détaillée avec :
+Titre clair : [VBA] Comment calculer automatiquement une remise client ?  
+Description détaillée avec :  
 - Ce que vous essayez de faire
 - Le code que vous avez déjà essayé
 - Le message d'erreur exact (si applicable)
@@ -105,9 +105,9 @@ Description détaillée avec :
 
 **Comment naviguer efficacement :**
 ```
-Structure de la documentation :
-Application → Workbook → Worksheet → Range
-Chaque niveau contient :
+Structure de la documentation :  
+Application → Workbook → Worksheet → Range  
+Chaque niveau contient :  
 - Propriétés (ce qu'on peut lire/modifier)
 - Méthodes (les actions qu'on peut faire)
 - Événements (ce qui se déclenche automatiquement)
@@ -143,8 +143,8 @@ End Sub
 ## Chaînes YouTube spécialisées
 
 ### 1. ExcelIsFun (en anglais)
-**Créateur :** Mike Girvin
-**Points forts :**
+**Créateur :** Mike Girvin  
+**Points forts :**  
 - Explications très détaillées
 - Progression du niveau débutant à expert
 - Nombreux exemples pratiques
@@ -284,18 +284,18 @@ End Function
 ```
 TITRE : [VBA] Problème avec boucle sur plage de cellules
 
-CONTEXTE :
-Je travaille sur un fichier Excel avec des données de vente.
-Je veux calculer automatiquement les commissions pour chaque vendeur.
+CONTEXTE :  
+Je travaille sur un fichier Excel avec des données de vente.  
+Je veux calculer automatiquement les commissions pour chaque vendeur.  
 
-CE QUE J'ESSAIE DE FAIRE :
-Parcourir les lignes 2 à 100, calculer 5% du montant si > 1000€
+CE QUE J'ESSAIE DE FAIRE :  
+Parcourir les lignes 2 à 100, calculer 5% du montant si > 1000€  
 
 MON CODE ACTUEL :
 [Collez votre code ici]
 
-PROBLÈME RENCONTRÉ :
-Erreur "Type incompatible" à la ligne X
+PROBLÈME RENCONTRÉ :  
+Erreur "Type incompatible" à la ligne X  
 
 CE QUE J'AI DÉJÀ ESSAYÉ :
 - Changé le type de variable
@@ -535,11 +535,11 @@ Tenez un journal de vos découvertes :
 ```
 📖 Exemple d'entrée de journal :
 
-Date : 22/01/2025
-Source : Stack Overflow
-Problème résolu : Optimisation boucles sur grandes plages
-Technique apprise : Application.ScreenUpdating = False
-Code sauvegardé : [lien vers fichier]
+Date : 22/01/2025  
+Source : Stack Overflow  
+Problème résolu : Optimisation boucles sur grandes plages  
+Technique apprise : Application.ScreenUpdating = False  
+Code sauvegardé : [lien vers fichier]  
 À approfondir : Events et leur impact sur les performances
 ```
 

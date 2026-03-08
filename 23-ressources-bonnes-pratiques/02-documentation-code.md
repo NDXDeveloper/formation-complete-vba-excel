@@ -157,13 +157,13 @@ i = i + 1  ' Passer au client suivant dans la liste
 ```vba
 ' Commentaire obsolète - le code a changé mais pas le commentaire
 ' Calculer la TVA à 19.6%
-Dim montantTVA As Double
-montantTVA = montantHT * 0.2  ' Le taux est maintenant 20% !
+Dim montantTVA As Double  
+montantTVA = montantHT * 0.2  ' Le taux est maintenant 20% !  
 
 ' Commentaire à jour
 ' Calculer la TVA au taux actuel de 20%
-Dim montantTVA As Double
-montantTVA = montantHT * TAUX_TVA_STANDARD
+Dim montantTVA As Double  
+montantTVA = montantHT * TAUX_TVA_STANDARD  
 ```
 
 ### 3. Évitez les commentaires évidents
@@ -192,17 +192,17 @@ Dim nom As String  ' Nom complet du client au format "Prénom NOM"
 ### Variables avec des unités ou formats spécifiques
 
 ```vba
-Dim delaiLivraison As Integer      ' Délai en jours ouvrés
-Dim tauxRemise As Double          ' Taux en pourcentage (0.15 = 15%)
-Dim codePostal As String          ' Format : 5 chiffres (ex: "75001")
-Dim numeroTelephone As String     ' Format : XX.XX.XX.XX.XX
+Dim delaiLivraison As Integer      ' Délai en jours ouvrés  
+Dim tauxRemise As Double          ' Taux en pourcentage (0.15 = 15%)  
+Dim codePostal As String          ' Format : 5 chiffres (ex: "75001")  
+Dim numeroTelephone As String     ' Format : XX.XX.XX.XX.XX  
 ```
 
 ### Variables avec des valeurs particulières
 
 ```vba
-Dim statutClient As String        ' Valeurs possibles : "Standard", "VIP", "Premium"
-Dim modeCalcul As Integer         ' 1=Mensuel, 2=Trimestriel, 3=Annuel
+Dim statutClient As String        ' Valeurs possibles : "Standard", "VIP", "Premium"  
+Dim modeCalcul As Integer         ' 1=Mensuel, 2=Trimestriel, 3=Annuel  
 ```
 
 ## Documentation des constantes
@@ -369,10 +369,10 @@ End Sub
 ### 1. Sur-documenter
 ```vba
 ' Trop de commentaires tue le commentaire
-Dim i As Integer        ' Déclaration de la variable i
-i = 0                  ' Initialisation de i à zéro
-i = i + 1              ' Ajout de 1 à i
-If i > 0 Then          ' Test si i est supérieur à zéro
+Dim i As Integer        ' Déclaration de la variable i  
+i = 0                  ' Initialisation de i à zéro  
+i = i + 1              ' Ajout de 1 à i  
+If i > 0 Then          ' Test si i est supérieur à zéro  
 ```
 
 ### 2. Commentaires trompeurs
@@ -403,9 +403,9 @@ montantTTC = montantHT * 1.2  ' En fait, c'est 20% !
 Option Explicit
 
 ' Constantes de configuration
-Const TAUX_TVA As Double = 0.2              ' TVA française standard
-Const SEUIL_REMISE_VIP As Double = 1000     ' Seuil pour remise VIP en euros
-Const TAUX_REMISE_VIP As Double = 0.15      ' 15% de remise pour les VIP
+Const TAUX_TVA As Double = 0.2              ' TVA française standard  
+Const SEUIL_REMISE_VIP As Double = 1000     ' Seuil pour remise VIP en euros  
+Const TAUX_REMISE_VIP As Double = 0.15      ' 15% de remise pour les VIP  
 
 '**********************************************************************
 ' Fonction : CalculerMontantFacture

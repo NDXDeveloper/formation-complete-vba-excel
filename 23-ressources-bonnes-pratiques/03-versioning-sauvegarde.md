@@ -59,12 +59,12 @@ Si plusieurs personnes travaillent sur le même projet, le versioning permet de 
 C'est la méthode la plus simple pour commencer. Vous sauvegardez votre fichier Excel avec un nom différent à chaque étape importante :
 
 ```
-Structure de noms suggérée :
-GestionCommerciale_v1.0_InitialeFonctionnelle.xlsm
-GestionCommerciale_v1.1_AjoutCalculTVA.xlsm
-GestionCommerciale_v1.2_CorrectionBugRemise.xlsm
-GestionCommerciale_v2.0_NouvelleFonctionRapport.xlsm
-GestionCommerciale_v2.1_OptimisationPerformances.xlsm
+Structure de noms suggérée :  
+GestionCommerciale_v1.0_InitialeFonctionnelle.xlsm  
+GestionCommerciale_v1.1_AjoutCalculTVA.xlsm  
+GestionCommerciale_v1.2_CorrectionBugRemise.xlsm  
+GestionCommerciale_v2.0_NouvelleFonctionRapport.xlsm  
+GestionCommerciale_v2.1_OptimisationPerformances.xlsm  
 ```
 
 **Avantages :**
@@ -88,12 +88,12 @@ Utilisez un système de numérotation cohérent :
 - **CORRECTION** : Corrections de bugs sans nouvelles fonctionnalités
 
 ```
-Exemples :
-v1.0.0 - Version initiale fonctionnelle
-v1.1.0 - Ajout de la gestion des remises
-v1.1.1 - Correction du bug de calcul TVA
-v1.2.0 - Ajout de l'export PDF
-v2.0.0 - Refonte complète de l'interface
+Exemples :  
+v1.0.0 - Version initiale fonctionnelle  
+v1.1.0 - Ajout de la gestion des remises  
+v1.1.1 - Correction du bug de calcul TVA  
+v1.2.0 - Ajout de l'export PDF  
+v2.0.0 - Refonte complète de l'interface  
 ```
 
 ### 3. Journal des modifications
@@ -400,7 +400,7 @@ Sources de récupération :
 ' À utiliser uniquement en cas de perte majeure de données
 '**********************************************************************
 Sub RecuperationUrgence()
-    Dim reponse As String
+    Dim reponse As VbMsgBoxResult
 
     ' Confirmer la procédure d'urgence
     reponse = MsgBox("ATTENTION : Procédure de récupération d'urgence" & vbCrLf & _

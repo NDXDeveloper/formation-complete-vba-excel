@@ -15,16 +15,16 @@ Comparez ces deux exemples :
 
 ```vba
 ' Mauvais exemple
-Dim x As Integer
-Dim y As String
-x = 25
-y = "Dupont"
+Dim x As Integer  
+Dim y As String  
+x = 25  
+y = "Dupont"  
 
 ' Bon exemple
-Dim ageClient As Integer
-Dim nomFamille As String
-ageClient = 25
-nomFamille = "Dupont"
+Dim ageClient As Integer  
+Dim nomFamille As String  
+ageClient = 25  
+nomFamille = "Dupont"  
 ```
 
 Dans le second exemple, vous comprenez immédiatement l'intention du code.
@@ -43,12 +43,12 @@ Vos noms doivent exprimer clairement l'utilisation ou le contenu de l'élément 
 
 ```vba
 ' Évitez
-Dim d As Date
-Dim c As Integer
+Dim d As Date  
+Dim c As Integer  
 
 ' Préférez
-Dim dateLivraison As Date
-Dim compteurLignes As Integer
+Dim dateLivraison As Date  
+Dim compteurLignes As Integer  
 ```
 
 ### 2. Évitez les abréviations obscures
@@ -67,12 +67,12 @@ Si vous utilisez "nombre" quelque part, n'utilisez pas "nb" ailleurs pour la mê
 
 ```vba
 ' Incohérent
-Dim nombreClients As Integer
-Dim nbProduits As Integer
+Dim nombreClients As Integer  
+Dim nbProduits As Integer  
 
 ' Cohérent
-Dim nombreClients As Integer
-Dim nombreProduits As Integer
+Dim nombreClients As Integer  
+Dim nombreProduits As Integer  
 ```
 
 ## Convention pour les variables
@@ -82,11 +82,11 @@ Dim nombreProduits As Integer
 Utilisez la notation "camelCase" (première lettre minuscule, puis majuscule pour chaque mot) :
 
 ```vba
-Dim ageUtilisateur As Integer
-Dim nomCompletClient As String
-Dim dateFinContrat As Date
-Dim montantFactureTTC As Double
-Dim estClientActif As Boolean
+Dim ageUtilisateur As Integer  
+Dim nomCompletClient As String  
+Dim dateFinContrat As Date  
+Dim montantFactureTTC As Double  
+Dim estClientActif As Boolean  
 ```
 
 ### Préfixes pour les types de données (optionnel)
@@ -94,11 +94,11 @@ Dim estClientActif As Boolean
 Certains développeurs utilisent des préfixes pour identifier rapidement le type de données. Cette pratique, appelée "notation hongroise", n'est pas obligatoire mais peut être utile :
 
 ```vba
-Dim strNomClient As String      ' str pour String
-Dim intAge As Integer          ' int pour Integer
-Dim dblMontant As Double       ' dbl pour Double
-Dim blnEstActif As Boolean     ' bln pour Boolean
-Dim dtDateNaissance As Date    ' dt pour Date
+Dim strNomClient As String      ' str pour String  
+Dim intAge As Integer          ' int pour Integer  
+Dim dblMontant As Double       ' dbl pour Double  
+Dim blnEstActif As Boolean     ' bln pour Boolean  
+Dim dtDateNaissance As Date    ' dt pour Date  
 ```
 
 **Note pour débutants :** Choisissez une approche (avec ou sans préfixes) et restez cohérent dans tout votre projet.
@@ -108,13 +108,13 @@ Dim dtDateNaissance As Date    ' dt pour Date
 Pour les compteurs de boucles, les conventions classiques sont acceptables :
 
 ```vba
-Dim i As Integer    ' Pour une boucle simple
-Dim j As Integer    ' Pour une boucle imbriquée
-Dim k As Integer    ' Pour une troisième boucle imbriquée
+Dim i As Integer    ' Pour une boucle simple  
+Dim j As Integer    ' Pour une boucle imbriquée  
+Dim k As Integer    ' Pour une troisième boucle imbriquée  
 
 ' Ou plus explicite pour des boucles complexes
-Dim indiceLigne As Integer
-Dim indiceColonne As Integer
+Dim indiceLigne As Integer  
+Dim indiceColonne As Integer  
 ```
 
 ## Convention pour les constantes
@@ -122,10 +122,10 @@ Dim indiceColonne As Integer
 Les constantes doivent être écrites en MAJUSCULES avec des underscores pour séparer les mots :
 
 ```vba
-Const TAUX_TVA = 0.2
-Const MESSAGE_ERREUR_FICHIER = "Impossible d'ouvrir le fichier"
-Const NOMBRE_MAX_TENTATIVES = 3
-Const CHEMIN_DOSSIER_SAUVEGARDE = "C:\Sauvegardes\"
+Const TAUX_TVA = 0.2  
+Const MESSAGE_ERREUR_FICHIER = "Impossible d'ouvrir le fichier"  
+Const NOMBRE_MAX_TENTATIVES = 3  
+Const CHEMIN_DOSSIER_SAUVEGARDE = "C:\Sauvegardes\"  
 ```
 
 ## Convention pour les procédures et fonctions
@@ -135,11 +135,11 @@ Const CHEMIN_DOSSIER_SAUVEGARDE = "C:\Sauvegardes\"
 Utilisez des verbes qui décrivent l'action effectuée, en PascalCase (première lettre majuscule pour chaque mot) :
 
 ```vba
-Sub CalculerMontantTotal()
-Sub AfficherRapportVentes()
-Sub SupprimerLignesVides()
-Sub ExporterDonneesCSV()
-Sub InitialiserParametres()
+Sub CalculerMontantTotal()  
+Sub AfficherRapportVentes()  
+Sub SupprimerLignesVides()  
+Sub ExporterDonneesCSV()  
+Sub InitialiserParametres()  
 ```
 
 ### Nommage des fonctions (Function)
@@ -147,10 +147,10 @@ Sub InitialiserParametres()
 Les fonctions retournent une valeur, leurs noms peuvent donc être des noms ou des questions :
 
 ```vba
-Function ObtenirNombreClients() As Integer
-Function CalculerRemise(montant As Double) As Double
-Function EstClientVIP(idClient As String) As Boolean
-Function FormatageDate(uneDate As Date) As String
+Function ObtenirNombreClients() As Integer  
+Function CalculerRemise(montant As Double) As Double  
+Function EstClientVIP(idClient As String) As Boolean  
+Function FormatageDate(uneDate As Date) As String  
 ```
 
 ### Paramètres des procédures et fonctions
@@ -158,8 +158,8 @@ Function FormatageDate(uneDate As Date) As String
 Utilisez la même convention que pour les variables :
 
 ```vba
-Sub CalculerFacture(montantHT As Double, tauxTVA As Double, nomClient As String)
-Function CalculerAge(dateNaissance As Date) As Integer
+Sub CalculerFacture(montantHT As Double, tauxTVA As Double, nomClient As String)  
+Function CalculerAge(dateNaissance As Date) As Integer  
 ```
 
 ## Convention pour les modules
@@ -170,11 +170,11 @@ Utilisez des noms descriptifs en PascalCase qui indiquent le domaine fonctionnel
 
 ```vba
 ' Exemples de noms de modules
-ModuleCalculs
-ModuleFichiers
-ModuleInterfaceUtilisateur
-ModuleRapports
-ModuleUtilitaires
+ModuleCalculs  
+ModuleFichiers  
+ModuleInterfaceUtilisateur  
+ModuleRapports  
+ModuleUtilitaires  
 ```
 
 ### Modules de classe
@@ -182,11 +182,11 @@ ModuleUtilitaires
 Pour les modules de classe, utilisez des noms qui représentent l'objet modélisé :
 
 ```vba
-Client
-Produit
-Commande
-FactureVente
-GestionnaireStock
+Client  
+Produit  
+Commande  
+FactureVente  
+GestionnaireStock  
 ```
 
 ## Convention pour les contrôles d'interface
@@ -195,30 +195,30 @@ Si vous créez des UserForms, utilisez des préfixes pour identifier rapidement 
 
 ```vba
 ' TextBox (zone de texte)
-txtNomClient
-txtAdresseEmail
-txtMontantCommande
+txtNomClient  
+txtAdresseEmail  
+txtMontantCommande  
 
 ' ComboBox (liste déroulante)
-cboCategorieProduit
-cboVilleClient
+cboCategorieProduit  
+cboVilleClient  
 
 ' ListBox (zone de liste)
-lstProduitsSelectionnes
-lstClientsActifs
+lstProduitsSelectionnes  
+lstClientsActifs  
 
 ' CommandButton (bouton)
-btnValider
-btnAnnuler
-btnRechercherClient
+btnValider  
+btnAnnuler  
+btnRechercherClient  
 
 ' Label (étiquette)
-lblTitrePrincipal
-lblMessageErreur
+lblTitrePrincipal  
+lblMessageErreur  
 
 ' CheckBox (case à cocher)
-chkClientVIP
-chkLivraisonUrgente
+chkClientVIP  
+chkLivraisonUrgente  
 ```
 
 ## Conventions pour les feuilles Excel
@@ -229,11 +229,11 @@ chkLivraisonUrgente
 
 ```vba
 ' Au lieu de Feuil1, Feuil2, Feuil3
-DonneesClients
-RapportVentes
-Parametres
-TableauBord
-CalculsIntermediaires
+DonneesClients  
+RapportVentes  
+Parametres  
+TableauBord  
+CalculsIntermediaires  
 ```
 
 ### Noms de plages nommées
@@ -242,11 +242,11 @@ Utilisez des noms explicites pour vos plages nommées Excel :
 
 ```vba
 ' Au lieu de Zone1, Données1
-PlageClients
-ListeProduits
-TableauVentes2024
-ZoneSaisie
-CellulesCalculs
+PlageClients  
+ListeProduits  
+TableauVentes2024  
+ZoneSaisie  
+CellulesCalculs  
 ```
 
 ## Conseils pratiques pour débutants
@@ -256,9 +256,9 @@ Ne vous compliquez pas la vie au début. L'important est d'être cohérent et de
 
 ```vba
 ' Simple et efficace pour débuter
-Dim nom As String
-Dim age As Integer
-Dim salaire As Double
+Dim nom As String  
+Dim age As Integer  
+Dim salaire As Double  
 ```
 
 ### 2. Évitez les caractères spéciaux
@@ -266,12 +266,12 @@ VBA n'accepte pas tous les caractères. Restez sur les lettres, chiffres et unde
 
 ```vba
 ' Évitez
-Dim montant€ As Double        ' Le € n'est pas accepté
-Dim nom-client As String      ' Le - n'est pas accepté
+Dim montant€ As Double        ' Le € n'est pas accepté  
+Dim nom-client As String      ' Le - n'est pas accepté  
 
 ' Utilisez
-Dim montantEuros As Double
-Dim nomClient As String
+Dim montantEuros As Double  
+Dim nomClient As String  
 ```
 
 ### 3. Attention aux mots réservés
@@ -279,14 +279,14 @@ Ne donnez pas à vos variables des noms qui sont déjà utilisés par VBA :
 
 ```vba
 ' Évitez ces noms réservés
-Dim Date As Date      ' "Date" est une fonction VBA
-Dim Name As String    ' "Name" est une propriété VBA
-Dim Value As Double   ' "Value" est une propriété VBA
+Dim Date As Date      ' "Date" est une fonction VBA  
+Dim Name As String    ' "Name" est une propriété VBA  
+Dim Value As Double   ' "Value" est une propriété VBA  
 
 ' Utilisez plutôt
-Dim dateCommande As Date
-Dim nomProduit As String
-Dim valeurVente As Double
+Dim dateCommande As Date  
+Dim nomProduit As String  
+Dim valeurVente As Double  
 ```
 
 ### 4. Longueur raisonnable
@@ -294,15 +294,15 @@ Trouvez le bon équilibre entre précision et concision :
 
 ```vba
 ' Trop court
-Dim d As Date
-Dim n As String
+Dim d As Date  
+Dim n As String  
 
 ' Trop long
 Dim dateDeLaFactureDeVenteDuClientDuMoisDeMarsDeuxMilleVingtQuatre As Date
 
 ' Juste ce qu'il faut
-Dim dateFacture As Date
-Dim nomClientFacture As String
+Dim dateFacture As Date  
+Dim nomClientFacture As String  
 ```
 
 ## Exemple complet avec bonnes conventions
@@ -314,8 +314,8 @@ Voici un exemple de code qui respecte toutes les conventions de nommage :
 Option Explicit
 
 ' Constantes du module
-Const TAUX_REMISE_VIP = 0.15
-Const NOMBRE_MAX_COMMANDES = 100
+Const TAUX_REMISE_VIP = 0.15  
+Const NOMBRE_MAX_COMMANDES = 100  
 
 ' Procédure pour traiter une commande client
 Sub TraiterCommandeClient()

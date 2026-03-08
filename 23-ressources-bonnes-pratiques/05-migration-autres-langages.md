@@ -43,9 +43,9 @@ Grâce à VBA, vous connaissez déjà :
 
 ```vba
 ' Variables et types de données
-Dim nom As String
-Dim age As Integer
-Dim estActif As Boolean
+Dim nom As String  
+Dim age As Integer  
+Dim estActif As Boolean  
 
 ' Structures conditionnelles
 If age >= 18 Then
@@ -260,8 +260,8 @@ Vous n'êtes pas obligé de tout remplacer d'un coup :
 
 ```python
 # Python pour l'analyse lourde
-import pandas as pd
-import numpy as np
+import pandas as pd  
+import numpy as np  
 
 def analyser_donnees_complexes(fichier_excel):
     df = pd.read_excel(fichier_excel)
@@ -299,34 +299,34 @@ End Sub
 
 **VBA :**
 ```vba
-Dim nom As String
-Dim age As Integer
-Dim salaire As Double
-Dim estActif As Boolean
+Dim nom As String  
+Dim age As Integer  
+Dim salaire As Double  
+Dim estActif As Boolean  
 ```
 
 **Python :**
 ```python
-nom = "Jean"           # String automatique
-age = 25              # Integer automatique
-salaire = 3500.50     # Float automatique
-est_actif = True      # Boolean
+nom = "Jean"           # String automatique  
+age = 25              # Integer automatique  
+salaire = 3500.50     # Float automatique  
+est_actif = True      # Boolean  
 ```
 
 **JavaScript :**
 ```javascript
-let nom = "Jean";         // String
-let age = 25;            // Number
-let salaire = 3500.50;   // Number
-let estActif = true;     // Boolean
+let nom = "Jean";         // String  
+let age = 25;            // Number  
+let salaire = 3500.50;   // Number  
+let estActif = true;     // Boolean  
 ```
 
 **C# :**
 ```csharp
-string nom = "Jean";
-int age = 25;
-double salaire = 3500.50;
-bool estActif = true;
+string nom = "Jean";  
+int age = 25;  
+double salaire = 3500.50;  
+bool estActif = true;  
 ```
 
 ### 2. Structures conditionnelles
@@ -382,8 +382,8 @@ for i in range(1, 11):
     print(i)
 
 # Equivalent For Each avec pandas
-import pandas as pd
-df['colonne'] = df['colonne'] * 2
+import pandas as pd  
+df['colonne'] = df['colonne'] * 2  
 ```
 
 **JavaScript :**
@@ -393,8 +393,8 @@ for (let i = 1; i <= 10; i++) {
 }
 
 // Equivalent For Each
-let tableau = [1, 2, 3, 4, 5];
-tableau.forEach(element => {
+let tableau = [1, 2, 3, 4, 5];  
+tableau.forEach(element => {  
     console.log(element * 2);
 });
 ```
