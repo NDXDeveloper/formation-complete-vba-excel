@@ -226,24 +226,9 @@ End Sub
 
 ## Passage de paramètres par valeur vs par référence
 
-### Par valeur (ByVal) - Comportement par défaut
+### Par référence (ByRef) - Comportement par défaut
 
-```vba
-Sub ModifierParValeur(ByVal nombre As Integer)
-    nombre = nombre + 10
-    MsgBox "Dans la procédure : " & nombre
-End Sub
-
-Sub TestParValeur()
-    Dim monNombre As Integer
-    monNombre = 5
-
-    ModifierParValeur monNombre
-    MsgBox "Après la procédure : " & monNombre  ' Toujours 5 !
-End Sub
-```
-
-### Par référence (ByRef)
+En VBA, si vous ne précisez ni `ByVal` ni `ByRef`, le paramètre est passé **par référence** (`ByRef`). Cela signifie que la procédure peut modifier la variable d'origine :
 
 ```vba
 Sub ModifierParReference(ByRef nombre As Integer)
@@ -260,9 +245,30 @@ Sub TestParReference()
 End Sub
 ```
 
+### Par valeur (ByVal)
+
+Pour protéger la variable d'origine contre les modifications, utilisez `ByVal` :
+
+```vba
+Sub ModifierParValeur(ByVal nombre As Integer)
+    nombre = nombre + 10
+    MsgBox "Dans la procédure : " & nombre
+End Sub
+
+Sub TestParValeur()
+    Dim monNombre As Integer
+    monNombre = 5
+
+    ModifierParValeur monNombre
+    MsgBox "Après la procédure : " & monNombre  ' Toujours 5 !
+End Sub
+```
+
 **Règle simple :**
+- **ByRef** (par défaut) : La procédure reçoit l'"original" - peut le modifier
 - **ByVal** : La procédure reçoit une "copie" - l'original ne change pas
-- **ByRef** : La procédure reçoit l'"original" - peut le modifier
+
+**Bonne pratique :** Utilisez `ByVal` quand vous n'avez pas besoin de modifier la variable d'origine. Cela rend votre code plus sûr et plus prévisible.
 
 ## Erreurs courantes à éviter
 

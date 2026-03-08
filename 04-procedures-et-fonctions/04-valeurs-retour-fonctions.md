@@ -83,8 +83,12 @@ End Function
 ' Retourne une date
 Function ProchaineLundi() As Date
     Dim aujourd_hui As Date
+    Dim joursRestants As Integer
     aujourd_hui = Date
-    ProchaineLundi = aujourd_hui + (9 - Weekday(aujourd_hui))
+    ' Weekday avec vbMonday : Lundi=1, Dimanche=7
+    joursRestants = (9 - Weekday(aujourd_hui, vbMonday)) Mod 7
+    If joursRestants = 0 Then joursRestants = 7  ' Si on est lundi, prochain lundi = +7
+    ProchaineLundi = aujourd_hui + joursRestants
 End Function
 ```
 
@@ -98,14 +102,17 @@ Function Multiplier(x As Double, y As Double) As Double
 End Function
 ```
 
-### Utilisation de Return (VBA moderne)
+### Retour anticipé avec Exit Function
+
+Pour quitter une fonction avant la fin (par exemple en cas d'erreur), utilisez `Exit Function` après avoir assigné la valeur de retour :
 
 ```vba
 Function Diviser(dividende As Double, diviseur As Double) As Double
     If diviseur = 0 Then
-        Return 0  ' Retour anticipé en cas d'erreur
+        Diviser = 0  ' Assignation de la valeur de retour
+        Exit Function  ' Sortie anticipée de la fonction
     End If
-    Return dividende / diviseur
+    Diviser = dividende / diviseur
 End Function
 ```
 

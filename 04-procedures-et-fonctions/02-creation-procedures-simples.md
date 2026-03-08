@@ -40,16 +40,16 @@ End Sub
 ### Bonnes pratiques de nommage
 ```vba
 ' ✅ Bons exemples
-Sub AfficherMessage()
-Sub Calculer_Total()
-Sub FormaterTableau()
-Sub SauvegarderDonnees()
+Sub AfficherMessage()  
+Sub Calculer_Total()  
+Sub FormaterTableau()  
+Sub SauvegarderDonnees()  
 
 ' ❌ Mauvais exemples
-Sub 123Test()        ' Commence par un chiffre
-Sub Mon Calcul()     ' Contient des espaces
-Sub Sub()           ' Mot réservé VBA
-Sub @Fonction()     ' Caractère spécial
+Sub 123Test()        ' Commence par un chiffre  
+Sub Mon Calcul()     ' Contient des espaces  
+Sub Sub()           ' Mot réservé VBA  
+Sub @Fonction()     ' Caractère spécial  
 ```
 
 ### Conventions recommandées

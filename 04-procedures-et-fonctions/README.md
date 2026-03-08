@@ -20,7 +20,7 @@ Une **procédure** ou une **fonction** est un ensemble d'instructions regroupée
 
 Imaginez une recette de cuisine. Au lieu d'écrire toutes les étapes dans un seul bloc, vous pourriez créer des "sous-recettes" :
 - Une procédure "PréparerLaPâte"
-- Une fonction "CalculerTempsDeeCuisson" qui retourne le temps nécessaire
+- Une fonction "CalculerTempsDeCuisson" qui retourne le temps nécessaire
 - Une procédure "AssaisonnerLaViande"
 
 De la même manière, en VBA, vous décomposez vos tâches complexes en procédures et fonctions plus simples et spécialisées.

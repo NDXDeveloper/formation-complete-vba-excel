@@ -99,9 +99,9 @@ Les variables **Private** sont déclarées au début d'un module, avant toute pr
 
 ```vba
 ' === EN HAUT DU MODULE, AVANT TOUTE PROCÉDURE ===
-Private nomUtilisateur As String
-Private compteurOperations As Integer
-Private dateDebut As Date
+Private nomUtilisateur As String  
+Private compteurOperations As Integer  
+Private dateDebut As Date  
 
 ' === ENSUITE, VOS PROCÉDURES ===
 Sub InitialiserSession()
@@ -130,8 +130,8 @@ End Sub
 
 **Configuration du module :**
 ```vba
-Private cheminFichiers As String
-Private formatExport As String
+Private cheminFichiers As String  
+Private formatExport As String  
 
 Sub ConfigurerModule()
     cheminFichiers = "C:\MonDossier\"
@@ -159,9 +159,9 @@ Les variables **Public** sont accessibles depuis **tous les modules** de votre p
 
 ```vba
 ' === MODULE 1 ===
-Public versionApplication As String
-Public utilisateurActuel As String
-Public modeDebug As Boolean
+Public versionApplication As String  
+Public utilisateurActuel As String  
+Public modeDebug As Boolean  
 
 Sub InitialiserApplication()
     versionApplication = "2.1.0"
@@ -300,8 +300,8 @@ End Function
 
 ```vba
 ' === Variables au niveau module ===
-Private cheminBase As String
-Private utilisateurCourant As String
+Private cheminBase As String  
+Private utilisateurCourant As String  
 
 ' === Variables publiques ===
 Public modeDebug As Boolean
@@ -374,16 +374,16 @@ End Sub
 
 ```vba
 ' Variables locales : notation simple
-Dim nom As String
-Dim compteur As Integer
+Dim nom As String  
+Dim compteur As Integer  
 
 ' Variables de module : préfixe explicite
-Private m_configuration As String
-Private m_etatModule As Boolean
+Private m_configuration As String  
+Private m_etatModule As Boolean  
 
 ' Variables publiques : préfixe global
-Public g_versionApp As String
-Public g_utilisateur As String
+Public g_versionApp As String  
+Public g_utilisateur As String  
 ```
 
 ### 3. Initialisation appropriée
@@ -406,8 +406,8 @@ End Sub
 '===============================================
 ' VARIABLES DE MODULE (PRIVATE)
 '===============================================
-Private m_cheminTravail As String    ' Chemin de base pour les fichiers
-Private m_compteurErreurs As Integer ' Nombre d'erreurs dans ce module
+Private m_cheminTravail As String    ' Chemin de base pour les fichiers  
+Private m_compteurErreurs As Integer ' Nombre d'erreurs dans ce module  
 
 '===============================================
 ' PROCÉDURES PUBLIQUES

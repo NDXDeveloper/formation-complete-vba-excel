@@ -199,7 +199,7 @@ End Function
 
 **Dans Excel, tapez :**
 - `=ConvertirEnMajuscules("bonjour")` → BONJOUR
-- `=CalculerAge("15/03/1990")` → 34 (selon l'année actuelle)
+- `=CalculerAge("15/03/1990")` → résultat selon l'année actuelle
 - `=EstEmail("test@email.com")` → VRAI
 
 ## Passage de paramètres avancé
