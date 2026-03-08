@@ -14,11 +14,13 @@ La concaténation est l'opération qui permet de joindre plusieurs chaînes de c
 
 #### L'opérateur & (recommandé)
 ```vba
-Dim prenom As String = "Marie"
-Dim nom As String = "Martin"
-Dim nomComplet As String
+Dim prenom As String  
+Dim nom As String  
+Dim nomComplet As String  
 
-nomComplet = prenom & " " & nom
+prenom = "Marie"  
+nom = "Martin"  
+nomComplet = prenom & " " & nom  
 ' Résultat : "Marie Martin"
 ```
 
@@ -32,10 +34,11 @@ nomComplet = prenom + " " + nom
 
 #### Concaténation avec des nombres
 ```vba
-Dim age As Integer = 25
-Dim message As String
+Dim age As Integer  
+Dim message As String  
 
-message = "J'ai " & age & " ans"
+age = 25  
+message = "J'ai " & age & " ans"  
 ' Résultat : "J'ai 25 ans"
 ```
 
@@ -45,24 +48,29 @@ Les espaces indésirables sont un problème fréquent lors du traitement de donn
 
 #### Trim() - Supprime les espaces en début et fin
 ```vba
-Dim texte As String = "   Bonjour le monde   "
-Dim texteNettoye As String
+Dim texte As String  
+Dim texteNettoye As String  
 
-texteNettoye = Trim(texte)
+texte = "   Bonjour le monde   "  
+texteNettoye = Trim(texte)  
 ' Résultat : "Bonjour le monde"
 ```
 
 #### LTrim() - Supprime uniquement les espaces à gauche
 ```vba
-Dim texte As String = "   Bonjour   "
-Dim resultat As String = LTrim(texte)
+Dim texte As String  
+texte = "   Bonjour   "  
+Dim resultat As String  
+resultat = LTrim(texte)  
 ' Résultat : "Bonjour   "
 ```
 
 #### RTrim() - Supprime uniquement les espaces à droite
 ```vba
-Dim texte As String = "   Bonjour   "
-Dim resultat As String = RTrim(texte)
+Dim texte As String  
+texte = "   Bonjour   "  
+Dim resultat As String  
+resultat = RTrim(texte)  
 ' Résultat : "   Bonjour"
 ```
 
@@ -70,29 +78,28 @@ Dim resultat As String = RTrim(texte)
 
 #### UCase() - Convertit en majuscules
 ```vba
-Dim texte As String = "bonjour VBA"
-Dim majuscules As String = UCase(texte)
-' Résultat : "BONJOUR VBA"
+Dim texte As String  
+texte = "bonjour VBA"  
+Debug.Print UCase(texte)  ' "BONJOUR VBA"  
 ```
 
 #### LCase() - Convertit en minuscules
 ```vba
-Dim texte As String = "BONJOUR VBA"
-Dim minuscules As String = LCase(texte)
-' Résultat : "bonjour vba"
+Dim texte As String  
+texte = "BONJOUR VBA"  
+Debug.Print LCase(texte)  ' "bonjour vba"  
 ```
 
 #### StrConv() - Conversion avancée
 ```vba
-Dim texte As String = "bonjour vba"
+Dim texte As String  
+texte = "bonjour vba"  
 
 ' Première lettre de chaque mot en majuscule
-Dim propre As String = StrConv(texte, vbProperCase)
-' Résultat : "Bonjour Vba"
+Debug.Print StrConv(texte, vbProperCase)  ' "Bonjour Vba"
 
 ' Conversion en majuscules (équivalent à UCase)
-Dim maj As String = StrConv(texte, vbUpperCase)
-' Résultat : "BONJOUR VBA"
+Debug.Print StrConv(texte, vbUpperCase)   ' "BONJOUR VBA"
 ```
 
 ## Remplacement de texte
@@ -107,9 +114,10 @@ Replace(chaîne_source, chaîne_à_chercher, chaîne_de_remplacement)
 
 #### Exemples pratiques
 ```vba
-Dim texte As String = "Bonjour le monde, bonjour VBA"
-Dim nouveau As String
+Dim texte As String  
+Dim nouveau As String  
 
+texte = "Bonjour le monde, bonjour VBA"
 ' Remplace tous les "bonjour" par "salut"
 nouveau = Replace(texte, "bonjour", "salut")
 ' Résultat : "Bonjour le monde, salut VBA"
@@ -126,22 +134,27 @@ Replace(expression, find, replace, start, count, compare)
 ```
 
 ```vba
-Dim texte As String = "abcABCabc"
+Dim texte As String  
+texte = "abcABCabc"  
 
-' Remplace seulement les 2 premiers "abc" (insensible à la casse)
-Dim resultat As String = Replace(texte, "abc", "XYZ", 1, 2, vbTextCompare)
+' Remplace avec comparaison insensible à la casse
+Dim resultat As String  
+resultat = Replace(texte, "abc", "XYZ", 1, 2, vbTextCompare)  
 ' Résultat : "XYZXYZXYZ"
 ```
 
 ### Suppression de caractères spécifiques
 ```vba
 ' Supprimer tous les tirets d'un numéro de téléphone
-Dim telephone As String = "01-23-45-67-89"
-Dim telephoneClean As String = Replace(telephone, "-", "")
+Dim telephone As String  
+telephone = "01-23-45-67-89"  
+Dim telephoneClean As String  
+telephoneClean = Replace(telephone, "-", "")  
 ' Résultat : "0123456789"
 
 ' Supprimer les espaces multiples
-Dim texte As String = "Mot1    Mot2     Mot3"
+Dim texte As String  
+texte = "Mot1    Mot2     Mot3"  
 ' Première étape : remplacer les espaces multiples par un seul
 Do While InStr(texte, "  ") > 0
     texte = Replace(texte, "  ", " ")
@@ -154,9 +167,12 @@ Loop
 ### Insertion de caractères
 ```vba
 ' Insérer du texte au milieu d'une chaîne
-Dim texte As String = "BonjourVBA"
-Dim position As Integer = 8  ' Après "Bonjour"
-Dim nouveau As String
+Dim texte As String  
+Dim position As Integer  
+Dim nouveau As String  
+
+texte = "BonjourVBA"  
+position = 8  ' Après "Bonjour"  
 
 ' Technique : diviser, insérer, recombiner
 nouveau = Left(texte, position - 1) & " " & Mid(texte, position)
@@ -166,12 +182,15 @@ nouveau = Left(texte, position - 1) & " " & Mid(texte, position)
 ### Suppression de caractères
 ```vba
 ' Supprimer des caractères à une position donnée
-Dim texte As String = "Bonjour123VBA"
-Dim debut As Integer = 8    ' Position du premier caractère à supprimer
-Dim longueur As Integer = 3 ' Nombre de caractères à supprimer
+Dim texte As String  
+Dim debut As Integer  
+Dim longueur As Integer  
+Dim resultat As String  
 
-Dim resultat As String
-resultat = Left(texte, debut - 1) & Mid(texte, debut + longueur)
+texte = "Bonjour123VBA"  
+debut = 8     ' Position du premier caractère à supprimer  
+longueur = 3  ' Nombre de caractères à supprimer  
+resultat = Left(texte, debut - 1) & Mid(texte, debut + longueur)  
 ' Résultat : "BonjourVBA"
 ```
 
@@ -180,7 +199,8 @@ resultat = Left(texte, debut - 1) & Mid(texte, debut + longueur)
 ### Nettoyage complet d'une chaîne
 ```vba
 Function NettoyerTexte(texte As String) As String
-    Dim resultat As String = texte
+    Dim resultat As String
+    resultat = texte
 
     ' Supprimer les espaces en début et fin
     resultat = Trim(resultat)
@@ -204,7 +224,8 @@ End Function
 ```vba
 ' Standardiser un nom (première lettre majuscule)
 Function StandardiserNom(nom As String) As String
-    Dim nomNettoye As String = Trim(LCase(nom))
+    Dim nomNettoye As String
+    nomNettoye = Trim(LCase(nom))
     If Len(nomNettoye) > 0 Then
         StandardiserNom = UCase(Left(nomNettoye, 1)) & Mid(nomNettoye, 2)
     Else
@@ -213,8 +234,10 @@ Function StandardiserNom(nom As String) As String
 End Function
 
 ' Utilisation
-Dim nom As String = "  DUPONT  "
-Dim nomStandard As String = StandardiserNom(nom)
+Dim nom As String  
+nom = "  DUPONT  "  
+Dim nomStandard As String  
+nomStandard = StandardiserNom(nom)  
 ' Résultat : "Dupont"
 ```
 
@@ -222,27 +245,29 @@ Dim nomStandard As String = StandardiserNom(nom)
 
 ### Accès aux caractères
 ```vba
-Dim texte As String = "VBA"
-Dim premierCaractere As String = Left(texte, 1)     ' "V"
-Dim deuxiemeCaractere As String = Mid(texte, 2, 1)  ' "B"
-Dim dernierCaractere As String = Right(texte, 1)    ' "A"
+Dim texte As String  
+texte = "VBA"  
+
+Debug.Print Left(texte, 1)    ' "V"  
+Debug.Print Mid(texte, 2, 1)  ' "B"  
+Debug.Print Right(texte, 1)   ' "A"  
 ```
 
 ### Codes ASCII
 ```vba
 ' Obtenir le code ASCII d'un caractère
-Dim caractere As String = "A"
-Dim codeASCII As Integer = Asc(caractere)  ' 65
+Debug.Print Asc("A")   ' 65
 
 ' Convertir un code ASCII en caractère
-Dim nouveauCaractere As String = Chr(65)   ' "A"
+Debug.Print Chr(65)     ' "A"
 ```
 
 ## Conseils pratiques pour débutants
 
 ### 1. Toujours vérifier si la chaîne est vide
 ```vba
-Dim texte As String = "..."
+Dim texte As String  
+texte = "..."  
 
 If Len(texte) > 0 Then
     ' Effectuer la manipulation

@@ -25,8 +25,9 @@ Dim monTexte As String
 ' Initialisation avec une valeur
 monTexte = "Bonjour le monde!"
 
-' Déclaration et initialisation en une ligne
-Dim salutation As String = "Hello VBA"
+' Déclaration puis initialisation (VBA ne supporte pas l'initialisation en une ligne)
+Dim salutation As String  
+salutation = "Hello VBA"  
 ```
 
 ## Types de chaînes en VBA
@@ -44,8 +45,8 @@ VBA propose deux types principaux de chaînes :
 - Plus économe en mémoire pour des tailles connues
 
 ```vba
-Dim texteVariable As String          ' Longueur variable
-Dim texteFixe As String * 10         ' Longueur fixe de 10 caractères
+Dim texteVariable As String          ' Longueur variable  
+Dim texteFixe As String * 10         ' Longueur fixe de 10 caractères  
 ```
 
 ## Pourquoi maîtriser les chaînes de caractères ?
@@ -65,9 +66,12 @@ Dans le contexte d'Excel et VBA, la manipulation de chaînes est essentielle pou
 La concaténation permet de joindre plusieurs chaînes :
 
 ```vba
-Dim prenom As String = "Jean"
-Dim nom As String = "Dupont"
-Dim nomComplet As String
+Dim prenom As String  
+Dim nom As String  
+Dim nomComplet As String  
+
+prenom = "Jean"  
+nom = "Dupont"  
 
 ' Avec l'opérateur &
 nomComplet = prenom & " " & nom
@@ -78,15 +82,18 @@ nomComplet = prenom + " " + nom
 
 ### Longueur d'une chaîne
 ```vba
-Dim texte As String = "Bonjour"
-Dim longueur As Integer = Len(texte)  ' Résultat : 7
+Dim texte As String  
+texte = "Bonjour"  
+Dim longueur As Integer  
+longueur = Len(texte)  ' Résultat : 7  
 ```
 
 ### Conversion de casse
 ```vba
-Dim texte As String = "Bonjour VBA"
-Debug.Print UCase(texte)  ' BONJOUR VBA
-Debug.Print LCase(texte)  ' bonjour vba
+Dim texte As String  
+texte = "Bonjour VBA"  
+Debug.Print UCase(texte)  ' BONJOUR VBA  
+Debug.Print LCase(texte)  ' bonjour vba  
 ```
 
 ## Caractères spéciaux et d'échappement
@@ -95,13 +102,16 @@ Certains caractères nécessitent une attention particulière :
 
 ```vba
 ' Guillemets dans une chaîne
-Dim citation As String = "Il a dit : ""Bonjour"""
+Dim citation As String  
+citation = "Il a dit : ""Bonjour"""  
 
 ' Retour à la ligne
-Dim texteMultiligne As String = "Première ligne" & vbCrLf & "Deuxième ligne"
+Dim texteMultiligne As String  
+texteMultiligne = "Première ligne" & vbCrLf & "Deuxième ligne"  
 
 ' Tabulation
-Dim texteAvecTab As String = "Colonne1" & vbTab & "Colonne2"
+Dim texteAvecTab As String  
+texteAvecTab = "Colonne1" & vbTab & "Colonne2"  
 ```
 
 ## Constantes VBA utiles pour les chaînes
@@ -136,6 +146,6 @@ Ce chapitre vous guidera à travers cinq sections principales :
 
 **9.5. Expressions régulières simples** - Introduction aux patterns pour des recherches avancées
 
-Chaque section combinera théorie, exemples pratiques et exercices pour vous permettre de maîtriser progressivement tous les aspects de la manipulation des chaînes de caractères en VBA.
+Chaque section combinera théorie et exemples pratiques pour vous permettre de maîtriser progressivement tous les aspects de la manipulation des chaînes de caractères en VBA.
 
 ⏭️

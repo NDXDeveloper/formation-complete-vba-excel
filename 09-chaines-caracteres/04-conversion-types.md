@@ -28,109 +28,146 @@ Avant de voir les conversions, rappelons les types principaux :
 
 #### CInt() - Conversion en Integer
 ```vba
-Dim texteNombre As String = "123"
-Dim nombre As Integer
+Dim texteNombre As String  
+Dim nombre As Integer  
 
-nombre = CInt(texteNombre)
+texteNombre = "123"  
+nombre = CInt(texteNombre)  
 ' Résultat : 123 (de type Integer)
 
 ' Utilisation directe
-Dim age As Integer = CInt("25")
+Dim age As Integer  
+age = CInt("25")  
 ```
 
 #### CLng() - Conversion en Long
 ```vba
-Dim texteGrandNombre As String = "1234567"
-Dim grandNombre As Long = CLng(texteGrandNombre)
+Dim texteGrandNombre As String  
+texteGrandNombre = "1234567"  
+Dim grandNombre As Long  
+grandNombre = CLng(texteGrandNombre)  
 ' Résultat : 1234567 (de type Long)
 ```
 
 #### CDbl() - Conversion en Double (décimal)
 ```vba
-Dim texteDecimal As String = "123.45"
-Dim nombreDecimal As Double = CDbl(texteDecimal)
+Dim texteDecimal As String  
+texteDecimal = "123.45"  
+Dim nombreDecimal As Double  
+nombreDecimal = CDbl(texteDecimal)  
 ' Résultat : 123.45 (de type Double)
 
 ' Attention aux séparateurs décimaux selon les paramètres régionaux
-Dim prix As String = "19,99"  ' Format français
-Dim prixNumerique As Double = CDbl(Replace(prix, ",", "."))
+Dim prix As String  
+prix = "19,99"  ' Format français  
+Dim prixNumerique As Double  
+prixNumerique = CDbl(Replace(prix, ",", "."))  
 ```
 
 #### Val() - Fonction universelle de conversion
 ```vba
 ' Val() est plus tolérante que les fonctions C...()
-Dim resultat1 As Double = Val("123")      ' 123
-Dim resultat2 As Double = Val("123.45")   ' 123.45
-Dim resultat3 As Double = Val("123abc")   ' 123 (s'arrête au premier caractère non numérique)
-Dim resultat4 As Double = Val("abc123")   ' 0 (ne commence pas par un chiffre)
+Dim resultat1 As Double  
+Dim resultat2 As Double  
+Dim resultat3 As Double  
+Dim resultat4 As Double  
+resultat1 = Val("123")      ' 123  
+resultat2 = Val("123.45")   ' 123.45  
+resultat3 = Val("123abc")   ' 123 (s'arrête au premier caractère non numérique)  
+resultat4 = Val("abc123")   ' 0 (ne commence pas par un chiffre)  
 ```
 
 ### Convertir du texte en Boolean
 ```vba
-Dim texteBoolean As String = "True"
-Dim valeurBoolean As Boolean = CBool(texteBoolean)
+Dim texteBoolean As String  
+texteBoolean = "True"  
+Dim valeurBoolean As Boolean  
+valeurBoolean = CBool(texteBoolean)  
 ' Résultat : True
 
 ' Autres exemples
-Dim bool1 As Boolean = CBool("False")  ' False
-Dim bool2 As Boolean = CBool("1")      ' True
-Dim bool3 As Boolean = CBool("0")      ' False
+Dim bool1 As Boolean  
+Dim bool2 As Boolean  
+Dim bool3 As Boolean  
+bool1 = CBool("False")  ' False  
+bool2 = CBool("1")      ' True  
+bool3 = CBool("0")      ' False  
 ```
 
 ### Convertir du texte en Date
 ```vba
 ' CDate() pour les conversions de date
-Dim texteDate As String = "15/01/2024"
-Dim maDate As Date = CDate(texteDate)
+Dim texteDate As String  
+texteDate = "15/01/2024"  
+Dim maDate As Date  
+maDate = CDate(texteDate)  
 
 ' DateValue() pour juste la date (sans heure)
-Dim dateSeule As Date = DateValue("15/01/2024")
+Dim dateSeule As Date  
+dateSeule = DateValue("15/01/2024")  
 
 ' TimeValue() pour juste l'heure
-Dim heureSeule As Date = TimeValue("14:30:00")
+Dim heureSeule As Date  
+heureSeule = TimeValue("14:30:00")  
 ```
 
 ## Conversions vers String (texte)
 
 ### CStr() - Conversion universelle en texte
 ```vba
-Dim nombre As Integer = 123
-Dim texte As String = CStr(nombre)
+Dim nombre As Integer  
+nombre = 123  
+Dim texte As String  
+texte = CStr(nombre)  
 ' Résultat : "123"
 
-Dim decimal As Double = 123.45
-Dim texteDecimal As String = CStr(decimal)
+Dim decimal As Double  
+decimal = 123.45  
+Dim texteDecimal As String  
+texteDecimal = CStr(decimal)  
 ' Résultat : "123,45" (selon paramètres régionaux)
 
-Dim dateActuelle As Date = Now
-Dim texteDate As String = CStr(dateActuelle)
+Dim dateActuelle As Date  
+dateActuelle = Now  
+Dim texteDate As String  
+texteDate = CStr(dateActuelle)  
 ' Résultat : "22/07/2025 10:30:15" (exemple)
 ```
 
 ### Str() - Conversion de nombre en chaîne
 ```vba
-Dim nombre As Integer = 123
-Dim texte As String = Str(nombre)
+Dim nombre As Integer  
+nombre = 123  
+Dim texte As String  
+texte = Str(nombre)  
 ' Résultat : " 123" (note l'espace au début pour les nombres positifs)
 
 ' Ltrim pour supprimer l'espace
-Dim texteClean As String = LTrim(Str(nombre))
+Dim texteClean As String  
+texteClean = LTrim(Str(nombre))  
 ' Résultat : "123"
 ```
 
 ### Format() - Conversion avec formatage
 ```vba
-Dim nombre As Double = 1234.567
+Dim nombre As Double  
+nombre = 1234.567  
 
 ' Formatage de nombres
-Dim texte1 As String = Format(nombre, "0.00")        ' "1234,57"
-Dim texte2 As String = Format(nombre, "#,##0.00")    ' "1 234,57"
-Dim texte3 As String = Format(nombre, "0%")          ' "123457%" (multiplie par 100)
+Dim texte1 As String  
+Dim texte2 As String  
+Dim texte3 As String  
+texte1 = Format(nombre, "0.00")        ' "1234,57"  
+texte2 = Format(nombre, "#,##0.00")    ' "1 234,57"  
+texte3 = Format(nombre, "0%")          ' "123457%" (multiplie par 100)  
 
 ' Formatage de dates
-Dim dateActuelle As Date = Now
-Dim texte4 As String = Format(dateActuelle, "dd/mm/yyyy")     ' "22/07/2025"
-Dim texte5 As String = Format(dateActuelle, "dddd dd mmmm")   ' "mardi 22 juillet"
+Dim dateActuelle As Date  
+dateActuelle = Now  
+Dim texte4 As String  
+Dim texte5 As String  
+texte4 = Format(dateActuelle, "dd/mm/yyyy")     ' "22/07/2025"  
+texte5 = Format(dateActuelle, "dddd dd mmmm")   ' "mardi 22 juillet"  
 ```
 
 ## Conversions entre types numériques
@@ -138,30 +175,40 @@ Dim texte5 As String = Format(dateActuelle, "dddd dd mmmm")   ' "mardi 22 juille
 ### Conversion sécurisée entre Integer, Long et Double
 ```vba
 ' De Double vers Integer (attention à la perte de précision)
-Dim decimal As Double = 123.67
-Dim entier As Integer = CInt(decimal)  ' 124 (arrondi)
+Dim decimal As Double  
+decimal = 123.67  
+Dim entier As Integer  
+entier = CInt(decimal)  ' 124 (arrondi bancaire)  
 
 ' De Integer vers Long (sans perte)
-Dim petit As Integer = 123
-Dim grand As Long = CLng(petit)  ' 123
+Dim petit As Integer  
+petit = 123  
+Dim grand As Long  
+grand = CLng(petit)  ' 123  
 
 ' De Long vers Double (sans perte généralement)
-Dim entierLong As Long = 123456
-Dim decimalLong As Double = CDbl(entierLong)  ' 123456.0
+Dim entierLong As Long  
+entierLong = 123456  
+Dim decimalLong As Double  
+decimalLong = CDbl(entierLong)  ' 123456.0  
 ```
 
 ### Fonctions d'arrondi avant conversion
 ```vba
-Dim nombre As Double = 123.67
+Dim nombre As Double  
+nombre = 123.67  
 
-' Round() - Arrondi mathématique
-Dim arrondi As Integer = CInt(Round(nombre))  ' 124
+' Round() - Arrondi bancaire (attention : 0.5 est arrondi au pair le plus proche)
+Dim arrondi As Integer  
+arrondi = CInt(Round(nombre))  ' 124  
 
 ' Int() - Partie entière (tronque)
-Dim tronque As Integer = CInt(Int(nombre))    ' 123
+Dim tronque As Integer  
+tronque = CInt(Int(nombre))    ' 123  
 
 ' Fix() - Supprime la partie décimale
-Dim fixe As Integer = CInt(Fix(nombre))       ' 123
+Dim fixe As Integer  
+fixe = CInt(Fix(nombre))       ' 123  
 ```
 
 ## Gestion des erreurs de conversion
@@ -178,29 +225,37 @@ Function ConvertirEnNombreSur(texte As String) As Double
 End Function
 
 ' Utilisation
-Dim texte1 As String = "123.45"  ' Valide
-Dim texte2 As String = "abc"     ' Invalide
+Dim texte1 As String  
+Dim texte2 As String  
+texte1 = "123.45"  ' Valide  
+texte2 = "abc"     ' Invalide  
 
-Dim nombre1 As Double = ConvertirEnNombreSur(texte1)  ' 123.45
-Dim nombre2 As Double = ConvertirEnNombreSur(texte2)  ' 0
+Dim nombre1 As Double  
+Dim nombre2 As Double  
+nombre1 = ConvertirEnNombreSur(texte1)  ' 123.45  
+nombre2 = ConvertirEnNombreSur(texte2)  ' 0  
 ```
 
 ### Utilisation de IsNumeric(), IsDate()
 ```vba
-Dim valeur As String = "123.45"
+Dim valeur As String  
+valeur = "123.45"  
 
 ' Vérifier si c'est un nombre
 If IsNumeric(valeur) Then
-    Dim nombre As Double = CDbl(valeur)
+    Dim nombre As Double
+    nombre = CDbl(valeur)
     MsgBox "Conversion réussie : " & nombre
 Else
     MsgBox "Ce n'est pas un nombre valide"
 End If
 
 ' Vérifier si c'est une date
-Dim texteDate As String = "15/01/2024"
-If IsDate(texteDate) Then
-    Dim maDate As Date = CDate(texteDate)
+Dim texteDate As String  
+texteDate = "15/01/2024"  
+If IsDate(texteDate) Then  
+    Dim maDate As Date
+    maDate = CDate(texteDate)
     MsgBox "Date valide : " & Format(maDate, "dd/mm/yyyy")
 End If
 ```
@@ -233,59 +288,85 @@ Function BooleanVersTexte(valeur As Boolean) As String
 End Function
 
 ' Utilisation
-Dim estValide As Boolean = True
-Dim texte As String = BooleanVersTexte(estValide)  ' "Oui"
+Dim estValide As Boolean  
+estValide = True  
+Dim texte As String  
+texte = BooleanVersTexte(estValide)  ' "Oui"  
 ```
 
 ### Conversion de codes ASCII
 ```vba
 ' Caractère vers code ASCII
-Dim caractere As String = "A"
-Dim code As Integer = Asc(caractere)  ' 65
+Dim caractere As String  
+caractere = "A"  
+Dim code As Integer  
+code = Asc(caractere)  ' 65  
 
 ' Code ASCII vers caractère
-Dim nouveauCaractere As String = Chr(65)  ' "A"
+Dim nouveauCaractere As String  
+nouveauCaractere = Chr(65)  ' "A"  
 
 ' Utile pour générer des caractères spéciaux
-Dim guillemet As String = Chr(34)  ' " (guillemet)
-Dim retourLigne As String = Chr(13) & Chr(10)  ' Équivalent à vbCrLf
+Dim guillemet As String  
+guillemet = Chr(34)  ' " (guillemet)  
+Dim retourLigne As String  
+retourLigne = Chr(13) & Chr(10)  ' Équivalent à vbCrLf  
 ```
 
 ## Formatage avancé avec Format()
 
 ### Formats numériques courants
 ```vba
-Dim nombre As Double = 1234.567
+Dim nombre As Double  
+nombre = 1234.567  
 
 ' Formats prédéfinis
-Dim texte1 As String = Format(nombre, "General Number")   ' "1234,567"
-Dim texte2 As String = Format(nombre, "Currency")         ' "1 234,57 €"
-Dim texte3 As String = Format(nombre, "Standard")         ' "1 234,57"
-Dim texte4 As String = Format(nombre, "Fixed")            ' "1234,57"
-Dim texte5 As String = Format(nombre, "Percent")          ' "123456,70%"
+Dim texte1 As String  
+Dim texte2 As String  
+Dim texte3 As String  
+Dim texte4 As String  
+Dim texte5 As String  
+texte1 = Format(nombre, "General Number")   ' "1234,567"  
+texte2 = Format(nombre, "Currency")         ' "1 234,57 €"  
+texte3 = Format(nombre, "Standard")         ' "1 234,57"  
+texte4 = Format(nombre, "Fixed")            ' "1234,57"  
+texte5 = Format(nombre, "Percent")          ' "123456,70%"  
 
 ' Formats personnalisés
-Dim texte6 As String = Format(nombre, "000000.00")        ' "001234,57"
-Dim texte7 As String = Format(nombre, "#,##0.00 €")       ' "1 234,57 €"
+Dim texte6 As String  
+Dim texte7 As String  
+texte6 = Format(nombre, "000000.00")        ' "001234,57"  
+texte7 = Format(nombre, "#,##0.00 €")       ' "1 234,57 €"  
 ```
 
 ### Formats de date courants
 ```vba
-Dim dateActuelle As Date = #7/22/2025 2:30:15 PM#
+Dim dateActuelle As Date  
+dateActuelle = #7/22/2025 2:30:15 PM#  
 
 ' Formats prédéfinis
-Dim texte1 As String = Format(dateActuelle, "General Date")     ' "22/07/2025 14:30:15"
-Dim texte2 As String = Format(dateActuelle, "Long Date")        ' "mardi 22 juillet 2025"
-Dim texte3 As String = Format(dateActuelle, "Medium Date")      ' "22-juil-25"
-Dim texte4 As String = Format(dateActuelle, "Short Date")       ' "22/07/2025"
-Dim texte5 As String = Format(dateActuelle, "Long Time")        ' "14:30:15"
-Dim texte6 As String = Format(dateActuelle, "Medium Time")      ' "02:30 PM"
-Dim texte7 As String = Format(dateActuelle, "Short Time")       ' "14:30"
+Dim texte1 As String  
+Dim texte2 As String  
+Dim texte3 As String  
+Dim texte4 As String  
+Dim texte5 As String  
+Dim texte6 As String  
+Dim texte7 As String  
+texte1 = Format(dateActuelle, "General Date")     ' "22/07/2025 14:30:15"  
+texte2 = Format(dateActuelle, "Long Date")        ' "mardi 22 juillet 2025"  
+texte3 = Format(dateActuelle, "Medium Date")      ' "22-juil-25"  
+texte4 = Format(dateActuelle, "Short Date")       ' "22/07/2025"  
+texte5 = Format(dateActuelle, "Long Time")        ' "14:30:15"  
+texte6 = Format(dateActuelle, "Medium Time")      ' "02:30 PM"  
+texte7 = Format(dateActuelle, "Short Time")       ' "14:30"  
 
 ' Formats personnalisés
-Dim texte8 As String = Format(dateActuelle, "dd/mm/yyyy")       ' "22/07/2025"
-Dim texte9 As String = Format(dateActuelle, "dddd dd mmmm yyyy")' "mardi 22 juillet 2025"
-Dim texte10 As String = Format(dateActuelle, "hh:nn:ss")        ' "14:30:15"
+Dim texte8 As String  
+Dim texte9 As String  
+Dim texte10 As String  
+texte8 = Format(dateActuelle, "dd/mm/yyyy")       ' "22/07/2025"  
+texte9 = Format(dateActuelle, "dddd dd mmmm yyyy")' "mardi 22 juillet 2025"  
+texte10 = Format(dateActuelle, "hh:nn:ss")        ' "14:30:15"  
 ```
 
 ## Cas pratiques courants
@@ -293,7 +374,8 @@ Dim texte10 As String = Format(dateActuelle, "hh:nn:ss")        ' "14:30:15"
 ### Nettoyer et convertir des données de cellules Excel
 ```vba
 Function ConvertirCelluleEnNombre(cellule As Range) As Double
-    Dim valeurTexte As String = CStr(cellule.Value)
+    Dim valeurTexte As String
+    valeurTexte = CStr(cellule.Value)
 
     ' Nettoyer la valeur
     valeurTexte = Trim(valeurTexte)                    ' Supprimer espaces
@@ -314,9 +396,12 @@ End Function
 ```vba
 Function CreerIdentifiant(nom As String, prenom As String, dateNaissance As Date) As String
     ' Créer un ID au format : DUPONT_JEAN_19900115
-    Dim nomClean As String = UCase(Replace(Trim(nom), " ", ""))
-    Dim prenomClean As String = UCase(Replace(Trim(prenom), " ", ""))
-    Dim dateClean As String = Format(dateNaissance, "yyyymmdd")
+    Dim nomClean As String
+    nomClean = UCase(Replace(Trim(nom), " ", ""))
+    Dim prenomClean As String
+    prenomClean = UCase(Replace(Trim(prenom), " ", ""))
+    Dim dateClean As String
+    dateClean = Format(dateNaissance, "yyyymmdd")
 
     CreerIdentifiant = nomClean & "_" & prenomClean & "_" & dateClean
 End Function
@@ -326,7 +411,8 @@ End Function
 ```vba
 Function ValiderEtConvertirAge(saisie As String) As Integer
     ' Nettoyer la saisie
-    Dim saisieClean As String = Trim(saisie)
+    Dim saisieClean As String
+    saisieClean = Trim(saisie)
 
     ' Vérifier si c'est numérique
     If Not IsNumeric(saisieClean) Then
@@ -336,7 +422,8 @@ Function ValiderEtConvertirAge(saisie As String) As Integer
     End If
 
     ' Convertir et valider la plage
-    Dim age As Integer = CInt(saisieClean)
+    Dim age As Integer
+    age = CInt(saisieClean)
     If age < 0 Or age > 150 Then
         MsgBox "L'âge doit être entre 0 et 150 ans"
         ValiderEtConvertirAge = -1
@@ -351,11 +438,12 @@ End Function
 ### 1. Toujours valider avant de convertir
 ```vba
 ' MAUVAIS
-Dim nombre As Integer = CInt(texte)  ' Peut provoquer une erreur
+Dim nombre As Integer  
+nombre = CInt(texte)  ' Peut provoquer une erreur  
 
 ' BON
 If IsNumeric(texte) Then
-    Dim nombre As Integer = CInt(texte)
+    nombre = CInt(texte)
 Else
     ' Gérer le cas d'erreur
 End If

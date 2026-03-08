@@ -22,21 +22,21 @@ Pour utiliser les expressions régulières en VBA, vous devez d'abord activer un
 ### Méthode alternative (sans référence)
 ```vba
 ' Création dynamique de l'objet RegExp
-Dim regex As Object
-Set regex = CreateObject("VBScript.RegExp")
+Dim regex As Object  
+Set regex = CreateObject("VBScript.RegExp")  
 ```
 
 ## Structure de base d'une expression régulière
 
 ### Création et configuration de l'objet RegExp
 ```vba
-Dim regex As Object
-Set regex = CreateObject("VBScript.RegExp")
+Dim regex As Object  
+Set regex = CreateObject("VBScript.RegExp")  
 
 ' Configuration de base
-regex.Global = True         ' Chercher toutes les occurrences (pas seulement la première)
-regex.IgnoreCase = True     ' Ignorer majuscules/minuscules
-regex.Pattern = "motif"     ' Le motif à chercher
+regex.Global = True         ' Chercher toutes les occurrences (pas seulement la première)  
+regex.IgnoreCase = True     ' Ignorer majuscules/minuscules  
+regex.Pattern = "motif"     ' Le motif à chercher  
 ```
 
 ### Utilisation basique
@@ -48,7 +48,8 @@ Function TestRegex()
     regex.Pattern = "VBA"
     regex.IgnoreCase = True
 
-    Dim texte As String = "J'apprends VBA et vba est formidable"
+    Dim texte As String
+    texte = "J'apprends VBA et vba est formidable"
 
     ' Test de correspondance
     If regex.Test(texte) Then
@@ -150,9 +151,9 @@ Function ValiderCodePostal(code As String) As Boolean
 End Function
 
 ' Tests
-Debug.Print ValiderCodePostal("75001")    ' True
-Debug.Print ValiderCodePostal("1234")     ' False (trop court)
-Debug.Print ValiderCodePostal("12345a")   ' False (contient une lettre)
+Debug.Print ValiderCodePostal("75001")    ' True  
+Debug.Print ValiderCodePostal("1234")     ' False (trop court)  
+Debug.Print ValiderCodePostal("12345a")   ' False (contient une lettre)  
 ```
 
 ### Trouver tous les nombres dans un texte
@@ -180,8 +181,10 @@ Function ExtraireNombres(texte As String) As String()
 End Function
 
 ' Utilisation
-Dim texte As String = "J'ai 25 ans et je gagne 1500 euros"
-Dim nombres() As String = ExtraireNombres(texte)
+Dim texte As String  
+texte = "J'ai 25 ans et je gagne 1500 euros"  
+Dim nombres() As String  
+nombres = ExtraireNombres(texte)  
 ' Résultat : ["25", "1500"]
 ```
 
@@ -199,8 +202,8 @@ Function ValiderEmailSimple(email As String) As Boolean
 End Function
 
 ' Tests
-Debug.Print ValiderEmailSimple("jean.dupont@example.com")  ' True
-Debug.Print ValiderEmailSimple("invalid.email")           ' False
+Debug.Print ValiderEmailSimple("jean.dupont@example.com")  ' True  
+Debug.Print ValiderEmailSimple("invalid.email")           ' False  
 ```
 
 ## Ancres de position
@@ -261,10 +264,10 @@ Function ValiderTelephoneFrancais(numero As String) As Boolean
 End Function
 
 ' Tests
-Debug.Print ValiderTelephoneFrancais("01.23.45.67.89")  ' True
-Debug.Print ValiderTelephoneFrancais("01 23 45 67 89")  ' True
-Debug.Print ValiderTelephoneFrancais("0123456789")      ' True
-Debug.Print ValiderTelephoneFrancais("1234567890")      ' False (ne commence pas par 0)
+Debug.Print ValiderTelephoneFrancais("01.23.45.67.89")  ' True  
+Debug.Print ValiderTelephoneFrancais("01 23 45 67 89")  ' True  
+Debug.Print ValiderTelephoneFrancais("0123456789")      ' True  
+Debug.Print ValiderTelephoneFrancais("1234567890")      ' False (ne commence pas par 0)  
 ```
 
 ## Groupes et captures
@@ -318,8 +321,9 @@ Function MasquerTelephones(texte As String) As String
 End Function
 
 ' Test
-Dim texte As String = "Appelez-moi au 01.23.45.67.89 ou au 06.12.34.56.78"
-Debug.Print MasquerTelephones(texte)
+Dim texte As String  
+texte = "Appelez-moi au 01.23.45.67.89 ou au 06.12.34.56.78"  
+Debug.Print MasquerTelephones(texte)  
 ' Résultat : "Appelez-moi au XX.XX.XX.XX.XX ou au XX.XX.XX.XX.XX"
 ```
 
@@ -338,8 +342,8 @@ Function ValiderFormat(valeur As String, pattern As String) As Boolean
 End Function
 
 ' Utilisations
-Debug.Print ValiderFormat("AB123", "^[A-Z]{2}[0-9]{3}$")  ' True
-Debug.Print ValiderFormat("hello@test.com", "^.+@.+\..+$")  ' True
+Debug.Print ValiderFormat("AB123", "^[A-Z]{2}[0-9]{3}$")  ' True  
+Debug.Print ValiderFormat("hello@test.com", "^.+@.+\..+$")  ' True  
 ```
 
 ### Fonction d'extraction générique
@@ -355,8 +359,7 @@ Function ExtraireMotifs(texte As String, pattern As String) As String()
     Set matches = regex.Execute(texte)
 
     If matches.Count = 0 Then
-        Dim vide() As String
-        ExtraireMotifs = vide
+        ExtraireMotifs = Split("")  ' Retourne un tableau avec un élément vide
         Exit Function
     End If
 
@@ -375,7 +378,8 @@ End Function
 ### Fonction de nettoyage avec regex
 ```vba
 Function NettoyerTexteAvecRegex(texte As String) As String
-    Dim resultat As String = texte
+    Dim resultat As String
+    resultat = texte
 
     ' Supprimer tous les caractères non alphanumériques sauf espaces
     resultat = RemplacerAvecRegex(resultat, "[^a-zA-Z0-9\s]", "")
@@ -433,8 +437,8 @@ Function ValiderDonnee(valeur As String, typeDonnee As String) As Boolean
 End Function
 
 ' Utilisation
-Debug.Print ValiderDonnee("01.23.45.67.89", "telephone")  ' True
-Debug.Print ValiderDonnee("test@example.com", "email")     ' True
+Debug.Print ValiderDonnee("01.23.45.67.89", "telephone")  ' True  
+Debug.Print ValiderDonnee("test@example.com", "email")     ' True  
 ```
 
 ## Conseils pour débuter avec les regex
@@ -442,9 +446,9 @@ Debug.Print ValiderDonnee("test@example.com", "email")     ' True
 ### 1. Commencer simple
 ```vba
 ' Commencez par des patterns très simples
-regex.Pattern = "VBA"        ' Cherche exactement "VBA"
-regex.Pattern = "[0-9]"      ' Cherche n'importe quel chiffre
-regex.Pattern = "[0-9]+"     ' Cherche un ou plusieurs chiffres
+regex.Pattern = "VBA"        ' Cherche exactement "VBA"  
+regex.Pattern = "[0-9]"      ' Cherche n'importe quel chiffre  
+regex.Pattern = "[0-9]+"     ' Cherche un ou plusieurs chiffres  
 ```
 
 ### 2. Tester pas à pas
@@ -454,7 +458,8 @@ Sub TesterPattern()
     Dim patterns() As String
     patterns = Split("VBA|[V][B][A]|[VBA]+|^VBA$", "|")
 
-    Dim texte As String = "J'apprends VBA"
+    Dim texte As String
+    texte = "J'apprends VBA"
     Dim i As Integer
 
     For i = 0 To UBound(patterns)
@@ -468,7 +473,8 @@ End Sub
 Function ValiderNumeroCompte(numero As String) As Boolean
     ' Pattern pour numéro de compte bancaire français
     ' Format : 5 chiffres (banque) + 5 chiffres (guichet) + 11 caractères (compte) + 2 chiffres (clé)
-    Dim pattern As String = "^[0-9]{5}\s?[0-9]{5}\s?[0-9A-Z]{11}\s?[0-9]{2}$"
+    Dim pattern As String
+    pattern = "^[0-9]{5}\s?[0-9]{5}\s?[0-9A-Z]{11}\s?[0-9]{2}$"
 
     ValiderNumeroCompte = ValiderFormat(numero, pattern)
 End Function

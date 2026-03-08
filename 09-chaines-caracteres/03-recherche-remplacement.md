@@ -20,10 +20,11 @@ InStr(chaîne_dans_laquelle_chercher, chaîne_à_chercher)
 
 ### Exemples de base
 ```vba
-Dim texte As String = "Bonjour le monde VBA"
-Dim position As Integer
+Dim texte As String  
+Dim position As Integer  
 
-position = InStr(texte, "le")
+texte = "Bonjour le monde VBA"  
+position = InStr(texte, "le")  
 ' Résultat : 9 (première occurrence de "le")
 
 position = InStr(texte, "VBA")
@@ -36,7 +37,8 @@ position = InStr(texte, "Python")
 ### Comprendre les résultats d'InStr()
 ```vba
 ' Position dans la chaîne : 123456789012345678901
-Dim texte As String = "Bonjour le monde VBA"
+Dim texte As String  
+texte = "Bonjour le monde VBA"  
 '                      B=1, o=2, n=3, j=4, o=5, u=6, r=7, (espace)=8, l=9, e=10...
 
 ' Quand InStr trouve quelque chose
@@ -57,21 +59,25 @@ InStr(position_de_début, chaîne_source, chaîne_recherchée, mode_comparaison)
 
 ### Paramètres de comparaison
 ```vba
-Dim texte As String = "Bonjour Le Monde"
+Dim texte As String  
+texte = "Bonjour Le Monde"  
 
 ' Recherche sensible à la casse (par défaut)
-Dim pos1 As Integer = InStr(texte, "le")
+Dim pos1 As Integer  
+pos1 = InStr(texte, "le")  
 ' Résultat : 0 (non trouvé car "le" ≠ "Le")
 
 ' Recherche insensible à la casse
-Dim pos2 As Integer = InStr(1, texte, "le", vbTextCompare)
+Dim pos2 As Integer  
+pos2 = InStr(1, texte, "le", vbTextCompare)  
 ' Résultat : 9 (trouve "Le")
 ```
 
 ### Recherche à partir d'une position spécifique
 ```vba
-Dim texte As String = "le chat mange le poisson"
-Dim position As Integer
+Dim texte As String  
+Dim position As Integer  
+texte = "le chat mange le poisson"  
 
 ' Première occurrence de "le"
 position = InStr(texte, "le")
@@ -94,14 +100,17 @@ InStrRev(chaîne_source, chaîne_recherchée)
 
 ### Exemples pratiques
 ```vba
-Dim cheminFichier As String = "C:\Documents\Projets\MonFichier.xlsx"
+Dim cheminFichier As String  
+cheminFichier = "C:\Documents\Projets\MonFichier.xlsx"  
 
 ' Trouver la dernière occurrence de "\"
-Dim dernierePosition As Integer = InStrRev(cheminFichier, "\")
-' Résultat : 20 (position du dernier \)
+Dim dernierePosition As Integer  
+dernierePosition = InStrRev(cheminFichier, "\")  
+' Résultat : 21 (position du dernier \)
 
 ' Extraire juste le nom du fichier
-Dim nomFichier As String = Mid(cheminFichier, dernierePosition + 1)
+Dim nomFichier As String  
+nomFichier = Mid(cheminFichier, dernierePosition + 1)  
 ' Résultat : "MonFichier.xlsx"
 ```
 
@@ -125,8 +134,10 @@ Function SeparerNomExtension(nomComplet As String) As String()
 End Function
 
 ' Utilisation
-Dim fichier As String = "document.xlsx"
-Dim parties() As String = SeparerNomExtension(fichier)
+Dim fichier As String  
+fichier = "document.xlsx"  
+Dim parties() As String  
+parties = SeparerNomExtension(fichier)  
 ' parties(0) = "document"
 ' parties(1) = "xlsx"
 ```
@@ -151,8 +162,9 @@ Replace(expression, find, replace, start, count, compare)
 
 ### Exemples de remplacement de base
 ```vba
-Dim texte As String = "J'aime le Java et le Java est bien"
-Dim nouveau As String
+Dim texte As String  
+Dim nouveau As String  
+texte = "J'aime le Java et le Java est bien"  
 
 ' Remplacement simple
 nouveau = Replace(texte, "Java", "VBA")
@@ -165,8 +177,9 @@ nouveau = Replace(texte, "le", "un", 1, 1)  ' Remplacer seulement le premier "le
 
 ### Remplacement insensible à la casse
 ```vba
-Dim texte As String = "BONJOUR bonjour Bonjour"
-Dim nouveau As String
+Dim texte As String  
+Dim nouveau As String  
+texte = "BONJOUR bonjour Bonjour"  
 
 ' Sensible à la casse (défaut)
 nouveau = Replace(texte, "bonjour", "salut")
@@ -182,21 +195,27 @@ nouveau = Replace(texte, "bonjour", "salut", 1, -1, vbTextCompare)
 ### Recherche de mots entiers
 ```vba
 Function ChercherMotEntier(texte As String, mot As String) As Boolean
-    Dim position As Integer = InStr(1, texte, mot, vbTextCompare)
+    Dim position As Integer
+    position = InStr(1, texte, mot, vbTextCompare)
+
+    Dim avantOK As Boolean
+    Dim apresOK As Boolean
+    Dim charAvant As String
+    Dim charApres As String
 
     Do While position > 0
-        Dim avantOK As Boolean = True
-        Dim apresOK As Boolean = True
+        avantOK = True
+        apresOK = True
 
         ' Vérifier le caractère précédent
         If position > 1 Then
-            Dim charAvant As String = Mid(texte, position - 1, 1)
+            charAvant = Mid(texte, position - 1, 1)
             avantOK = (charAvant = " " Or charAvant = vbTab Or charAvant = vbCrLf)
         End If
 
         ' Vérifier le caractère suivant
         If position + Len(mot) <= Len(texte) Then
-            Dim charApres As String = Mid(texte, position + Len(mot), 1)
+            charApres = Mid(texte, position + Len(mot), 1)
             apresOK = (charApres = " " Or charApres = vbTab Or charApres = vbCrLf)
         End If
 
@@ -216,8 +235,10 @@ End Function
 ### Compter les occurrences
 ```vba
 Function CompterOccurrences(texte As String, recherche As String) As Integer
-    Dim compteur As Integer = 0
-    Dim position As Integer = 1
+    Dim compteur As Integer
+    Dim position As Integer
+    compteur = 0
+    position = 1
 
     Do
         position = InStr(position, texte, recherche, vbTextCompare)
@@ -231,8 +252,10 @@ Function CompterOccurrences(texte As String, recherche As String) As Integer
 End Function
 
 ' Utilisation
-Dim texte As String = "le chat mange le poisson que le chien regarde"
-Dim nombre As Integer = CompterOccurrences(texte, "le")
+Dim texte As String  
+texte = "le chat mange le poisson que le chien regarde"  
+Dim nombre As Integer  
+nombre = CompterOccurrences(texte, "le")  
 ' Résultat : 3
 ```
 
@@ -241,18 +264,23 @@ Dim nombre As Integer = CompterOccurrences(texte, "le")
 ### Remplacement avec conditions
 ```vba
 Function RemplacerSelonCondition(texte As String) As String
-    Dim resultat As String = texte
+    Dim resultat As String
+    resultat = texte
 
     ' Remplacer "M." par "Monsieur" seulement s'il est suivi d'un espace et d'une majuscule
-    Dim i As Integer = 1
+    Dim i As Integer
+    Dim pos As Integer
+    Dim charSuivant As String
+    Dim charApres As String
+    i = 1
     Do While i <= Len(resultat)
-        Dim pos As Integer = InStr(i, resultat, "M.")
+        pos = InStr(i, resultat, "M.")
         If pos = 0 Then Exit Do
 
         ' Vérifier si c'est suivi d'un espace et d'une majuscule
         If pos + 2 <= Len(resultat) Then
-            Dim charSuivant As String = Mid(resultat, pos + 2, 1)
-            Dim charApres As String = ""
+            charSuivant = Mid(resultat, pos + 2, 1)
+            charApres = ""
             If pos + 3 <= Len(resultat) Then
                 charApres = Mid(resultat, pos + 3, 1)
             End If
@@ -275,7 +303,8 @@ End Function
 ### Remplacement multiple en une passe
 ```vba
 Function RemplacementMultiple(texte As String) As String
-    Dim resultat As String = texte
+    Dim resultat As String
+    resultat = texte
 
     ' Tableau des remplacements : ancien -> nouveau
     Dim remplacements As Variant
@@ -295,7 +324,8 @@ End Function
 ### Supprimer les caractères indésirables
 ```vba
 Function NettoyerTexte(texte As String) As String
-    Dim resultat As String = texte
+    Dim resultat As String
+    resultat = texte
 
     ' Supprimer les caractères de contrôle
     resultat = Replace(resultat, vbCrLf, " ")
@@ -316,14 +346,17 @@ End Function
 ### Standardiser les numéros de téléphone
 ```vba
 Function StandardiserTelephone(numero As String) As String
-    Dim resultat As String = numero
+    Dim resultat As String
+    resultat = numero
 
     ' Supprimer tous les caractères non numériques sauf le +
     Dim i As Integer
-    Dim numeroClean As String = ""
+    Dim numeroClean As String
+    Dim char As String
+    numeroClean = ""
 
     For i = 1 To Len(resultat)
-        Dim char As String = Mid(resultat, i, 1)
+        char = Mid(resultat, i, 1)
         If (char >= "0" And char <= "9") Or char = "+" Then
             numeroClean = numeroClean & char
         End If
@@ -351,11 +384,13 @@ End Function
 ```vba
 Function ContientMotsCles(texte As String, motsCles As String) As Boolean
     ' motsCles séparés par des virgules : "VBA,Excel,macro"
-    Dim tableauMots() As String = Split(motsCles, ",")
+    Dim tableauMots() As String
+    tableauMots = Split(motsCles, ",")
 
     Dim i As Integer
+    Dim motCle As String
     For i = 0 To UBound(tableauMots)
-        Dim motCle As String = Trim(tableauMots(i))
+        motCle = Trim(tableauMots(i))
         If InStr(1, texte, motCle, vbTextCompare) > 0 Then
             ContientMotsCles = True
             Exit Function
@@ -366,8 +401,9 @@ Function ContientMotsCles(texte As String, motsCles As String) As Boolean
 End Function
 
 ' Utilisation
-Dim description As String = "Formation VBA pour Excel débutants"
-If ContientMotsCles(description, "VBA,Excel,Access") Then
+Dim description As String  
+description = "Formation VBA pour Excel débutants"  
+If ContientMotsCles(description, "VBA,Excel,Access") Then  
     MsgBox "Cette formation concerne nos outils !"
 End If
 ```
@@ -377,13 +413,15 @@ End If
 ### 1. Toujours vérifier le résultat d'InStr()
 ```vba
 ' MAUVAIS
-Dim pos As Integer = InStr(texte, "cherche")
-Dim resultat As String = Mid(texte, pos)  ' Erreur si pos = 0 !
+Dim pos As Integer  
+pos = InStr(texte, "cherche")  
+Dim resultat As String  
+resultat = Mid(texte, pos)  ' Erreur si pos = 0 !  
 
 ' BON
-Dim pos As Integer = InStr(texte, "cherche")
-If pos > 0 Then
-    Dim resultat As String = Mid(texte, pos)
+pos = InStr(texte, "cherche")  
+If pos > 0 Then  
+    resultat = Mid(texte, pos)
 End If
 ```
 
@@ -399,14 +437,18 @@ If InStr(1, texte, "bonjour", vbTextCompare) > 0 Then  ' Trouvera "Bonjour"
 ### 3. Gérer les remplacements en cascade
 ```vba
 ' ATTENTION : les remplacements peuvent interagir
-Dim texte As String = "123"
-texte = Replace(texte, "1", "12")  ' "223"
-texte = Replace(texte, "2", "21")  ' "21213" (pas ce qu'on voulait !)
+Dim texte As String  
+texte = "123"  
+texte = Replace(texte, "1", "12")  ' "1223"  
+texte = Replace(texte, "2", "21")  ' "121213" (pas ce qu'on voulait !)  
 
-' MIEUX : faire tous les remplacements sur le texte original
-Dim original As String = "123"
-Dim etape1 As String = Replace(original, "1", "12")
-Dim final As String = Replace(etape1, "2", "21")
+' SOLUTION : planifier l'ordre des remplacements avec soin
+' ou utiliser des marqueurs temporaires
+Dim original As String  
+original = "abc"  
+original = Replace(original, "a", "##TEMP##")  ' "##TEMP##bc"  
+original = Replace(original, "b", "a")          ' "##TEMP##ac"  
+original = Replace(original, "##TEMP##", "b")   ' "bac"  
 ```
 
 ### 4. Documenter les expressions complexes
@@ -414,13 +456,15 @@ Dim final As String = Replace(etape1, "2", "21")
 ' Rechercher un format d'email simple
 Function EstEmail(texte As String) As Boolean
     ' Vérifie la présence de @ et d'un point après
-    Dim posArobase As Integer = InStr(texte, "@")
+    Dim posArobase As Integer
+    posArobase = InStr(texte, "@")
     If posArobase = 0 Then
         EstEmail = False
         Exit Function
     End If
 
-    Dim posPoint As Integer = InStr(posArobase, texte, ".")
+    Dim posPoint As Integer
+    posPoint = InStr(posArobase, texte, ".")
     EstEmail = (posPoint > posArobase + 1)  ' Au moins un caractère entre @ et .
 End Function
 ```
