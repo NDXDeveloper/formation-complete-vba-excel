@@ -27,16 +27,16 @@ Une TextBox est un contrôle qui permet à l'utilisateur de saisir et modifier d
 **Name** : Le nom du contrôle utilisé dans le code
 ```vba
 ' Exemple de nommage
-Name: txtNom          ' Pour un nom
-Name: txtEmail        ' Pour un email
-Name: txtCommentaire  ' Pour un commentaire
+Name: txtNom          ' Pour un nom  
+Name: txtEmail        ' Pour un email  
+Name: txtCommentaire  ' Pour un commentaire  
 ```
 
 **Text** : Le contenu actuel de la zone de texte
 ```vba
 ' Lecture du contenu
-Dim contenu As String
-contenu = txtNom.Text
+Dim contenu As String  
+contenu = txtNom.Text  
 
 ' Modification du contenu
 txtNom.Text = "Nouveau texte"
@@ -57,8 +57,8 @@ txtNom.Value = "Même résultat que .Text"
 **ForeColor** et **BackColor** : Couleurs du texte et de l'arrière-plan
 ```vba
 ' Dans le code, pour changer les couleurs
-txtNom.ForeColor = RGB(0, 0, 255)    ' Texte bleu
-txtNom.BackColor = RGB(255, 255, 0)  ' Fond jaune
+txtNom.ForeColor = RGB(0, 0, 255)    ' Texte bleu  
+txtNom.BackColor = RGB(255, 255, 0)  ' Fond jaune  
 ```
 
 **TextAlign** : Alignement du texte
@@ -155,12 +155,12 @@ End Sub
 txtNom.SetFocus
 
 ' Sélectionner une partie du texte
-txtNom.SelStart = 0      ' Position de début
-txtNom.SelLength = 3     ' Nombre de caractères
+txtNom.SelStart = 0      ' Position de début  
+txtNom.SelLength = 3     ' Nombre de caractères  
 
 ' Sélectionner tout le texte
-txtNom.SelStart = 0
-txtNom.SelLength = Len(txtNom.Text)
+txtNom.SelStart = 0  
+txtNom.SelLength = Len(txtNom.Text)  
 ```
 
 ### Exemples pratiques
@@ -191,9 +191,9 @@ End Sub
 
 ```vba
 Private Sub txtAge_KeyPress(ByVal KeyAscii As MSForms.ReturnInteger)
-    ' Autoriser seulement les chiffres et les touches de contrôle
+    ' Autoriser seulement les chiffres et le Backspace
     If KeyAscii < 48 Or KeyAscii > 57 Then
-        If KeyAscii <> 8 And KeyAscii <> 127 Then  ' Backspace et Delete
+        If KeyAscii <> 8 Then  ' Backspace (Delete n'est pas reçu par KeyPress)
             KeyAscii = 0  ' Annule la frappe
         End If
     End If
@@ -243,9 +243,9 @@ RowSource: "Feuil1!A1:A10"
 
 ```vba
 ' Ajouter un élément simple
-cmbPays.AddItem "France"
-cmbPays.AddItem "Espagne"
-cmbPays.AddItem "Italie"
+cmbPays.AddItem "France"  
+cmbPays.AddItem "Espagne"  
+cmbPays.AddItem "Italie"  
 
 ' Ajouter à une position spécifique
 cmbPays.AddItem "Allemagne", 1  ' Insérer en 2ème position
@@ -275,8 +275,8 @@ cmbPays.Clear
 **ListIndex** : Index de l'élément sélectionné
 ```vba
 ' Obtenir l'index sélectionné (-1 si aucune sélection)
-Dim index As Integer
-index = cmbPays.ListIndex
+Dim index As Integer  
+index = cmbPays.ListIndex  
 
 ' Sélectionner un élément par index
 cmbPays.ListIndex = 0  ' Sélectionner le premier
@@ -285,8 +285,8 @@ cmbPays.ListIndex = 0  ' Sélectionner le premier
 **Text** ou **Value** : Texte de l'élément sélectionné
 ```vba
 ' Obtenir la valeur sélectionnée
-Dim selection As String
-selection = cmbPays.Text
+Dim selection As String  
+selection = cmbPays.Text  
 
 ' Définir une sélection par texte
 cmbPays.Text = "France"
@@ -294,8 +294,8 @@ cmbPays.Text = "France"
 
 **ListCount** : Nombre d'éléments dans la liste
 ```vba
-Dim nombreElements As Integer
-nombreElements = cmbPays.ListCount
+Dim nombreElements As Integer  
+nombreElements = cmbPays.ListCount  
 ```
 
 ### Initialisation d'une ComboBox
@@ -390,8 +390,8 @@ Une ListBox affiche une liste d'éléments où l'utilisateur peut faire une ou p
 
 **MultiSelect** : Type de sélection multiple
 - 0 - fmMultiSelectSingle : Sélection unique (par défaut)
-- 1 - fmMultiSelectMulti : Sélections multiples avec Ctrl+clic
-- 2 - fmMultiSelectExtended : Sélections multiples avec Ctrl et Shift
+- 1 - fmMultiSelectMulti : Sélection multiple par simple clic (chaque clic bascule l'élément)
+- 2 - fmMultiSelectExtended : Sélection étendue avec Ctrl+clic et Shift+clic
 
 ```vba
 ' Permettre la sélection multiple
@@ -630,12 +630,24 @@ End Sub
 
 ### Performance
 
-**Désactiver les événements pendant le remplissage :**
+**Éviter les événements pendant le remplissage :**
+
+`Application.EnableEvents` ne contrôle que les événements Excel (Worksheet, Workbook), pas ceux des contrôles UserForm. Pour éviter que les événements `Change` se déclenchent pendant le remplissage, utilisez un drapeau booléen :
+
 ```vba
-' Pendant le remplissage d'une grande liste
-Application.EnableEvents = False
-' ... code de remplissage ...
-Application.EnableEvents = True
+' Variable au niveau du formulaire
+Private enChargement As Boolean
+
+Private Sub UserForm_Initialize()
+    enChargement = True
+    ' ... code de remplissage ...
+    enChargement = False
+End Sub
+
+Private Sub cmbPays_Change()
+    If enChargement Then Exit Sub
+    ' ... traitement normal ...
+End Sub
 ```
 
 **Utiliser Clear avant de remplir :**

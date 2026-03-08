@@ -183,7 +183,7 @@ Private Sub txtAge_KeyPress(ByVal KeyAscii As MSForms.ReturnInteger)
     Select Case KeyAscii
         Case 48 To 57      ' Chiffres 0-9
             ' Autorisé
-        Case 8, 127        ' Backspace et Delete
+        Case 8             ' Backspace (Delete n'est pas reçu par KeyPress)
             ' Autorisé
         Case 13            ' Entrée
             ' Passer au contrôle suivant
@@ -348,10 +348,14 @@ End Sub
 
 Parfois, vous devez modifier des contrôles sans déclencher leurs événements.
 
+**Attention :** `Application.EnableEvents` ne contrôle que les événements Excel (Worksheet, Workbook), pas ceux des contrôles UserForm. Pour empêcher les événements de se déclencher pendant le remplissage, utilisez un drapeau booléen :
+
 ```vba
+Private enChargement As Boolean
+
 Private Sub RemplirFormulaire()
-    ' Désactiver les événements temporairement
-    Application.EnableEvents = False
+    ' Utiliser un drapeau pour désactiver les événements
+    enChargement = True
 
     ' Modifications sans déclencher les événements
     txtNom.Text = "Dupont"
@@ -359,10 +363,16 @@ Private Sub RemplirFormulaire()
     cmbPays.ListIndex = 0
 
     ' Réactiver les événements
-    Application.EnableEvents = True
+    enChargement = False
 
     ' Déclencher manuellement un événement si nécessaire
     Call cmbPays_Change
+End Sub
+
+' Dans chaque événement concerné :
+Private Sub cmbPays_Change()
+    If enChargement Then Exit Sub
+    ' ... traitement normal ...
 End Sub
 ```
 

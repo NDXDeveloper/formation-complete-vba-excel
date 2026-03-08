@@ -278,7 +278,7 @@ Private Sub txtPrix_KeyPress(ByVal KeyAscii As MSForms.ReturnInteger)
             Else
                 KeyAscii = 44  ' Forcer la virgule
             End If
-        Case 8, 127      ' Backspace et Delete
+        Case 8           ' Backspace (Delete n'est pas reçu par KeyPress)
             ' Autorisé
         Case Else
             KeyAscii = 0  ' Refuser tous les autres caractères

@@ -80,11 +80,11 @@ Sélectionnez le formulaire (cliquez sur sa barre de titre) et modifiez ces prop
 
 ```vba
 ' Exemple de propriétés pour un formulaire de contact
-Name: frmContact
-Caption: Formulaire de Contact
-Width: 400
-Height: 300
-StartUpPosition: 2 - CenterScreen
+Name: frmContact  
+Caption: Formulaire de Contact  
+Width: 400  
+Height: 300  
+StartUpPosition: 2 - CenterScreen  
 ```
 
 ## Ajout de contrôles de base
@@ -134,11 +134,11 @@ Créons ensemble un formulaire de saisie d'employé :
 
 ```vba
 ' Propriétés du formulaire
-Name: frmEmploye
-Caption: Nouveau Employé
-Width: 350
-Height: 250
-StartUpPosition: 2 - CenterScreen
+Name: frmEmploye  
+Caption: Nouveau Employé  
+Width: 350  
+Height: 250  
+StartUpPosition: 2 - CenterScreen  
 ```
 
 ### Étape 2 : Ajout des étiquettes
@@ -147,64 +147,64 @@ Ajoutez ces étiquettes avec leurs propriétés :
 
 ```vba
 ' Étiquette "Nom :"
-Name: lblNom
-Caption: Nom :
-Left: 20
-Top: 20
+Name: lblNom  
+Caption: Nom :  
+Left: 20  
+Top: 20  
 
 ' Étiquette "Prénom :"
-Name: lblPrenom
-Caption: Prénom :
-Left: 20
-Top: 50
+Name: lblPrenom  
+Caption: Prénom :  
+Left: 20  
+Top: 50  
 
 ' Étiquette "Service :"
-Name: lblService
-Caption: Service :
-Left: 20
-Top: 80
+Name: lblService  
+Caption: Service :  
+Left: 20  
+Top: 80  
 ```
 
 ### Étape 3 : Ajout des zones de texte
 
 ```vba
 ' Zone de texte pour le nom
-Name: txtNom
-Left: 80
-Top: 17
-Width: 200
+Name: txtNom  
+Left: 80  
+Top: 17  
+Width: 200  
 
 ' Zone de texte pour le prénom
-Name: txtPrenom
-Left: 80
-Top: 47
-Width: 200
+Name: txtPrenom  
+Left: 80  
+Top: 47  
+Width: 200  
 
 ' Zone de texte pour le service
-Name: txtService
-Left: 80
-Top: 77
-Width: 200
+Name: txtService  
+Left: 80  
+Top: 77  
+Width: 200  
 ```
 
 ### Étape 4 : Ajout des boutons
 
 ```vba
 ' Bouton OK
-Name: btnOK
-Caption: OK
-Left: 80
-Top: 120
-Width: 60
-Default: True
+Name: btnOK  
+Caption: OK  
+Left: 80  
+Top: 120  
+Width: 60  
+Default: True  
 
 ' Bouton Annuler
-Name: btnAnnuler
-Caption: Annuler
-Left: 160
-Top: 120
-Width: 60
-Cancel: True
+Name: btnAnnuler  
+Caption: Annuler  
+Left: 160  
+Top: 120  
+Width: 60  
+Cancel: True  
 ```
 
 ## Programmation des événements
@@ -279,9 +279,9 @@ frmEmploye.Show
 Dans un module standard :
 
 ```vba
-Public nomEmploye As String
-Public prenomEmploye As String
-Public serviceEmploye As String
+Public nomEmploye As String  
+Public prenomEmploye As String  
+Public serviceEmploye As String  
 
 Sub CollecterDonneesEmploye()
     frmEmploye.Show
