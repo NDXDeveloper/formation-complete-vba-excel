@@ -48,17 +48,17 @@ L'objet **Application** représente Excel lui-même. C'est le point de départ d
 
 **Exemples de propriétés courantes :**
 ```vba
-Application.Version          ' Version d'Excel (ex: "16.0")
-Application.UserName         ' Nom de l'utilisateur
-Application.ScreenUpdating   ' Active/désactive la mise à jour d'écran
-Application.Calculation      ' Mode de calcul (automatique/manuel)
+Application.Version          ' Version d'Excel (ex: "16.0")  
+Application.UserName         ' Nom de l'utilisateur  
+Application.ScreenUpdating   ' Active/désactive la mise à jour d'écran  
+Application.Calculation      ' Mode de calcul (automatique/manuel)  
 ```
 
 **Exemples de méthodes courantes :**
 ```vba
-Application.Quit             ' Fermer Excel
-Application.Calculate        ' Recalculer toutes les feuilles ouvertes
-Application.Wait             ' Faire une pause dans l'exécution
+Application.Quit             ' Fermer Excel  
+Application.Calculate        ' Recalculer toutes les feuilles ouvertes  
+Application.Wait             ' Faire une pause dans l'exécution  
 ```
 
 ### 2. Workbooks (Collection des classeurs)
@@ -67,15 +67,15 @@ Application.Wait             ' Faire une pause dans l'exécution
 
 **Utilisation typique :**
 ```vba
-Workbooks.Count              ' Nombre de classeurs ouverts
-Workbooks("MonClasseur.xlsx") ' Accéder à un classeur par son nom
-Workbooks(1)                 ' Accéder au premier classeur ouvert
+Workbooks.Count              ' Nombre de classeurs ouverts  
+Workbooks("MonClasseur.xlsx") ' Accéder à un classeur par son nom  
+Workbooks(1)                 ' Accéder au premier classeur ouvert  
 ```
 
 **Méthodes importantes :**
 ```vba
-Workbooks.Open("C:\MesDocuments\Fichier.xlsx")  ' Ouvrir un classeur
-Workbooks.Add                                   ' Créer un nouveau classeur
+Workbooks.Open("C:\MesDocuments\Fichier.xlsx")  ' Ouvrir un classeur  
+Workbooks.Add                                   ' Créer un nouveau classeur  
 ```
 
 ### 3. Workbook (Un classeur individuel)
@@ -84,17 +84,17 @@ Un objet **Workbook** représente un fichier Excel spécifique.
 
 **Propriétés essentielles :**
 ```vba
-ActiveWorkbook.Name          ' Nom du classeur actif
-ActiveWorkbook.Path          ' Chemin du dossier contenant le classeur
-ActiveWorkbook.FullName      ' Chemin complet + nom du classeur
-ActiveWorkbook.Saved         ' True si le classeur est sauvegardé
+ActiveWorkbook.Name          ' Nom du classeur actif  
+ActiveWorkbook.Path          ' Chemin du dossier contenant le classeur  
+ActiveWorkbook.FullName      ' Chemin complet + nom du classeur  
+ActiveWorkbook.Saved         ' True si le classeur est sauvegardé  
 ```
 
 **Méthodes courantes :**
 ```vba
-ActiveWorkbook.Save          ' Sauvegarder le classeur
-ActiveWorkbook.Close         ' Fermer le classeur
-ActiveWorkbook.SaveAs("C:\NouveauNom.xlsx")  ' Sauvegarder sous un autre nom
+ActiveWorkbook.Save          ' Sauvegarder le classeur  
+ActiveWorkbook.Close         ' Fermer le classeur  
+ActiveWorkbook.SaveAs("C:\NouveauNom.xlsx")  ' Sauvegarder sous un autre nom  
 ```
 
 ### 4. Worksheets (Collection des feuilles)
@@ -103,10 +103,10 @@ ActiveWorkbook.SaveAs("C:\NouveauNom.xlsx")  ' Sauvegarder sous un autre nom
 
 **Accès aux feuilles :**
 ```vba
-Worksheets.Count             ' Nombre de feuilles dans le classeur
-Worksheets("Feuil1")         ' Accéder à une feuille par son nom
-Worksheets(1)                ' Accéder à la première feuille
-ActiveSheet                  ' La feuille actuellement active
+Worksheets.Count             ' Nombre de feuilles dans le classeur  
+Worksheets("Feuil1")         ' Accéder à une feuille par son nom  
+Worksheets(1)                ' Accéder à la première feuille  
+ActiveSheet                  ' La feuille actuellement active  
 ```
 
 ### 5. Worksheet (Une feuille individuelle)
@@ -115,17 +115,17 @@ Un objet **Worksheet** représente une feuille de calcul spécifique.
 
 **Propriétés importantes :**
 ```vba
-ActiveSheet.Name             ' Nom de la feuille active
-ActiveSheet.Visible          ' Visibilité de la feuille
-ActiveSheet.UsedRange        ' Plage de cellules utilisées
+ActiveSheet.Name             ' Nom de la feuille active  
+ActiveSheet.Visible          ' Visibilité de la feuille  
+ActiveSheet.UsedRange        ' Plage de cellules utilisées  
 ```
 
 **Méthodes utiles :**
 ```vba
-ActiveSheet.Activate         ' Activer la feuille
-ActiveSheet.Copy             ' Copier la feuille
-ActiveSheet.Delete           ' Supprimer la feuille
-ActiveSheet.Protect          ' Protéger la feuille
+ActiveSheet.Activate         ' Activer la feuille  
+ActiveSheet.Copy             ' Copier la feuille  
+ActiveSheet.Delete           ' Supprimer la feuille  
+ActiveSheet.Protect          ' Protéger la feuille  
 ```
 
 ## Relations entre les objets
@@ -179,12 +179,12 @@ Il existe plusieurs façons d'accéder aux éléments d'une collection :
 
 ```vba
 ' Par index numérique (commence à 1)
-Worksheets(1)                ' Première feuille
-Worksheets(2)                ' Deuxième feuille
+Worksheets(1)                ' Première feuille  
+Worksheets(2)                ' Deuxième feuille  
 
 ' Par nom (plus lisible et stable)
-Worksheets("Données")        ' Feuille nommée "Données"
-Worksheets("Résultats")      ' Feuille nommée "Résultats"
+Worksheets("Données")        ' Feuille nommée "Données"  
+Worksheets("Résultats")      ' Feuille nommée "Résultats"  
 
 ' Nombre d'éléments dans la collection
 Worksheets.Count             ' Nombre de feuilles
@@ -210,8 +210,8 @@ Les **méthodes** sont les actions qu'un objet peut effectuer :
 
 ```vba
 ' Méthodes sans paramètres
-ActiveWorkbook.Save          ' Sauvegarder
-ActiveSheet.Calculate        ' Recalculer
+ActiveWorkbook.Save          ' Sauvegarder  
+ActiveSheet.Calculate        ' Recalculer  
 
 ' Méthodes avec paramètres
 ActiveSheet.Copy After:=Worksheets(2)  ' Copier après la 2ème feuille

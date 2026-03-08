@@ -49,8 +49,8 @@ Application.DisplayAlerts = False        ' Plus de boîtes de dialogue d'avertis
 Application.DisplayAlerts = True         ' Réactiver les alertes
 
 ' Contrôler les calculs automatiques
-Application.Calculation = xlCalculationManual     ' Calculs en mode manuel
-Application.Calculation = xlCalculationAutomatic  ' Calculs automatiques (par défaut)
+Application.Calculation = xlCalculationManual     ' Calculs en mode manuel  
+Application.Calculation = xlCalculationAutomatic  ' Calculs automatiques (par défaut)  
 ```
 
 #### 3. État d'Excel
@@ -84,15 +84,15 @@ Application.CalculateUntilAsyncQueriesDone
 Application.Wait Now + TimeValue("00:00:03")  ' Pause de 3 secondes
 
 ' Permettre à Windows de traiter d'autres tâches
-DoEvents  ' Équivalent à Application.DoEvents
+DoEvents  ' Fonction VBA autonome (pas une méthode d'Application)
 ```
 
 #### 3. Interaction avec l'utilisateur
 
 ```vba
 ' Faire clignoter l'icône Excel dans la barre des tâches
-Application.WindowState = xlMinimized
-Application.WindowState = xlNormal
+Application.WindowState = xlMinimized  
+Application.WindowState = xlNormal  
 ```
 
 ### Bonnes pratiques avec Application
@@ -132,8 +132,8 @@ Un objet **Workbook** représente un fichier Excel ouvert. Chaque fois que vous 
 #### 1. Le classeur actif
 ```vba
 ' Le classeur actuellement sélectionné
-Dim monClasseur As Workbook
-Set monClasseur = ActiveWorkbook
+Dim monClasseur As Workbook  
+Set monClasseur = ActiveWorkbook  
 
 ' Ou directement sans variable
 ActiveWorkbook.Save
@@ -142,18 +142,18 @@ ActiveWorkbook.Save
 #### 2. Un classeur spécifique par son nom
 ```vba
 ' Accéder à un classeur ouvert par son nom (avec extension)
-Dim classeurData As Workbook
-Set classeurData = Workbooks("Données2024.xlsx")
+Dim classeurData As Workbook  
+Set classeurData = Workbooks("Données2024.xlsx")  
 
-' Si vous connaissez juste le nom sans extension
-Set classeurData = Workbooks("Données2024")  ' Fonctionne aussi
+' Note : incluez toujours l'extension (.xlsx, .xlsm, etc.)
+' Workbooks("Données2024") sans extension peut échouer
 ```
 
 #### 3. Un classeur par son index
 ```vba
 ' Le premier classeur ouvert
-Dim premierClasseur As Workbook
-Set premierClasseur = Workbooks(1)
+Dim premierClasseur As Workbook  
+Set premierClasseur = Workbooks(1)  
 ```
 
 ### Propriétés importantes de Workbook
@@ -205,20 +205,20 @@ ActiveWorkbook.Save
 ActiveWorkbook.SaveAs "C:\NouveauDossier\NouveauNom.xlsx"
 
 ' Fermer le classeur
-ActiveWorkbook.Close SaveChanges:=True   ' Ferme en sauvegardant
-ActiveWorkbook.Close SaveChanges:=False  ' Ferme sans sauvegarder
+ActiveWorkbook.Close SaveChanges:=True   ' Ferme en sauvegardant  
+ActiveWorkbook.Close SaveChanges:=False  ' Ferme sans sauvegarder  
 ```
 
 #### 2. Gestion des feuilles
 
 ```vba
 ' Ajouter une nouvelle feuille
-Dim nouvelleFeuille As Worksheet
-Set nouvelleFeuille = ActiveWorkbook.Worksheets.Add
+Dim nouvelleFeuille As Worksheet  
+Set nouvelleFeuille = ActiveWorkbook.Worksheets.Add  
 
 ' Ajouter une feuille avec un nom spécifique
-Set nouvelleFeuille = ActiveWorkbook.Worksheets.Add
-nouvelleFeuille.Name = "Nouvelles Données"
+Set nouvelleFeuille = ActiveWorkbook.Worksheets.Add  
+nouvelleFeuille.Name = "Nouvelles Données"  
 ```
 
 #### 3. Protection et sécurité
@@ -240,21 +240,21 @@ ActiveWorkbook.Unprotect Password:="motdepasse"
 Workbooks.Open "C:\MesDocuments\MonFichier.xlsx"
 
 ' Méthode avec gestion d'erreur
-Dim nouveauClasseur As Workbook
-On Error Resume Next
-Set nouveauClasseur = Workbooks.Open("C:\MesDocuments\MonFichier.xlsx")
-If nouveauClasseur Is Nothing Then
+Dim nouveauClasseur As Workbook  
+On Error Resume Next  
+Set nouveauClasseur = Workbooks.Open("C:\MesDocuments\MonFichier.xlsx")  
+If nouveauClasseur Is Nothing Then  
     MsgBox "Impossible d'ouvrir le fichier"
-End If
-On Error GoTo 0
+End If  
+On Error GoTo 0  
 ```
 
 #### 2. Créer un nouveau classeur
 
 ```vba
 ' Créer un classeur vide
-Dim nouveauClasseur As Workbook
-Set nouveauClasseur = Workbooks.Add
+Dim nouveauClasseur As Workbook  
+Set nouveauClasseur = Workbooks.Add  
 
 ' Le nouveau classeur devient automatiquement le classeur actif
 Debug.Print ActiveWorkbook.Name  ' Affiche quelque chose comme "Classeur1"
@@ -274,8 +274,8 @@ Un objet **Worksheet** représente une feuille de calcul individuelle dans un cl
 
 ```vba
 ' La feuille actuellement sélectionnée
-Dim maFeuille As Worksheet
-Set maFeuille = ActiveSheet
+Dim maFeuille As Worksheet  
+Set maFeuille = ActiveSheet  
 
 ' Utilisation directe
 ActiveSheet.Name = "Feuille Principale"
@@ -285,8 +285,8 @@ ActiveSheet.Name = "Feuille Principale"
 
 ```vba
 ' Accéder à une feuille par son nom
-Dim feuilleDonnees As Worksheet
-Set feuilleDonnees = Worksheets("Données")
+Dim feuilleDonnees As Worksheet  
+Set feuilleDonnees = Worksheets("Données")  
 
 ' Ou dans un classeur spécifique
 Set feuilleDonnees = Workbooks("MonFichier.xlsx").Worksheets("Données")
@@ -296,12 +296,12 @@ Set feuilleDonnees = Workbooks("MonFichier.xlsx").Worksheets("Données")
 
 ```vba
 ' La première feuille du classeur
-Dim premiereFeuille As Worksheet
-Set premiereFeuille = Worksheets(1)
+Dim premiereFeuille As Worksheet  
+Set premiereFeuille = Worksheets(1)  
 
 ' La dernière feuille
-Dim derniereFeuille As Worksheet
-Set derniereFeuille = Worksheets(Worksheets.Count)
+Dim derniereFeuille As Worksheet  
+Set derniereFeuille = Worksheets(Worksheets.Count)  
 ```
 
 ### Propriétés importantes de Worksheet
@@ -336,17 +336,17 @@ Worksheets("Données").Visible = xlSheetVeryHidden
 
 ```vba
 ' Obtenir la plage de cellules utilisées
-Dim plageUtilisee As Range
-Set plageUtilisee = ActiveSheet.UsedRange
-Debug.Print "Zone utilisée : " & plageUtilisee.Address
+Dim plageUtilisee As Range  
+Set plageUtilisee = ActiveSheet.UsedRange  
+Debug.Print "Zone utilisée : " & plageUtilisee.Address  
 
 ' Dernière ligne contenant des données
-Dim derniereLigne As Long
-derniereLigne = ActiveSheet.Cells(Rows.Count, 1).End(xlUp).Row
+Dim derniereLigne As Long  
+derniereLigne = ActiveSheet.Cells(Rows.Count, 1).End(xlUp).Row  
 
 ' Dernière colonne contenant des données
-Dim derniereColonne As Long
-derniereColonne = ActiveSheet.Cells(1, Columns.Count).End(xlToLeft).Column
+Dim derniereColonne As Long  
+derniereColonne = ActiveSheet.Cells(1, Columns.Count).End(xlToLeft).Column  
 ```
 
 ### Méthodes importantes de Worksheet
@@ -393,9 +393,9 @@ ActiveSheet.Unprotect Password:="motdepasse"
 
 ```vba
 ' Supprimer une feuille (attention : irréversible !)
-Application.DisplayAlerts = False  ' Éviter la boîte de confirmation
-Worksheets("FeuilleASupprimer").Delete
-Application.DisplayAlerts = True
+Application.DisplayAlerts = False  ' Éviter la boîte de confirmation  
+Worksheets("FeuilleASupprimer").Delete  
+Application.DisplayAlerts = True  
 ```
 
 ### Travailler avec plusieurs feuilles
@@ -404,14 +404,14 @@ Application.DisplayAlerts = True
 
 ```vba
 ' Afficher le nom de toutes les feuilles
-Dim feuille As Worksheet
-For Each feuille In Worksheets
+Dim feuille As Worksheet  
+For Each feuille In Worksheets  
     Debug.Print feuille.Name
 Next feuille
 
 ' Ou avec un index
-Dim i As Integer
-For i = 1 To Worksheets.Count
+Dim i As Integer  
+For i = 1 To Worksheets.Count  
     Debug.Print Worksheets(i).Name
 Next i
 ```
@@ -420,9 +420,9 @@ Next i
 
 ```vba
 ' Ajouter une feuille avec un nom spécifique
-Dim nouvelleFeuille As Worksheet
-Set nouvelleFeuille = Worksheets.Add
-nouvelleFeuille.Name = "Rapport " & Format(Date, "yyyy-mm-dd")
+Dim nouvelleFeuille As Worksheet  
+Set nouvelleFeuille = Worksheets.Add  
+nouvelleFeuille.Name = "Rapport " & Format(Date, "yyyy-mm-dd")  
 
 ' Ajouter plusieurs feuilles d'un coup
 Worksheets.Add Count:=3  ' Ajoute 3 nouvelles feuilles

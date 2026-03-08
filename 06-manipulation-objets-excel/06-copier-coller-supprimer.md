@@ -45,8 +45,7 @@ Range("A1:A3,C1:C3").Copy
 ' Copier directement vers une destination (plus efficace)
 Range("A1:A3").Copy Range("D1")        ' Copie A1:A3 vers D1:D3
 
-' Copier vers plusieurs destinations
-Range("A1:A3").Copy Range("D1,F1,H1")  ' Copie vers D1, F1 et H1
+' Note : la copie directe ne supporte qu'une seule destination contiguë
 
 ' Copier d'une feuille à une autre
 Worksheets("Source").Range("A1:C3").Copy Worksheets("Destination").Range("A1")
@@ -63,9 +62,8 @@ Range("A1").Cut
 ' Couper une plage
 Range("A1:C3").Cut
 
-' Le contenu disparaît de l'emplacement original
-Range("A1:C3").Cut
-Range("D1").Paste   ' Les données sont maintenant en D1:D3, plus en A1:C3
+' Couper et coller directement
+Range("A1:C3").Cut Destination:=Range("D1")   ' Les données sont maintenant en D1, plus en A1:C3
 ```
 
 #### Coupe directe
@@ -100,10 +98,10 @@ Worksheets("Destination").Range("A1:A3").Value = Worksheets("Source").Range("A1:
 
 ```vba
 ' Copier puis coller (méthode en 2 étapes)
-Range("A1:A3").Copy         ' Étape 1 : Copier
-Range("D1").Paste           ' Étape 2 : Coller
+Range("A1:A3").Copy                          ' Étape 1 : Copier  
+ActiveSheet.Paste Destination:=Range("D1")   ' Étape 2 : Coller  
 
-' Équivalent direct
+' Copie directe en une seule ligne (recommandé)
 Range("A1:A3").Copy Range("D1")
 ```
 
@@ -111,9 +109,9 @@ Range("A1:A3").Copy Range("D1")
 
 ```vba
 ' Vider le presse-papier après collage
-Range("A1:A3").Copy
-Range("D1").Paste
-Application.CutCopyMode = False    ' Supprime les "fourmis" de sélection
+Range("A1:A3").Copy  
+ActiveSheet.Paste Destination:=Range("D1")  
+Application.CutCopyMode = False    ' Supprime les "fourmis" de sélection  
 ```
 
 ### 2. PasteSpecial - Collage spécialisé
@@ -122,36 +120,36 @@ Application.CutCopyMode = False    ' Supprime les "fourmis" de sélection
 
 ```vba
 ' Coller seulement les valeurs (pas les formules)
-Range("A1:A3").Copy
-Range("D1").PasteSpecial xlPasteValues
+Range("A1:A3").Copy  
+Range("D1").PasteSpecial xlPasteValues  
 
 ' Coller seulement les formules
-Range("A1:A3").Copy
-Range("D1").PasteSpecial xlPasteFormulas
+Range("A1:A3").Copy  
+Range("D1").PasteSpecial xlPasteFormulas  
 
 ' Coller seulement la mise en forme
-Range("A1:A3").Copy
-Range("D1").PasteSpecial xlPasteFormats
+Range("A1:A3").Copy  
+Range("D1").PasteSpecial xlPasteFormats  
 
 ' Coller tout (équivalent au collage normal)
-Range("A1:A3").Copy
-Range("D1").PasteSpecial xlPasteAll
+Range("A1:A3").Copy  
+Range("D1").PasteSpecial xlPasteAll  
 
 ' Coller les commentaires
-Range("A1:A3").Copy
-Range("D1").PasteSpecial xlPasteComments
+Range("A1:A3").Copy  
+Range("D1").PasteSpecial xlPasteComments  
 
 ' Coller les largeurs de colonnes
-Range("A1:C1").Copy
-Range("D1").PasteSpecial xlPasteColumnWidths
+Range("A1:C1").Copy  
+Range("D1").PasteSpecial xlPasteColumnWidths  
 ```
 
 #### Opérations mathématiques lors du collage
 
 ```vba
 ' Additionner les valeurs copiées aux valeurs existantes
-Range("A1:A3").Copy
-Range("D1:D3").PasteSpecial Paste:=xlPasteValues, Operation:=xlAdd
+Range("A1:A3").Copy  
+Range("D1:D3").PasteSpecial Paste:=xlPasteValues, Operation:=xlAdd  
 
 ' Soustraire
 Range("D1:D3").PasteSpecial Paste:=xlPasteValues, Operation:=xlSubtract
@@ -167,12 +165,12 @@ Range("D1:D3").PasteSpecial Paste:=xlPasteValues, Operation:=xlDivide
 
 ```vba
 ' Transposer (lignes → colonnes, colonnes → lignes)
-Range("A1:A5").Copy                    ' 5 cellules en colonne
-Range("C1").PasteSpecial Transpose:=True   ' Colle en ligne (C1:G1)
+Range("A1:A5").Copy                    ' 5 cellules en colonne  
+Range("C1").PasteSpecial Transpose:=True   ' Colle en ligne (C1:G1)  
 
 ' Exemple : transformer une liste verticale en horizontale
-Range("A1:A10").Copy
-Range("D1").PasteSpecial xlPasteValues, , , Transpose:=True
+Range("A1:A10").Copy  
+Range("D1").PasteSpecial xlPasteValues, , , Transpose:=True  
 ```
 
 ### 3. Collage conditionnel
@@ -181,8 +179,8 @@ Range("D1").PasteSpecial xlPasteValues, , , Transpose:=True
 
 ```vba
 ' Coller en sautant les cellules vides
-Range("A1:A5").Copy
-Range("D1").PasteSpecial xlPasteValues, xlPasteSpecialOperationNone, True   ' True = ignorer les vides
+Range("A1:A5").Copy  
+Range("D1").PasteSpecial Paste:=xlPasteValues, SkipBlanks:=True  
 ```
 
 ---
@@ -245,8 +243,8 @@ Range("A1:C3").Hyperlinks.Delete
 ' Effacer la validation de données
 Range("A1:C3").Validation.Delete
 
-' Effacer les notes (différent des commentaires dans Excel récent)
-Range("A1:C3").ClearNotes
+' Effacer les notes (Excel 365/2019+ uniquement)
+' Range("A1:C3").ClearNotes
 ```
 
 ### 5. Delete - Suppression avec déplacement
@@ -280,9 +278,9 @@ Range("A1:A3").Delete          ' Excel décide du décalage
 
 ```vba
 ' Copier seulement les cellules non vides
-Dim cellule As Range
-Dim plageDestination As Range
-Set plageDestination = Range("D1")
+Dim cellule As Range  
+Dim plageDestination As Range  
+Set plageDestination = Range("D1")  
 
 For Each cellule In Range("A1:A10")
     If cellule.Value <> "" Then
@@ -296,9 +294,9 @@ Next cellule
 
 ```vba
 ' Copier seulement les nombres positifs
-Dim i As Integer
-Dim j As Integer
-j = 1
+Dim i As Integer  
+Dim j As Integer  
+j = 1  
 
 For i = 1 To 10
     If IsNumeric(Cells(i, 1).Value) And Cells(i, 1).Value > 0 Then
@@ -318,11 +316,11 @@ Workbooks("Source.xlsx").Worksheets("Feuil1").Range("A1:C3").Copy _
     Workbooks("Destination.xlsx").Worksheets("Feuil1").Range("A1")
 
 ' Avec variables pour plus de clarté
-Dim classeurSource As Workbook
-Dim classeurDest As Workbook
+Dim classeurSource As Workbook  
+Dim classeurDest As Workbook  
 
-Set classeurSource = Workbooks("Source.xlsx")
-Set classeurDest = Workbooks("Destination.xlsx")
+Set classeurSource = Workbooks("Source.xlsx")  
+Set classeurDest = Workbooks("Destination.xlsx")  
 
 classeurSource.Worksheets("Données").Range("A1:Z100").Copy _
     classeurDest.Worksheets("Import").Range("A1")
@@ -334,12 +332,12 @@ classeurSource.Worksheets("Données").Range("A1:Z100").Copy _
 
 ```vba
 ' Copier la mise en forme d'une cellule modèle
-Range("A1").Copy                        ' Cellule avec la mise en forme désirée
-Range("B1:B10").PasteSpecial xlPasteFormats    ' Appliquer cette mise en forme
+Range("A1").Copy                        ' Cellule avec la mise en forme désirée  
+Range("B1:B10").PasteSpecial xlPasteFormats    ' Appliquer cette mise en forme  
 
 ' Copier les largeurs de colonnes
-Range("A:C").Copy
-Range("E:G").PasteSpecial xlPasteColumnWidths
+Range("A:C").Copy  
+Range("E:G").PasteSpecial xlPasteColumnWidths  
 
 Application.CutCopyMode = False         ' Nettoyer le presse-papier
 ```
@@ -354,8 +352,8 @@ Application.CutCopyMode = False         ' Nettoyer le presse-papier
 
 ```vba
 ' Supprimer les lignes contenant une valeur spécifique
-Dim i As Long
-For i = 100 To 1 Step -1               ' Parcourir de bas en haut (important!)
+Dim i As Long  
+For i = 100 To 1 Step -1               ' Parcourir de bas en haut (important!)  
     If Cells(i, 1).Value = "À supprimer" Then
         Rows(i).Delete
     End If
@@ -366,8 +364,8 @@ Next i
 
 ```vba
 ' Supprimer toutes les lignes vides dans une plage
-Dim i As Long
-Dim derniereLigne As Long
+Dim i As Long  
+Dim derniereLigne As Long  
 
 derniereLigne = Cells(Rows.Count, 1).End(xlUp).Row
 
@@ -384,14 +382,14 @@ Next i
 
 ```vba
 ' Supprimer toutes les cellules vides d'un coup
-On Error Resume Next
-Range("A1:A100").SpecialCells(xlCellTypeBlanks).Delete Shift:=xlShiftUp
-On Error GoTo 0
+On Error Resume Next  
+Range("A1:A100").SpecialCells(xlCellTypeBlanks).Delete Shift:=xlShiftUp  
+On Error GoTo 0  
 
 ' Supprimer toutes les cellules avec erreurs
-On Error Resume Next
-Range("A1:Z100").SpecialCells(xlCellTypeFormulas, xlErrors).Clear
-On Error GoTo 0
+On Error Resume Next  
+Range("A1:Z100").SpecialCells(xlCellTypeFormulas, xlErrors).Clear  
+On Error GoTo 0  
 ```
 
 ---
@@ -411,11 +409,11 @@ Else
 End If
 
 ' Vérifier la taille des plages
-Dim source As Range
-Dim destination As Range
+Dim source As Range  
+Dim destination As Range  
 
-Set source = Range("A1:A10")
-Set destination = Range("D1:D5")
+Set source = Range("A1:A10")  
+Set destination = Range("D1:D5")  
 
 If source.Cells.Count = destination.Cells.Count Then
     destination.Value = source.Value
@@ -605,7 +603,7 @@ End Sub
 - **Value = Value** : Copie de valeurs uniquement (plus rapide)
 
 #### Collage :
-- **Paste** : Collage standard
+- **ActiveSheet.Paste** : Collage standard (méthode de Worksheet, pas de Range)
 - **PasteSpecial** : Collage avec options (valeurs, formats, opérations)
 
 #### Suppression :

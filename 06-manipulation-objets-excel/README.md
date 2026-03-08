@@ -46,10 +46,10 @@ Cette structure hiérarchique suit une logique intuitive : l'application Excel c
 La syntaxe VBA pour manipuler les objets suit un modèle cohérent :
 
 ```vba
-Objet.Propriété = Valeur          ' Modifier une propriété
-Variable = Objet.Propriété        ' Lire une propriété
-Objet.Méthode                     ' Exécuter une méthode
-Objet.Méthode(paramètres)         ' Méthode avec paramètres
+Objet.Propriété = Valeur          ' Modifier une propriété  
+Variable = Objet.Propriété        ' Lire une propriété  
+Objet.Méthode                     ' Exécuter une méthode  
+Objet.Méthode(paramètres)         ' Méthode avec paramètres  
 ```
 
 **Exemples concrets :**
