@@ -41,8 +41,8 @@ Voici une classe simple pour représenter une personne :
 ```vba
 ' Module de classe : Personne
 ' Déclaration des variables privées (données de l'objet)
-Private mNom As String
-Private mAge As Integer
+Private mNom As String  
+Private mAge As Integer  
 
 ' Propriété pour accéder au nom
 Public Property Get Nom() As String
@@ -81,8 +81,8 @@ End Function
 
 #### Variables privées
 ```vba
-Private mNom As String
-Private mAge As Integer
+Private mNom As String  
+Private mAge As Integer  
 ```
 - Le mot-clé `Private` signifie que ces variables ne sont accessibles que depuis l'intérieur de la classe
 - La convention `m` au début indique que c'est une variable **membre** de la classe
@@ -174,8 +174,8 @@ End Sub
 
 ```vba
 ' Méthode 1 : Déclaration puis création
-Dim monObjet As MaClasse
-Set monObjet = New MaClasse
+Dim monObjet As MaClasse  
+Set monObjet = New MaClasse  
 
 ' Méthode 2 : Déclaration et création en une ligne
 Dim monObjet As New MaClasse
@@ -216,10 +216,10 @@ Voici un exemple plus pratique pour une application de gestion :
 
 ```vba
 ' Module de classe : Produit
-Private mReference As String
-Private mNom As String
-Private mPrix As Double
-Private mStock As Integer
+Private mReference As String  
+Private mNom As String  
+Private mPrix As Double  
+Private mStock As Integer  
 
 ' Propriétés
 Public Property Get Reference() As String

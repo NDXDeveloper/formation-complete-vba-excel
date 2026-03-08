@@ -45,12 +45,12 @@ Avec une approche orientée objet, vous créeriez une classe `Employe` :
 
 ```vba
 ' Approche orientée objet (aperçu)
-Dim emp As New Employe
-emp.Nom = "Dupont"
-emp.Prenom = "Jean"
-emp.Salaire = 3000
-emp.Afficher
-emp.AugmenterSalaire 10
+Dim emp As New Employe  
+emp.Nom = "Dupont"  
+emp.Prenom = "Jean"  
+emp.Salaire = 3000  
+emp.Afficher  
+emp.AugmenterSalaire 10  
 ```
 
 Cette approche est plus naturelle et intuitive.
@@ -103,9 +103,9 @@ VBA n'est pas un langage orienté objet pur comme Java ou C#, mais il offre des 
 Excel lui-même utilise massivement la POO. Quand vous écrivez :
 
 ```vba
-Dim ws As Worksheet
-Set ws = ActiveSheet
-ws.Range("A1").Value = "Bonjour"
+Dim ws As Worksheet  
+Set ws = ActiveSheet  
+ws.Range("A1").Value = "Bonjour"  
 ```
 
 Vous manipulez des objets (`Worksheet`, `Range`) qui ont des propriétés (`Value`) et des méthodes. Comprendre la POO vous aidera à mieux maîtriser ces objets intégrés.

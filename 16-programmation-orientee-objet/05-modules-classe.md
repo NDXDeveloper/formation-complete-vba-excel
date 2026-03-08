@@ -71,22 +71,10 @@ Sélectionnez le module de classe et regardez la fenêtre **Propriétés** (F4) 
 
 ' Instancing = Private (par défaut)
 ' - Private : Classe utilisable seulement dans ce projet
-' - PublicNotCreatable : Visible mais pas instanciable directement
-' - GlobalSingleUse : Une seule instance globale
-' - GlobalMultiUse : Plusieurs instances possibles
-
-' Persistable = NotPersistable (par défaut)
-' - Détermine si l'objet peut être sauvegardé
-
-' DataBindingBehavior = vbNone (par défaut)
-' - Pour la liaison de données (rarement utilisé)
-
-' DataSourceBehavior = vbNone (par défaut)
-' - Pour être une source de données (rarement utilisé)
-
-' MTSTransactionMode = NotAnMTSObject (par défaut)
-' - Pour les transactions (avancé)
+' - PublicNotCreatable : Visible mais pas instanciable depuis un autre projet
 ```
+
+**Note :** En VBA (Excel), les modules de classe n'ont que deux propriétés : `(Name)` et `Instancing`. D'autres propriétés comme `Persistable`, `DataBindingBehavior` ou `GlobalMultiUse` existent en VB6 (projets ActiveX) mais ne sont **pas disponibles** dans l'environnement VBA d'Excel.
 
 ### Configuration recommandée pour débutants
 
@@ -179,18 +167,18 @@ End Function
 Option Explicit
 
 ' ========== ÉVÉNEMENTS ==========
-Public Event DocumentOuvert(cheminFichier As String)
-Public Event DocumentFerme(cheminFichier As String)
-Public Event ErreurTraitement(description As String)
+Public Event DocumentOuvert(cheminFichier As String)  
+Public Event DocumentFerme(cheminFichier As String)  
+Public Event ErreurTraitement(description As String)  
 
 ' ========== VARIABLES PRIVÉES ==========
-Private mCheminFichier As String
-Private mTitre As String
-Private mContenu As String
-Private mEstModifie As Boolean
-Private mEstOuvert As Boolean
-Private mDateCreation As Date
-Private mTailleFichier As Long
+Private mCheminFichier As String  
+Private mTitre As String  
+Private mContenu As String  
+Private mEstModifie As Boolean  
+Private mEstOuvert As Boolean  
+Private mDateCreation As Date  
+Private mTailleFichier As Long  
 
 ' ========== ÉVÉNEMENTS DE CLASSE ==========
 
@@ -406,7 +394,13 @@ Public Function RemplacerTexte(ancien As String, nouveau As String) As Long
 
     ' Compter le nombre de remplacements
     Dim nbRemplacements As Long
-    nbRemplacements = (Len(contenuOriginal) - Len(mContenu)) / (Len(ancien) - Len(nouveau))
+    If Len(ancien) <> Len(nouveau) Then
+        nbRemplacements = (Len(contenuOriginal) - Len(mContenu)) / (Len(ancien) - Len(nouveau))
+    Else
+        ' Même longueur : comparer les contenus pour savoir s'il y a eu des changements
+        nbRemplacements = IIf(contenuOriginal <> mContenu, _
+            (Len(contenuOriginal) - Len(Replace(contenuOriginal, ancien, ""))) / Len(ancien), 0)
+    End If
 
     If nbRemplacements > 0 Then
         mEstModifie = True
@@ -516,10 +510,15 @@ End Function
 
 ## Utilisation du module de classe
 
+**Important :** `WithEvents` doit être déclaré au niveau module (pas dans une procédure), et uniquement dans un module de classe.
+
 ```vba
+' Module de classe : ClsTestDocument
+' WithEvents doit être déclaré au niveau module
+Public WithEvents monDoc As DocumentWord
+
 Sub TestDocumentWord()
     ' Créer un document avec événements
-    Dim WithEvents monDoc As DocumentWord
     Set monDoc = New DocumentWord
 
     ' Créer un nouveau document
@@ -560,6 +559,16 @@ End Sub
 
 Private Sub monDoc_ErreurTraitement(description As String)
     Debug.Print "Événement : Erreur - " & description
+End Sub
+```
+
+Pour lancer le test depuis un module standard :
+
+```vba
+' Module standard
+Sub LancerTestDocument()
+    Dim test As New ClsTestDocument
+    test.TestDocumentWord
 End Sub
 ```
 

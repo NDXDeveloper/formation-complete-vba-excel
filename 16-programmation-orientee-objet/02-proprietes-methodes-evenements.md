@@ -58,12 +58,12 @@ End Property
 
 ```vba
 ' Module de classe : Employe
-Private mNom As String
-Private mPrenom As String
-Private mSalaire As Double
-Private mDateEmbauche As Date
-Private mManager As Personne
-Private mActif As Boolean
+Private mNom As String  
+Private mPrenom As String  
+Private mSalaire As Double  
+Private mDateEmbauche As Date  
+Private mManager As Personne  
+Private mActif As Boolean  
 
 ' Propriété Nom avec validation
 Public Property Get Nom() As String
@@ -270,10 +270,10 @@ Les événements se déclarent au début du module de classe avec le mot-clé `E
 
 ```vba
 ' Déclaration des événements au début de la classe
-Public Event Promotion(employe As Employe, nouveauTitre As String, augmentation As Double)
-Public Event ChangementSalaire(employe As Employe, ancienSalaire As Double, nouveauSalaire As Double)
-Public Event Depart(employe As Employe, dateDepart As Date, motif As String)
-Public Event AnniversaireEmbauche(employe As Employe, nombreAnnees As Integer)
+Public Event Promotion(employe As Employe, nouveauTitre As String, augmentation As Double)  
+Public Event ChangementSalaire(employe As Employe, ancienSalaire As Double, nouveauSalaire As Double)  
+Public Event Depart(employe As Employe, dateDepart As Date, motif As String)  
+Public Event AnniversaireEmbauche(employe As Employe, nombreAnnees As Integer)  
 ```
 
 ### Déclencher des événements (RaiseEvent)
@@ -318,8 +318,10 @@ End Sub
 
 Pour écouter les événements d'un objet, il faut le déclarer avec `WithEvents` :
 
+**Important :** `WithEvents` ne peut être utilisé que dans un **module de classe** (y compris ThisWorkbook, modules de feuilles et UserForms), jamais dans un module standard.
+
 ```vba
-' Dans un module standard ou une classe
+' Dans un module de classe (ex: ClsGestionEmployes)
 Public WithEvents monEmploye As Employe
 
 Sub CreerEmploye()
@@ -407,12 +409,12 @@ Excel utilise massivement ces concepts :
 
 ```vba
 ' Propriétés Excel
-Debug.Print ActiveSheet.Name        ' Property Get
-ActiveSheet.Name = "Nouveau nom"    ' Property Let
+Debug.Print ActiveSheet.Name        ' Property Get  
+ActiveSheet.Name = "Nouveau nom"    ' Property Let  
 
 ' Méthodes Excel
-ActiveSheet.Calculate               ' Sub (méthode d'action)
-Debug.Print ActiveSheet.UsedRange.Count  ' Function (méthode de calcul)
+ActiveSheet.Calculate               ' Sub (méthode d'action)  
+Debug.Print ActiveSheet.UsedRange.Count  ' Function (méthode de calcul)  
 
 ' Événements Excel (dans le module de la feuille)
 Private Sub Worksheet_Change(ByVal Target As Range)

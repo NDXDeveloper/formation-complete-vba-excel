@@ -71,11 +71,11 @@ Voici ce que nous allons créer : une collection d'employés avec des fonctionna
 
 ```vba
 ' Module de classe : Employe
-Private mNom As String
-Private mPrenom As String
-Private mSalaire As Double
-Private mService As String
-Private mDateEmbauche As Date
+Private mNom As String  
+Private mPrenom As String  
+Private mSalaire As Double  
+Private mService As String  
+Private mDateEmbauche As Date  
 
 ' Propriétés essentielles
 Public Property Get Nom() As String
@@ -139,13 +139,13 @@ End Function
 Option Explicit
 
 ' ========== DONNÉES PRIVÉES ==========
-Private mEmployes As Collection      ' Collection interne VBA
-Private mNomEntreprise As String
+Private mEmployes As Collection      ' Collection interne VBA  
+Private mNomEntreprise As String  
 
 ' ========== ÉVÉNEMENTS ==========
-Public Event EmployeAjoute(employe As Employe)
-Public Event EmployeRetire(employe As Employe)
-Public Event ListeVidee()
+Public Event EmployeAjoute(employe As Employe)  
+Public Event EmployeRetire(employe As Employe)  
+Public Event ListeVidee()  
 
 ' ========== INITIALISATION ==========
 Private Sub Class_Initialize()
@@ -523,8 +523,10 @@ End Sub
 
 ### Exemple avec événements
 
+**Rappel :** `WithEvents` ne peut être utilisé que dans un module de classe (y compris ThisWorkbook, modules de feuilles et UserForms).
+
 ```vba
-' Dans un module standard
+' Dans un module de classe (ex: ClsGestionListe)
 Public WithEvents maListe As ListeEmployes
 
 Sub CreerListeAvecEvenements()
@@ -644,23 +646,23 @@ End Function
 ### 1. Type Safety (Sécurité des types)
 ```vba
 ' Collection VBA standard
-Dim liste As Collection
-liste.Add "Texte"
-liste.Add 123
-liste.Add Date  ' Mélange de types !
+Dim liste As Collection  
+liste.Add "Texte"  
+liste.Add 123  
+liste.Add Date  ' Mélange de types !  
 
 ' Collection personnalisée
-Dim entreprise As ListeEmployes
-entreprise.Ajouter monEmploye    ' ✅ Seuls les employés acceptés
-entreprise.Ajouter "Texte"       ' ❌ Erreur de compilation
+Dim entreprise As ListeEmployes  
+entreprise.Ajouter monEmploye    ' ✅ Seuls les employés acceptés  
+entreprise.Ajouter "Texte"       ' ❌ Erreur de compilation  
 ```
 
 ### 2. Fonctionnalités métier
 ```vba
 ' Opérations spécialisées directement disponibles
-entreprise.SalaireMoyen()
-entreprise.ChercherParService("IT")
-entreprise.RapportParService()
+entreprise.SalaireMoyen()  
+entreprise.ChercherParService("IT")  
+entreprise.RapportParService()  
 ```
 
 ### 3. Validation centralisée
@@ -678,7 +680,8 @@ entreprise.RapportParService()
 ### 5. Interface claire
 ```vba
 ' Code plus lisible et expressif
-Dim cadres = entreprise.ChercherParSalaire(4000)
+Dim cadres As ListeEmployes  
+Set cadres = entreprise.ChercherParSalaire(4000)  
 ' vs manipulation manuelle d'une Collection basique
 ```
 

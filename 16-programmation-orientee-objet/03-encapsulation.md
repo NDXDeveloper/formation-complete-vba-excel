@@ -33,8 +33,8 @@ Vous contrôlez exactement comment les données peuvent être modifiées.
 **Accessible uniquement depuis l'intérieur de la classe**
 
 ```vba
-Private mSoldeCompte As Double      ' Variable privée
-Private mNumeroCompte As String     ' Variable privée
+Private mSoldeCompte As Double      ' Variable privée  
+Private mNumeroCompte As String     ' Variable privée  
 
 Private Sub CalculerInterets()      ' Méthode privée
     ' Cette méthode ne peut être appelée que depuis l'intérieur de la classe
@@ -71,13 +71,13 @@ Option Explicit
 
 ' ========== DONNÉES PRIVÉES ==========
 ' Ces variables ne sont accessibles que depuis l'intérieur de la classe
-Private mNumeroCompte As String
-Private mTitulaire As String
-Private mSolde As Double
-Private mPlafondDecouvert As Double
-Private mDateOuverture As Date
-Private mNombreTransactions As Long
-Private mCompteActif As Boolean
+Private mNumeroCompte As String  
+Private mTitulaire As String  
+Private mSolde As Double  
+Private mPlafondDecouvert As Double  
+Private mDateOuverture As Date  
+Private mNombreTransactions As Long  
+Private mCompteActif As Boolean  
 
 ' ========== PROPRIÉTÉS PUBLIQUES ==========
 
@@ -342,8 +342,8 @@ compte.Retirer(200)  ' Vérifie les limites automatiquement
 ### 2. Validation automatique
 ```vba
 ' Toute modification passe par la validation
-compte.Titulaire = ""  ' ❌ Erreur automatique
-compte.PlafondDecouvert = 1000  ' ❌ Erreur automatique (doit être négatif)
+compte.Titulaire = ""  ' ❌ Erreur automatique  
+compte.PlafondDecouvert = 1000  ' ❌ Erreur automatique (doit être négatif)  
 ```
 
 ### 3. Traçabilité
@@ -425,8 +425,8 @@ End Function
 ### ❌ Sans encapsulation (approche procédurale)
 ```vba
 ' Variables globales - dangereuses !
-Public soldeCompte As Double
-Public numeroCompte As String
+Public soldeCompte As Double  
+Public numeroCompte As String  
 
 Sub RetirerArgent(montant As Double)
     soldeCompte = soldeCompte - montant  ' Aucune validation !
@@ -457,9 +457,9 @@ End Sub
 ### 2. Nommage des variables privées
 ```vba
 ' Convention : préfixe 'm' pour 'membre'
-Private mNom As String          ' ✅ Bon
-Private nom As String           ' ❌ Pas clair
-Private m_nom As String         ' ✅ Alternative acceptée
+Private mNom As String          ' ✅ Bon  
+Private nom As String           ' ❌ Pas clair  
+Private m_nom As String         ' ✅ Alternative acceptée  
 ```
 
 ### 3. Propriétés vs variables publiques
