@@ -11,14 +11,12 @@ Contrairement à d'autres langages de programmation, VBA ne nécessite pas d'ins
 ### Versions d'Office compatibles
 
 **VBA est disponible dans :**
-- Microsoft Office 365 (toutes éditions)
-- Office 2019, Office 2016, Office 2013
-- Office 2010 (support limité)
+- Microsoft 365 (anciennement Office 365, toutes éditions)
+- Office 2021, 2019, 2016, 2013
 - Office pour Mac (avec certaines limitations)
 
 **VBA N'EST PAS disponible dans :**
-- Office Online (versions web)
-- Office RT (tablettes Windows RT)
+- Office pour le web (versions navigateur)
 - Certaines éditions "Starter" ou limitées
 
 ### Comment vérifier votre version d'Office
@@ -181,7 +179,7 @@ Ne vous inquiétez pas si cela semble complexe au début - nous détaillerons ch
 
 **Solutions :**
 1. Essayez Alt+F11 au lieu du bouton
-2. Vérifiez que .NET Framework est installé
+2. Désactivez temporairement les compléments (add-ins) Office
 3. Réparez l'installation Office via Panneau de configuration
 
 ### Problème : Macro ne s'exécute pas
@@ -280,12 +278,12 @@ Une boîte de dialogue avec le message "VBA fonctionne parfaitement !" doit appa
 
 ### Checklist finale
 
-✅ **Office compatible installé**
-✅ **Onglet Développeur activé**
-✅ **Sécurité des macros configurée**
-✅ **Éditeur VBA accessible (Alt+F11)**
-✅ **Options de l'éditeur configurées**
-✅ **Emplacement approuvé défini**
+✅ **Office compatible installé**  
+✅ **Onglet Développeur activé**  
+✅ **Sécurité des macros configurée**  
+✅ **Éditeur VBA accessible (Alt+F11)**  
+✅ **Options de l'éditeur configurées**  
+✅ **Emplacement approuvé défini**  
 ✅ **Premier test réussi**
 
 ### En cas de problème

@@ -156,8 +156,8 @@ Certaines organisations interdisent complètement VBA pour des raisons de sécur
 - ✅ **Avantages** : Cloud, mobile, intégrations modernes
 - ❌ **Inconvénients** : Coût supplémentaire, courbe d'apprentissage différente
 
-**Quand choisir VBA :** Logique complexe, manipulation fine d'Excel
-**Quand choisir Power Automate :** Workflows simples, intégrations cloud
+**Quand choisir VBA :** Logique complexe, manipulation fine d'Excel  
+**Quand choisir Power Automate :** Workflows simples, intégrations cloud  
 
 ### VBA vs Python
 
@@ -165,8 +165,8 @@ Certaines organisations interdisent complètement VBA pour des raisons de sécur
 - ✅ **Avantages** : Performance, bibliothèques, polyvalence
 - ❌ **Inconvénients** : Installation, courbe d'apprentissage plus raide
 
-**Quand choisir VBA :** Intégration Office, déploiement simple
-**Quand choisir Python :** Analyse de données avancée, machine learning
+**Quand choisir VBA :** Intégration Office, déploiement simple  
+**Quand choisir Python :** Analyse de données avancée, machine learning  
 
 ### VBA vs Office Scripts
 
@@ -174,8 +174,8 @@ Certaines organisations interdisent complètement VBA pour des raisons de sécur
 - ✅ **Avantages** : Moderne, cloud, TypeScript
 - ❌ **Inconvénients** : Limité à Office en ligne, fonctionnalités restreintes
 
-**Quand choisir VBA :** Applications desktop complètes
-**Quand choisir Office Scripts :** Automatisation simple dans Office 365 web
+**Quand choisir VBA :** Applications desktop complètes  
+**Quand choisir Office Scripts :** Automatisation simple dans Microsoft 365 web  
 
 ## Guide de décision : Quand utiliser VBA ?
 
@@ -218,7 +218,7 @@ Certaines organisations interdisent complètement VBA pour des raisons de sécur
 
 ## Conclusion
 
-VBA reste un outil précieux en 2025, particulièrement adapté pour :
+VBA reste un outil précieux aujourd'hui, particulièrement adapté pour :
 - **L'automatisation Office** rapide et efficace
 - **Les solutions internes** d'entreprise
 - **Le prototypage** rapide d'idées

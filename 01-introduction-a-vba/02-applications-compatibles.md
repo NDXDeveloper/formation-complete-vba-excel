@@ -190,8 +190,8 @@ VBA permet de faire communiquer les applications Office entre elles :
 ### Versions Office supportées
 
 VBA est disponible dans :
-- **Office 365** (version actuelle)
-- **Office 2019, 2016, 2013**
+- **Microsoft 365** (anciennement Office 365, version actuelle)
+- **Office 2021, 2019, 2016, 2013**
 - **Versions antérieures** (avec limitations)
 
 ### Considérations importantes
