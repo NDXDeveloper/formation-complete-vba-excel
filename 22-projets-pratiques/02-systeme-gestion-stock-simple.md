@@ -74,10 +74,10 @@ Notre système utilisera plusieurs tables de données :
 
 #### Table PRODUITS
 ```
-Code Produit | Désignation  | Catégorie | Stock Actuel | Stock Min | Prix | Emplacement
-P001         | Ordinateur   | IT        | 15          | 5         | 800  | A1-B2
-P002         | Souris       | IT        | 50          | 10        | 25   | A1-B3
-P003         | Clavier      | IT        | 30          | 8         | 45   | A1-B3
+Code Produit | Désignation  | Catégorie | Stock Actuel | Stock Min | Prix | Emplacement  
+P001         | Ordinateur   | IT        | 15          | 5         | 800  | A1-B2  
+P002         | Souris       | IT        | 50          | 10        | 25   | A1-B3  
+P003         | Clavier      | IT        | 30          | 8         | 45   | A1-B3  
 ```
 
 #### Table MOUVEMENTS
@@ -706,7 +706,14 @@ Private Function ValidateMovementData() As Boolean
     End If
 
     ' Vérifier la quantité
-    If Not IsNumeric(TextBox_Quantity.Value) Or CDbl(TextBox_Quantity.Value) <= 0 Then
+    If Not IsNumeric(TextBox_Quantity.Value) Then
+        MsgBox "La quantité doit être un nombre positif.", vbExclamation
+        TextBox_Quantity.SetFocus
+        ValidateMovementData = False
+        Exit Function
+    End If
+
+    If CDbl(TextBox_Quantity.Value) <= 0 Then
         MsgBox "La quantité doit être un nombre positif.", vbExclamation
         TextBox_Quantity.SetFocus
         ValidateMovementData = False
@@ -865,7 +872,7 @@ Sub RecordMovement(productCode As String, movementType As String, quantity As Do
         .Cells(newRow, 5).Value = movementType
         .Cells(newRow, 6).Value = quantity
         .Cells(newRow, 7).Value = stockBefore
-        .Cells(newRow, 8).Value = stockBefore + IIf(movementType = "ENTREE" Or movementType = "RETOUR", quantity, -quantity)
+        .Cells(newRow, 8).Value = stockBefore + IIf(movementType = "ENTREE" Or movementType = "RETOUR" Or movementType = "AJUSTEMENT", quantity, -quantity)
         .Cells(newRow, 9).Value = Environ("USERNAME")  ' Utilisateur Windows
         .Cells(newRow, 10).Value = comment
 
@@ -912,13 +919,13 @@ Sub UpdateStockAlerts(Optional targetSheet As Worksheet)
     alertRow = 2  ' Commencer après les en-têtes
     alertCount = 0
 
+    Dim currentStock As Double
+    Dim minStock As Double
+    Dim alertLevel As String
+
     ' Parcourir tous les produits
     For i = 2 To lastRow
         If wsProducts.Cells(i, 1).Value <> "" And wsProducts.Cells(i, 9).Value = "Actif" Then
-            Dim currentStock As Double
-            Dim minStock As Double
-            Dim alertLevel As String
-
             currentStock = wsProducts.Cells(i, 4).Value
             minStock = wsProducts.Cells(i, 5).Value
 
@@ -1107,6 +1114,10 @@ Sub ShowStockReport()
     lastRow = wsProducts.Cells(wsProducts.Rows.Count, 1).End(xlUp).Row
     reportRow = 5
 
+    Dim currentStock As Double
+    Dim minStock As Double
+    Dim stockLevel As String
+
     For i = 2 To lastRow
         If wsProducts.Cells(i, 1).Value <> "" Then
             With wsReport
@@ -1121,10 +1132,6 @@ Sub ShowStockReport()
                 .Cells(reportRow, 9).Value = wsProducts.Cells(i, 9).Value  ' Statut
 
                 ' Déterminer le niveau de stock
-                Dim currentStock As Double
-                Dim minStock As Double
-                Dim stockLevel As String
-
                 currentStock = wsProducts.Cells(i, 4).Value
                 minStock = wsProducts.Cells(i, 5).Value
 
@@ -1188,7 +1195,7 @@ Sub AddReportStatistics(ws As Worksheet, startRow As Long)
 
         ' Calculs statistiques
         .Cells(startRow, 1).Value = "Nombre total de produits :"
-        .Cells(startRow, 2).Value = "=COUNTA(A5:A1000)-COUNTA(A5:A1000,\"\")"
+        .Cells(startRow, 2).Value = "=COUNTA(A5:A1000)"
 
         .Cells(startRow + 1, 1).Value = "Produits en rupture :"
         .Cells(startRow + 1, 2).Value = "=COUNTIF(J5:J1000,\"RUPTURE\")"
@@ -1615,6 +1622,7 @@ Sub ProcessBarcodeInput()
     Dim ws As Worksheet
     Dim findResult As Range
     Dim actionType As String
+    Dim quantityInput As String
     Dim quantity As Double
 
     ' Demander le code scanné (ou saisi manuellement)
@@ -1650,17 +1658,24 @@ Sub ProcessBarcodeInput()
     Select Case response
         Case vbYes  ' Entrée de stock
             actionType = "ENTREE"
-            quantity = InputBox("Quantité à ajouter :", "Entrée de stock", "1")
+            quantityInput = InputBox("Quantité à ajouter :", "Entrée de stock", "1")
         Case vbNo   ' Sortie de stock
             actionType = "SORTIE"
-            quantity = InputBox("Quantité à retirer :", "Sortie de stock", "1")
+            quantityInput = InputBox("Quantité à retirer :", "Sortie de stock", "1")
         Case vbCancel  ' Consulter uniquement
             MsgBox productInfo, vbInformation, "Consultation produit"
             Exit Sub
     End Select
 
     ' Valider la quantité
-    If Not IsNumeric(quantity) Or quantity <= 0 Then
+    If Not IsNumeric(quantityInput) Or quantityInput = "" Then
+        MsgBox "Quantité invalide.", vbExclamation
+        Exit Sub
+    End If
+
+    quantity = CDbl(quantityInput)
+
+    If quantity <= 0 Then
         MsgBox "Quantité invalide.", vbExclamation
         Exit Sub
     End If
@@ -1755,12 +1770,13 @@ Sub ArchiveOldMovements()
 
     lastRow = ws.Cells(ws.Rows.Count, 1).End(xlUp).Row
 
+    Dim archiveRow As Long
+
     ' Parcourir les mouvements du plus ancien au plus récent
     For i = lastRow To 2 Step -1  ' Commencer par la fin pour éviter les problèmes de décalage
         If IsDate(ws.Cells(i, 1).Value) Then
             If ws.Cells(i, 1).Value < archiveDate Then
                 ' Copier la ligne vers l'archive
-                Dim archiveRow As Long
                 archiveRow = archiveSheet.Cells(archiveSheet.Rows.Count, 1).End(xlUp).Row + 1
 
                 ws.Rows(i).Copy
@@ -1977,20 +1993,33 @@ Sub CleanOldBackups(folderPath As String, daysToKeep As Integer)
     Dim filePath As String
     Dim fileDate As Date
     Dim cutoffDate As Date
+    Dim fileCount As Long
+    Dim fileNames() As String
 
     cutoffDate = DateAdd("d", -daysToKeep, Date)
+
+    ' Collecter d'abord tous les noms de fichiers
+    ' (Kill entre les appels Dir corrompt l'état interne de Dir)
+    fileCount = 0
     fileName = Dir(folderPath & "\*.xlsm")
 
     Do While fileName <> ""
-        filePath = folderPath & "\" & fileName
+        fileCount = fileCount + 1
+        ReDim Preserve fileNames(1 To fileCount)
+        fileNames(fileCount) = fileName
+        fileName = Dir()
+    Loop
+
+    ' Puis supprimer les fichiers trop anciens
+    Dim j As Long
+    For j = 1 To fileCount
+        filePath = folderPath & "\" & fileNames(j)
         fileDate = FileDateTime(filePath)
 
         If fileDate < cutoffDate Then
             Kill filePath
         End If
-
-        fileName = Dir()
-    Loop
+    Next j
 End Sub
 ```
 

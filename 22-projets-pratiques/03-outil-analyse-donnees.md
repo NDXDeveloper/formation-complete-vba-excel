@@ -309,13 +309,14 @@ Function AnalyzeColumnTypes(dataRange As Range) As Variant
     ReDim columnTypes(1 To dataRange.Columns.Count)
     totalRows = dataRange.Rows.Count - 1  ' Exclure l'en-tête
 
+    Dim sampleSize As Long
+
     For col = 1 To dataRange.Columns.Count
         numericCount = 0
         dateCount = 0
         textCount = 0
 
         ' Analyser un échantillon de cellules (max 100 pour performance)
-        Dim sampleSize As Long
         sampleSize = Application.Min(100, totalRows)
 
         For row = 2 To sampleSize + 1  ' Commencer après l'en-tête
@@ -574,15 +575,15 @@ Sub GenerateKeyInsights(sourceRange As Range, analysisSheet As Worksheet, startR
 
     insightRow = startRow
 
+    Dim colRange As Range
+    Dim colMax As Double
+    Dim colMin As Double
+    Dim colAvg As Double
+
     ' Trouver la colonne numérique avec les plus grandes valeurs
     For col = 1 To UBound(columnTypes)
         If columnTypes(col) = "NUMERIC" Then
-            Dim colRange As Range
             Set colRange = sourceRange.Columns(col).Offset(1, 0).Resize(sourceRange.Rows.Count - 1)
-
-            Dim colMax As Double
-            Dim colMin As Double
-            Dim colAvg As Double
 
             On Error Resume Next
             colMax = Application.Max(colRange)
@@ -918,10 +919,11 @@ Sub AddCorrelationSummary(sourceRange As Range, analysisSheet As Worksheet, star
             .Range(.Cells(startRow + 2, 1), .Cells(startRow + 2, numericCount + 1)).Font.Bold = True
             .Range(.Cells(startRow + 3, 1), .Cells(startRow + 2 + numericCount, 1)).Font.Bold = True
 
+            Dim correlation As Double
+
             ' Calcul des corrélations
             For i = 1 To numericCount
                 For j = 1 To numericCount
-                    Dim correlation As Double
                     correlation = CalculateCorrelation(sourceRange, numericCols(i), numericCols(j))
 
                     .Cells(startRow + 2 + i, j + 1).Value = Round(correlation, 3)
@@ -1448,9 +1450,9 @@ Sub DetectOutliers(sourceRange As Range, analysisSheet As Worksheet, colIndex As
 
     ' Parcourir les données pour identifier les outliers
     Dim rowIndex As Long
+    Dim value As Double
     For rowIndex = 1 To dataRange.Rows.Count
         If IsNumeric(dataRange.Cells(rowIndex, 1).Value) And dataRange.Cells(rowIndex, 1).Value <> "" Then
-            Dim value As Double
             value = dataRange.Cells(rowIndex, 1).Value
 
             If value < lowerBound Or value > upperBound Then
@@ -1517,9 +1519,9 @@ Sub DetectNegativeValues(sourceRange As Range, analysisSheet As Worksheet, colIn
     negativeRows = ""
 
     Dim rowIndex As Long
+    Dim value As Double
     For rowIndex = 1 To dataRange.Rows.Count
         If IsNumeric(dataRange.Cells(rowIndex, 1).Value) And dataRange.Cells(rowIndex, 1).Value <> "" Then
-            Dim value As Double
             value = dataRange.Cells(rowIndex, 1).Value
 
             If value < 0 Then
@@ -1679,9 +1681,10 @@ Sub DetectDateInconsistencies(sourceRange As Range, analysisSheet As Worksheet, 
             futureCount = 0
             veryOldCount = 0
 
+            Dim cellDate As Date
+
             For Each cell In dataRange
                 If IsDate(cell.Value) And cell.Value <> "" Then
-                    Dim cellDate As Date
                     cellDate = CDate(cell.Value)
 
                     ' Détecter les dates futures (plus de 1 an dans le futur)
@@ -2191,15 +2194,20 @@ Function GetDataSummary(sourceRange As Range) As String
     totalRows = sourceRange.Rows.Count - 1  ' Exclure l'en-tête
     totalCols = sourceRange.Columns.Count
 
+    Dim colRange As Range
+    Dim numericCount As Long
+    Dim dateCount As Long
+    Dim textCount As Long
+    Dim cell As Range
+
     ' Analyser les types de colonnes
     For col = 1 To totalCols
-        Dim colRange As Range
         Set colRange = sourceRange.Columns(col).Offset(1, 0).Resize(totalRows)
 
-        Dim numericCount As Long
-        Dim dateCount As Long
-        Dim textCount As Long
-        Dim cell As Range
+        ' Réinitialiser les compteurs pour chaque colonne
+        numericCount = 0
+        dateCount = 0
+        textCount = 0
 
         For Each cell In colRange
             If cell.Value <> "" Then

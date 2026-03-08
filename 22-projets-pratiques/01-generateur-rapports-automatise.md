@@ -103,9 +103,9 @@ Nous travaillerons avec un format de données standard :
 
 Exemple de données source :
 ```
-Produit    | Vendeur  | Quantité | Prix | Date
-Ordinateur | Martin   | 5        | 800  | 15/01/2024
-Imprimante | Durand   | 12       | 150  | 16/01/2024
+Produit    | Vendeur  | Quantité | Prix | Date  
+Ordinateur | Martin   | 5        | 800  | 15/01/2024  
+Imprimante | Durand   | 12       | 150  | 16/01/2024  
 Écran      | Martin   | 8        | 300  | 17/01/2024
 ```
 
@@ -301,12 +301,13 @@ Sub AddCalculations(targetSheet As Worksheet, dataRows As Long, dataCols As Long
     targetSheet.Cells(calcRow - 1, 1).Font.Size = 12
 
     ' Parcourir chaque colonne pour identifier les colonnes numériques
+    Dim columnHeader As String
+
     For col = 1 To dataCols
         If IsNumeric(targetSheet.Cells(dataStartRow, col).Value) And _
            targetSheet.Cells(dataStartRow, col).Value <> "" Then
 
             ' Nom de la colonne
-            Dim columnHeader As String
             columnHeader = targetSheet.Cells(6, col).Value  ' En-tête de colonne
 
             ' Calcul de la somme
@@ -456,9 +457,10 @@ Sub SaveReport(targetSheet As Worksheet)
     ' Copier la feuille de rapport dans le nouveau classeur
     targetSheet.Copy Before:=wb.Sheets(1)
 
-    ' Supprimer la feuille vide par défaut
+    ' Supprimer la feuille vide par défaut (utiliser l'index pour éviter
+    ' les problèmes de nom selon la langue d'Excel)
     Application.DisplayAlerts = False
-    wb.Sheets("Feuil1").Delete  ' Nom peut varier selon la version d'Excel
+    wb.Sheets(wb.Sheets.Count).Delete
     Application.DisplayAlerts = True
 
     ' Générer le nom de fichier
@@ -470,8 +472,8 @@ Sub SaveReport(targetSheet As Worksheet)
         filePath = Environ("USERPROFILE") & "\Desktop"  ' Bureau si pas de chemin
     End If
 
-    ' Sauvegarder le rapport
-    wb.SaveAs filePath & "\" & fileName
+    ' Sauvegarder le rapport au format .xlsx
+    wb.SaveAs filePath & "\" & fileName, FileFormat:=xlOpenXMLWorkbook
 
     ' Message de confirmation avec chemin
     MsgBox "Rapport sauvegardé avec succès !" & vbNewLine & _
@@ -523,10 +525,10 @@ Si une feuille avec le même nom existe déjà :
 
 ```vba
 ' Gestion des noms de feuilles en conflit
-Dim baseName As String
-Dim counter As Integer
-baseName = "Rapport_" & Format(Now, "ddmmyyyy")
-counter = 1
+Dim baseName As String  
+Dim counter As Integer  
+baseName = "Rapport_" & Format(Now, "ddmmyyyy")  
+counter = 1  
 
 Do While SheetExists(baseName & "_" & counter)
     counter = counter + 1

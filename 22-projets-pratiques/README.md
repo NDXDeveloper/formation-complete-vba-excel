@@ -63,36 +63,36 @@ Chaque projet suit une méthodologie cohérente :
 ### Niveau de difficulté
 Les projets sont classés par ordre de complexité croissante :
 
-**🟢 Débutant** : Maîtrise des bases VBA requise
-**🟡 Intermédiaire** : Connaissance des structures avancées nécessaire
-**🔴 Avancé** : Expertise en programmation orientée objet et optimisation
+**🟢 Débutant** : Maîtrise des bases VBA requise  
+**🟡 Intermédiaire** : Connaissance des structures avancées nécessaire  
+**🔴 Avancé** : Expertise en programmation orientée objet et optimisation  
 
 ### Vue d'ensemble des projets
 
 #### 22.1. Générateur de rapports automatisé 🟢
-**Objectif** : Créer automatiquement des rapports formatés à partir de données brutes
-**Techniques clés** : Manipulation de plages, formatage, graphiques simples
-**Durée estimée** : 4-6 heures
+**Objectif** : Créer automatiquement des rapports formatés à partir de données brutes  
+**Techniques clés** : Manipulation de plages, formatage, graphiques simples  
+**Durée estimée** : 4-6 heures  
 
 #### 22.2. Système de gestion de stock simple 🟡
-**Objectif** : Développer une application de suivi des stocks avec interface utilisateur
-**Techniques clés** : UserForms, validation de données, événements
-**Durée estimée** : 8-12 heures
+**Objectif** : Développer une application de suivi des stocks avec interface utilisateur  
+**Techniques clés** : UserForms, validation de données, événements  
+**Durée estimée** : 8-12 heures  
 
 #### 22.3. Outil d'analyse de données 🟡
-**Objectif** : Créer un analyseur statistique avec visualisations dynamiques
-**Techniques clés** : Fonctions avancées, graphiques, tableaux croisés dynamiques
-**Durée estimée** : 6-10 heures
+**Objectif** : Créer un analyseur statistique avec visualisations dynamiques  
+**Techniques clés** : Fonctions avancées, graphiques, tableaux croisés dynamiques  
+**Durée estimée** : 6-10 heures  
 
 #### 22.4. Interface de saisie complète 🔴
-**Objectif** : Concevoir une interface professionnelle de saisie avec validation
-**Techniques clés** : POO, modules de classe, gestion d'erreurs avancée
-**Durée estimée** : 12-16 heures
+**Objectif** : Concevoir une interface professionnelle de saisie avec validation  
+**Techniques clés** : POO, modules de classe, gestion d'erreurs avancée  
+**Durée estimée** : 12-16 heures  
 
 #### 22.5. Macro de nettoyage et formatage 🟢
-**Objectif** : Automatiser le nettoyage et la mise en forme de données diverses
-**Techniques clés** : Manipulation de chaînes, expressions régulières, optimisation
-**Durée estimée** : 3-5 heures
+**Objectif** : Automatiser le nettoyage et la mise en forme de données diverses  
+**Techniques clés** : Manipulation de chaînes, expressions régulières, optimisation  
+**Durée estimée** : 3-5 heures  
 
 ## Prérequis techniques
 
@@ -171,6 +171,6 @@ Pour chaque projet, nous recommandons de :
 
 ---
 
-Les projets pratiques qui suivent constituent le point culminant de votre apprentissage VBA. Ils vous permettront de développer des solutions réelles et de acquérir l'expérience nécessaire pour devenir autonome dans vos développements futurs.
+Les projets pratiques qui suivent constituent le point culminant de votre apprentissage VBA. Ils vous permettront de développer des solutions réelles et d'acquérir l'expérience nécessaire pour devenir autonome dans vos développements futurs.
 
 ⏭️

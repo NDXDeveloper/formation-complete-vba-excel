@@ -110,7 +110,13 @@ Private Sub SupprimerLignesColonnesVides()
     Set ws = ActiveSheet
 
     ' Déterminer la zone de données réelle
-    derniereLigne = ws.Cells.Find("*", SearchOrder:=xlByRows, SearchDirection:=xlPrevious).Row
+    Dim derniereCellule As Range
+    Set derniereCellule = ws.Cells.Find("*", SearchOrder:=xlByRows, SearchDirection:=xlPrevious)
+
+    ' Si la feuille est vide, rien à nettoyer
+    If derniereCellule Is Nothing Then Exit Sub
+
+    derniereLigne = derniereCellule.Row
     derniereColonne = ws.Cells.Find("*", SearchOrder:=xlByColumns, SearchDirection:=xlPrevious).Column
 
     ' Supprimer les lignes vides (de bas en haut pour éviter les problèmes d'index)
@@ -513,10 +519,9 @@ Private Sub AjouterBordures(plageData As Range)
     End With
 
     ' Bordure extérieure plus épaisse
-    With plageData.BorderAround
-        .Color = RGB(68, 114, 196)
-        .Weight = xlMedium
-    End With
+    plageData.BorderAround LineStyle:=xlContinuous, _
+                           Color:=RGB(68, 114, 196), _
+                           Weight:=xlMedium
 End Sub
 
 Private Sub AlignementDonnees(plageData As Range)

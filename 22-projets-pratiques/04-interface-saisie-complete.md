@@ -41,21 +41,21 @@ Ajoutez les contrôles suivants sur votre formulaire :
 
 ```vba
 ' Propriétés du formulaire
-frmSaisieEmploye.Caption = "Gestion des Employés"
-frmSaisieEmploye.Width = 400
-frmSaisieEmploye.Height = 500
+frmSaisieEmploye.Caption = "Gestion des Employés"  
+frmSaisieEmploye.Width = 400  
+frmSaisieEmploye.Height = 500  
 
 ' Noms des contrôles (propriété Name)
-txtNom.Name = "txtNom"
-txtPrenom.Name = "txtPrenom"
-txtPoste.Name = "txtPoste"
-txtSalaire.Name = "txtSalaire"
-txtDateEmbauche.Name = "txtDateEmbauche"
-cboContrat.Name = "cboContrat"
-cmdEnregistrer.Name = "cmdEnregistrer"
-cmdModifier.Name = "cmdModifier"
-cmdFermer.Name = "cmdFermer"
-lstEmployes.Name = "lstEmployes"
+txtNom.Name = "txtNom"  
+txtPrenom.Name = "txtPrenom"  
+txtPoste.Name = "txtPoste"  
+txtSalaire.Name = "txtSalaire"  
+txtDateEmbauche.Name = "txtDateEmbauche"  
+cboContrat.Name = "cboContrat"  
+cmdEnregistrer.Name = "cmdEnregistrer"  
+cmdModifier.Name = "cmdModifier"  
+cmdFermer.Name = "cmdFermer"  
+lstEmployes.Name = "lstEmployes"  
 ```
 
 ## Étape 2 : Initialisation du formulaire
@@ -218,10 +218,11 @@ Private Function EnregistrerEmploye() As Boolean
     Dim ws As Worksheet
     Dim derniereLigne As Long
 
-    ' Référencer la feuille de destination
+    ' Référencer la feuille de destination (la créer si elle n'existe pas)
+    On Error Resume Next
     Set ws = ThisWorkbook.Worksheets("Employes")
+    On Error GoTo GestionErreur
 
-    ' Si la feuille n'existe pas, la créer
     If ws Is Nothing Then
         Set ws = ThisWorkbook.Worksheets.Add
         ws.Name = "Employes"
