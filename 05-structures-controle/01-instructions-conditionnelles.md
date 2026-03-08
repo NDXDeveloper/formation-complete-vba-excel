@@ -391,13 +391,15 @@ Sub FormaterSelonType()
         Case IsEmpty(cellule)
             cellule.Interior.Color = RGB(255, 255, 0)  ' Jaune pour vide
 
+        Case IsDate(cellule.Value)
+            ' Important : tester IsDate AVANT IsNumeric
+            ' car les dates passent aussi le test IsNumeric
+            cellule.Interior.Color = RGB(0, 0, 255)    ' Bleu pour date
+            cellule.NumberFormat = "dd/mm/yyyy"
+
         Case IsNumeric(cellule.Value)
             cellule.Interior.Color = RGB(0, 255, 0)    ' Vert pour nombre
             cellule.NumberFormat = "0.00"
-
-        Case IsDate(cellule.Value)
-            cellule.Interior.Color = RGB(0, 0, 255)    ' Bleu pour date
-            cellule.NumberFormat = "dd/mm/yyyy"
 
         Case Else
             cellule.Interior.Color = RGB(255, 255, 255) ' Blanc pour texte
@@ -574,9 +576,9 @@ If estValide Then
 If x > 18 Then
 
 ' ✅ Plus clair
-Dim age As Integer
-age = x
-If age > 18 Then
+Dim age As Integer  
+age = x  
+If age > 18 Then  
 ```
 
 ### 4. Commentaires pour la logique complexe

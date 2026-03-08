@@ -20,11 +20,11 @@ Chaque étape est une boucle qui répète une action selon différents critères
 
 **Sans boucle** (répétitif et inefficace) :
 ```vba
-Range("A1").Value = "Ligne 1"
-Range("A2").Value = "Ligne 2"
-Range("A3").Value = "Ligne 3"
-Range("A4").Value = "Ligne 4"
-Range("A5").Value = "Ligne 5"
+Range("A1").Value = "Ligne 1"  
+Range("A2").Value = "Ligne 2"  
+Range("A3").Value = "Ligne 3"  
+Range("A4").Value = "Ligne 4"  
+Range("A5").Value = "Ligne 5"  
 ' ... Et si on voulait 1000 lignes ?
 ```
 
@@ -198,8 +198,8 @@ End Sub
 Sub TraiterSelection()
     Dim cellule As Range
 
-    ' Vérifier qu'il y a une sélection
-    If Selection Is Nothing Then
+    ' Vérifier que la sélection est bien une plage de cellules
+    If TypeName(Selection) <> "Range" Then
         MsgBox "Veuillez sélectionner des cellules d'abord"
         Exit Sub
     End If
@@ -667,17 +667,17 @@ Next i
 
 ```vba
 ' ❌ Boucle infinie
-Dim i As Integer
-i = 1
-Do While i <= 10
+Dim i As Integer  
+i = 1  
+Do While i <= 10  
     MsgBox i
     ' Oublié : i = i + 1
 Loop
 
 ' ✅ Solution
-Dim i As Integer
-i = 1
-Do While i <= 10
+Dim i As Integer  
+i = 1  
+Do While i <= 10  
     MsgBox i
     i = i + 1  ' Important !
 Loop
@@ -688,12 +688,12 @@ Loop
 ```vba
 ' ❌ Erreur si la plage change
 For i = 1 To Range("A:A").Cells.Count
-    ' Peut traiter trop de cellules
+    ' Parcourt toute la colonne (plus d'un million de cellules !)
 Next i
 
-' ✅ Solution
-For i = 1 To Range("A1").End(xlDown).Row
-    ' S'arrête aux données réelles
+' ✅ Solution : remonter depuis la dernière ligne
+For i = 1 To Range("A" & Rows.Count).End(xlUp).Row
+    ' S'arrête à la dernière cellule non vide
 Next i
 ```
 

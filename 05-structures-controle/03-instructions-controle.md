@@ -477,8 +477,8 @@ Sub AncienneMethode()
 ErreurAge:
     MsgBox "Age invalide"
 
-Fin:
-End Sub
+Fin:  
+End Sub  
 
 ' ✅ Avec If...Else
 Sub MethodeModerne()
@@ -524,8 +524,8 @@ Etape3:
 Erreur:
     MsgBox "Étape invalide"
 
-Fin:
-End Sub
+Fin:  
+End Sub  
 
 ' ✅ Avec procédures séparées
 Sub TraitementModerne()

@@ -148,14 +148,14 @@ Pour utiliser les structures de contrôle, vous devez comprendre comment créer 
 **Exemples :**
 ```vba
 ' Comparaisons simples
-If age >= 18 Then...
-If nom = "Marie" Then...
-If prix <> 0 Then...
+If age >= 18 Then...  
+If nom = "Marie" Then...  
+If prix <> 0 Then...  
 
 ' Comparaisons complexes
-If age >= 18 And age <= 65 Then...  ' Entre 18 et 65 ans
-If ville = "Paris" Or ville = "Lyon" Then...  ' Paris OU Lyon
-If Not EstVide(Range("A1")) Then...  ' Cellule NON vide
+If age >= 18 And age <= 65 Then...  ' Entre 18 et 65 ans  
+If ville = "Paris" Or ville = "Lyon" Then...  ' Paris OU Lyon  
+If Not EstVide(Range("A1")) Then...  ' Cellule NON vide  
 ```
 
 ## Objectifs de ce chapitre
