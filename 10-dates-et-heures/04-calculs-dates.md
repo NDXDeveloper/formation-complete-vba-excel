@@ -19,64 +19,64 @@ Cette représentation rend les calculs très simples et intuitifs.
 ### Addition et soustraction de jours
 
 ```vba
-Dim dateDebut As Date
-Dim dateFin As Date
+Dim dateDebut As Date  
+Dim dateFin As Date  
 
 dateDebut = #1/15/2024#
 
 ' Ajouter des jours
-dateFin = dateDebut + 7           ' Ajouter 7 jours
-Debug.Print dateFin               ' 22/01/2024
+dateFin = dateDebut + 7           ' Ajouter 7 jours  
+Debug.Print dateFin               ' 22/01/2024  
 
 ' Soustraire des jours
-dateFin = dateDebut - 3           ' Soustraire 3 jours
-Debug.Print dateFin               ' 12/01/2024
+dateFin = dateDebut - 3           ' Soustraire 3 jours  
+Debug.Print dateFin               ' 12/01/2024  
 
 ' Calculs avec des variables
-Dim nbJours As Integer
-nbJours = 30
-dateFin = dateDebut + nbJours     ' Ajouter 30 jours
+Dim nbJours As Integer  
+nbJours = 30  
+dateFin = dateDebut + nbJours     ' Ajouter 30 jours  
 ```
 
 ### Calcul de différences entre dates
 
 ```vba
-Dim date1 As Date
-Dim date2 As Date
-Dim difference As Long
+Dim date1 As Date  
+Dim date2 As Date  
+Dim difference As Long  
 
-date1 = #1/15/2024#
-date2 = #1/22/2024#
+date1 = #1/15/2024#  
+date2 = #1/22/2024#  
 
 ' Calculer la différence en jours
-difference = date2 - date1
-Debug.Print difference            ' 7 (jours)
+difference = date2 - date1  
+Debug.Print difference            ' 7 (jours)  
 
 ' Calculer l'âge en jours
-Dim naissance As Date
-Dim agejours As Long
+Dim naissance As Date  
+Dim agejours As Long  
 
-naissance = #6/15/1990#
-agejours = Date - naissance
-Debug.Print "Âge en jours : " & agejours
+naissance = #6/15/1990#  
+agejours = Date - naissance  
+Debug.Print "Âge en jours : " & agejours  
 ```
 
 ### Addition et soustraction d'heures
 
 ```vba
-Dim dateHeure As Date
-Dim nouvelleHeure As Date
+Dim dateHeure As Date  
+Dim nouvelleHeure As Date  
 
 dateHeure = #1/15/2024 2:30 PM#
 
 ' Ajouter des heures (1 heure = 1/24 de jour)
-nouvelleHeure = dateHeure + (3 / 24)    ' Ajouter 3 heures
-Debug.Print Format(nouvelleHeure, "dd/mm/yyyy hh:nn")  ' 15/01/2024 17:30
+nouvelleHeure = dateHeure + (3 / 24)    ' Ajouter 3 heures  
+Debug.Print Format(nouvelleHeure, "dd/mm/yyyy hh:nn")  ' 15/01/2024 17:30  
 
 ' Méthode plus lisible avec TimeValue
-nouvelleHeure = dateHeure + TimeValue("03:00:00")      ' Ajouter 3 heures
-nouvelleHeure = dateHeure + TimeValue("00:30:00")      ' Ajouter 30 minutes
-nouvelleHeure = dateHeure + TimeValue("00:00:45")      ' Ajouter 45 secondes
+nouvelleHeure = dateHeure + TimeValue("03:00:00")      ' Ajouter 3 heures  
+nouvelleHeure = dateHeure + TimeValue("00:30:00")      ' Ajouter 30 minutes  
+nouvelleHeure = dateHeure + TimeValue("00:00:45")      ' Ajouter 45 secondes  
 ```
 
 ## Fonctions spécialisées pour les calculs de dates
@@ -103,7 +103,7 @@ DateAdd(interval, number, date)
 | "m" | Mois | Ajouter 3 mois |
 | "y" | Jour de l'année | Ajouter 100 jours |
 | "d" | Jours | Ajouter 15 jours |
-| "w" | Jours de la semaine | Ajouter 2 semaines |
+| "w" | Jour de la semaine (identique à "d") | Ajouter 2 jours |
 | "ww" | Semaines | Ajouter 4 semaines |
 | "h" | Heures | Ajouter 6 heures |
 | "n" | Minutes | Ajouter 30 minutes |
@@ -112,27 +112,27 @@ DateAdd(interval, number, date)
 #### Exemples pratiques
 
 ```vba
-Dim dateBase As Date
-Dim resultat As Date
+Dim dateBase As Date  
+Dim resultat As Date  
 
 dateBase = #1/15/2024#
 
 ' Ajouter des années
-resultat = DateAdd("yyyy", 2, dateBase)
-Debug.Print Format(resultat, "dd/mm/yyyy")    ' 15/01/2026
+resultat = DateAdd("yyyy", 2, dateBase)  
+Debug.Print Format(resultat, "dd/mm/yyyy")    ' 15/01/2026  
 
 ' Ajouter des mois
-resultat = DateAdd("m", 6, dateBase)
-Debug.Print Format(resultat, "dd/mm/yyyy")    ' 15/07/2024
+resultat = DateAdd("m", 6, dateBase)  
+Debug.Print Format(resultat, "dd/mm/yyyy")    ' 15/07/2024  
 
 ' Soustraire des jours (nombre négatif)
-resultat = DateAdd("d", -10, dateBase)
-Debug.Print Format(resultat, "dd/mm/yyyy")    ' 05/01/2024
+resultat = DateAdd("d", -10, dateBase)  
+Debug.Print Format(resultat, "dd/mm/yyyy")    ' 05/01/2024  
 
 ' Ajouter des heures à une date avec heure
-dateBase = #1/15/2024 2:30 PM#
-resultat = DateAdd("h", 5, dateBase)
-Debug.Print Format(resultat, "dd/mm/yyyy hh:nn")  ' 15/01/2024 19:30
+dateBase = #1/15/2024 2:30 PM#  
+resultat = DateAdd("h", 5, dateBase)  
+Debug.Print Format(resultat, "dd/mm/yyyy hh:nn")  ' 15/01/2024 19:30  
 ```
 
 ### DateDiff() - Calculer la différence entre deux dates
@@ -147,28 +147,28 @@ DateDiff(interval, date1, date2, [firstdayofweek], [firstweekofyear])
 #### Exemples d'utilisation
 
 ```vba
-Dim date1 As Date
-Dim date2 As Date
-Dim difference As Long
+Dim date1 As Date  
+Dim date2 As Date  
+Dim difference As Long  
 
-date1 = #1/15/2024#
-date2 = #6/20/2024#
+date1 = #1/15/2024#  
+date2 = #6/20/2024#  
 
 ' Différence en jours
-difference = DateDiff("d", date1, date2)
-Debug.Print difference & " jours"             ' 157 jours
+difference = DateDiff("d", date1, date2)  
+Debug.Print difference & " jours"             ' 157 jours  
 
 ' Différence en mois
-difference = DateDiff("m", date1, date2)
-Debug.Print difference & " mois"              ' 5 mois
+difference = DateDiff("m", date1, date2)  
+Debug.Print difference & " mois"              ' 5 mois  
 
 ' Différence en années
-difference = DateDiff("yyyy", date1, date2)
-Debug.Print difference & " années"            ' 0 années
+difference = DateDiff("yyyy", date1, date2)  
+Debug.Print difference & " années"            ' 0 années  
 
 ' Différence en semaines
-difference = DateDiff("ww", date1, date2)
-Debug.Print difference & " semaines"          ' 22 semaines
+difference = DateDiff("ww", date1, date2)  
+Debug.Print difference & " semaines"          ' 22 semaines  
 ```
 
 ### Calculs d'âge précis
@@ -191,9 +191,9 @@ Function CalculerAge(dateNaissance As Date, Optional dateReference As Date) As I
 End Function
 
 ' Utilisation
-Dim naissance As Date
-naissance = #6/15/1990#
-Debug.Print "Âge : " & CalculerAge(naissance) & " ans"
+Dim naissance As Date  
+naissance = #6/15/1990#  
+Debug.Print "Âge : " & CalculerAge(naissance) & " ans"  
 ```
 
 ## Calculs complexes avec les dates
@@ -214,9 +214,9 @@ Function ProchainJourOuvrable(dateDepart As Date) As Date
 End Function
 
 ' Utilisation
-Dim vendredi As Date
-vendredi = #1/19/2024#  ' Un vendredi
-Debug.Print Format(ProchainJourOuvrable(vendredi), "dddd dd/mm/yyyy")
+Dim vendredi As Date  
+vendredi = #1/19/2024#  ' Un vendredi  
+Debug.Print Format(ProchainJourOuvrable(vendredi), "dddd dd/mm/yyyy")  
 ' Résultat : Lundi 22/01/2024
 ```
 
@@ -242,10 +242,10 @@ Function NombreJoursOuvrables(dateDebut As Date, dateFin As Date) As Integer
 End Function
 
 ' Utilisation
-Dim debut As Date
-Dim fin As Date
-debut = #1/15/2024#  ' Lundi
-fin = #1/21/2024#    ' Dimanche
+Dim debut As Date  
+Dim fin As Date  
+debut = #1/15/2024#  ' Lundi  
+fin = #1/21/2024#    ' Dimanche  
 
 Debug.Print "Jours ouvrables : " & NombreJoursOuvrables(debut, fin)
 ' Résultat : 5 jours ouvrables
@@ -262,9 +262,9 @@ Function FinDuMois(dateReference As Date) As Date
 End Function
 
 ' Utilisation
-Dim uneDate As Date
-uneDate = #1/15/2024#
-Debug.Print Format(FinDuMois(uneDate), "dd/mm/yyyy")
+Dim uneDate As Date  
+uneDate = #1/15/2024#  
+Debug.Print Format(FinDuMois(uneDate), "dd/mm/yyyy")  
 ' Résultat : 31/01/2024
 ```
 
@@ -305,15 +305,15 @@ Function CalculerDuree(heureDebut As Date, heureFin As Date) As Date
 End Function
 
 ' Utilisation
-Dim debut As Date
-Dim fin As Date
-Dim duree As Date
+Dim debut As Date  
+Dim fin As Date  
+Dim duree As Date  
 
-debut = #9:00 AM#
-fin = #5:30 PM#
+debut = #9:00 AM#  
+fin = #5:30 PM#  
 
-duree = CalculerDuree(debut, fin)
-Debug.Print "Durée : " & Format(duree, "h:nn")
+duree = CalculerDuree(debut, fin)  
+Debug.Print "Durée : " & Format(duree, "h:nn")  
 ' Résultat : 8:30
 ```
 
@@ -330,8 +330,8 @@ Function EstBissextile(annee As Integer) As Boolean
 End Function
 
 ' Utilisation
-Debug.Print "2024 est bissextile : " & EstBissextile(2024)  ' True
-Debug.Print "2023 est bissextile : " & EstBissextile(2023)  ' False
+Debug.Print "2024 est bissextile : " & EstBissextile(2024)  ' True  
+Debug.Print "2023 est bissextile : " & EstBissextile(2023)  ' False  
 ```
 
 ### Gestion des fins de mois variables
@@ -367,13 +367,13 @@ Function DebutAnnee(dateReference As Date) As Date
 End Function
 
 ' Utilisation
-Dim uneDate As Date
-uneDate = #1/17/2024#  ' Mercredi
+Dim uneDate As Date  
+uneDate = #1/17/2024#  ' Mercredi  
 
-Debug.Print "Date : " & Format(uneDate, "dddd dd/mm/yyyy")
-Debug.Print "Début semaine : " & Format(DebutSemaine(uneDate), "dddd dd/mm/yyyy")
-Debug.Print "Début mois : " & Format(DebutMois(uneDate), "dddd dd/mm/yyyy")
-Debug.Print "Début année : " & Format(DebutAnnee(uneDate), "dddd dd/mm/yyyy")
+Debug.Print "Date : " & Format(uneDate, "dddd dd/mm/yyyy")  
+Debug.Print "Début semaine : " & Format(DebutSemaine(uneDate), "dddd dd/mm/yyyy")  
+Debug.Print "Début mois : " & Format(DebutMois(uneDate), "dddd dd/mm/yyyy")  
+Debug.Print "Début année : " & Format(DebutAnnee(uneDate), "dddd dd/mm/yyyy")  
 ```
 
 ## Calculs avancés pour applications métier
@@ -451,8 +451,8 @@ End Sub
 
 ```vba
 ' Bon : utiliser des fonctions spécialisées
-Dim resultat As Date
-resultat = DateAdd("h", 2, Now)  ' Ajouter 2 heures
+Dim resultat As Date  
+resultat = DateAdd("h", 2, Now)  ' Ajouter 2 heures  
 
 ' Moins bon : calcul manuel (risque d'erreur)
 resultat = Now + (2 / 24)  ' Peut créer des imprécisions

@@ -31,9 +31,9 @@ La gestion des fuseaux horaires est un aspect complexe mais essentiel dans les a
 
 ```vba
 ' VBA récupère toujours l'heure locale du système
-Dim heureLocale As Date
-heureLocale = Now
-Debug.Print "Heure locale : " & Format(heureLocale, "dd/mm/yyyy hh:nn:ss")
+Dim heureLocale As Date  
+heureLocale = Now  
+Debug.Print "Heure locale : " & Format(heureLocale, "dd/mm/yyyy hh:nn:ss")  
 
 ' Pour obtenir l'heure UTC, il faut faire des calculs
 ```
@@ -101,8 +101,8 @@ End Sub
 
 ```vba
 ' Déclarations d'API Windows
-Private Declare PtrSafe Sub GetSystemTime Lib "kernel32" (lpSystemTime As SYSTEMTIME)
-Private Declare PtrSafe Sub GetLocalTime Lib "kernel32" (lpSystemTime As SYSTEMTIME)
+Private Declare PtrSafe Sub GetSystemTime Lib "kernel32" (lpSystemTime As SYSTEMTIME)  
+Private Declare PtrSafe Sub GetLocalTime Lib "kernel32" (lpSystemTime As SYSTEMTIME)  
 
 ' Structure pour stocker l'heure système
 Private Type SYSTEMTIME
@@ -147,9 +147,9 @@ End Sub
 
 ```vba
 ' Module de classe : FuseauHoraire
-Private pNom As String
-Private pDecalageUTC As Double
-Private pHeureDEte As Boolean
+Private pNom As String  
+Private pDecalageUTC As Double  
+Private pHeureDEte As Boolean  
 
 ' Propriétés de la classe
 Public Property Let Nom(valeur As String)
@@ -407,9 +407,9 @@ End Sub
 
 ```vba
 ' Pour des applications critiques, documenter les hypothèses
-Const FUSEAU_PARIS = 1 ' UTC+1 en hiver, UTC+2 en été
-Const FUSEAU_NEWYORK = -5 ' UTC-5 en hiver, UTC-4 en été
-Const FUSEAU_TOKYO = 9 ' UTC+9 toute l'année
+Const FUSEAU_PARIS = 1 ' UTC+1 en hiver, UTC+2 en été  
+Const FUSEAU_NEWYORK = -5 ' UTC-5 en hiver, UTC-4 en été  
+Const FUSEAU_TOKYO = 9 ' UTC+9 toute l'année  
 
 ' Toujours valider les conversions
 Function ConversionSecurisee(heureSource As Date, fuseauSource As Double, _
@@ -449,10 +449,10 @@ End Function
 ```vba
 ' Créer un module dédié aux fuseaux horaires
 ' Module : GestionFuseaux
-Public Const FUSEAU_PARIS = 1
-Public Const FUSEAU_LONDRES = 0
-Public Const FUSEAU_NEWYORK = -5
-Public Const FUSEAU_TOKYO = 9
+Public Const FUSEAU_PARIS = 1  
+Public Const FUSEAU_LONDRES = 0  
+Public Const FUSEAU_NEWYORK = -5  
+Public Const FUSEAU_TOKYO = 9  
 
 Public Function ConvertirEntre(heure As Date, source As Double, cible As Double) As Date
     ' Logique centralisée

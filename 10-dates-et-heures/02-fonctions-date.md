@@ -23,8 +23,8 @@ Now()
 ### Utilisation de base
 
 ```vba
-Dim maintenant As Date
-maintenant = Now()
+Dim maintenant As Date  
+maintenant = Now()  
 
 Debug.Print maintenant
 ' Affiche par exemple : 15/03/2024 14:32:17
@@ -65,8 +65,8 @@ End Sub
 Range("A1").Value = Now
 
 ' Formatter l'affichage dans la cellule
-Range("A1").Value = Now
-Range("A1").NumberFormat = "dd/mm/yyyy hh:mm:ss"
+Range("A1").Value = Now  
+Range("A1").NumberFormat = "dd/mm/yyyy hh:mm:ss"  
 ```
 
 ## La fonction Date()
@@ -84,8 +84,8 @@ Date()
 ### Utilisation de base
 
 ```vba
-Dim aujourdhui As Date
-aujourdhui = Date()
+Dim aujourdhui As Date  
+aujourdhui = Date()  
 
 Debug.Print aujourdhui
 ' Affiche par exemple : 15/03/2024 (sans l'heure)
@@ -106,7 +106,7 @@ Sub CalculerAge()
     Dim naissance As Date
     Dim agejours As Long
 
-    naissance = #15/06/1990#
+    naissance = #6/15/1990#
     agejours = Date - naissance
 
     Debug.Print "Age en jours : " & agejours
@@ -126,8 +126,8 @@ End Sub
 
 ```vba
 ' Comparaison des deux fonctions
-Debug.Print "Now() : " & Now
-Debug.Print "Date() : " & Date
+Debug.Print "Now() : " & Now  
+Debug.Print "Date() : " & Date  
 
 ' Résultat possible :
 ' Now() : 15/03/2024 14:32:17
@@ -149,8 +149,8 @@ Time()
 ### Utilisation de base
 
 ```vba
-Dim maintenant As Date
-maintenant = Time()
+Dim maintenant As Date  
+maintenant = Time()  
 
 Debug.Print maintenant
 ' Affiche par exemple : 14:32:17
@@ -261,14 +261,14 @@ End Sub
 
 ```vba
 ' Utiliser Format() pour un contrôle précis de l'affichage
-Dim maintenant As Date
-maintenant = Now
+Dim maintenant As Date  
+maintenant = Now  
 
 ' Différents formats selon le besoin
-Debug.Print Format(maintenant, "dd/mm/yyyy")         ' 15/03/2024
-Debug.Print Format(maintenant, "dddd dd mmmm")       ' Vendredi 15 mars
-Debug.Print Format(maintenant, "hh:nn")              ' 14:32
-Debug.Print Format(maintenant, "yyyy-mm-dd hh:nn:ss") ' 2024-03-15 14:32:17
+Debug.Print Format(maintenant, "dd/mm/yyyy")         ' 15/03/2024  
+Debug.Print Format(maintenant, "dddd dd mmmm")       ' Vendredi 15 mars  
+Debug.Print Format(maintenant, "hh:nn")              ' 14:32  
+Debug.Print Format(maintenant, "yyyy-mm-dd hh:nn:ss") ' 2024-03-15 14:32:17  
 ```
 
 ## Cas d'usage courants

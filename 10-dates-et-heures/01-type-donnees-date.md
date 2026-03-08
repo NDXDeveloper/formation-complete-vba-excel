@@ -19,9 +19,9 @@ VBA stocke les dates sous forme de **nombres décimaux** (type Double en interne
 
 ```vba
 ' Ces deux lignes sont équivalentes :
-Dim maDate As Date
-maDate = #1/1/2024#          ' Notation littérale de date
-maDate = 45292               ' Équivalent numérique
+Dim maDate As Date  
+maDate = #1/1/2024#          ' Notation littérale de date  
+maDate = 45292               ' Équivalent numérique  
 ```
 
 **Comprenons avec des exemples :**
@@ -52,16 +52,16 @@ Dim nomVariable As Date
 
 ```vba
 ' Déclaration simple
-Dim dateNaissance As Date
-Dim heureDebut As Date
-Dim echeance As Date
+Dim dateNaissance As Date  
+Dim heureDebut As Date  
+Dim echeance As Date  
 
 ' Déclaration avec initialisation
-Dim aujourd'hui As Date
-aujourd'hui = Date    ' Date actuelle (sans l'heure)
+Dim aujourdHui As Date  
+aujourdHui = Date    ' Date actuelle (sans l'heure)  
 
-Dim maintenant As Date
-maintenant = Now      ' Date et heure actuelles
+Dim maintenant As Date  
+maintenant = Now      ' Date et heure actuelles  
 ```
 
 ## Affectation de valeurs aux variables Date
@@ -74,8 +74,8 @@ VBA utilise une syntaxe spéciale avec des **dièses (#)** pour définir des val
 Dim maDate As Date
 
 ' Format américain (obligatoire dans le code VBA)
-maDate = #12/25/2024#        ' 25 décembre 2024
-maDate = #1/15/2024 3:30 PM# ' 15 janvier 2024 à 15h30
+maDate = #12/25/2024#        ' 25 décembre 2024  
+maDate = #1/15/2024 3:30 PM# ' 15 janvier 2024 à 15h30  
 
 ' Attention : toujours utiliser le format MM/DD/YYYY dans le code !
 ```
@@ -88,15 +88,15 @@ maDate = #1/15/2024 3:30 PM# ' 15 janvier 2024 à 15h30
 Dim maDate As Date
 
 ' Fonctions de base
-maDate = Date        ' Date actuelle (sans heure)
-maDate = Time        ' Heure actuelle (sans date)
-maDate = Now         ' Date et heure actuelles
+maDate = Date        ' Date actuelle (sans heure)  
+maDate = Time        ' Heure actuelle (sans date)  
+maDate = Now         ' Date et heure actuelles  
 
 ' Fonctions de construction
-maDate = DateSerial(2024, 12, 25)        ' 25 décembre 2024
-maDate = TimeSerial(14, 30, 0)           ' 14h30m00s
-maDate = DateValue("25/12/2024")         ' Conversion depuis texte
-maDate = TimeValue("14:30:00")           ' Conversion depuis texte
+maDate = DateSerial(2024, 12, 25)        ' 25 décembre 2024  
+maDate = TimeSerial(14, 30, 0)           ' 14h30m00s  
+maDate = DateValue("25/12/2024")         ' Conversion depuis texte  
+maDate = TimeValue("14:30:00")           ' Conversion depuis texte  
 ```
 
 ### 3. Affectation depuis des cellules Excel
@@ -105,8 +105,8 @@ maDate = TimeValue("14:30:00")           ' Conversion depuis texte
 Dim maDate As Date
 
 ' Récupération depuis une cellule
-maDate = Range("A1").Value
-maDate = Cells(1, 1).Value
+maDate = Range("A1").Value  
+maDate = Cells(1, 1).Value  
 
 ' Avec vérification du type
 If IsDate(Range("A1").Value) Then
@@ -123,11 +123,11 @@ Le type Date en VBA peut représenter des dates dans une plage très large :
 - **Précision temporelle** : jusqu'à la seconde
 
 ```vba
-Dim dateAncienne As Date
-Dim dateFuture As Date
+Dim dateAncienne As Date  
+Dim dateFuture As Date  
 
-dateAncienne = #1/1/100#      ' 1er janvier de l'an 100
-dateFuture = #12/31/9999#     ' 31 décembre 9999
+dateAncienne = #1/1/100#      ' 1er janvier de l'an 100  
+dateFuture = #12/31/9999#     ' 31 décembre 9999  
 ```
 
 ## Affichage et formatage des dates
@@ -137,11 +137,11 @@ dateFuture = #12/31/9999#     ' 31 décembre 9999
 Lorsque vous affichez une variable Date, VBA utilise le format régional de votre système :
 
 ```vba
-Dim maDate As Date
-maDate = #12/25/2024 2:30 PM#
+Dim maDate As Date  
+maDate = #12/25/2024 2:30 PM#  
 
-Debug.Print maDate           ' Affiche selon format système
-MsgBox maDate                ' Affiche selon format système
+Debug.Print maDate           ' Affiche selon format système  
+MsgBox maDate                ' Affiche selon format système  
 ```
 
 ### Formatage personnalisé
@@ -149,13 +149,13 @@ MsgBox maDate                ' Affiche selon format système
 Vous pouvez contrôler l'affichage avec la fonction `Format` :
 
 ```vba
-Dim maDate As Date
-maDate = #12/25/2024 2:30 PM#
+Dim maDate As Date  
+maDate = #12/25/2024 2:30 PM#  
 
-Debug.Print Format(maDate, "dd/mm/yyyy")           ' 25/12/2024
-Debug.Print Format(maDate, "dddd dd mmmm yyyy")    ' Lundi 25 décembre 2024
-Debug.Print Format(maDate, "hh:nn:ss")             ' 14:30:00
-Debug.Print Format(maDate, "dd/mm/yyyy hh:nn")     ' 25/12/2024 14:30
+Debug.Print Format(maDate, "dd/mm/yyyy")           ' 25/12/2024  
+Debug.Print Format(maDate, "dddd dd mmmm yyyy")    ' mercredi 25 décembre 2024  
+Debug.Print Format(maDate, "hh:nn:ss")             ' 14:30:00  
+Debug.Print Format(maDate, "dd/mm/yyyy hh:nn")     ' 25/12/2024 14:30  
 ```
 
 ## Valeurs spéciales
@@ -165,8 +165,8 @@ Debug.Print Format(maDate, "dd/mm/yyyy hh:nn")     ' 25/12/2024 14:30
 Une variable Date non initialisée a la valeur `0`, qui correspond au **30 décembre 1899** :
 
 ```vba
-Dim maDate As Date
-Debug.Print maDate    ' Affiche 30/12/1899 00:00:00
+Dim maDate As Date  
+Debug.Print maDate    ' Affiche 30/12/1899 00:00:00  
 
 ' Test si une date est vide
 If maDate = 0 Then
@@ -178,12 +178,12 @@ End If
 
 ```vba
 ' Date sans heure (heure = 00:00:00)
-Dim dateSeule As Date
-dateSeule = #12/25/2024#
+Dim dateSeule As Date  
+dateSeule = #12/25/2024#  
 
 ' Heure sans date (date = 30/12/1899)
-Dim heureSeule As Date
-heureSeule = #2:30 PM#
+Dim heureSeule As Date  
+heureSeule = #2:30 PM#  
 ```
 
 ## Points importants à retenir

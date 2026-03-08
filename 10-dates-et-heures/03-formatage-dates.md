@@ -30,12 +30,12 @@ Format(expression, format)
 ### Utilisation simple
 
 ```vba
-Dim maDate As Date
-maDate = #12/25/2024 2:30 PM#
+Dim maDate As Date  
+maDate = #12/25/2024 2:30 PM#  
 
 ' Formatage de base
-Debug.Print Format(maDate)              ' Utilise le format système par défaut
-Debug.Print Format(maDate, "dd/mm/yyyy") ' 25/12/2024
+Debug.Print Format(maDate)              ' Utilise le format système par défaut  
+Debug.Print Format(maDate, "dd/mm/yyyy") ' 25/12/2024  
 ```
 
 ## Formats prédéfinis
@@ -45,21 +45,21 @@ VBA propose plusieurs formats prédéfinis que vous pouvez utiliser directement 
 ### Formats de date complets
 
 ```vba
-Dim maDate As Date
-maDate = #12/25/2024 2:30 PM#
+Dim maDate As Date  
+maDate = #12/25/2024 2:30 PM#  
 
-Debug.Print Format(maDate, "General Date")    ' 25/12/2024 14:30:00 (selon système)
-Debug.Print Format(maDate, "Long Date")       ' Lundi 25 décembre 2024
-Debug.Print Format(maDate, "Medium Date")     ' 25-déc-24
-Debug.Print Format(maDate, "Short Date")      % 25/12/2024
+Debug.Print Format(maDate, "General Date")    ' 25/12/2024 14:30:00 (selon système)  
+Debug.Print Format(maDate, "Long Date")       ' mercredi 25 décembre 2024  
+Debug.Print Format(maDate, "Medium Date")     ' 25-déc-24  
+Debug.Print Format(maDate, "Short Date")      ' 25/12/2024  
 ```
 
 ### Formats d'heure prédéfinis
 
 ```vba
-Debug.Print Format(maDate, "Long Time")       ' 14:30:00
-Debug.Print Format(maDate, "Medium Time")     ' 02:30 PM
-Debug.Print Format(maDate, "Short Time")      ' 14:30
+Debug.Print Format(maDate, "Long Time")       ' 14:30:00  
+Debug.Print Format(maDate, "Medium Time")     ' 02:30 PM  
+Debug.Print Format(maDate, "Short Time")      ' 14:30  
 ```
 
 ### Exemple complet avec formats prédéfinis
@@ -92,13 +92,13 @@ End Sub
 | `dddd` | Jour de la semaine complet | Lundi, Mardi |
 
 ```vba
-Dim maDate As Date
-maDate = #3/5/2024#  ' 5 mars 2024 (mardi)
+Dim maDate As Date  
+maDate = #3/5/2024#  ' 5 mars 2024 (mardi)  
 
-Debug.Print Format(maDate, "d")      ' 5
-Debug.Print Format(maDate, "dd")     ' 05
-Debug.Print Format(maDate, "ddd")    ' Mar
-Debug.Print Format(maDate, "dddd")   ' Mardi
+Debug.Print Format(maDate, "d")      ' 5  
+Debug.Print Format(maDate, "dd")     ' 05  
+Debug.Print Format(maDate, "ddd")    ' Mar  
+Debug.Print Format(maDate, "dddd")   ' Mardi  
 ```
 
 ### Codes pour les mois
@@ -111,13 +111,13 @@ Debug.Print Format(maDate, "dddd")   ' Mardi
 | `mmmm` | Mois complet | Mars, Décembre |
 
 ```vba
-Dim maDate As Date
-maDate = #3/5/2024#  ' 5 mars 2024
+Dim maDate As Date  
+maDate = #3/5/2024#  ' 5 mars 2024  
 
-Debug.Print Format(maDate, "m")      ' 3
-Debug.Print Format(maDate, "mm")     ' 03
-Debug.Print Format(maDate, "mmm")    ' Mar
-Debug.Print Format(maDate, "mmmm")   ' Mars
+Debug.Print Format(maDate, "m")      ' 3  
+Debug.Print Format(maDate, "mm")     ' 03  
+Debug.Print Format(maDate, "mmm")    ' Mar  
+Debug.Print Format(maDate, "mmmm")   ' Mars  
 ```
 
 ### Codes pour les années
@@ -128,34 +128,40 @@ Debug.Print Format(maDate, "mmmm")   ' Mars
 | `yyyy` | Année sur 4 chiffres | 2024 |
 
 ```vba
-Dim maDate As Date
-maDate = #3/5/2024#
+Dim maDate As Date  
+maDate = #3/5/2024#  
 
-Debug.Print Format(maDate, "yy")     ' 24
-Debug.Print Format(maDate, "yyyy")   ' 2024
+Debug.Print Format(maDate, "yy")     ' 24  
+Debug.Print Format(maDate, "yyyy")   ' 2024  
 ```
 
 ### Codes pour les heures
 
 | Code | Description | Exemple |
 |------|-------------|---------|
-| `h` | Heure sans zéro initial (12h) | 2, 11 |
-| `hh` | Heure avec zéro initial (12h) | 02, 11 |
-| `H` | Heure sans zéro initial (24h) | 2, 14 |
-| `HH` | Heure avec zéro initial (24h) | 02, 14 |
+| `h` | Heure sans zéro initial | 2, 14 |
+| `hh` | Heure avec zéro initial | 02, 14 |
+
+**Note :** `h` et `hh` affichent en format 24h par défaut. Combinés avec `AM/PM`, ils passent en format 12h.
+
+| Code | Description | Exemple |
+|------|-------------|---------|
 | `n` | Minutes sans zéro initial | 5, 30 |
 | `nn` | Minutes avec zéro initial | 05, 30 |
 | `s` | Secondes sans zéro initial | 7, 45 |
 | `ss` | Secondes avec zéro initial | 07, 45 |
 
 ```vba
-Dim maDate As Date
-maDate = #3/5/2024 2:05:07 PM#  ' 5 mars 2024, 14:05:07
+Dim maDate As Date  
+maDate = #3/5/2024 2:05:07 PM#  ' 5 mars 2024, 14:05:07  
 
-Debug.Print Format(maDate, "h:nn:ss")     ' 2:05:07
-Debug.Print Format(maDate, "hh:nn:ss")    ' 02:05:07
-Debug.Print Format(maDate, "H:nn:ss")     ' 14:05:07
-Debug.Print Format(maDate, "HH:nn:ss")    ' 14:05:07
+' Par défaut, h/hh affiche en format 24h
+Debug.Print Format(maDate, "h:nn:ss")     ' 14:05:07  
+Debug.Print Format(maDate, "hh:nn:ss")    ' 14:05:07  
+
+' Combiné avec AM/PM, h/hh passe en format 12h
+Debug.Print Format(maDate, "h:nn:ss AM/PM")  ' 2:05:07 PM  
+Debug.Print Format(maDate, "hh:nn:ss AM/PM") ' 02:05:07 PM  
 ```
 
 ### Indicateurs AM/PM
@@ -168,12 +174,12 @@ Debug.Print Format(maDate, "HH:nn:ss")    ' 14:05:07
 | `a/p` | Affiche a ou p |
 
 ```vba
-Dim maDate As Date
-maDate = #3/5/2024 2:30 PM#
+Dim maDate As Date  
+maDate = #3/5/2024 2:30 PM#  
 
-Debug.Print Format(maDate, "h:nn AM/PM")   ' 2:30 PM
-Debug.Print Format(maDate, "h:nn am/pm")   ' 2:30 pm
-Debug.Print Format(maDate, "h:nn A/P")     ' 2:30 P
+Debug.Print Format(maDate, "h:nn AM/PM")   ' 2:30 PM  
+Debug.Print Format(maDate, "h:nn am/pm")   ' 2:30 pm  
+Debug.Print Format(maDate, "h:nn A/P")     ' 2:30 P  
 ```
 
 ## Combinaisons de formats populaires
@@ -181,8 +187,8 @@ Debug.Print Format(maDate, "h:nn A/P")     ' 2:30 P
 ### Formats de date couramment utilisés
 
 ```vba
-Dim maDate As Date
-maDate = #12/25/2024 2:30 PM#
+Dim maDate As Date  
+maDate = #12/25/2024 2:30 PM#  
 
 ' Format français standard
 Debug.Print Format(maDate, "dd/mm/yyyy")              ' 25/12/2024
@@ -262,8 +268,8 @@ Range("A1").Value = Format(Now, "dd/mm/yyyy")
 ' Résultat : texte "25/12/2024" (ne peut plus être utilisé dans des calculs)
 
 ' Méthode 2 : Conserver la date et formater l'affichage
-Range("A2").Value = Now
-Range("A2").NumberFormat = "dd/mm/yyyy"
+Range("A2").Value = Now  
+Range("A2").NumberFormat = "dd/mm/yyyy"  
 ' Résultat : date formatée (peut encore être utilisée dans des calculs)
 ```
 
@@ -273,12 +279,12 @@ Range("A2").NumberFormat = "dd/mm/yyyy"
 
 ```vba
 ' Attention aux différences régionales
-Dim maDate As Date
-maDate = Now
+Dim maDate As Date  
+maDate = Now  
 
 ' Le résultat peut varier selon les paramètres système
-Debug.Print Format(maDate, "dddd")     ' Peut afficher en français ou anglais
-Debug.Print Format(maDate, "mmmm")     ' Peut afficher en français ou anglais
+Debug.Print Format(maDate, "dddd")     ' Peut afficher en français ou anglais  
+Debug.Print Format(maDate, "mmmm")     ' Peut afficher en français ou anglais  
 ```
 
 ### Solutions pour un affichage cohérent
@@ -373,9 +379,9 @@ Debug.Print Format(Now, "dd/mm/yyyy hh:nn:ss") ' 15/03/2024 14:30:25
 
 ```vba
 ' Définir des constantes pour les formats courants
-Const FORMAT_DATE_STANDARD = "dd/mm/yyyy"
-Const FORMAT_DATETIME_LOG = "dd/mm/yyyy hh:nn:ss"
-Const FORMAT_FILENAME = "yyyy-mm-dd_hh-nn-ss"
+Const FORMAT_DATE_STANDARD = "dd/mm/yyyy"  
+Const FORMAT_DATETIME_LOG = "dd/mm/yyyy hh:nn:ss"  
+Const FORMAT_FILENAME = "yyyy-mm-dd_hh-nn-ss"  
 
 ' Utiliser ces constantes partout
 Range("A1").Value = Format(Now, FORMAT_DATE_STANDARD)
