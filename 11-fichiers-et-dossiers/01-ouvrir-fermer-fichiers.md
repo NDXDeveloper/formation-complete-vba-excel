@@ -125,12 +125,12 @@ La fonction `FreeFile` retourne automatiquement le prochain numéro de fichier d
 Sub ExempleFreeFile()
     Dim Fichier1 As Integer, Fichier2 As Integer
 
-    ' Obtenir des numéros libres
-    Fichier1 = FreeFile  ' Pourrait être 1
-    Fichier2 = FreeFile  ' Pourrait être 2
-
-    ' Ouvrir plusieurs fichiers
+    ' Obtenir un numéro libre et ouvrir AVANT d'appeler FreeFile à nouveau
+    Fichier1 = FreeFile
     Open "C:\Temp\Fichier1.txt" For Input As #Fichier1
+
+    ' Maintenant FreeFile retournera un numéro différent
+    Fichier2 = FreeFile
     Open "C:\Temp\Fichier2.txt" For Input As #Fichier2
 
     ' Fermer les fichiers
@@ -214,8 +214,8 @@ End Sub
 ### 1. Toujours utiliser FreeFile
 ```vba
 ' Recommandé
-NumFichier = FreeFile
-Open CheminFichier For Input As #NumFichier
+NumFichier = FreeFile  
+Open CheminFichier For Input As #NumFichier  
 
 ' À éviter
 Open CheminFichier For Input As #1
@@ -225,30 +225,30 @@ Open CheminFichier For Input As #1
 ```vba
 On Error GoTo GestionErreur
 ' Code d'ouverture et traitement
-Close #NumFichier
-Exit Sub
+Close #NumFichier  
+Exit Sub  
 
-GestionErreur:
-Close #NumFichier  ' S'assurer de la fermeture
+GestionErreur:  
+Close #NumFichier  ' S'assurer de la fermeture  
 ```
 
 ### 3. Fermer dans l'ordre inverse d'ouverture
 ```vba
 ' Si plusieurs fichiers sont ouverts
-Open Fichier1 For Input As #Num1
-Open Fichier2 For Input As #Num2
+Open Fichier1 For Input As #Num1  
+Open Fichier2 For Input As #Num2  
 
 ' Les fermer dans l'ordre inverse
-Close #Num2
-Close #Num1
+Close #Num2  
+Close #Num1  
 ```
 
 ### 4. Utiliser des variables pour les chemins
 ```vba
 ' Plus lisible et maintenable
-Dim CheminFichier As String
-CheminFichier = "C:\Temp\MonFichier.txt"
-Open CheminFichier For Input As #NumFichier
+Dim CheminFichier As String  
+CheminFichier = "C:\Temp\MonFichier.txt"  
+Open CheminFichier For Input As #NumFichier  
 ```
 
 ## Points d'attention

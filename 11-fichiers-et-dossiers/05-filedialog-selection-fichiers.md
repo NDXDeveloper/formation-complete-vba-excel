@@ -309,13 +309,10 @@ Sub SauvegarderSous()
 
     With DialogueSauvegarde
         .Title = "Enregistrer sous..."
-        .InitialFileName = "C:\Mes Documents\MonRapport"
+        .InitialFileName = "C:\Mes Documents\MonRapport.xlsx"
 
-        ' Filtres pour la sauvegarde
-        .Filters.Clear
-        .Filters.Add "Classeur Excel", "*.xlsx"
-        .Filters.Add "Classeur Excel 97-2003", "*.xls"
-        .Filters.Add "Fichier CSV", "*.csv"
+        ' Note : msoFileDialogSaveAs ne supporte PAS les filtres (.Filters)
+        ' Le dialogue utilise les filtres natifs d'Excel
 
         If .Show = -1 Then
             CheminSauvegarde = .SelectedItems(1)
@@ -351,10 +348,8 @@ Sub ExporterDonnees()
         .Title = "Exporter les données vers..."
         .InitialFileName = "C:\Exports\Donnees_" & Format(Date, "yyyy-mm-dd")
 
-        .Filters.Clear
-        .Filters.Add "Fichier CSV", "*.csv"
-        .Filters.Add "Fichier texte", "*.txt"
-        .Filters.Add "Classeur Excel", "*.xlsx"
+        ' Note : msoFileDialogSaveAs ne supporte PAS .Filters
+        ' L'utilisateur choisit le format via les filtres natifs d'Excel
 
         If .Show = -1 Then
             CheminExport = .SelectedItems(1)

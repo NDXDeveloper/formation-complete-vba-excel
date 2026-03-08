@@ -415,7 +415,7 @@ End Sub
 ### Vérifier qu'un dossier est vide avant suppression
 
 ```vba
-Function DossierEstVide(CheminDossier As String) As Boolean
+Function DossierEstVide(ByVal CheminDossier As String) As Boolean
     Dim Element As String
 
     ' Ajouter \ à la fin si nécessaire
@@ -543,31 +543,40 @@ Sub OrganiserFichiersParDate()
     DossierSource = "C:\Temp\Desorganise\"
     Set fso = CreateObject("Scripting.FileSystemObject")
 
+    ' Étape 1 : Collecter les noms de fichiers
+    ' (Ne pas déplacer/supprimer pendant l'itération Dir !)
+    Dim fichiers() As String
+    Dim nbFichiers As Long
+    nbFichiers = 0
+
     NomFichier = Dir(DossierSource & "*.*")
-
     Do While NomFichier <> ""
-        ' Vérifier que c'est un fichier
         If (GetAttr(DossierSource & NomFichier) And vbDirectory) = 0 Then
-            DateFichier = FileDateTime(DossierSource & NomFichier)
-            DossierDestination = DossierSource & Format(DateFichier, "yyyy-mm") & "\"
-
-            ' Créer le dossier du mois s'il n'existe pas
-            If Dir(DossierDestination, vbDirectory) = "" Then
-                MkDir DossierDestination
-                Debug.Print "Dossier créé : " & DossierDestination
-            End If
-
-            ' Déplacer le fichier
-            On Error Resume Next
-            fso.MoveFile DossierSource & NomFichier, DossierDestination & NomFichier
-            If Err.Number = 0 Then
-                Debug.Print "Déplacé : " & NomFichier
-            End If
-            On Error GoTo 0
+            nbFichiers = nbFichiers + 1
+            ReDim Preserve fichiers(1 To nbFichiers)
+            fichiers(nbFichiers) = NomFichier
         End If
-
         NomFichier = Dir
     Loop
+
+    ' Étape 2 : Déplacer les fichiers collectés
+    Dim j As Long
+    For j = 1 To nbFichiers
+        DateFichier = FileDateTime(DossierSource & fichiers(j))
+        DossierDestination = DossierSource & Format(DateFichier, "yyyy-mm") & "\"
+
+        If Dir(DossierDestination, vbDirectory) = "" Then
+            MkDir DossierDestination
+            Debug.Print "Dossier créé : " & DossierDestination
+        End If
+
+        On Error Resume Next
+        fso.MoveFile DossierSource & fichiers(j), DossierDestination & fichiers(j)
+        If Err.Number = 0 Then
+            Debug.Print "Déplacé : " & fichiers(j)
+        End If
+        On Error GoTo 0
+    Next j
 
     Set fso = Nothing
     MsgBox "Organisation par date terminée"
@@ -583,8 +592,8 @@ On Error GoTo GestionErreur
 ' Opérations système
 Exit Sub
 
-GestionErreur:
-Select Case Err.Number
+GestionErreur:  
+Select Case Err.Number  
     Case 53  ' File not found
         MsgBox "Fichier introuvable"
     Case 75  ' Path/file access error
@@ -613,11 +622,11 @@ End If
 ### 3. Utiliser des variables pour les chemins
 
 ```vba
-Dim DossierTravail As String
-Dim ExtensionRecherche As String
+Dim DossierTravail As String  
+Dim ExtensionRecherche As String  
 
-DossierTravail = "C:\MonApplication\"
-ExtensionRecherche = "*.dat"
+DossierTravail = "C:\MonApplication\"  
+ExtensionRecherche = "*.dat"  
 
 NomFichier = Dir(DossierTravail & ExtensionRecherche)
 ```

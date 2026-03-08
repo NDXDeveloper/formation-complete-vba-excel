@@ -55,7 +55,7 @@ End Sub
 ### Fonction personnalisée pour vérifier un dossier
 
 ```vba
-Function DossierExiste(CheminDossier As String) As Boolean
+Function DossierExiste(ByVal CheminDossier As String) As Boolean
     ' Ajouter un backslash à la fin si nécessaire
     If Right(CheminDossier, 1) <> "\" Then
         CheminDossier = CheminDossier & "\"
@@ -479,32 +479,39 @@ Sub OrganiserFichiersParExtension()
         Exit Sub
     End If
 
-    ' Parcourir tous les fichiers
+    ' Étape 1 : Collecter tous les noms de fichiers
+    ' (Ne pas modifier les fichiers pendant l'itération Dir !)
+    Dim fichiers() As String
+    Dim nbFichiers As Long
+    nbFichiers = 0
+
     NomFichier = Dir(DossierSource & "*.*")
-
     Do While NomFichier <> ""
-        ' Vérifier que c'est un fichier
         If (GetAttr(DossierSource & NomFichier) And vbDirectory) = 0 Then
-            ' Extraire l'extension
-            Extension = UCase(fso.GetExtensionName(NomFichier))
-
-            If Extension <> "" Then
-                ' Créer le dossier pour cette extension
-                DossierExtension = DossierSource & Extension & "\"
-
-                If Not fso.FolderExists(DossierExtension) Then
-                    MkDir DossierExtension
-                    Debug.Print "Dossier créé : " & DossierExtension
-                End If
-
-                ' Déplacer le fichier
-                fso.MoveFile DossierSource & NomFichier, DossierExtension & NomFichier
-                Debug.Print "Déplacé : " & NomFichier & " vers " & Extension
-            End If
+            nbFichiers = nbFichiers + 1
+            ReDim Preserve fichiers(1 To nbFichiers)
+            fichiers(nbFichiers) = NomFichier
         End If
-
         NomFichier = Dir
     Loop
+
+    ' Étape 2 : Déplacer les fichiers collectés
+    Dim i As Long
+    For i = 1 To nbFichiers
+        Extension = UCase(fso.GetExtensionName(fichiers(i)))
+
+        If Extension <> "" Then
+            DossierExtension = DossierSource & Extension & "\"
+
+            If Not fso.FolderExists(DossierExtension) Then
+                MkDir DossierExtension
+                Debug.Print "Dossier créé : " & DossierExtension
+            End If
+
+            fso.MoveFile DossierSource & fichiers(i), DossierExtension & fichiers(i)
+            Debug.Print "Déplacé : " & fichiers(i) & " vers " & Extension
+        End If
+    Next i
 
     MsgBox "Organisation terminée !"
     Set fso = Nothing
@@ -589,14 +596,14 @@ On Error GoTo GestionErreur
 ' Opérations sur dossiers
 Exit Sub
 
-GestionErreur:
-MsgBox "Erreur : " & Err.Description
+GestionErreur:  
+MsgBox "Erreur : " & Err.Description  
 ```
 
 ### 3. Utiliser des variables pour les chemins
 ```vba
-Dim DossierTravail As String
-DossierTravail = "C:\MonApplication\Données\"
+Dim DossierTravail As String  
+DossierTravail = "C:\MonApplication\Données\"  
 
 ' Utiliser la variable partout
 If DossierExiste(DossierTravail) Then...
@@ -604,23 +611,23 @@ If DossierExiste(DossierTravail) Then...
 
 ### 4. Nettoyer les objets
 ```vba
-Set fso = Nothing
-Set dossier = Nothing
+Set fso = Nothing  
+Set dossier = Nothing  
 ```
 
 ## Erreurs courantes et solutions
 
 ### "Path not found"
-**Cause :** Le chemin parent n'existe pas
-**Solution :** Créer d'abord les dossiers parents
+**Cause :** Le chemin parent n'existe pas  
+**Solution :** Créer d'abord les dossiers parents  
 
 ### "Permission denied"
-**Cause :** Droits insuffisants ou dossier en cours d'utilisation
-**Solution :** Vérifier les droits et fermer les applications
+**Cause :** Droits insuffisants ou dossier en cours d'utilisation  
+**Solution :** Vérifier les droits et fermer les applications  
 
 ### "Directory not empty"
-**Cause :** Tentative de suppression d'un dossier contenant des fichiers avec RmDir
-**Solution :** Utiliser FileSystemObject.DeleteFolder ou vider d'abord le dossier
+**Cause :** Tentative de suppression d'un dossier contenant des fichiers avec RmDir  
+**Solution :** Utiliser FileSystemObject.DeleteFolder ou vider d'abord le dossier  
 
 ---
 

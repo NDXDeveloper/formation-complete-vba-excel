@@ -13,8 +13,8 @@ Maintenant que nous savons ouvrir et fermer des fichiers, nous allons apprendre 
 VBA propose plusieurs fonctions pour lire le contenu d'un fichier :
 
 - **Line Input #** : Lit une ligne complète
-- **Input #** : Lit un nombre spécifique de caractères
-- **Input()** : Lit tout le contenu du fichier d'un coup
+- **Input #** : Lit des champs de données séparés par des virgules
+- **Input()** : Lit un nombre spécifique de caractères (ou tout le fichier)
 
 ### Lire ligne par ligne avec Line Input
 
@@ -93,12 +93,12 @@ End Sub
 
 ### La fonction LOF (Length of File)
 
-`LOF()` retourne la taille du fichier en caractères :
+`LOF()` retourne la taille du fichier en octets :
 
 ```vba
-Dim TailleFichier As Long
-TailleFichier = LOF(NumFichier)
-Debug.Print "Le fichier fait " & TailleFichier & " caractères"
+Dim TailleFichier As Long  
+TailleFichier = LOF(NumFichier)  
+Debug.Print "Le fichier fait " & TailleFichier & " octets"  
 ```
 
 ## Écriture de fichiers texte
@@ -135,9 +135,9 @@ Sub EcrireFichierTexte()
 End Sub
 ```
 
-### Écrire sans retour à la ligne
+### Assembler des éléments sur une même ligne
 
-Pour écrire sur la même ligne, utiliser une virgule :
+Le point-virgule (`;`) dans `Print #` place les éléments les uns à la suite des autres :
 
 ```vba
 Sub EcrireSurMemeLigne()
@@ -146,8 +146,9 @@ Sub EcrireSurMemeLigne()
     NumFichier = FreeFile
     Open "C:\Temp\SurUneLigne.txt" For Output As #NumFichier
 
-    ' Ces éléments seront sur la même ligne
+    ' Le point-virgule assemble les éléments sur la même ligne
     Print #NumFichier, "Nom: "; "Jean"; " - Age: "; 25
+    ' Résultat dans le fichier : "Nom: Jean - Age:  25"
 
     Close #NumFichier
 End Sub
@@ -385,35 +386,35 @@ ContenuComplet = Input(LOF(NumFichier), NumFichier)
 
 ### 3. Utiliser des chemins avec variables
 ```vba
-Dim DossierTravail As String
-DossierTravail = "C:\MonProjet\Données\"
-CheminFichier = DossierTravail & "Fichier_" & Format(Date, "yyyy-mm-dd") & ".txt"
+Dim DossierTravail As String  
+DossierTravail = "C:\MonProjet\Données\"  
+CheminFichier = DossierTravail & "Fichier_" & Format(Date, "yyyy-mm-dd") & ".txt"  
 ```
 
 ### 4. Ajouter des informations de contexte
 ```vba
-Print #NumFichier, "Fichier créé le : " & Now
-Print #NumFichier, "Par l'utilisateur : " & Environ("USERNAME")
-Print #NumFichier, "Machine : " & Environ("COMPUTERNAME")
+Print #NumFichier, "Fichier créé le : " & Now  
+Print #NumFichier, "Par l'utilisateur : " & Environ("USERNAME")  
+Print #NumFichier, "Machine : " & Environ("COMPUTERNAME")  
 ```
 
 ## Erreurs fréquentes et solutions
 
 ### "Permission denied"
-**Cause :** Le fichier est ouvert dans un autre programme
-**Solution :** Fermer l'autre programme ou utiliser un autre nom
+**Cause :** Le fichier est ouvert dans un autre programme  
+**Solution :** Fermer l'autre programme ou utiliser un autre nom  
 
 ### "File not found"
-**Cause :** Le chemin est incorrect ou le fichier n'existe pas
-**Solution :** Vérifier avec `Dir()` avant d'ouvrir
+**Cause :** Le chemin est incorrect ou le fichier n'existe pas  
+**Solution :** Vérifier avec `Dir()` avant d'ouvrir  
 
 ### "Bad file name or number"
-**Cause :** Tentative d'utilisation d'un fichier non ouvert
-**Solution :** S'assurer que `Open` a été appelé avec succès
+**Cause :** Tentative d'utilisation d'un fichier non ouvert  
+**Solution :** S'assurer que `Open` a été appelé avec succès  
 
 ### Caractères bizarres (accents)
-**Cause :** Problème d'encodage
-**Solution :** Utiliser FileSystemObject ou vérifier l'encodage du fichier source
+**Cause :** Problème d'encodage  
+**Solution :** Utiliser FileSystemObject ou vérifier l'encodage du fichier source  
 
 ---
 
