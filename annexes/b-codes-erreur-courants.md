@@ -19,8 +19,8 @@ Lorsque vous programmez en VBA, il est normal de rencontrer des erreurs. Chaque 
 ## 1. Erreurs de syntaxe et compilation
 
 ### Erreur 1004 - Erreur définie par l'application ou par l'objet
-**Description :** Cette erreur générale indique qu'Excel ne peut pas effectuer l'action demandée
-**Causes courantes :**
+**Description :** Cette erreur générale indique qu'Excel ne peut pas effectuer l'action demandée  
+**Causes courantes :**  
 - Tentative d'accès à une cellule qui n'existe pas
 - Référence à une feuille qui n'existe pas
 - Opération non autorisée sur un objet protégé
@@ -42,8 +42,8 @@ End If
 ```
 
 ### Erreur 9 - Indice hors limites
-**Description :** Vous essayez d'accéder à un élément qui n'existe pas dans une collection
-**Causes courantes :**
+**Description :** Vous essayez d'accéder à un élément qui n'existe pas dans une collection  
+**Causes courantes :**  
 - Référence à une feuille par un mauvais numéro
 - Accès à un élément de tableau inexistant
 - Nom de feuille mal orthographié
@@ -56,16 +56,16 @@ End If
 **Exemple :**
 ```vba
 ' ERREUR : si vous n'avez que 3 feuilles
-Dim maFeuille As Worksheet
-maFeuille = Worksheets(5) ' Erreur 9
+Dim maFeuille As Worksheet  
+Set maFeuille = Worksheets(5) ' Erreur 9  
 
 ' SOLUTION : utilisez un indice valide ou un nom
-maFeuille = Worksheets(1) ' ou Worksheets("Feuil1")
+Set maFeuille = Worksheets(1) ' ou Worksheets("Feuil1")
 ```
 
 ### Erreur 13 - Type incompatible
-**Description :** Vous essayez de mettre une valeur d'un type dans une variable d'un autre type
-**Causes courantes :**
+**Description :** Vous essayez de mettre une valeur d'un type dans une variable d'un autre type  
+**Causes courantes :**  
 - Mettre du texte dans une variable numérique
 - Assigner une date invalide
 - Mélanger des types de données
@@ -78,8 +78,8 @@ maFeuille = Worksheets(1) ' ou Worksheets("Feuil1")
 **Exemple :**
 ```vba
 ' ERREUR : mettre du texte dans un nombre
-Dim nombre As Integer
-nombre = "Bonjour" ' Erreur 13
+Dim nombre As Integer  
+nombre = "Bonjour" ' Erreur 13  
 
 ' SOLUTION : conversion ou vérification
 If IsNumeric("123") Then
@@ -92,8 +92,8 @@ End If
 ## 2. Erreurs d'exécution
 
 ### Erreur 91 - Variable objet ou variable de bloc With non définie
-**Description :** Vous essayez d'utiliser un objet qui n'a pas été créé ou assigné
-**Causes courantes :**
+**Description :** Vous essayez d'utiliser un objet qui n'a pas été créé ou assigné  
+**Causes courantes :**  
 - Oublier de définir un objet avec Set
 - Objet détruit ou fermé
 - Variable d'objet = Nothing
@@ -106,17 +106,17 @@ End If
 **Exemple :**
 ```vba
 ' ERREUR : objet non défini
-Dim monClasseur As Workbook
-monClasseur.Close ' Erreur 91
+Dim monClasseur As Workbook  
+monClasseur.Close ' Erreur 91  
 
 ' SOLUTION : définir l'objet avec Set
-Set monClasseur = ActiveWorkbook
-monClasseur.Close
+Set monClasseur = ActiveWorkbook  
+monClasseur.Close  
 ```
 
 ### Erreur 1004 - La méthode Range de l'objet Worksheet a échoué
-**Description :** Problème avec la référence à une plage de cellules
-**Causes courantes :**
+**Description :** Problème avec la référence à une plage de cellules  
+**Causes courantes :**  
 - Syntaxe de plage incorrecte
 - Nom de plage inexistant
 - Caractères interdits dans la référence
@@ -136,8 +136,8 @@ Range("A1:Z10")
 ```
 
 ### Erreur 5 - Appel ou argument de procédure non valide
-**Description :** Les paramètres passés à une fonction ne sont pas corrects
-**Causes courantes :**
+**Description :** Les paramètres passés à une fonction ne sont pas corrects  
+**Causes courantes :**  
 - Nombre incorrect de paramètres
 - Type de paramètre incorrect
 - Valeur de paramètre hors limites
@@ -161,8 +161,8 @@ Mid("Bonjour", 2, 3)
 ## 3. Erreurs de logique
 
 ### Erreur 11 - Division par zéro
-**Description :** Vous essayez de diviser un nombre par zéro
-**Causes courantes :**
+**Description :** Vous essayez de diviser un nombre par zéro  
+**Causes courantes :**  
 - Variable non initialisée (valeur = 0)
 - Calcul qui aboutit à zéro
 - Donnée manquante
@@ -175,9 +175,9 @@ Mid("Bonjour", 2, 3)
 **Exemple :**
 ```vba
 ' ERREUR : division par zéro
-Dim diviseur As Integer ' vaut 0 par défaut
-Dim resultat As Double
-resultat = 10 / diviseur ' Erreur 11
+Dim diviseur As Integer ' vaut 0 par défaut  
+Dim resultat As Double  
+resultat = 10 / diviseur ' Erreur 11  
 
 ' SOLUTION : vérification avant division
 If diviseur <> 0 Then
@@ -188,8 +188,8 @@ End If
 ```
 
 ### Erreur 6 - Dépassement de capacité
-**Description :** Le résultat d'un calcul dépasse les limites du type de variable
-**Causes courantes :**
+**Description :** Le résultat d'un calcul dépasse les limites du type de variable  
+**Causes courantes :**  
 - Résultat trop grand pour le type Integer
 - Multiplication de grands nombres
 - Boucle infinie qui incrémente
@@ -202,12 +202,12 @@ End If
 **Exemple :**
 ```vba
 ' ERREUR : trop grand pour Integer (limite : 32 767)
-Dim nombre As Integer
-nombre = 50000 ' Erreur 6
+Dim nombre As Integer  
+nombre = 50000 ' Erreur 6  
 
 ' SOLUTION : utiliser un type plus grand
-Dim nombre As Long
-nombre = 50000 ' OK
+Dim grandNombre As Long  
+grandNombre = 50000 ' OK  
 ```
 
 ---
@@ -215,8 +215,8 @@ nombre = 50000 ' OK
 ## 4. Erreurs de ressources
 
 ### Erreur 7 - Mémoire insuffisante
-**Description :** VBA n'a plus assez de mémoire pour continuer
-**Causes courantes :**
+**Description :** VBA n'a plus assez de mémoire pour continuer  
+**Causes courantes :**  
 - Tableaux très volumineux
 - Boucles qui créent trop d'objets
 - Variables non libérées
@@ -229,16 +229,16 @@ nombre = 50000 ' OK
 **Exemple :**
 ```vba
 ' BONNE PRATIQUE : libérer les objets
-Dim monClasseur As Workbook
-Set monClasseur = Workbooks.Open("fichier.xlsx")
+Dim monClasseur As Workbook  
+Set monClasseur = Workbooks.Open("fichier.xlsx")  
 ' ... travail avec le classeur
-monClasseur.Close
-Set monClasseur = Nothing ' Libère la mémoire
+monClasseur.Close  
+Set monClasseur = Nothing ' Libère la mémoire  
 ```
 
 ### Erreur 70 - Autorisation refusée
-**Description :** VBA ne peut pas accéder au fichier ou effectuer l'opération
-**Causes courantes :**
+**Description :** VBA ne peut pas accéder au fichier ou effectuer l'opération  
+**Causes courantes :**  
 - Fichier ouvert dans une autre application
 - Fichier en lecture seule
 - Permissions insuffisantes

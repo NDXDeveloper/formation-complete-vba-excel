@@ -176,7 +176,7 @@ End Sub
 ### Parcourir des lignes avec des données
 
 ```vba
-Sub ParcoirirDonnees()
+Sub ParcourirDonnees()
     Dim derniereLigne As Long
     Dim i As Long
 
@@ -266,7 +266,7 @@ End Sub
 ```vba
 Sub BoitesDialogue()
     Dim reponse As String
-    Dim confirmation As Integer
+    Dim confirmation As VbMsgBoxResult
 
     ' Demander une saisie
     reponse = InputBox("Entrez votre nom:", "Saisie", "Nom par défaut")

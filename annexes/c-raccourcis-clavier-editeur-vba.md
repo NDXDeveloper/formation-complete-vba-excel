@@ -39,8 +39,8 @@ Connaître les raccourcis clavier de l'éditeur VBA vous fera gagner beaucoup de
 **Ctrl + Fin** - Aller à la fin du module
 *Aller directement à la fin de votre code*
 
-**Ctrl + G** - Aller à une ligne spécifique
-*Tapez le numéro de ligne pour y aller directement*
+**Ctrl + G** - Afficher la fenêtre Exécution (Immediate Window)
+*Permet de tester des instructions et afficher les résultats de Debug.Print*
 
 **Ctrl + Flèche droite/gauche** - Naviguer mot par mot
 *Plus rapide que caractère par caractère*
@@ -103,20 +103,11 @@ Connaître les raccourcis clavier de l'éditeur VBA vous fera gagner beaucoup de
 
 ### Édition avancée ★★☆
 
-**Ctrl + D** - Dupliquer la ligne courante
-*Crée une copie de la ligne où se trouve le curseur*
-
-**Ctrl + Shift + D** - Supprimer la ligne courante
-*Supprime entièrement la ligne actuelle*
-
 **Tab** - Indenter vers la droite
 *Décale le code vers la droite pour l'organiser*
 
 **Shift + Tab** - Indenter vers la gauche
 *Décale le code vers la gauche*
-
-**Ctrl + ]** - Aller à la parenthèse/crochet correspondant
-*Trouve la parenthèse qui ferme celle où vous êtes*
 
 ---
 
@@ -138,11 +129,7 @@ Connaître les raccourcis clavier de l'éditeur VBA vous fera gagner beaucoup de
 
 ### Recherche avancée ★★☆
 
-**Ctrl + Shift + F** - Rechercher dans tous les modules
-*Cherche dans tout le projet, pas seulement le module actuel*
-
-**Ctrl + Shift + H** - Remplacer dans tous les modules
-*Remplace dans tout le projet*
+Pour rechercher ou remplacer dans **tout le projet**, utilisez Ctrl + F ou Ctrl + H puis sélectionnez l'option **« Projet en cours »** dans la boîte de dialogue.
 
 ---
 
@@ -188,13 +175,11 @@ Connaître les raccourcis clavier de l'éditeur VBA vous fera gagner beaucoup de
 **Ctrl + F4** - Fermer la fenêtre courante
 *Ferme le module de code actuel*
 
-### Affichage ★☆☆
+### Import/Export ★☆☆
 
-**Ctrl + M** - Importer un module
-*Ajoute un module depuis un fichier*
-
-**Ctrl + E** - Exporter un module
-*Sauvegarde un module dans un fichier*
+L'import et l'export de modules se font via le menu **Fichier** :
+- **Fichier** → **Importer un fichier...** pour ajouter un module (.bas, .cls, .frm)
+- **Fichier** → **Exporter un fichier...** pour sauvegarder un module
 
 ---
 
@@ -202,19 +187,14 @@ Connaître les raccourcis clavier de l'éditeur VBA vous fera gagner beaucoup de
 
 ### Commentaires ★★☆
 
-**Ctrl + '** - Commenter les lignes sélectionnées
-*Ajoute une apostrophe au début des lignes*
-
-**Ctrl + Shift + '** - Décommenter les lignes sélectionnées
-*Enlève l'apostrophe au début des lignes*
+Pour commenter ou décommenter plusieurs lignes, utilisez les boutons de la **barre d'outils Édition** :
+- Affichez-la via **Affichage** → **Barres d'outils** → **Édition**
+- Cliquez sur le bouton **Commenter bloc** ou **Décommenter bloc**
+*Il n'existe pas de raccourci clavier natif pour cette action*
 
 ### Formatage ★★☆
 
-**Ctrl + T** - Indenter automatiquement
-*Organise automatiquement l'indentation de votre code*
-
-**Ctrl + Shift + T** - Supprimer l'indentation
-*Remet tout le code à gauche*
+L'éditeur VBA ne dispose pas de raccourci d'indentation automatique. Utilisez **Tab** et **Shift + Tab** pour ajuster manuellement l'indentation de vos lignes sélectionnées. La barre d'outils Édition propose aussi les boutons **Retrait** et **Retrait négatif**.
 
 ---
 
@@ -228,10 +208,10 @@ Connaître les raccourcis clavier de l'éditeur VBA vous fera gagner beaucoup de
 5. **Ctrl + F** - Rechercher
 
 ### Progression suggérée :
-**Semaine 1** : Maîtrisez les 5 raccourcis de base
-**Semaine 2** : Ajoutez F8 (pas à pas) et F9 (point d'arrêt)
-**Semaine 3** : Apprenez Ctrl + G (aller à la ligne) et Ctrl + R (explorateur)
-**Mois suivant** : Intégrez progressivement les autres selon vos besoins
+**Semaine 1** : Maîtrisez les 5 raccourcis de base  
+**Semaine 2** : Ajoutez F8 (pas à pas) et F9 (point d'arrêt)  
+**Semaine 3** : Apprenez Ctrl + G (fenêtre Exécution) et Ctrl + R (explorateur)  
+**Mois suivant** : Intégrez progressivement les autres selon vos besoins  
 
 ### Astuces pour mémoriser :
 - **Pratiquez régulièrement** : Utilisez consciemment les raccourcis au lieu de la souris
@@ -281,7 +261,7 @@ Vous pouvez personnaliser certains raccourcis via :
 ### Raccourcis pour gagner du temps :
 - **Ctrl + Espace** : Complétion automatique
 - **Ctrl + I** : Info-bulle
-- **Ctrl + G** : Aller à la ligne
+- **Ctrl + G** : Fenêtre Exécution
 - **F3** : Recherche suivante
 
 **Conseil final :** Ne tentez pas d'apprendre tous les raccourcis d'un coup. Commencez par les essentiels et ajoutez-en de nouveaux au fur et à mesure que vous vous sentez à l'aise. Les raccourcis deviennent vraiment utiles quand ils deviennent automatiques !
