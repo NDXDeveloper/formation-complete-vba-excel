@@ -20,7 +20,7 @@ Sub ExempleBase()
     On Error Resume Next        ' Active la gestion d'erreur
 
     ' Code qui peut générer des erreurs
-    Range("FeuilleInexistante").Value = "Test"  ' Cette ligne causera une erreur
+    Worksheets("FeuilleInexistante").Range("A1").Value = "Test"  ' Cette ligne causera une erreur
     MsgBox "Cette ligne s'exécute quand même !"  ' Mais celle-ci s'exécute
 
     On Error GoTo 0            ' Désactive la gestion d'erreur
@@ -139,7 +139,7 @@ Sub ExempleErrClear()
     On Error Resume Next
 
     ' Première erreur
-    Range("FeuilleInexistante").Value = "Test"
+    Worksheets("FeuilleInexistante").Range("A1").Value = "Test"
     MsgBox "Première erreur : " & Err.Number  ' 9
 
     ' Effacer l'erreur
@@ -332,15 +332,20 @@ Sub CreerFeuilleUnique(nomBase As String)
     compteur = 1
 
     ' Tenter de créer la feuille
+    Dim nouvelleFeuille As Worksheet
     Do
-        Worksheets.Add.Name = nomFeuille
+        Set nouvelleFeuille = Worksheets.Add
+        nouvelleFeuille.Name = nomFeuille
 
         If Err.Number = 0 Then
             ' Succès
             MsgBox "Feuille créée : " & nomFeuille
             Exit Do
         Else
-            ' Le nom existe déjà, essayer avec un numéro
+            ' Le nom existe déjà : supprimer la feuille orpheline
+            Application.DisplayAlerts = False
+            nouvelleFeuille.Delete
+            Application.DisplayAlerts = True
             Err.Clear
             compteur = compteur + 1
             nomFeuille = nomBase & "_" & compteur
@@ -470,9 +475,9 @@ Sub NettoyerFeuille()
 
     ' Supprimer différents éléments qui peuvent ne pas exister
     Range("A1:Z100").ClearContents
-    ActiveSheet.Shapes.Delete        ' Supprimer toutes les formes
+    ActiveSheet.Shapes.SelectAll     ' Sélectionner toutes les formes
+    Selection.Delete                 ' Supprimer la sélection
     ActiveSheet.ChartObjects.Delete  ' Supprimer tous les graphiques
-    ActiveSheet.PivotTables.Delete   ' Supprimer les tableaux croisés
 
     ' Aucune erreur même si ces éléments n'existent pas
     On Error GoTo 0

@@ -184,10 +184,18 @@ End Sub
 
 ```vba
 Sub ExempleErreur53()
-    ' Tentative d'ouverture d'un fichier inexistant
-    Workbooks.Open "C:\FichierInexistant.xlsx"  ' Erreur 53
+    ' Tentative de supprimer un fichier inexistant
+    Kill "C:\FichierInexistant.xlsx"  ' Erreur 53
+
+    ' Tentative d'ouvrir un fichier en accès direct
+    Dim f As Integer
+    f = FreeFile
+    Open "C:\FichierInexistant.txt" For Input As #f  ' Erreur 53
 End Sub
 ```
+
+> **Note :** L'erreur 53 concerne les opérations d'E/S fichier VBA (`Kill`, `Open`).
+> Pour `Workbooks.Open`, un fichier inexistant génère plutôt l'erreur **1004**.
 
 #### 6. Erreur 70 : "Permission denied" (Autorisation refusée)
 
@@ -250,23 +258,24 @@ Sub ExempleErreurLogique2()
 End Sub
 ```
 
-#### 3. Mauvais ordre d'opérations
+#### 3. Mauvais calcul ou mauvaise formule
 
 ```vba
 Sub ExempleErreurLogique3()
-    ' Intention : calculer une remise de 10% puis ajouter une taxe de 5%
+    ' Intention : calculer le prix TTC avec une remise de 10 €
+    ' puis une taxe de 20%
     Dim prix As Double
     Dim prixFinal As Double
 
     prix = 100
 
-    ' INCORRECT - L'ordre des opérations change le résultat
-    prixFinal = prix * 1.05 * 0.9  ' Taxe puis remise
-    ' Résultat : 94.5
+    ' INCORRECT - Applique la taxe sur le prix brut, puis retire la remise
+    prixFinal = prix * 1.2 - 10  ' Résultat : 110
+    ' La remise n'est pas taxée : le client paie trop
 
-    ' CORRECT - Remise puis taxe
-    ' prixFinal = prix * 0.9 * 1.05
-    ' Résultat : 94.5 (même résultat par coïncidence, mais concept différent)
+    ' CORRECT - Retirer la remise d'abord, puis appliquer la taxe
+    prixFinal = (prix - 10) * 1.2  ' Résultat : 108
+    ' La taxe s'applique sur le prix après remise
 End Sub
 ```
 

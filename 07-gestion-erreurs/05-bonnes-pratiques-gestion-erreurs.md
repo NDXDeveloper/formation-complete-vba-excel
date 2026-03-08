@@ -76,8 +76,10 @@ GestionErreur:
 End Sub
 
 Function FeuilleExiste(nomFeuille As String) As Boolean
+    Dim ws As Worksheet
     On Error Resume Next
-    FeuilleExiste = Not (Worksheets(nomFeuille) Is Nothing)
+    Set ws = Worksheets(nomFeuille)
+    FeuilleExiste = (Err.Number = 0)
     On Error GoTo 0
 End Function
 ```
@@ -93,7 +95,7 @@ Function ValiderDonnees(valeur As Variant, typeAttendu As String) As Boolean
             ValiderDonnees = IsNumeric(valeur) And valeur <> ""
 
         Case "texte"
-            ValiderDonnees = IsString(valeur) And Len(Trim(valeur)) > 0
+            ValiderDonnees = (VarType(valeur) = vbString) And Len(Trim(CStr(valeur))) > 0
 
         Case "date"
             ValiderDonnees = IsDate(valeur)
@@ -124,14 +126,18 @@ End Sub
 
 ```vba
 Function ClasseurOuvert(nomClasseur As String) As Boolean
+    Dim wb As Workbook
     On Error Resume Next
-    ClasseurOuvert = Not (Workbooks(nomClasseur) Is Nothing)
+    Set wb = Workbooks(nomClasseur)
+    ClasseurOuvert = (Err.Number = 0)
     On Error GoTo 0
 End Function
 
 Function PlagNommeeExiste(nomPlage As String) As Boolean
+    Dim rng As Range
     On Error Resume Next
-    PlagNommeeExiste = Not (Range(nomPlage) Is Nothing)
+    Set rng = Range(nomPlage)
+    PlagNommeeExiste = (Err.Number = 0)
     On Error GoTo 0
 End Function
 
@@ -255,9 +261,9 @@ Vos messages d'erreur doivent être compréhensibles par vos utilisateurs, pas s
 
 ```vba
 ' ÉVITEZ ces messages
-MsgBox "Erreur 1004"
-MsgBox Err.Description  ' Souvent cryptique
-MsgBox "Erreur dans la procédure"
+MsgBox "Erreur 1004"  
+MsgBox Err.Description  ' Souvent cryptique  
+MsgBox "Erreur dans la procédure"  
 ```
 
 #### ✅ Messages informatifs et utiles

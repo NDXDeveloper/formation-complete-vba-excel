@@ -247,7 +247,7 @@ Sub ExempleResumeNext()
     On Error GoTo GestionErreur
 
     Range("A1").Value = "Début"
-    Range("FeuillePeutPasExister").Value = "Test"  ' Erreur possible
+    Worksheets("FeuillePeutPasExister").Range("A1").Value = "Test"  ' Erreur possible
     Range("A2").Value = "Fin"  ' Cette ligne s'exécutera grâce à Resume Next
 
     Exit Sub
@@ -331,7 +331,7 @@ Sub GestionCascade()
     On Error GoTo ErreurTraitement
 
     ' Étape 2 : Traiter données
-    Range("A1:A10").Formula = "=B1:B10*2"
+    Range("A1:A10").Formula = "=B1*2"
 
     On Error GoTo ErreurSauvegarde
 
@@ -379,11 +379,12 @@ GestionErreur:
     ' Enregistrer l'erreur dans un journal
     Dim ligneJournal As String
     ligneJournal = Format(Now, "yyyy-mm-dd hh:mm:ss") & " - " & _
-                   "Erreur " & Err.Number & ": " & Err.Description & _
-                   " à la ligne " & Erl
+                   "Erreur " & Err.Number & ": " & Err.Description
 
     ' Ajouter au journal (dans une feuille dédiée)
-    Worksheets("Journal").Range("A1").End(xlDown).Offset(1, 0).Value = ligneJournal
+    Dim derniereLigne As Long
+    derniereLigne = Worksheets("Journal").Range("A" & Rows.Count).End(xlUp).Row
+    Worksheets("Journal").Range("A" & derniereLigne + 1).Value = ligneJournal
 
     ' Proposer à l'utilisateur de continuer ou d'arrêter
     If MsgBox("Erreur rencontrée. Continuer ?", vbYesNo) = vbYes Then

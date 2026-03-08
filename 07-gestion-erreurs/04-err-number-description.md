@@ -256,7 +256,7 @@ Sub ExempleErrClear()
     On Error Resume Next
 
     ' Première erreur
-    Range("FeuilleInexistante").Value = "Test"
+    Worksheets("FeuilleInexistante").Range("A1").Value = "Test"
     MsgBox "Première erreur - Numéro : " & Err.Number  ' 9
 
     ' Effacer l'erreur
@@ -344,8 +344,10 @@ GestionErreur:
 End Sub
 
 Function WorksheetExists(sheetName As String) As Boolean
+    Dim ws As Worksheet
     On Error Resume Next
-    WorksheetExists = Not (Worksheets(sheetName) Is Nothing)
+    Set ws = Worksheets(sheetName)
+    WorksheetExists = (Err.Number = 0)
     On Error GoTo 0
 End Function
 ```
@@ -414,9 +416,9 @@ End Sub
 
 ```vba
 ' Constantes pour erreurs personnalisées (à mettre en début de module)
-Const ERR_AGE_NEGATIF = 9001
-Const ERR_EMAIL_INVALIDE = 9002
-Const ERR_DONNEES_MANQUANTES = 9003
+Const ERR_AGE_NEGATIF = 9001  
+Const ERR_EMAIL_INVALIDE = 9002  
+Const ERR_DONNEES_MANQUANTES = 9003  
 
 Sub ValidationAvecErreursPersonnalisees()
     On Error GoTo GestionErreur
@@ -477,7 +479,7 @@ Sub VerificationCorrecte()
     On Error Resume Next
 
     ' Opération potentiellement problématique
-    Range("FeuilleInexistante").Value = "Test"
+    Worksheets("FeuilleInexistante").Range("A1").Value = "Test"
 
     ' CORRECT : Vérifier d'abord le numéro
     If Err.Number <> 0 Then

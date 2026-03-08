@@ -101,9 +101,9 @@ End If
 #### 2. **Détection et récupération**
 Détecter l'erreur quand elle survient et prendre une action corrective :
 ```vba
-On Error Resume Next
-Range("FeuillePeut-êtreInexistante").Range("A1").Value = "Test"
-If Err.Number <> 0 Then
+On Error Resume Next  
+Worksheets("FeuillePeut-êtreInexistante").Range("A1").Value = "Test"  
+If Err.Number <> 0 Then  
     MsgBox "La feuille n'existe pas"
     Err.Clear
 End If
