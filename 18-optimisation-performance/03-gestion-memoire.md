@@ -56,22 +56,22 @@ End Sub
 ```vba
 Sub BonChoixTypes()
     ' MAUVAIS : Integer peut déborder facilement
-    Dim compteur As Integer  ' Limité à 32,767
+    Dim compteurPetit As Integer  ' Limité à 32 767
 
     ' BON : Long pour les compteurs
-    Dim compteur As Long     ' Peut aller jusqu'à 2 milliards
+    Dim compteurGrand As Long     ' Peut aller jusqu'à 2 milliards
 
     ' MAUVAIS : Variant consomme plus de mémoire
-    Dim valeur As Variant    ' 16 octets minimum
+    Dim valeurVariant As Variant  ' 16 octets minimum
 
     ' BON : Type spécifique selon le besoin
-    Dim valeur As Double     ' 8 octets seulement
+    Dim valeurDouble As Double    ' 8 octets seulement
 
     ' MAUVAIS : String de taille fixe inutile
-    Dim nom As String * 255  ' 255 octets même si on utilise 5 caractères
+    Dim nomFixe As String * 255   ' 255 octets même si on utilise 5 caractères
 
     ' BON : String dynamique
-    Dim nom As String        ' Prend seulement la place nécessaire
+    Dim nomDynamique As String    ' Prend seulement la place nécessaire
 End Sub
 ```
 
@@ -323,8 +323,8 @@ End Sub
 
 ```vba
 ' ÉVITER : Variables globales qui restent en mémoire
-Public grosTableauGlobal(1 To 50000) As Variant
-Public chaineGlobale As String
+Public grosTableauGlobal(1 To 50000) As Variant  
+Public chaineGlobale As String  
 
 Sub MauvaiseGestionGlobale()
     ' Ces variables restent en mémoire pendant toute la session Excel
@@ -509,9 +509,10 @@ End Sub
 Sub PiegeObjetsEnBoucle()
     Dim i As Long
 
+    Dim ws As Worksheet
+
     For i = 1 To 1000
-        Dim ws As Worksheet  ' MAUVAIS : Redéclaré à chaque itération
-        Set ws = Worksheets(1)
+        Set ws = Worksheets(1)  ' MAUVAIS : Réassigné inutilement à chaque itération
         ' Traitement...
         ' OUBLI : Set ws = Nothing
     Next i
@@ -557,7 +558,7 @@ End Sub
 ' PIÈGE : Collection qui grandit sans limite
 Public cacheGlobal As Collection
 
-Sub PieegeCache()
+Sub PiegeCache()
     If cacheGlobal Is Nothing Then Set cacheGlobal = New Collection
 
     ' Ajouter toujours sans jamais nettoyer
@@ -611,8 +612,8 @@ Nettoyage:
     ' ✓ Tableaux libérés après usage
     ' Erase monTableau
 
-    ' ✓ Collections vidées
-    ' maCollection.Clear (si méthode disponible)
+    ' ✓ Collections vidées (pas de méthode Clear en VBA)
+    ' Set maCollection = New Collection  ' Réinitialiser
 End Sub
 ```
 

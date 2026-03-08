@@ -38,18 +38,24 @@ Sans mesures, vous ne savez pas si vos optimisations sont efficaces :
 
 ```vba
 Sub MesurerImpactOptimisation()
-    Dim avant As Double, apres As Double
+    Dim tempsDebut As Double
+    Dim dureeAvant As Double, dureeApres As Double
 
     ' Mesure AVANT optimisation
-    avant = Timer
+    tempsDebut = Timer
     ' Votre code original ici
-    Debug.Print "Avant optimisation : " & Format(Timer - avant, "0.00") & "s"
+    dureeAvant = Timer - tempsDebut
+    Debug.Print "Avant optimisation : " & Format(dureeAvant, "0.00") & "s"
 
     ' Mesure APRÈS optimisation
-    apres = Timer
+    tempsDebut = Timer
     ' Votre code optimisé ici
-    Debug.Print "Après optimisation : " & Format(Timer - apres, "0.00") & "s"
-    Debug.Print "Gain : " & Format(avant / apres, "0.0") & "x plus rapide"
+    dureeApres = Timer - tempsDebut
+    Debug.Print "Après optimisation : " & Format(dureeApres, "0.00") & "s"
+
+    If dureeApres > 0 Then
+        Debug.Print "Gain : " & Format(dureeAvant / dureeApres, "0.0") & "x plus rapide"
+    End If
 End Sub
 ```
 
@@ -157,8 +163,8 @@ End Sub
 
 ```vba
 ' Module de classe : ClasseProfiler
-Private nomOperation As String
-Private tempsDebut As Double
+Private nomOperation As String  
+Private tempsDebut As Double  
 
 Property Let Operation(nom As String)
     nomOperation = nom
@@ -207,8 +213,8 @@ End Sub
 
 ```vba
 ' Variables globales pour le comptage
-Public compteurAppels As Collection
-Public tempsTotal As Collection
+Public compteurAppels As Collection  
+Public tempsTotal As Collection  
 
 Sub InitialiserCompteurs()
     Set compteurAppels = New Collection
@@ -229,23 +235,14 @@ Sub EnregistrerAppel(nomFonction As String, duree As Double)
     nbAppels = nbAppels + 1
     tempsCumule = tempsCumule + duree
 
-    ' Sauvegarder
+    ' Sauvegarder (supprimer d'abord si existe déjà)
+    On Error Resume Next
     compteurAppels.Remove nomFonction
     tempsTotal.Remove nomFonction
+    On Error GoTo 0
+
     compteurAppels.Add nbAppels, nomFonction
     tempsTotal.Add tempsCumule, nomFonction
-End Sub
-
-Sub AfficherStatistiques()
-    Dim i As Long
-    Dim nomFonction As String
-
-    Debug.Print "=== STATISTIQUES D'APPELS ==="
-    For i = 1 To compteurAppels.Count
-        nomFonction = compteurAppels.Keys()(i)  ' Si disponible
-        Debug.Print nomFonction & " : " & compteurAppels(nomFonction) & " appels, " & _
-                   Format(tempsTotal(nomFonction), "0.000") & "s total"
-    Next i
 End Sub
 ```
 
@@ -442,6 +439,7 @@ End Sub
 Sub BonnesPratiquesMesure()
     ' ✓ MESURER : Les boucles importantes
     Dim tempsDebut As Double
+    Dim i As Long
     tempsDebut = Timer
 
     For i = 1 To 100000

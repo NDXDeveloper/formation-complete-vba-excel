@@ -13,7 +13,7 @@ Un code non optimisé peut transformer une tâche qui devrait prendre quelques s
 
 ### Consommation des ressources système
 VBA partage les ressources système avec Excel et les autres applications ouvertes. Un code inefficace peut :
-- Consommer excessive de mémoire RAM
+- Consommation excessive de mémoire RAM
 - Saturer le processeur
 - Ralentir l'ensemble du système
 - Provoquer des blocages ou des plantages

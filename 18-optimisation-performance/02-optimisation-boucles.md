@@ -284,7 +284,8 @@ End Sub
 
 Sub FormulesRapides_EnBloc()
     ' Rapide : formule appliquée à toute la plage
-    Range("B1:B10000").Formula = "=A1:A10000*2"
+    ' Excel ajuste automatiquement les références relatives pour chaque cellule
+    Range("B1:B10000").Formula = "=A1*2"
 End Sub
 ```
 
@@ -500,7 +501,8 @@ For i = 1 To 1000
 Next i
 
 ' PRÉFÉRER : Formule VLOOKUP appliquée à toute la plage
-Range("B1:B1000").Formula = "=VLOOKUP(A1:A1000,F:G,2,FALSE)"
+' Excel ajuste automatiquement A1 → A2, A3... pour chaque ligne
+Range("B1:B1000").Formula = "=VLOOKUP(A1,F:G,2,FALSE)"
 ```
 
 ## Résumé des techniques d'optimisation des boucles

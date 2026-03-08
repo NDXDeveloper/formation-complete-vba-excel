@@ -319,7 +319,7 @@ End Sub
 
 1. **Toujours utiliser une gestion d'erreur** pour restaurer les paramètres
 2. **Sauvegarder les paramètres originaux** avant de les modifier
-3. **Tester thoroughly** vos macros avec les optimisations
+3. **Tester rigoureusement** vos macros avec les optimisations
 4. **Documenter** dans vos commentaires que les optimisations sont activées
 
 ## Résumé
@@ -327,9 +327,9 @@ End Sub
 La désactivation temporaire des calculs et de l'affichage est l'une des techniques d'optimisation les plus simples et efficaces en VBA. En appliquant ces trois paramètres de base :
 
 ```vba
-Application.ScreenUpdating = False
-Application.Calculation = xlCalculationManual
-Application.EnableEvents = False
+Application.ScreenUpdating = False  
+Application.Calculation = xlCalculationManual  
+Application.EnableEvents = False  
 ```
 
 Vous pouvez obtenir des gains de performance considérables avec un effort minimal. N'oubliez jamais de les restaurer en fin de macro, et utilisez toujours une gestion d'erreur appropriée pour garantir la stabilité de votre application.

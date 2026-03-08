@@ -362,8 +362,9 @@ Sub FormulesOptimisees()
     Debug.Print "Formules individuelles : " & Format(Timer - tempsDebut, "0.000") & "s"
 
     ' Méthode optimisée : formule pour toute la plage
+    ' Excel ajuste automatiquement les références relatives pour chaque cellule
     tempsDebut = Timer
-    Range("B1:B1000").Formula = "=ROW(A1:A1000)*2"
+    Range("B1:B1000").Formula = "=ROW()*2"
     Debug.Print "Formule en bloc : " & Format(Timer - tempsDebut, "0.000") & "s"
 
     Application.Calculation = xlCalculationAutomatic
@@ -401,9 +402,6 @@ Sub ChargementUserFormOptimise()
     Dim frm As UserForm1
     Set frm = New UserForm1
 
-    ' Désactiver les mises à jour pendant le chargement
-    frm.Repaint = False
-
     ' Charger toutes les données en une fois
     Dim donnees As Variant
     donnees = Range("A1:A1000").Value
@@ -411,8 +409,8 @@ Sub ChargementUserFormOptimise()
     ' Remplir la ListBox en une fois au lieu d'ajouter item par item
     frm.ListBox1.List = donnees
 
-    ' Réactiver et afficher
-    frm.Repaint = True
+    ' Forcer le rafraîchissement et afficher
+    frm.Repaint  ' Repaint est une méthode, pas une propriété
     frm.Show
 End Sub
 ```
@@ -446,8 +444,8 @@ End Sub
 
 ```vba
 ' Variables globales pour le cache
-Private cacheResultats As Object
-Private cacheHeures As Object
+Private cacheResultats As Object  
+Private cacheHeures As Object  
 
 Sub InitialiserCache()
     Set cacheResultats = CreateObject("Scripting.Dictionary")
@@ -485,8 +483,8 @@ End Function
 ### Cache de données Excel
 
 ```vba
-Private cacheDonnees As Variant
-Private cacheValide As Boolean
+Private cacheDonnees As Variant  
+Private cacheValide As Boolean  
 
 Function ObtenirDonneesAvecCache() As Variant
     ' Retourner le cache si valide
@@ -539,8 +537,8 @@ End Sub
 ### Événements différés
 
 ```vba
-Private timerEvenement As Date
-Private Const DELAI_EVENEMENT = 0.5 / 86400  ' 0.5 seconde en jours
+Private timerEvenement As Date  
+Private Const DELAI_EVENEMENT = 0.5 / 86400  ' 0.5 seconde en jours  
 
 Private Sub Worksheet_SelectionChange(ByVal Target As Range)
     ' Différer l'exécution pour éviter trop d'appels
@@ -671,7 +669,7 @@ End Sub
 3. **Dictionnaires** : 100-1000x plus rapide que les recherches linéaires
 4. **Union/Intersect** : 3-10x plus rapide pour les opérations sur plages multiples
 5. **Mise en cache** : Gains variables selon la complexité des calculs
-6. **E/O optimisées** : 5-50x plus rapide pour les gros fichiers
+6. **E/S optimisées** : 5-50x plus rapide pour les gros fichiers
 
 ### Checklist d'optimisation avancée
 
